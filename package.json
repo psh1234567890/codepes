@@ -1,0 +1,31 @@
+{
+  "name": "codepes",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "sync": "node scripts/sync-contests.mjs",
+    "typecheck": "tsc --noEmit",
+    "prebuild": "node scripts/clean-build.mjs",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/noto-sans-kr": "^5.2.8",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.37.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "6.0.2",
+    "typescript": "5.9.3",
+    "vite": "8.0.13"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

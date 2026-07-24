@@ -1,0 +1,21 @@
+[
+  {
+    "id": "codeforces",
+    "name": "Codeforces",
+    "kind": "official-api",
+    "endpoint": "https://codeforces.com/api/contest.list?gym=false",
+    "enabled": true,
+    "autoPublish": true,
+    "pollMinutes": 30
+  },
+  {
+    "id": "dacon",
+    "name": "DACON / DAKER",
+    "kind": "official-page",
+    "endpoint": "https://dacon.io/",
+    "enabled": true,
+    "autoPublish": false,
+    "pollMinutes": 60,
+    "note": "공개 대회 목록 API가 확인되지 않아 공식 페이지에서 확인한 항목만 수동 검수 후 발행"
+  }
+]

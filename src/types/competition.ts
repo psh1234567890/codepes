@@ -1,0 +1,49 @@
+export type CompetitionType =
+  | "ps"
+  | "hackathon"
+  | "ai-data"
+  | "game"
+  | "security";
+
+export type Eligibility =
+  | "anyone"
+  | "university"
+  | "youth"
+  | "employee";
+
+export type ParticipationMode = "online" | "offline" | "hybrid";
+
+export type SourceType = "official-api" | "official-page" | "submitted";
+
+export interface Competition {
+  id: string;
+  title: string;
+  summary: string;
+  type: CompetitionType;
+  organizer: string;
+  eligibilities: Eligibility[];
+  eligibilityNote?: string;
+  mode: ParticipationMode;
+  applicationDeadline: string;
+  eventStart: string;
+  eventEnd: string;
+  location: string;
+  teamSize?: string;
+  languages?: string[];
+  tags: string[];
+  url: string;
+  sourceName: string;
+  sourceType: SourceType;
+  lastVerifiedAt: string;
+}
+
+export interface CompetitionData {
+  updatedAt: string;
+  contests: Competition[];
+}
+
+export interface CompetitionFilters {
+  type: CompetitionType | "all";
+  eligibility: Eligibility | "all";
+  mode: ParticipationMode | "all";
+}
