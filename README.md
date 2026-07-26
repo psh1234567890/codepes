@@ -18,7 +18,9 @@ CodePes에는 계정, 로그인, 이메일 구독, 자체 데이터베이스가 
 
 ## 라이브 서비스
 
-라이브 서비스 주소는 GitHub 저장소 공개와 첫 프로덕션 배포 검증이 끝난 뒤 이 문서에 추가합니다. 검증되지 않은 주소는 의도적으로 게시하지 않습니다.
+**[CodePes 바로 열기](https://codepes-korea-contests.seunghunbag76.chatgpt.site)**
+
+공개 프로덕션 서비스는 GitHub `main` 브랜치에서 검증된 소스와 같은 커밋을 기준으로 배포합니다.
 
 ## 빠른 시작
 
