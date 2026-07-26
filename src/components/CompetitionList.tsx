@@ -16,6 +16,8 @@ interface CompetitionListProps {
   bookmarkedIds: Set<string>;
   onSelect: (id: string) => void;
   onBookmark: (id: string) => void;
+  onAddToCalendar: (competition: Competition) => void;
+  onShare: (competition: Competition) => void;
 }
 
 export function CompetitionList({
@@ -24,6 +26,8 @@ export function CompetitionList({
   bookmarkedIds,
   onSelect,
   onBookmark,
+  onAddToCalendar,
+  onShare,
 }: CompetitionListProps) {
   if (competitions.length === 0) {
     return (
@@ -43,7 +47,7 @@ export function CompetitionList({
         <span>주최 기관</span>
         <span>참가 자격</span>
         <span>진행 방식</span>
-        <span>신청 마감일</span>
+        <span>신청/시작</span>
         <span />
         <span />
       </div>
@@ -64,6 +68,9 @@ export function CompetitionList({
               className="competition-main"
               type="button"
               aria-expanded={selected}
+              aria-controls={
+                selected ? `competition-detail-${competition.id}` : undefined
+              }
               onClick={() => onSelect(competition.id)}
             >
               <span className={`type-label type-${competition.type}`}>
@@ -106,7 +113,10 @@ export function CompetitionList({
             </a>
 
             {selected ? (
-              <div className="mobile-expanded-detail">
+              <div
+                id={`competition-detail-${competition.id}`}
+                className="mobile-expanded-detail"
+              >
                 <div className="mobile-meta">
                   <span>
                     <Building2 aria-hidden="true" />
@@ -125,6 +135,8 @@ export function CompetitionList({
                   competition={competition}
                   bookmarked={bookmarked}
                   onBookmark={() => onBookmark(competition.id)}
+                  onAddToCalendar={() => onAddToCalendar(competition)}
+                  onShare={() => onShare(competition)}
                   mobile
                 />
               </div>

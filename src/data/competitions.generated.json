@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-24T14:24:03.119Z",
+  "updatedAt": "2026-07-26T03:19:47.757Z",
   "contests": [
     {
       "id": "codeforces-2249",
       "title": "Codeforces Round 1112 (Div. 1)",
-      "summary": "CF 형식의 온라인 알고리즘 프로그래밍 대회",
+      "summary": "CF 형식의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
       "type": "ps",
       "organizer": "Codeforces",
       "eligibilities": [
@@ -13,6 +13,7 @@
       "eligibilityNote": "Codeforces 계정이 있는 누구나",
       "mode": "online",
       "applicationDeadline": "2026-07-26T14:35:00.000Z",
+      "deadlineKind": "start",
       "eventStart": "2026-07-26T14:35:00.000Z",
       "eventEnd": "2026-07-26T17:05:00.000Z",
       "location": "온라인",
@@ -31,12 +32,12 @@
       "url": "https://codeforces.com/contest/2249",
       "sourceName": "Codeforces 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-24T14:24:03.119Z"
+      "lastVerifiedAt": "2026-07-26T03:19:47.757Z"
     },
     {
       "id": "codeforces-2250",
       "title": "Codeforces Round 1112 (Div. 2)",
-      "summary": "CF 형식의 온라인 알고리즘 프로그래밍 대회",
+      "summary": "CF 형식의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
       "type": "ps",
       "organizer": "Codeforces",
       "eligibilities": [
@@ -45,6 +46,7 @@
       "eligibilityNote": "Codeforces 계정이 있는 누구나",
       "mode": "online",
       "applicationDeadline": "2026-07-26T14:35:00.000Z",
+      "deadlineKind": "start",
       "eventStart": "2026-07-26T14:35:00.000Z",
       "eventEnd": "2026-07-26T17:05:00.000Z",
       "location": "온라인",
@@ -63,12 +65,12 @@
       "url": "https://codeforces.com/contest/2250",
       "sourceName": "Codeforces 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-24T14:24:03.119Z"
+      "lastVerifiedAt": "2026-07-26T03:19:47.757Z"
     },
     {
       "id": "codeforces-2248",
       "title": "Codeforces Round (Div. 2)",
-      "summary": "CF 형식의 온라인 알고리즘 프로그래밍 대회",
+      "summary": "CF 형식의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
       "type": "ps",
       "organizer": "Codeforces",
       "eligibilities": [
@@ -77,6 +79,7 @@
       "eligibilityNote": "Codeforces 계정이 있는 누구나",
       "mode": "online",
       "applicationDeadline": "2026-08-01T11:35:00.000Z",
+      "deadlineKind": "start",
       "eventStart": "2026-08-01T11:35:00.000Z",
       "eventEnd": "2026-08-01T13:35:00.000Z",
       "location": "온라인",
@@ -95,7 +98,7 @@
       "url": "https://codeforces.com/contest/2248",
       "sourceName": "Codeforces 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-24T14:24:03.119Z"
+      "lastVerifiedAt": "2026-07-26T03:19:47.757Z"
     },
     {
       "id": "daker-world-cup-manager-2026",

@@ -1,38 +1,105 @@
 # CodePes
 
-PS·알고리즘 대회, 해커톤, AI·데이터 경진대회 등을 참가 자격과 진행
-방식으로 빠르게 찾는 한국어 대회 디렉터리 MVP입니다.
+CodePes는 알고리즘, 해커톤, AI·데이터, 게임, 보안 분야의 개발 대회를 한곳에서 찾고 일정으로 관리할 수 있는 오픈소스 웹 애플리케이션입니다. 대회 정보의 최종 기준은 항상 주최 기관의 공식 페이지입니다.
 
-## 실행
+## 주요 기능
+
+- 제목, 주최 기관, 태그를 대상으로 한 실시간 검색
+- 대회 유형, 참가 자격, 진행 방식, 마감순·최근 확인순 필터
+- 브라우저 `localStorage`에 저장되는 관심 대회
+- 저장한 대회만 모아 보기
+- 전체 일정, 저장한 일정, 개별 일정을 표준 `.ics` 파일로 내보내기
+- 선택한 대회의 공유 링크 생성
+- 공식 대회 페이지로 바로 이동
+- 잘못된 정보와 신규 대회를 공개 GitHub 이슈로 제보
+- GitHub의 최신 대회 JSON을 우선 사용하고, 네트워크 또는 검증 실패 시 배포 번들 데이터로 자동 복구
+
+CodePes에는 계정, 로그인, 이메일 구독, 자체 데이터베이스가 없습니다. 관심 대회는 현재 사용 중인 브라우저에만 저장되며 다른 기기와 동기화되지 않습니다.
+
+## 라이브 서비스
+
+라이브 서비스 주소는 GitHub 저장소 공개와 첫 프로덕션 배포 검증이 끝난 뒤 이 문서에 추가합니다. 검증되지 않은 주소는 의도적으로 게시하지 않습니다.
+
+## 빠른 시작
+
+요구 사항:
+
+- Node.js 20 이상
+- npm
+
+```bash
+git clone https://github.com/psh1234567890/codepes.git
+cd codepes
+npm ci
+npm run dev
+```
+
+Windows PowerShell에서 실행 정책 때문에 `npm.ps1`이 차단되면 `npm` 대신 `npm.cmd`를 사용하세요.
 
 ```powershell
-npm.cmd install
-npm.cmd run sync
+npm.cmd ci
 npm.cmd run dev
 ```
 
-기본 주소는 `http://127.0.0.1:4173`입니다.
+개발 서버의 기본 주소는 `http://127.0.0.1:4173`입니다.
 
-## 현재 자동 수집 범위
+## 개발 명령
 
-- Codeforces: 공식 `contest.list` JSON API에서 예정 대회를 30분마다 수집하고
-  바로 발행합니다.
-- DACON / DAKER: 공개 대회 목록 API가 확인되지 않아 공식 페이지에서 일정과
-  참가 자격을 확인한 항목만 `data/manual-contests.json`에 넣습니다.
-- URL과 `정규화한 대회명 + 날짜`를 함께 비교해 중복을 제거합니다.
-- 수집이 일시적으로 실패하면 마지막으로 정상 수집된 예정 대회를 유지합니다.
+| 명령 | 설명 |
+| --- | --- |
+| `npm ci` | 잠금 파일을 기준으로 의존성을 재현 가능하게 설치합니다. |
+| `npm run dev` | Vite 개발 서버를 실행합니다. |
+| `npm run sync` | 공식 API와 수동 검증 목록을 병합해 대회 JSON을 갱신합니다. 네트워크 연결이 필요합니다. |
+| `npm run typecheck` | 애플리케이션, 도구, Worker의 TypeScript 타입을 검사합니다. |
+| `npm run test` | Vitest 단위 테스트를 한 번 실행합니다. |
+| `npm run build` | 타입 검사 후 프로덕션 번들을 생성합니다. |
+| `npm run verify` | 타입 검사, 테스트, 프로덕션 빌드를 순서대로 모두 실행합니다. |
 
-GitHub 저장소에서는 `.github/workflows/sync-contests.yml`이 30분마다 데이터를
-새로 만들고, 변경분이 있을 때만 커밋합니다.
+변경사항을 제출하기 전에는 다음 명령이 통과해야 합니다.
 
-## 운영 확장 권장안
+```bash
+npm run verify
+```
 
-1. 공식 API/RSS는 자동 발행
-2. 공개 API가 없는 출처는 후보 수집 후 검수 대기열로 이동
-3. 사용자 제보 URL도 같은 대기열에서 중복 검사
-4. 운영 단계에서는 JSON 대신 Supabase 같은 DB에 `sources`, `contests`,
-   `ingestion_runs`, `review_queue` 테이블로 분리
-5. 마감일이 바뀌거나 원문이 사라진 대회는 자동으로 재검수 표시
+## 데이터가 갱신되는 방식
 
-웹사이트의 제보·구독 양식은 현재 브라우저 안에서 성공 상태까지 보여주는 MVP
-동작입니다. 실제 이메일 발송과 계정 동기화는 백엔드를 연결한 다음 활성화합니다.
+Codeforces의 예정 대회는 공식 `contest.list` API에서 가져옵니다. Codeforces API는 별도의 참가 신청 마감 시각을 제공하지 않으므로, Codeforces 항목의 일정 기준은 **대회 시작 시각**입니다. 화면과 캘린더에서도 이 차이를 구분합니다.
+
+DACON과 DAKER처럼 검증된 공개 목록 API가 없는 출처는 공식 페이지를 사람이 확인한 뒤 `data/manual-contests.json`에 반영합니다. 동기화 작업은 만료된 항목을 제외하고 URL과 제목·날짜를 기준으로 중복을 제거합니다.
+
+브라우저는 시작할 때 GitHub `main` 브랜치의 최신 생성 JSON을 불러와 스키마와 갱신 시각을 확인합니다. 원격 데이터가 잘못되었거나 오래되었거나 요청에 실패하면 빌드에 포함된 데이터로 안전하게 돌아갑니다.
+
+자세한 수집 기준과 한계는 [데이터 출처와 검증 정책](docs/DATA_SOURCES.md)을 확인하세요.
+
+## 프로젝트 구조
+
+```text
+data/                         수동 검증 대회와 출처 설정
+scripts/                      데이터 동기화·검증 도구
+src/components/               React UI 구성 요소
+src/data/                     생성된 배포용 대회 JSON
+src/lib/                      검색, 데이터 검증, 캘린더 유틸리티
+worker/                       정적 애셋을 제공하는 Worker 진입점
+.github/workflows/            검증과 정기 데이터 갱신 자동화
+```
+
+전체 흐름은 [아키텍처 문서](docs/ARCHITECTURE.md)에 정리되어 있습니다.
+
+## 기여하기
+
+버그 수정, 접근성 개선, 테스트, 문서, 공식 대회 정보 제보를 환영합니다.
+
+1. 먼저 [CONTRIBUTING.md](CONTRIBUTING.md)를 읽어 주세요.
+2. 대회 정보는 반드시 주최 기관의 공식 URL과 함께 제안해 주세요.
+3. 보안 문제는 공개 이슈 대신 [SECURITY.md](SECURITY.md)의 비공개 경로를 사용해 주세요.
+4. 참여자는 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)를 따라야 합니다.
+
+일반적인 사용 질문은 [SUPPORT.md](SUPPORT.md), 개인정보 처리 범위는 [PRIVACY.md](PRIVACY.md)를 참고하세요.
+
+## 오픈소스 준비 상태
+
+라이선스, 기여 정책, 보안 정책, 데이터 출처, 테스트 명령과 자동 갱신 절차를 저장소에 문서화했습니다. 공개 저장소·배포·릴리스·사용자 피드백 이력까지 포함한 신청 전 확인 목록은 [오픈소스 지원 프로그램 준비 문서](docs/OPEN_SOURCE_READINESS.md)에 있습니다.
+
+## 라이선스
+
+CodePes 소스 코드는 [MIT License](LICENSE)로 배포됩니다. 사용된 외부 패키지의 라이선스는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)를 확인하세요.

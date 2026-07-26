@@ -1,7 +1,9 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import generatedData from "./data/competitions.generated.json";
+import { GITHUB_URL } from "./config";
 import type {
+  Competition,
   CompetitionData,
   CompetitionFilters,
 } from "./types/competition";
@@ -9,6 +11,11 @@ import {
   DEFAULT_FILTERS,
   matchesCompetition,
 } from "./lib/competition";
+import {
+  loadLatestCompetitionData,
+  type LoadedCompetitionData,
+} from "./lib/competition-data";
+import { downloadCalendarFile } from "./lib/calendar";
 import { Header } from "./components/Header";
 import { HeroSearch } from "./components/HeroSearch";
 import { FilterBar } from "./components/FilterBar";
@@ -20,33 +27,72 @@ import {
   SubmitCompetitionDialog,
 } from "./components/AppDialogs";
 
-const competitionData = generatedData as CompetitionData;
+const bundledCompetitionData = generatedData as CompetitionData;
 
 const getSavedBookmarks = () => {
   try {
-    const value = JSON.parse(
+    const value: unknown = JSON.parse(
       localStorage.getItem("codepes-bookmarks") ?? "[]",
-    ) as unknown;
-    return new Set(Array.isArray(value) ? value.filter(String) : []);
+    );
+    const ids = Array.isArray(value)
+      ? value.filter((item): item is string => typeof item === "string")
+      : [];
+    return new Set(ids);
   } catch {
     return new Set<string>();
   }
 };
 
+const getInitialContestId = () =>
+  new URLSearchParams(window.location.search).get("contest") ?? undefined;
+
 export default function App() {
+  const [competitionData, setCompetitionData] =
+    useState<CompetitionData>(bundledCompetitionData);
+  const [dataSource, setDataSource] =
+    useState<LoadedCompetitionData["source"]>("bundled");
   const [draftQuery, setDraftQuery] = useState("");
   const [query, setQuery] = useState("");
   const [filters, setFilters] =
     useState<CompetitionFilters>(DEFAULT_FILTERS);
   const [sort, setSort] = useState<"deadline" | "recent">("deadline");
-  const [selectedId, setSelectedId] = useState<string>();
+  const [savedOnly, setSavedOnly] = useState(false);
+  const [selectedId, setSelectedId] = useState<string | undefined>(
+    getInitialContestId,
+  );
   const [bookmarkedIds, setBookmarkedIds] = useState(getSavedBookmarks);
   const [dialog, setDialog] = useState<"calendar" | "submit" | null>(null);
   const [toast, setToast] = useState<string>();
 
+  useEffect(() => {
+    localStorage.removeItem("codepes-subscription-email");
+    localStorage.removeItem("codepes-submission-draft");
+
+    let active = true;
+    void loadLatestCompetitionData(bundledCompetitionData).then((loaded) => {
+      if (!active) return;
+      setCompetitionData(loaded.data);
+      setDataSource(loaded.source);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const upcomingCompetitions = useMemo(
+    () =>
+      competitionData.contests.filter(
+        (competition) =>
+          Date.parse(competition.applicationDeadline) > Date.now(),
+      ),
+    [competitionData],
+  );
+
   const competitions = useMemo(() => {
-    const filtered = competitionData.contests.filter((competition) =>
-      matchesCompetition(competition, query, filters),
+    const filtered = upcomingCompetitions.filter(
+      (competition) =>
+        matchesCompetition(competition, query, filters) &&
+        (!savedOnly || bookmarkedIds.has(competition.id)),
     );
 
     return filtered.sort((a, b) => {
@@ -61,22 +107,49 @@ export default function App() {
         new Date(b.applicationDeadline).getTime()
       );
     });
-  }, [query, filters, sort]);
+  }, [
+    bookmarkedIds,
+    filters,
+    query,
+    savedOnly,
+    sort,
+    upcomingCompetitions,
+  ]);
 
   const selectedCompetition =
     competitions.find((competition) => competition.id === selectedId) ??
     competitions[0];
+  const savedCompetitions = upcomingCompetitions.filter((competition) =>
+    bookmarkedIds.has(competition.id),
+  );
 
   const activeFilterCount =
     Number(filters.type !== "all") +
     Number(filters.eligibility !== "all") +
-    Number(filters.mode !== "all");
+    Number(filters.mode !== "all") +
+    Number(sort !== "deadline") +
+    Number(query.trim().length > 0) +
+    Number(savedOnly);
+
+  const showToast = (message: string) => {
+    setToast(message);
+    window.setTimeout(() => setToast(undefined), 3600);
+  };
 
   const handleSearch = () => {
     setQuery(draftQuery);
     document
       .getElementById("competitions")
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const handleSelect = (id: string) => {
+    const nextId = selectedId === id ? undefined : id;
+    setSelectedId(nextId);
+    const url = new URL(window.location.href);
+    if (nextId) url.searchParams.set("contest", nextId);
+    else url.searchParams.delete("contest");
+    window.history.replaceState(null, "", url);
   };
 
   const handleBookmark = (id: string) => {
@@ -90,13 +163,44 @@ export default function App() {
   };
 
   const resetFilters = () => {
+    setDraftQuery("");
+    setQuery("");
     setFilters(DEFAULT_FILTERS);
     setSort("deadline");
+    setSavedOnly(false);
   };
 
-  const showToast = (message: string) => {
-    setToast(message);
-    window.setTimeout(() => setToast(undefined), 3600);
+  const exportCalendar = (
+    items: Competition[],
+    filename = "codepes-deadlines.ics",
+  ) => {
+    if (!downloadCalendarFile(items, filename)) {
+      showToast("내보낼 대회가 없습니다.");
+      return;
+    }
+    showToast(`${items.length}개 대회의 캘린더 파일을 저장했습니다.`);
+  };
+
+  const handleShare = async (competition: Competition) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("contest", competition.id);
+    const shareData = {
+      title: `${competition.title} | CodePes`,
+      text: competition.summary,
+      url: url.toString(),
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(shareData.url);
+        showToast("대회 링크를 복사했습니다.");
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      showToast("공유하지 못했습니다. 주소 표시줄의 링크를 복사해 주세요.");
+    }
   };
 
   return (
@@ -105,11 +209,7 @@ export default function App() {
         <Header
           onCalendar={() => setDialog("calendar")}
           onSubmitCompetition={() => setDialog("submit")}
-          onLogin={() =>
-            showToast(
-              "로그인과 기기 간 즐겨찾기 동기화는 백엔드 연결 단계에서 활성화됩니다.",
-            )
-          }
+          githubUrl={GITHUB_URL}
         />
 
         <main>
@@ -125,8 +225,11 @@ export default function App() {
           <FilterBar
             filters={filters}
             sort={sort}
+            savedOnly={savedOnly}
+            savedCount={savedCompetitions.length}
             onChange={setFilters}
             onSortChange={setSort}
+            onSavedOnlyChange={setSavedOnly}
             onReset={resetFilters}
             activeCount={activeFilterCount}
           />
@@ -142,7 +245,16 @@ export default function App() {
                 <span>{competitions.length}개</span>
               </div>
               <p>
-                마지막 데이터 확인{" "}
+                <span
+                  className={
+                    dataSource === "github"
+                      ? "data-source-badge is-live"
+                      : "data-source-badge"
+                  }
+                >
+                  {dataSource === "github" ? "GitHub 최신 데이터" : "배포 데이터"}
+                </span>
+                데이터 기준{" "}
                 <time dateTime={competitionData.updatedAt}>
                   {new Intl.DateTimeFormat("ko-KR", {
                     month: "long",
@@ -157,10 +269,17 @@ export default function App() {
             <div className="competition-layout">
               <CompetitionList
                 competitions={competitions}
-                selectedId={selectedCompetition?.id}
+                selectedId={selectedId}
                 bookmarkedIds={bookmarkedIds}
-                onSelect={setSelectedId}
+                onSelect={handleSelect}
                 onBookmark={handleBookmark}
+                onAddToCalendar={(competition) =>
+                  exportCalendar(
+                    [competition],
+                    `codepes-${competition.id}.ics`,
+                  )
+                }
+                onShare={(competition) => void handleShare(competition)}
               />
 
               {selectedCompetition ? (
@@ -168,19 +287,63 @@ export default function App() {
                   competition={selectedCompetition}
                   bookmarked={bookmarkedIds.has(selectedCompetition.id)}
                   onBookmark={() => handleBookmark(selectedCompetition.id)}
+                  onAddToCalendar={() =>
+                    exportCalendar(
+                      [selectedCompetition],
+                      `codepes-${selectedCompetition.id}.ics`,
+                    )
+                  }
+                  onShare={() => void handleShare(selectedCompetition)}
                 />
               ) : null}
             </div>
           </section>
 
-          <SubscribeStrip />
+          <SubscribeStrip
+            savedCount={savedCompetitions.length}
+            onExportAll={() => exportCalendar(upcomingCompetitions)}
+            onExportSaved={() =>
+              exportCalendar(savedCompetitions, "codepes-saved-deadlines.ics")
+            }
+            onShowSaved={() => {
+              if (savedCompetitions.length === 0) {
+                showToast("먼저 관심 대회를 저장해 주세요.");
+                return;
+              }
+              setSavedOnly(true);
+              document
+                .getElementById("competitions")
+                ?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+          />
         </main>
 
         <footer>
           <a className="wordmark footer-wordmark" href="#top">
             Code<span>Pes</span>
           </a>
-          <p>공식 출처를 확인하고, 참가 전 원문 일정을 다시 확인해 주세요.</p>
+          <div className="footer-copy">
+            <p>공식 출처를 확인하고, 참가 전 원문 일정을 다시 확인해 주세요.</p>
+            <nav aria-label="프로젝트 정보">
+              <a href={GITHUB_URL} target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+              <a
+                href={`${GITHUB_URL}/blob/main/docs/DATA_SOURCES.md`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                데이터 기준
+              </a>
+              <a
+                href={`${GITHUB_URL}/blob/main/PRIVACY.md`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                개인정보
+              </a>
+            </nav>
+          </div>
           <button type="button" onClick={() => setDialog("submit")}>
             잘못된 정보 알리기
           </button>
@@ -189,11 +352,16 @@ export default function App() {
 
       {dialog === "calendar" ? (
         <CalendarDialog
-          competitions={[...competitions].sort(
+          competitions={[...upcomingCompetitions].sort(
             (a, b) =>
               new Date(a.applicationDeadline).getTime() -
               new Date(b.applicationDeadline).getTime(),
           )}
+          savedCount={savedCompetitions.length}
+          onExportAll={() => exportCalendar(upcomingCompetitions)}
+          onExportSaved={() =>
+            exportCalendar(savedCompetitions, "codepes-saved-deadlines.ics")
+          }
           onClose={() => setDialog(null)}
         />
       ) : null}

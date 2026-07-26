@@ -39,8 +39,8 @@ export const getDaysLeft = (deadline: string, now = Date.now()) =>
   Math.ceil((new Date(deadline).getTime() - now) / DAY_MS);
 
 export const formatDday = (deadline: string, now = Date.now()) => {
+  if (new Date(deadline).getTime() < now) return "마감";
   const days = getDaysLeft(deadline, now);
-  if (days < 0) return "마감";
   if (days === 0) return "오늘 마감";
   return `D-${days}`;
 };
@@ -125,8 +125,8 @@ export const getFreshnessText = (value: string) => {
     0,
     Math.floor((Date.now() - new Date(value).getTime()) / 60_000),
   );
-  if (minutes < 1) return "방금 확인";
-  if (minutes < 60) return `${minutes}분 전 확인`;
-  if (minutes < 24 * 60) return `${Math.floor(minutes / 60)}시간 전 확인`;
-  return `${Math.floor(minutes / (24 * 60))}일 전 확인`;
+  if (minutes < 1) return "방금 갱신";
+  if (minutes < 60) return `${minutes}분 전 갱신`;
+  if (minutes < 24 * 60) return `${Math.floor(minutes / 60)}시간 전 갱신`;
+  return `${Math.floor(minutes / (24 * 60))}일 전 갱신`;
 };

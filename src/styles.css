@@ -1,25 +1,25 @@
 :root {
   color-scheme: light;
   font-family:
-    "Noto Sans KR Variable", "Noto Sans KR", Pretendard, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
+    Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   --white: #ffffff;
   --ink: #07142f;
   --muted: #5c687c;
-  --faint: #8d98a9;
+  --faint: #637086;
   --line: #dbe2ec;
   --line-strong: #b9c5d5;
   --surface: #f7f9fc;
   --blue: #075df5;
   --blue-deep: #004bd3;
   --blue-soft: #eff5ff;
-  --green: #2b9b22;
+  --green: #17720f;
   --purple: #7046e8;
-  --teal: #078a99;
-  --orange: #e76a16;
-  --red: #e84d3d;
+  --teal: #006b76;
+  --orange: #aa4300;
+  --red: #ad2b20;
   --shadow-dialog: 0 24px 80px rgba(7, 20, 47, 0.2);
   --radius-sm: 8px;
   --radius: 12px;
@@ -168,9 +168,17 @@ textarea:focus-visible {
   font-size: 13px;
   font-weight: 650;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
   transition:
     border-color 160ms ease,
     background 160ms ease;
+}
+
+.login-button svg {
+  width: 16px;
+  height: 16px;
 }
 
 .login-button:hover {
@@ -369,7 +377,7 @@ main {
 .filter-summary {
   grid-column: 1 / -1;
   min-height: 42px;
-  display: none;
+  display: flex;
   align-items: center;
   gap: 8px;
   padding: 0 14px;
@@ -386,13 +394,32 @@ main {
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-left: auto;
+  margin-left: 0;
   border: 0;
   background: none;
   color: var(--blue);
   font-size: 12px;
   font-weight: 650;
   cursor: pointer;
+}
+
+.filter-summary .saved-filter {
+  margin-left: auto;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+}
+
+.filter-summary .saved-filter:hover,
+.filter-summary .saved-filter.is-active {
+  border-color: var(--blue);
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.filter-summary .reset-filter {
+  padding: 6px 8px;
 }
 
 .filter-summary button svg {
@@ -439,6 +466,24 @@ main {
   margin: 0;
   color: var(--faint);
   font-size: 11px;
+}
+
+.section-heading .data-source-badge {
+  display: inline-flex;
+  margin-right: 7px;
+  padding: 3px 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.section-heading .data-source-badge.is-live {
+  border-color: #afd6b2;
+  background: #f1fbf2;
+  color: #1b6b23;
 }
 
 .competition-layout {
@@ -804,6 +849,38 @@ main {
   line-height: 1.65;
 }
 
+.detail-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 0 20px 10px;
+}
+
+.detail-actions button {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: var(--white);
+  color: #334158;
+  font-size: 11px;
+  font-weight: 680;
+  cursor: pointer;
+}
+
+.detail-actions button:hover {
+  border-color: var(--blue);
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.detail-actions svg {
+  width: 15px;
+}
+
 .official-link {
   min-height: 49px;
   display: flex;
@@ -911,27 +988,21 @@ main {
   font-size: 11px;
 }
 
-.subscribe-strip form {
-  width: min(100%, 480px);
-  display: grid;
-  grid-template-columns: 1fr 102px;
-  gap: 10px;
+.utility-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
 }
 
-.subscribe-strip input {
-  min-width: 0;
-  height: 44px;
-  padding: 0 14px;
-  border: 1px solid var(--line-strong);
-  border-radius: 6px;
-  background: var(--white);
-  font-size: 12px;
-}
-
-.subscribe-strip form button,
-.subscribe-strip .text-button {
+.utility-actions button,
+.calendar-footer button {
   min-height: 44px;
-  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 16px;
+  border: 1px solid var(--blue);
   border-radius: 6px;
   background: var(--blue);
   color: white;
@@ -940,8 +1011,30 @@ main {
   cursor: pointer;
 }
 
-.subscribe-strip .text-button {
-  padding: 0 18px;
+.utility-actions .secondary-action,
+.calendar-footer .secondary-action {
+  border-color: var(--line-strong);
+  background: var(--white);
+  color: #334158;
+}
+
+.utility-actions button:hover,
+.calendar-footer button:hover {
+  background: var(--blue-deep);
+  color: var(--white);
+}
+
+.utility-actions button:disabled,
+.calendar-footer button:disabled {
+  border-color: var(--line);
+  background: var(--surface);
+  color: var(--faint);
+  cursor: not-allowed;
+}
+
+.utility-actions svg,
+.calendar-footer svg {
+  width: 16px;
 }
 
 footer {
@@ -962,6 +1055,23 @@ footer p {
   margin: 0;
   color: var(--faint);
   font-size: 10px;
+}
+
+.footer-copy {
+  min-width: 0;
+}
+
+.footer-copy nav {
+  display: flex;
+  gap: 14px;
+  margin-top: 7px;
+}
+
+.footer-copy nav a {
+  color: var(--muted);
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 footer button {
@@ -1094,6 +1204,14 @@ footer button {
   color: var(--blue);
 }
 
+.calendar-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  padding: 18px 26px 24px;
+  border-top: 1px solid var(--line);
+}
+
 .submission-form {
   display: flex;
   flex-direction: column;
@@ -1156,6 +1274,24 @@ footer button {
   cursor: pointer;
 }
 
+.submission-form > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.submission-form > button svg {
+  width: 17px;
+}
+
+.form-note {
+  margin: 12px 0 0;
+  color: var(--faint);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
 .dialog-success {
   padding: 38px 30px 30px;
   text-align: center;
@@ -1183,6 +1319,31 @@ footer button {
 
 .dialog-success button {
   width: 100%;
+}
+
+.dialog-primary-link {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 22px;
+  border-radius: 8px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dialog-primary-link svg {
+  width: 18px;
+}
+
+.dialog-success .secondary-action {
+  margin-top: 9px;
+  border: 1px solid var(--line-strong);
+  background: var(--white);
+  color: var(--muted);
 }
 
 .toast {
@@ -1295,7 +1456,7 @@ footer button {
   }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 860px) {
   :root {
     --page-gutter: 20px;
   }
@@ -1649,6 +1810,10 @@ footer button {
     margin: 0 0 22px;
   }
 
+  .competition-detail.is-mobile .detail-actions {
+    margin: 0 0 10px;
+  }
+
   .competition-detail.is-mobile .source-note {
     display: none;
   }
@@ -1665,8 +1830,13 @@ footer button {
     background: #f7faff;
   }
 
-  .subscribe-strip form {
+  .utility-actions {
     width: 100%;
+    justify-content: stretch;
+  }
+
+  .utility-actions button {
+    flex: 1 1 0;
   }
 
   footer {
@@ -1747,8 +1917,14 @@ footer button {
     height: 42px;
   }
 
-  .subscribe-strip form {
-    grid-template-columns: 1fr;
+  .utility-actions,
+  .calendar-footer {
+    flex-direction: column;
+  }
+
+  .utility-actions button,
+  .calendar-footer button {
+    width: 100%;
   }
 
   .dialog {

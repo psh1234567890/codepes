@@ -1,71 +1,56 @@
-import { Check, Mail } from "lucide-react";
-import { useState, type FormEvent } from "react";
+import { BookmarkCheck, CalendarPlus } from "lucide-react";
 
-export function SubscribeStrip() {
-  const [subscribed, setSubscribed] = useState(
-    () => localStorage.getItem("codepes-subscription-email") !== null,
-  );
+interface SubscribeStripProps {
+  savedCount: number;
+  onExportAll: () => void;
+  onExportSaved: () => void;
+  onShowSaved: () => void;
+}
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    localStorage.setItem(
-      "codepes-subscription-email",
-      String(form.get("email") ?? ""),
-    );
-    setSubscribed(true);
-  };
-
+export function SubscribeStrip({
+  savedCount,
+  onExportAll,
+  onExportSaved,
+  onShowSaved,
+}: SubscribeStripProps) {
   return (
-    <section className="subscribe-strip" aria-labelledby="subscribe-title">
+    <section className="subscribe-strip" aria-labelledby="calendar-export-title">
       <div className="subscribe-copy">
         <span className="subscribe-icon">
-          {subscribed ? (
-            <Check aria-hidden="true" />
-          ) : (
-            <Mail aria-hidden="true" />
-          )}
+          <CalendarPlus aria-hidden="true" />
         </span>
         <div>
-          <h2 id="subscribe-title">
-            {subscribed
-              ? "알림 받을 이메일을 저장했어요."
-              : "새 대회가 올라오면 알려드릴게요."}
+          <h2 id="calendar-export-title">
+            마감 일정을 내 캘린더에 보관하세요.
           </h2>
           <p>
-            {subscribed
-              ? "서버 연결 전까지는 이 브라우저에 안전하게 보관됩니다."
-              : "원하는 유형의 대회 소식을 이메일로 받아보세요."}
+            별도 가입 없이 .ics 파일로 내려받아 Google·Apple·Outlook
+            캘린더에 추가할 수 있습니다.
           </p>
         </div>
       </div>
 
-      {subscribed ? (
+      <div className="utility-actions">
         <button
-          className="text-button"
           type="button"
-          onClick={() => {
-            localStorage.removeItem("codepes-subscription-email");
-            setSubscribed(false);
-          }}
+          className="secondary-action"
+          onClick={onShowSaved}
         >
-          저장 취소
+          <BookmarkCheck aria-hidden="true" />
+          저장한 대회 {savedCount}
         </button>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <label className="sr-only" htmlFor="subscribe-email">
-            이메일 주소
-          </label>
-          <input
-            id="subscribe-email"
-            name="email"
-            type="email"
-            placeholder="이메일 주소를 입력하세요"
-            required
-          />
-          <button type="submit">알림 준비</button>
-        </form>
-      )}
+        <button
+          type="button"
+          className="secondary-action"
+          onClick={onExportSaved}
+          disabled={savedCount === 0}
+        >
+          저장 일정 받기
+        </button>
+        <button type="button" onClick={onExportAll}>
+          전체 일정 받기
+        </button>
+      </div>
     </section>
   );
 }

@@ -2,32 +2,49 @@ name: Sync competition data
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "17 */6 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: sync-contests-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   sync:
+    name: Refresh competition data
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
-      - run: npm run sync
-      - run: npm run build
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh competition data
+        run: npm run sync
+
+      - name: Verify refreshed project
+        run: npm run verify
+
       - name: Commit refreshed competition data
         run: |
           if git diff --quiet -- src/data/competitions.generated.json; then
             echo "No data changes"
             exit 0
           fi
-          git config user.name "codepes-bot"
-          git config user.email "codepes-bot@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/data/competitions.generated.json
           git commit -m "data: refresh competitions"
           git push

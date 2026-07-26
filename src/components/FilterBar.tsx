@@ -1,4 +1,4 @@
-import { RotateCcw, SlidersHorizontal } from "lucide-react";
+import { Bookmark, RotateCcw, SlidersHorizontal } from "lucide-react";
 import type {
   CompetitionFilters,
   CompetitionType,
@@ -18,6 +18,9 @@ interface FilterBarProps {
   onSortChange: (sort: "deadline" | "recent") => void;
   onReset: () => void;
   activeCount: number;
+  savedOnly: boolean;
+  savedCount: number;
+  onSavedOnlyChange: (value: boolean) => void;
 }
 
 export function FilterBar({
@@ -27,6 +30,9 @@ export function FilterBar({
   onSortChange,
   onReset,
   activeCount,
+  savedOnly,
+  savedCount,
+  onSavedOnlyChange,
 }: FilterBarProps) {
   return (
     <section className="filter-rail" aria-label="대회 필터">
@@ -187,7 +193,24 @@ export function FilterBar({
       <div className="filter-summary">
         <SlidersHorizontal aria-hidden="true" />
         <span>적용된 필터 {activeCount}개</span>
-        <button type="button" onClick={onReset} disabled={activeCount === 0}>
+        <button
+          className={savedOnly ? "saved-filter is-active" : "saved-filter"}
+          type="button"
+          aria-pressed={savedOnly}
+          onClick={() => onSavedOnlyChange(!savedOnly)}
+        >
+          <Bookmark
+            aria-hidden="true"
+            fill={savedOnly ? "currentColor" : "none"}
+          />
+          저장한 대회 {savedCount}
+        </button>
+        <button
+          className="reset-filter"
+          type="button"
+          onClick={onReset}
+          disabled={activeCount === 0}
+        >
           <RotateCcw aria-hidden="true" />
           초기화
         </button>

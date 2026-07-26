@@ -1,0 +1,59 @@
+name: 대회 데이터 수정 요청
+description: 대회 일정, 참가 대상, 링크 등 잘못되거나 오래된 정보를 제보해 주세요.
+title: "[Data] "
+labels:
+  - data
+body:
+  - type: markdown
+    attributes:
+      value: |
+        CodePes는 공식 출처를 기준으로 데이터를 수정합니다. 확인 가능한 공식 안내 링크를 반드시 함께 남겨 주세요.
+
+  - type: input
+    id: competition
+    attributes:
+      label: 대회명
+      placeholder: 수정이 필요한 대회의 전체 이름
+    validations:
+      required: true
+
+  - type: input
+    id: official_source
+    attributes:
+      label: 공식 출처 URL
+      description: 주최 기관의 공고, 대회 홈페이지 등 변경 내용을 확인할 수 있는 링크를 적어 주세요.
+      placeholder: https://example.com/official-announcement
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_data
+    attributes:
+      label: 현재 표시된 정보
+      description: CodePes에 현재 어떻게 표시되고 있는지 적어 주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: corrected_data
+    attributes:
+      label: 올바른 정보
+      description: 공식 출처를 기준으로 바뀌어야 할 내용을 정확히 적어 주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 추가 설명
+      description: 시차, 연장 공지, 참가 조건 예외 등 검토에 필요한 맥락이 있다면 적어 주세요.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 확인 사항
+      options:
+        - label: 제공한 링크가 공식 출처임을 확인했습니다.
+          required: true
+        - label: 같은 수정 요청이 이미 등록되어 있는지 검색했습니다.
+          required: true

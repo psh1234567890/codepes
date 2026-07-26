@@ -1,0 +1,64 @@
+name: 버그 신고
+description: CodePes에서 재현되는 오류나 예상과 다른 동작을 알려 주세요.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        신고해 주셔서 감사합니다. 재현에 필요한 정보를 구체적으로 적어 주시면 더 빠르게 확인할 수 있습니다.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 문제 설명
+      description: 어떤 문제가 발생했는지 간결하게 설명해 주세요.
+      placeholder: 무엇이 잘못되었는지 적어 주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 재현 방법
+      description: 문제가 발생하기까지의 단계를 순서대로 적어 주세요.
+      placeholder: |
+        1. ... 페이지로 이동
+        2. ... 버튼 클릭
+        3. 오류 확인
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 예상한 동작
+      description: 정상이라면 어떻게 동작해야 하는지 설명해 주세요.
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: 실행 환경
+      description: 운영체제, 브라우저와 버전, 화면 크기를 알려 주세요.
+      placeholder: Windows 11, Chrome 128, 1920x1080
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 추가 자료
+      description: 콘솔 오류, 스크린샷, 화면 녹화 등 확인에 도움이 되는 자료를 첨부해 주세요. 개인정보와 비밀값은 제거해 주세요.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 확인 사항
+      options:
+        - label: 같은 문제가 이미 등록되어 있는지 검색했습니다.
+          required: true
+        - label: 공개해도 되는 정보만 첨부했습니다.
+          required: true

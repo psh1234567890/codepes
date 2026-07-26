@@ -14,6 +14,7 @@ export type Eligibility =
 export type ParticipationMode = "online" | "offline" | "hybrid";
 
 export type SourceType = "official-api" | "official-page" | "submitted";
+export type DeadlineKind = "application" | "start";
 
 export interface Competition {
   id: string;
@@ -25,6 +26,7 @@ export interface Competition {
   eligibilityNote?: string;
   mode: ParticipationMode;
   applicationDeadline: string;
+  deadlineKind?: DeadlineKind;
   eventStart: string;
   eventEnd: string;
   location: string;

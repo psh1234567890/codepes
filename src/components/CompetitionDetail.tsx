@@ -1,11 +1,13 @@
 import {
   Bookmark,
+  CalendarPlus,
   CalendarDays,
   Clock3,
   ExternalLink,
   Languages,
   MapPin,
   Monitor,
+  Share2,
   Tags,
   Users,
 } from "lucide-react";
@@ -25,6 +27,8 @@ interface CompetitionDetailProps {
   competition: Competition;
   bookmarked: boolean;
   onBookmark: () => void;
+  onAddToCalendar: () => void;
+  onShare: () => void;
   mobile?: boolean;
 }
 
@@ -32,6 +36,8 @@ export function CompetitionDetail({
   competition,
   bookmarked,
   onBookmark,
+  onAddToCalendar,
+  onShare,
   mobile = false,
 }: CompetitionDetailProps) {
   return (
@@ -65,7 +71,7 @@ export function CompetitionDetail({
       <div className="deadline-summary">
         <span>
           <CalendarDays aria-hidden="true" />
-          신청 마감
+          {competition.deadlineKind === "start" ? "대회 시작" : "신청 마감"}
         </span>
         <strong>{formatDday(competition.applicationDeadline)}</strong>
         <time dateTime={competition.applicationDeadline}>
@@ -129,6 +135,17 @@ export function CompetitionDetail({
       </dl>
 
       <p className="detail-summary">{competition.summary}</p>
+
+      <div className="detail-actions">
+        <button type="button" onClick={onAddToCalendar}>
+          <CalendarPlus aria-hidden="true" />
+          일정 파일
+        </button>
+        <button type="button" onClick={onShare}>
+          <Share2 aria-hidden="true" />
+          공유
+        </button>
+      </div>
 
       <a
         className="official-link"
