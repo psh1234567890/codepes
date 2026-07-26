@@ -10,6 +10,8 @@
 - 공유 가능한 대회 선택 URL
 - GitHub 이슈 기반 대회 제보와 정정 요청
 - Codeforces 공식 API 자동 수집
+- AtCoder 공식 예정 대회와 CodeChef 공식 JSON 자동 수집
+- Devpost 공개 해커톤 목록·일정 자동 수집
 - DACON·DAKER 공식 페이지 수동 검증
 - 원격 GitHub JSON 검증과 번들 fallback
 - 타입 검사, 단위 테스트, 프로덕션 빌드 검증

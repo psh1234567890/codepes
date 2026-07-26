@@ -50,6 +50,19 @@ describe("competition search", () => {
     ).toBe(false);
   });
 
+  it("keeps rules-dependent eligibility separate from public contests", () => {
+    const rulesContest: Competition = {
+      ...contest,
+      id: "rules",
+      url: "https://example.com/rules",
+      eligibilities: ["rules"],
+    };
+    const rulesFilter = { ...DEFAULT_FILTERS, eligibility: "rules" as const };
+
+    expect(matchesCompetition(contest, "", rulesFilter)).toBe(false);
+    expect(matchesCompetition(rulesContest, "", rulesFilter)).toBe(true);
+  });
+
   it("marks a deadline as closed immediately after it passes", () => {
     expect(
       formatDday(
@@ -116,6 +129,25 @@ describe("competition data validation", () => {
     expect(codeforcesContests.length).toBeGreaterThan(0);
     expect(
       codeforcesContests.every((item) => item.deadlineKind === "start"),
+    ).toBe(true);
+  });
+
+  it("ships competitions from every enabled automatic source", () => {
+    const sourceNames = new Set(
+      generatedData.contests.map((item) => item.sourceName),
+    );
+    for (const sourceName of [
+      "Codeforces 공식 API",
+      "AtCoder 공식 대회 목록",
+      "CodeChef 공식 API",
+      "Devpost 공식 목록·일정",
+    ]) {
+      expect(sourceNames.has(sourceName)).toBe(true);
+    }
+    expect(
+      generatedData.contests
+        .filter((item) => item.sourceName === "Devpost 공식 목록·일정")
+        .every((item) => item.eligibilities.includes("rules")),
     ).toBe(true);
   });
 });

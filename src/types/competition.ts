@@ -9,7 +9,8 @@ export type Eligibility =
   | "anyone"
   | "university"
   | "youth"
-  | "employee";
+  | "employee"
+  | "rules";
 
 export type ParticipationMode = "online" | "offline" | "hybrid";
 

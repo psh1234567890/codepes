@@ -25,6 +25,7 @@ const ELIGIBILITIES = new Set([
   "university",
   "youth",
   "employee",
+  "rules",
 ]);
 const MODES = new Set(["online", "offline", "hybrid"]);
 const SOURCE_TYPES = new Set([

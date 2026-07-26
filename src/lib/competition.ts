@@ -19,6 +19,7 @@ export const ELIGIBILITY_LABELS: Record<Eligibility, string> = {
   university: "대학생",
   youth: "중·고등학생",
   employee: "직장인",
+  rules: "대회별 확인",
 };
 
 export const MODE_LABELS: Record<ParticipationMode, string> = {
@@ -90,7 +91,10 @@ export const matchesCompetition = (
   if (
     filters.eligibility !== "all" &&
     !competition.eligibilities.includes(filters.eligibility) &&
-    !competition.eligibilities.includes("anyone")
+    !(
+      filters.eligibility !== "rules" &&
+      competition.eligibilities.includes("anyone")
+    )
   ) {
     return false;
   }

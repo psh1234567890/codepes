@@ -17,7 +17,7 @@ CodePes는 대회 검색을 돕는 디렉터리이며 참가 접수 기관이 �
 - 출처: 공식 `contest.list` API
 - 엔드포인트: `https://codeforces.com/api/contest.list?gym=false`
 - 범위: `phase`가 `BEFORE`이고 현재부터 180일 안에 시작하는 대회
-- 갱신 주기: GitHub Actions 기준 30분
+- 갱신 주기: GitHub Actions 기준 6시간
 - 게시 방식: 검증 후 자동 게시
 
 Codeforces API 응답에는 CodePes가 공통 필드로 사용하는 별도의 “참가 신청 마감”이 없습니다. 따라서 Codeforces 항목은 다음과 같이 처리합니다.
@@ -29,6 +29,41 @@ Codeforces API 응답에는 CodePes가 공통 필드로 사용하는 별도의 �
 Codeforces의 시작 시각은 API의 Unix timestamp를 ISO 8601 UTC 시각으로 변환합니다. 실제 시작 전 공식 대회 페이지에서 다시 확인해야 합니다.
 
 API 요청이 일시적으로 실패하면 이전 생성 데이터 중 아직 시작하지 않은 Codeforces 항목을 유지합니다. 이때 실패한 시각을 검증 시각으로 덮어쓰지 않습니다. 내용이 바뀌지 않은 항목도 기존 `lastVerifiedAt`을 유지합니다.
+
+## AtCoder
+
+- 출처: 공식 `Upcoming Contests` 표
+- 엔드포인트: `https://atcoder.jp/contests/`
+- 범위: 현재부터 180일 안에 시작하는 공식 예정 대회
+- 제외: 별도 영역의 `Daily Contests`
+- 게시 방식: HTML 구조와 날짜·기간 검증 후 자동 게시
+
+AtCoder도 별도의 사전 신청 마감이 없으므로 `applicationDeadline`과
+`deadlineKind`를 각각 대회 시작 시각과 `start`로 기록합니다. 표의 시작 시각은
+UTC로 변환하고, 기간을 더해 종료 시각을 계산합니다.
+
+## CodeChef
+
+- 출처: 공식 대회 목록 JSON
+- 엔드포인트: `https://www.codechef.com/api/list/contests/all`
+- 범위: `future_contests` 중 현재부터 180일 안에 시작하는 대회
+- 게시 방식: 날짜·기간·공식 URL 검증 후 자동 게시
+
+CodeChef 항목 역시 대회 시작 시각을 일정 기준으로 사용합니다. Division과
+세부 참가 조건은 각 공식 대회 페이지에서 다시 확인해야 합니다.
+
+## Devpost
+
+- 출처: Devpost 공개 해커톤 목록과 각 해커톤의 공식 일정 페이지
+- 목록 범위: 공개 상태의 마감 임박순 최대 20개
+- 날짜 기준: 공식 일정 표의 `Submissions` 시작·종료 ISO 시각
+- 제외: 초대 전용 항목, 정확한 제출 시각을 확인할 수 없는 신규 항목
+- 게시 방식: 목록과 일정 페이지가 모두 검증될 때 자동 게시
+
+Devpost 대회는 연령, 국가, 거주지, 팀 구성 같은 세부 제한이 서로 다릅니다.
+따라서 참가 자격을 `대회별 확인`으로 표시하고, 사용자가 공식 규정을 읽기
+전에는 누구나 참가 가능하다고 단정하지 않습니다. 개별 일정 페이지 확인에
+일시적으로 실패하면 동일한 공개 목록에 있는 기존 유효 항목만 유지합니다.
 
 ## DACON과 DAKER
 
@@ -51,10 +86,11 @@ API 요청이 일시적으로 실패하면 이전 생성 데이터 중 아직 �
 
 1. `data/sources.json`에서 활성화된 자동 출처를 읽습니다.
 2. `data/manual-contests.json`의 수동 검증 항목을 스키마 검사합니다.
-3. Codeforces 공식 API에서 예정 대회를 가져옵니다.
-4. 정규화한 URL과 제목·날짜 조합으로 중복을 제거합니다.
-5. 이미 기준 시각이 지난 항목을 제외합니다.
-6. 결과를 다시 검증해 `src/data/competitions.generated.json`에 기록합니다.
+3. Codeforces, AtCoder, CodeChef, Devpost에서 예정 대회를 가져옵니다.
+4. 출처별 응답을 공통 스키마로 변환하고 날짜·URL을 검사합니다.
+5. 정규화한 URL과 제목·날짜 조합으로 중복을 제거합니다.
+6. 이미 기준 시각이 지난 항목을 제외합니다.
+7. 결과를 다시 검증해 `src/data/competitions.generated.json`에 기록합니다.
 
 생성 파일은 직접 편집하지 않습니다. 자동 출처 설정 또는 수동 원본을 수정한 뒤 동기화 명령을 실행합니다.
 
@@ -84,6 +120,8 @@ API 요청이 일시적으로 실패하면 이전 생성 데이터 중 아직 �
 ## 알려진 한계
 
 - Codeforces 일정은 신청 마감이 아니라 시작 시각입니다.
+- AtCoder와 CodeChef 일정도 신청 마감이 아니라 시작 시각입니다.
+- Devpost 항목은 국제 대회가 많으며 세부 자격을 공식 규정에서 확인해야 합니다.
 - 수동 출처는 공식 페이지 변경과 실제 반영 사이에 지연이 생길 수 있습니다.
 - 주최 기관이 공지 없이 일정을 변경하거나 페이지를 삭제할 수 있습니다.
 - 자격 조건의 세부 예외와 법적 해석을 CodePes가 보증하지 않습니다.

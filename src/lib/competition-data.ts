@@ -20,6 +20,7 @@ const ELIGIBILITIES = new Set<Eligibility>([
   "university",
   "youth",
   "employee",
+  "rules",
 ]);
 const MODES = new Set<ParticipationMode>(["online", "offline", "hybrid"]);
 const SOURCE_TYPES = new Set<SourceType>([

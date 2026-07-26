@@ -6,6 +6,13 @@ import {
   toIso,
   validateContests,
 } from "./lib/contest-utils.mjs";
+import {
+  normalizeAtCoderHtml,
+  normalizeCodeChefPayload,
+  normalizeDevpostHackathon,
+} from "./lib/source-adapters.mjs";
+
+const USER_AGENT = "CodePes/0.1 (+competition directory)";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const manualPath = path.join(root, "data", "manual-contests.json");
@@ -50,7 +57,7 @@ const normalizeCodeforces = (contest, verifiedAt) => {
 
 const fetchCodeforces = async (source, verifiedAt) => {
   const response = await fetch(source.endpoint, {
-    headers: { "User-Agent": "CodePes/0.1 (+competition directory)" },
+    headers: { "User-Agent": USER_AGENT, Accept: "application/json" },
     signal: AbortSignal.timeout(15_000),
   });
 
@@ -76,6 +83,97 @@ const fetchCodeforces = async (source, verifiedAt) => {
     .map((contest) => normalizeCodeforces(contest, verifiedAt));
 };
 
+const fetchAtCoder = async (source, verifiedAt) => {
+  const response = await fetch(source.endpoint, {
+    headers: { "User-Agent": USER_AGENT, Accept: "text/html" },
+    signal: AbortSignal.timeout(15_000),
+  });
+  if (!response.ok) {
+    throw new Error(`AtCoder 공식 페이지 HTTP ${response.status}`);
+  }
+  return normalizeAtCoderHtml(await response.text(), verifiedAt);
+};
+
+const fetchCodeChef = async (source, verifiedAt) => {
+  const response = await fetch(source.endpoint, {
+    headers: { "User-Agent": USER_AGENT, Accept: "application/json" },
+    signal: AbortSignal.timeout(15_000),
+  });
+  if (!response.ok) {
+    throw new Error(`CodeChef API HTTP ${response.status}`);
+  }
+  return normalizeCodeChefPayload(await response.json(), verifiedAt);
+};
+
+const fetchDevpostSchedule = async (hackathon) => {
+  const scheduleUrl = new URL("/details/dates", hackathon.url);
+  const response = await fetch(scheduleUrl, {
+    headers: { "User-Agent": USER_AGENT, Accept: "text/html" },
+    signal: AbortSignal.timeout(15_000),
+  });
+  if (!response.ok) {
+    throw new Error(`Devpost 일정 HTTP ${response.status}`);
+  }
+  return response.text();
+};
+
+const fetchDevpost = async (source, verifiedAt, previousContests) => {
+  const response = await fetch(source.endpoint, {
+    headers: { "User-Agent": USER_AGENT, Accept: "application/json" },
+    signal: AbortSignal.timeout(15_000),
+  });
+  if (!response.ok) {
+    throw new Error(`Devpost 목록 HTTP ${response.status}`);
+  }
+  const payload = await response.json();
+  if (!payload || !Array.isArray(payload.hackathons)) {
+    throw new Error("Devpost 목록 응답 형식이 다릅니다.");
+  }
+
+  const previousById = new Map(
+    previousContests.map((contest) => [contest.id, contest]),
+  );
+  const contests = [];
+  const batchSize = 5;
+
+  for (let index = 0; index < payload.hackathons.length; index += batchSize) {
+    const batch = payload.hackathons.slice(index, index + batchSize);
+    const results = await Promise.all(
+      batch.map(async (hackathon) => {
+        const id = `devpost-${hackathon.id}`;
+        try {
+          const scheduleHtml = await fetchDevpostSchedule(hackathon);
+          return normalizeDevpostHackathon(
+            hackathon,
+            scheduleHtml,
+            verifiedAt,
+          );
+        } catch (error) {
+          const previous = previousById.get(id);
+          if (
+            previous &&
+            Date.parse(previous.applicationDeadline) > Date.now()
+          ) {
+            console.warn(
+              `Devpost 일정 확인 실패, 기존 항목 유지 (${id}):`,
+              error instanceof Error ? error.message : error,
+            );
+            return previous;
+          }
+          console.warn(
+            `Devpost 일정 확인 실패, 항목 제외 (${id}):`,
+            error instanceof Error ? error.message : error,
+          );
+          return undefined;
+        }
+      }),
+    );
+    contests.push(...results.filter(Boolean));
+  }
+
+  return contests;
+};
+
 const withoutVerificationTime = ({ lastVerifiedAt: _ignored, ...contest }) =>
   contest;
 
@@ -97,6 +195,39 @@ const preserveUnchangedVerificationTimes = (contests, previousContests) => {
   });
 };
 
+const retainPreviousSource = (previousContests, sourceName) =>
+  previousContests.filter(
+    (contest) =>
+      contest.sourceName === sourceName &&
+      Date.parse(contest.applicationDeadline) > Date.now(),
+  );
+
+const collectSource = async ({
+  source,
+  label,
+  sourceName,
+  previousContests,
+  fetcher,
+}) => {
+  if (!source?.enabled || !source.autoPublish) return [];
+  try {
+    const fetched = await fetcher(source);
+    const contests = preserveUnchangedVerificationTimes(
+      fetched,
+      previousContests,
+    );
+    console.log(`${label}: 예정 대회 ${contests.length}개 수집`);
+    return contests;
+  } catch (error) {
+    const previous = retainPreviousSource(previousContests, sourceName);
+    console.warn(
+      `${label} 수집 실패, 기존 데이터 ${previous.length}개 유지:`,
+      error instanceof Error ? error.message : error,
+    );
+    return previous;
+  }
+};
+
 const main = async () => {
   const verifiedAt = new Date().toISOString();
   const [manual, sources, previousText] = await Promise.all([
@@ -107,39 +238,44 @@ const main = async () => {
   const previous = previousText
     ? JSON.parse(previousText)
     : { updatedAt: verifiedAt, contests: [] };
-  const codeforcesSource = sources.find(
-    (source) =>
-      source.id === "codeforces" &&
-      source.enabled === true &&
-      source.autoPublish === true,
-  );
+  const sourceById = new Map(sources.map((source) => [source.id, source]));
 
   validateContests(manual);
-  let apiContests = [];
-
-  if (codeforcesSource) {
-    try {
-      const fetched = await fetchCodeforces(codeforcesSource, verifiedAt);
-      apiContests = preserveUnchangedVerificationTimes(
-        fetched,
-        previous.contests,
-      );
-      console.log(`Codeforces: 예정 대회 ${apiContests.length}개 수집`);
-    } catch (error) {
-      apiContests = previous.contests.filter(
-        (contest) =>
-          contest.sourceName === "Codeforces 공식 API" &&
-          new Date(contest.applicationDeadline).getTime() > Date.now(),
-      ).map((contest) => ({ ...contest, deadlineKind: "start" }));
-      console.warn(
-        `Codeforces 수집 실패, 기존 데이터 ${apiContests.length}개 유지:`,
-        error instanceof Error ? error.message : error,
-      );
-    }
-  }
+  const automaticGroups = await Promise.all([
+    collectSource({
+      source: sourceById.get("codeforces"),
+      label: "Codeforces",
+      sourceName: "Codeforces 공식 API",
+      previousContests: previous.contests,
+      fetcher: (source) => fetchCodeforces(source, verifiedAt),
+    }),
+    collectSource({
+      source: sourceById.get("atcoder"),
+      label: "AtCoder",
+      sourceName: "AtCoder 공식 대회 목록",
+      previousContests: previous.contests,
+      fetcher: (source) => fetchAtCoder(source, verifiedAt),
+    }),
+    collectSource({
+      source: sourceById.get("codechef"),
+      label: "CodeChef",
+      sourceName: "CodeChef 공식 API",
+      previousContests: previous.contests,
+      fetcher: (source) => fetchCodeChef(source, verifiedAt),
+    }),
+    collectSource({
+      source: sourceById.get("devpost"),
+      label: "Devpost",
+      sourceName: "Devpost 공식 목록·일정",
+      previousContests: previous.contests,
+      fetcher: (source) =>
+        fetchDevpost(source, verifiedAt, previous.contests),
+    }),
+  ]);
+  const automaticContests = automaticGroups.flat();
 
   const contests = deduplicate(
-    [...manual, ...apiContests],
+    [...manual, ...automaticContests],
     ({ contest, reason }) =>
       console.warn(`중복 제외 (${reason}): ${contest.id}`),
   ).filter(

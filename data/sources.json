@@ -9,6 +9,35 @@
     "pollMinutes": 360
   },
   {
+    "id": "atcoder",
+    "name": "AtCoder",
+    "kind": "official-page",
+    "endpoint": "https://atcoder.jp/contests/",
+    "enabled": true,
+    "autoPublish": true,
+    "pollMinutes": 360,
+    "note": "공식 Upcoming Contests 표만 파싱하며 Daily Contests는 제외"
+  },
+  {
+    "id": "codechef",
+    "name": "CodeChef",
+    "kind": "official-api",
+    "endpoint": "https://www.codechef.com/api/list/contests/all",
+    "enabled": true,
+    "autoPublish": true,
+    "pollMinutes": 360
+  },
+  {
+    "id": "devpost",
+    "name": "Devpost",
+    "kind": "official-api",
+    "endpoint": "https://devpost.com/api/hackathons?status[]=upcoming&status[]=open&order_by=deadline&per_page=20",
+    "enabled": true,
+    "autoPublish": true,
+    "pollMinutes": 360,
+    "note": "공개 목록과 각 해커톤의 공식 일정 페이지를 함께 확인하며 초대 전용 항목은 제외"
+  },
+  {
     "id": "dacon",
     "name": "DACON",
     "kind": "official-page",
