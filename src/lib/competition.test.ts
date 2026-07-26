@@ -50,6 +50,26 @@ describe("competition search", () => {
     ).toBe(false);
   });
 
+  it("keeps AI hackathons visible in both AI and hackathon filters", () => {
+    const aiHackathon: Competition = {
+      ...contest,
+      tags: ["AI", "해커톤"],
+    };
+
+    expect(
+      matchesCompetition(aiHackathon, "", {
+        ...DEFAULT_FILTERS,
+        type: "ai-data",
+      }),
+    ).toBe(true);
+    expect(
+      matchesCompetition(aiHackathon, "", {
+        ...DEFAULT_FILTERS,
+        type: "hackathon",
+      }),
+    ).toBe(true);
+  });
+
   it("keeps rules-dependent eligibility separate from public contests", () => {
     const rulesContest: Competition = {
       ...contest,

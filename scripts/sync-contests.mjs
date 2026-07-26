@@ -20,6 +20,7 @@ import {
   normalizeKoiGuideHtml,
   normalizeKookminAlgorithmHtml,
   normalizeUcpcHtml,
+  verifyItchJam,
 } from "./lib/source-adapters.mjs";
 
 const USER_AGENT = "CodePes/0.1 (+competition directory)";
@@ -133,7 +134,7 @@ const fetchCtftime = async (source, verifiedAt) => {
   return normalizeCtftimePayload(await response.json(), verifiedAt);
 };
 
-const fetchItchJams = async (source, verifiedAt) => {
+const fetchItchJams = async (source, verifiedAt, previousContests) => {
   const response = await fetch(source.endpoint, {
     headers: { "User-Agent": USER_AGENT, Accept: "text/html" },
     signal: AbortSignal.timeout(15_000),
@@ -141,7 +142,63 @@ const fetchItchJams = async (source, verifiedAt) => {
   if (!response.ok) {
     throw new Error(`itch.io 게임잼 페이지 HTTP ${response.status}`);
   }
-  return normalizeItchJamsHtml(await response.text(), verifiedAt);
+  const candidates = normalizeItchJamsHtml(
+    await response.text(),
+    verifiedAt,
+    Date.now(),
+    180,
+    36,
+  );
+  const previousById = new Map(
+    previousContests.map((contest) => [contest.id, contest]),
+  );
+  const contests = [];
+  const batchSize = 8;
+  for (let index = 0; index < candidates.length; index += batchSize) {
+    const batch = candidates.slice(index, index + batchSize);
+    const verified = await Promise.all(
+      batch.map(async (candidate) => {
+        const previous = previousById.get(candidate.id);
+        if (
+          previous &&
+          Date.parse(previous.applicationDeadline) > Date.now() &&
+          previous.tags.includes(KOREAN_ONLINE_TAG) &&
+          Date.now() - Date.parse(previous.lastVerifiedAt) <
+            24 * 60 * 60 * 1000
+        ) {
+          return previous;
+        }
+        try {
+          return verifyItchJam(
+            candidate,
+            await fetchOfficialHtml(
+              candidate.url,
+              "itch.io 게임잼 상세 안내",
+            ),
+          );
+        } catch (error) {
+          if (
+            previous &&
+            Date.parse(previous.applicationDeadline) > Date.now() &&
+            previous.tags.includes(KOREAN_ONLINE_TAG)
+          ) {
+            console.warn(
+              `itch.io 상세 확인 실패, 기존 항목 유지 (${candidate.id}):`,
+              error instanceof Error ? error.message : error,
+            );
+            return previous;
+          }
+          console.warn(
+            `itch.io 상세 확인 실패, 항목 제외 (${candidate.id}):`,
+            error instanceof Error ? error.message : error,
+          );
+          return undefined;
+        }
+      }),
+    );
+    contests.push(...verified.filter(Boolean));
+  }
+  return contests.slice(0, 12);
 };
 
 const fetchOfficialHtml = async (url, label) => {
@@ -269,17 +326,34 @@ const fetchDevpostRules = async (hackathon) => {
 };
 
 const fetchDevpost = async (source, verifiedAt, previousContests) => {
-  const response = await fetch(source.endpoint, {
-    headers: { "User-Agent": USER_AGENT, Accept: "application/json" },
-    signal: AbortSignal.timeout(15_000),
-  });
-  if (!response.ok) {
-    throw new Error(`Devpost 목록 HTTP ${response.status}`);
-  }
-  const payload = await response.json();
-  if (!payload || !Array.isArray(payload.hackathons)) {
-    throw new Error("Devpost 목록 응답 형식이 다릅니다.");
-  }
+  const endpoint = new URL(source.endpoint);
+  const pages = await Promise.all(
+    [1, 2].map(async (page) => {
+      const pageEndpoint = new URL(endpoint);
+      pageEndpoint.searchParams.set("page", String(page));
+      const response = await fetch(pageEndpoint, {
+        headers: { "User-Agent": USER_AGENT, Accept: "application/json" },
+        signal: AbortSignal.timeout(15_000),
+      });
+      if (!response.ok) {
+        throw new Error(`Devpost 목록 ${page}페이지 HTTP ${response.status}`);
+      }
+      const payload = await response.json();
+      if (!payload || !Array.isArray(payload.hackathons)) {
+        throw new Error(`Devpost 목록 ${page}페이지 응답 형식이 다릅니다.`);
+      }
+      return payload.hackathons;
+    }),
+  );
+  const hackathons = [
+    ...new Map(
+      pages.flat().map((hackathon) => [hackathon.id, hackathon]),
+    ).values(),
+  ].filter(
+    (hackathon) =>
+      hackathon.invite_only !== true &&
+      /online/i.test(hackathon.displayed_location?.location ?? ""),
+  );
 
   const previousById = new Map(
     previousContests.map((contest) => [contest.id, contest]),
@@ -287,11 +361,21 @@ const fetchDevpost = async (source, verifiedAt, previousContests) => {
   const contests = [];
   const batchSize = 5;
 
-  for (let index = 0; index < payload.hackathons.length; index += batchSize) {
-    const batch = payload.hackathons.slice(index, index + batchSize);
+  for (let index = 0; index < hackathons.length; index += batchSize) {
+    const batch = hackathons.slice(index, index + batchSize);
     const results = await Promise.all(
       batch.map(async (hackathon) => {
         const id = `devpost-${hackathon.id}`;
+        const previous = previousById.get(id);
+        if (
+          previous &&
+          Date.parse(previous.applicationDeadline) > Date.now() &&
+          previous.tags.includes(KOREAN_ONLINE_TAG) &&
+          Date.now() - Date.parse(previous.lastVerifiedAt) <
+            24 * 60 * 60 * 1000
+        ) {
+          return previous;
+        }
         try {
           const [scheduleHtml, rulesHtml] = await Promise.all([
             fetchDevpostSchedule(hackathon),
@@ -304,7 +388,6 @@ const fetchDevpost = async (source, verifiedAt, previousContests) => {
             verifiedAt,
           );
         } catch (error) {
-          const previous = previousById.get(id);
           if (
             previous &&
             Date.parse(previous.applicationDeadline) > Date.now() &&
@@ -356,7 +439,11 @@ const retainPreviousSource = (previousContests, sourceName) =>
     (contest) =>
       contest.sourceName === sourceName &&
       Date.parse(contest.applicationDeadline) > Date.now() &&
-      (!["Devpost 공식 목록·일정", "CTFtime 공식 API"].includes(sourceName) ||
+      (![
+        "Devpost 공식 목록·일정",
+        "CTFtime 공식 API",
+        "itch.io 공식 게임잼 목록",
+      ].includes(sourceName) ||
         contest.tags.includes(KOREAN_ONLINE_TAG)),
   );
 
@@ -469,7 +556,8 @@ const main = async () => {
       label: "itch.io",
       sourceName: "itch.io 공식 게임잼 목록",
       previousContests: previous.contests,
-      fetcher: (source) => fetchItchJams(source, verifiedAt),
+      fetcher: (source) =>
+        fetchItchJams(source, verifiedAt, previous.contests),
     }),
   ]);
   const automaticContests = automaticGroups.flat();

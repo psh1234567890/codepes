@@ -80,12 +80,20 @@ export const eligibilitySummary = (competition: Competition) => {
 export const normalizeSearchText = (value: string) =>
   value.normalize("NFKC").toLocaleLowerCase("ko-KR").replace(/\s+/g, " ");
 
+const matchesType = (
+  competition: Competition,
+  type: CompetitionType | "all",
+) => {
+  if (type === "all" || competition.type === type) return true;
+  return type === "hackathon" && competition.tags.includes("해커톤");
+};
+
 export const matchesCompetition = (
   competition: Competition,
   query: string,
   filters: CompetitionFilters,
 ) => {
-  if (filters.type !== "all" && competition.type !== filters.type) {
+  if (!matchesType(competition, filters.type)) {
     return false;
   }
   if (

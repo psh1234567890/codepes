@@ -374,6 +374,58 @@ export const normalizeItchJamsHtml = (
     .slice(0, limit);
 };
 
+export const getItchKoreanOnlineEvidence = (detailHtml) => {
+  if (typeof detailHtml !== "string") return undefined;
+  const text = stripVisibleHtml(detailHtml);
+  if (!/Submissions\s+open\s+from/i.test(text)) return undefined;
+
+  const inPersonOnlyPatterns = [
+    /\b(?:in[ -]?person|on[ -]?site)\s+(?:only|required)\b/i,
+    /\b(?:must|required to)\s+(?:attend|participate)\s+(?:in[ -]?person|on[ -]?site)\b/i,
+  ];
+  if (inPersonOnlyPatterns.some((pattern) => pattern.test(text))) {
+    return undefined;
+  }
+
+  const publicParticipationPatterns = [
+    /\b(?:anyone|everyone)\s+(?:can|may|is welcome to)\s+(?:participate|join)\b/i,
+    /\b(?:game\s*jam|jam|participation)\s+is\s+open\s+to\s+(?:anyone|everyone)\b/i,
+    /\bopen\s+to\s+(?:anyone|everyone),?\s+(?:from\s+anywhere|worldwide)\b/i,
+  ];
+  if (
+    publicParticipationPatterns.some((pattern) => pattern.test(text))
+  ) {
+    return "공식 게임잼 페이지에 누구나 온라인 참가 가능 명시";
+  }
+
+  return undefined;
+};
+
+export const verifyItchJam = (contest, detailHtml) => {
+  if (
+    !contest ||
+    contest.sourceName !== "itch.io 공식 게임잼 목록" ||
+    contest.mode !== "online"
+  ) {
+    return undefined;
+  }
+  const evidence = getItchKoreanOnlineEvidence(detailHtml);
+  if (!evidence) return undefined;
+
+  return {
+    ...contest,
+    eligibilities: ["anyone"],
+    eligibilityNote: `${evidence}. 수상·연령·팀 구성·사용 가능 에셋 등 세부 조건은 공식 규정 확인 필요`,
+    tags: [
+      ...new Set([
+        ...contest.tags,
+        "누구나 참가",
+        "한국 온라인 참가 가능",
+      ]),
+    ],
+  };
+};
+
 export const extractDevpostSubmissionDates = (html) => {
   const rowMatch = html.match(
     /<tr>\s*<td[^>]*class="active"[^>]*>\s*Submissions\s*<\/td>([\s\S]*?)<\/tr>/i,
@@ -495,12 +547,22 @@ export const normalizeDevpostHackathon = (
         )
         .filter(Boolean)
     : [];
+  const aiDataEvidence = [
+    title,
+    ...themes,
+  ].join(" ");
+  const type =
+    /(?:\b(?:AI|ML|LLM|NLP|GenAI)\b|machine learning|deep learning|artificial intelligence|computer vision|data science|생성형\s*AI|인공지능|머신러닝|딥러닝)/iu.test(
+      aiDataEvidence,
+    )
+      ? "ai-data"
+      : "hackathon";
 
   return {
     id: `devpost-${id}`,
     title,
-    summary: `${organizer}이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.`,
-    type: "hackathon",
+    summary: `${organizer}이(가) Devpost에서 운영하는 ${type === "ai-data" ? "AI·데이터 " : ""}공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.`,
+    type,
     organizer,
     eligibilities: ["rules"],
     eligibilityNote: `${koreanOnlineEvidence}. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요`,

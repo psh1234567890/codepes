@@ -6,6 +6,7 @@ import {
   extractKoiGuideLinks,
   extractUcpcEditionUrl,
   getDevpostKoreanOnlineEvidence,
+  getItchKoreanOnlineEvidence,
   normalizeAtCoderHtml,
   normalizeCodeChefPayload,
   normalizeCtftimePayload,
@@ -15,6 +16,7 @@ import {
   normalizeKoiGuideHtml,
   normalizeKookminAlgorithmHtml,
   normalizeUcpcHtml,
+  verifyItchJam,
 } from "./source-adapters.mjs";
 
 const verifiedAt = "2026-07-26T00:00:00.000Z";
@@ -275,7 +277,7 @@ describe("Devpost source adapter", () => {
     });
   });
 
-  it("marks public hackathon eligibility as rules-dependent", () => {
+  it("classifies an AI-themed public hackathon without losing hackathon tags", () => {
     const contest = normalizeDevpostHackathon(
       {
         id: 29541,
@@ -294,9 +296,33 @@ describe("Devpost source adapter", () => {
 
     expect(contest).toMatchObject({
       id: "devpost-29541",
-      type: "hackathon",
+      type: "ai-data",
       eligibilities: ["rules"],
       mode: "online",
+      tags: expect.arrayContaining(["해커톤", "Machine Learning/AI"]),
+    });
+  });
+
+  it("keeps a general public build challenge in the hackathon category", () => {
+    const contest = normalizeDevpostHackathon(
+      {
+        id: 29542,
+        title: "Open Source Build Challenge",
+        url: "https://open-build.devpost.com/",
+        organization_name: "Open Builders",
+        invite_only: false,
+        displayed_location: { location: "Online" },
+        themes: [{ name: "Open Ended" }],
+      },
+      scheduleHtml,
+      globalRulesHtml,
+      verifiedAt,
+      now,
+    );
+
+    expect(contest).toMatchObject({
+      id: "devpost-29542",
+      type: "hackathon",
     });
   });
 
@@ -455,5 +481,48 @@ describe("itch.io source adapter", () => {
       applicationDeadline: "2026-08-30T10:00:00.000Z",
       organizer: "Brackeys, AquaXV",
     });
+  });
+
+  it("publishes only jams that explicitly allow public online participation", () => {
+    const candidate = {
+      id: "itch-public-jam",
+      title: "Public Game Jam",
+      summary: "A game jam",
+      type: "game",
+      organizer: "Jam Host",
+      eligibilities: ["rules"],
+      eligibilityNote: "규정 확인",
+      mode: "online",
+      applicationDeadline: "2026-08-10T00:00:00.000Z",
+      eventStart: "2026-08-01T00:00:00.000Z",
+      eventEnd: "2026-08-10T00:00:00.000Z",
+      location: "온라인",
+      teamSize: "규정 확인",
+      tags: ["게임", "게임잼", "itch.io"],
+      url: "https://itch.io/jam/public-jam",
+      sourceName: "itch.io 공식 게임잼 목록",
+      sourceType: "official-page",
+      lastVerifiedAt: verifiedAt,
+    };
+    const publicDetail = `
+      <main>
+        <p>Submissions open from August 1 to August 10.</p>
+        <p>This game jam is open to everyone.</p>
+      </main>
+    `;
+
+    expect(getItchKoreanOnlineEvidence(publicDetail)).toBe(
+      "공식 게임잼 페이지에 누구나 온라인 참가 가능 명시",
+    );
+    expect(verifyItchJam(candidate, publicDetail)).toMatchObject({
+      eligibilities: ["anyone"],
+      tags: expect.arrayContaining(["한국 온라인 참가 가능"]),
+    });
+    expect(
+      verifyItchJam(
+        candidate,
+        "<main>Submissions open from August 1. In-person only. This jam is open to everyone.</main>",
+      ),
+    ).toBeUndefined();
   });
 });
