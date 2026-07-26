@@ -28,6 +28,14 @@ npm ls --all
 
 이 문서는 편의를 위한 요약이며 각 패키지에 포함된 원본 라이선스 고지를 대체하지 않습니다. CodePes 자체 소스 코드에는 저장소 루트의 [MIT License](LICENSE)가 적용됩니다.
 
+## 글꼴
+
+CodePes는 화면의 한글과 라틴 문자를 일관되게 표시하기 위해
+[Pretendard 1.3.9](https://github.com/orioncactus/pretendard)을 자체 호스팅합니다.
+Pretendard의 저작권은 Kil Hyung-jin 및 원본 글꼴 프로젝트에 있으며
+[SIL Open Font License 1.1](public/fonts/Pretendard-LICENSE.txt)에 따라
+사용·배포됩니다.
+
 ## 대회 데이터와 상표
 
 CodePes의 MIT License는 외부 기관이 작성한 대회 공지, 로고, 상표 또는
