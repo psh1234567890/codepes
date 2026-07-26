@@ -10,6 +10,7 @@
     "test": "vitest run --config vitest.config.ts",
     "prebuild": "node scripts/clean-build.mjs",
     "build": "tsc -b && vite build",
+    "postbuild": "node scripts/copy-hosting-metadata.mjs",
     "preview": "vite preview",
     "verify": "npm run typecheck && npm run test && npm run build"
   },
