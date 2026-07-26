@@ -7,9 +7,9 @@ CodePes는 별도 계정이나 데이터베이스 없이도 빠르게 열리고,
 ## 구성
 
 ```text
-Codeforces 공식 API ─┐
-                    ├─ scripts/sync-contests.mjs
-수동 검증 JSON ─────┘          │
+국내외 공식 API·페이지 ─┐
+                       ├─ scripts/sync-contests.mjs
+수동 검증 JSON ────────┘          │
                               ▼
              competitions.generated.json
                     │                   │
@@ -48,7 +48,7 @@ Codeforces 공식 API ─┐
 
 ### 자동 갱신
 
-GitHub Actions 동기화 워크플로는 30분마다 또는 수동 실행으로 다음 작업을 수행합니다.
+GitHub Actions 동기화 워크플로는 6시간마다 또는 수동 실행으로 다음 작업을 수행합니다.
 
 1. 잠금 파일 기반 의존성 설치
 2. 대회 데이터 동기화

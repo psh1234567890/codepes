@@ -31,6 +31,17 @@ const stripVisibleHtml = (value) =>
       .replace(/<style[\s\S]*?<\/style>/gi, " "),
   );
 
+const toKoreanIso = (year, month, day, time) => {
+  const timeMatch = String(time).match(/^(\d{1,2}):(\d{2})$/);
+  if (!timeMatch) return undefined;
+  const iso = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}T${String(timeMatch[1]).padStart(2, "0")}:${timeMatch[2]}:00+09:00`;
+  const timestamp = Date.parse(iso);
+  return Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : undefined;
+};
+
+const isFutureDeadline = (iso, now) =>
+  typeof iso === "string" && Date.parse(iso) > now;
+
 const isWithinHorizon = (timestamp, now, horizonDays) =>
   timestamp > now && timestamp <= now + horizonDays * DAY_MS;
 
@@ -503,6 +514,259 @@ export const normalizeDevpostHackathon = (
     url,
     sourceName: "Devpost 공식 목록·일정",
     sourceType: "official-api",
+    lastVerifiedAt: verifiedAt,
+  };
+};
+
+export const extractKoiGuideLinks = (html) => {
+  if (typeof html !== "string") return [];
+  return [
+    ...new Set(
+      [...html.matchAll(/href="(\/koi\/\d{4}\/[12]\/)"/gi)].map(
+        (match) => new URL(match[1], "https://koi.or.kr").href,
+      ),
+    ),
+  ];
+};
+
+export const normalizeKoiGuideHtml = (
+  html,
+  guideUrl,
+  verifiedAt,
+  now = Date.now(),
+) => {
+  const urlMatch = String(guideUrl).match(
+    /^https:\/\/koi\.or\.kr\/koi\/(\d{4})\/([12])\/?$/i,
+  );
+  if (!urlMatch || typeof html !== "string") return undefined;
+
+  const year = Number.parseInt(urlMatch[1], 10);
+  const round = Number.parseInt(urlMatch[2], 10);
+  const text = stripVisibleHtml(html);
+  if (
+    !text.includes(`${year}년도 한국정보올림피아드 ${round}차 대회`) ||
+    !text.includes("접수") ||
+    !text.includes("대회 개최")
+  ) {
+    return undefined;
+  }
+
+  const registration = text.match(
+    /접수(?:\s+일정)?\s+(\d{1,2})\/(\d{1,2})[^0-9]{0,12}(\d{1,2}:\d{2})\s*[-–~]\s*(\d{1,2})\/(\d{1,2})[^0-9]{0,12}(\d{1,2}:\d{2})/i,
+  );
+  const event = text.match(
+    /대회 개최\s+(\d{1,2})\/(\d{1,2})[^0-9]{0,12}(\d{1,2}:\d{2})\s*[-–~]\s*(\d{1,2}:\d{2})/i,
+  );
+  if (!registration || !event) return undefined;
+
+  const applicationDeadline = toKoreanIso(
+    year,
+    registration[4],
+    registration[5],
+    registration[6],
+  );
+  const eventStart = toKoreanIso(year, event[1], event[2], event[3]);
+  const eventEnd = toKoreanIso(year, event[1], event[2], event[4]);
+  if (
+    !isFutureDeadline(applicationDeadline, now) ||
+    !eventStart ||
+    !eventEnd ||
+    Date.parse(eventEnd) <= Date.parse(eventStart)
+  ) {
+    return undefined;
+  }
+
+  const isOnline = /온라인으로\s*개최/.test(text);
+  const isOffline = /오프라인으로\s*개최|대면으로\s*개최/.test(text);
+  if (!isOnline && !isOffline) return undefined;
+
+  return {
+    id: `koi-${year}-${round}`,
+    title: `${year}년도 한국정보올림피아드 ${round}차 대회`,
+    summary:
+      "한국정보올림피아드 공식 안내에 게시된 접수 일정과 개최 시간을 확인한 청소년 알고리즘 대회입니다.",
+    type: "ps",
+    organizer: "한국정보올림피아드",
+    eligibilities: ["youth"],
+    eligibilityNote:
+      round === 1
+        ? "초·중·고등부 세부 참가 자격은 해당 연도 공식 안내 확인 필요"
+        : "1차 대회 수상 기준 등 2차 대회 참가 자격은 공식 안내 확인 필요",
+    mode: isOnline ? "online" : "offline",
+    applicationDeadline,
+    eventStart,
+    eventEnd,
+    location: isOnline ? "온라인" : "공식 안내 페이지의 고사장 확인",
+    teamSize: "개인",
+    languages: ["C", "C++", "Python", "Java"],
+    tags: ["PS", "알고리즘", "KOI", "청소년"],
+    url: new URL(guideUrl).href,
+    sourceName: "한국정보올림피아드 공식 안내",
+    sourceType: "official-page",
+    lastVerifiedAt: verifiedAt,
+  };
+};
+
+export const extractKitpaContestDetailUrl = (html) => {
+  if (typeof html !== "string") return undefined;
+  const ids = [...html.matchAll(/href="\/contest\/(\d+)"/gi)]
+    .map((match) => Number.parseInt(match[1], 10))
+    .filter(Number.isInteger);
+  if (ids.length === 0) return undefined;
+  return `https://kitpa.org/contest/${Math.max(...ids)}`;
+};
+
+export const normalizeKitpaYouthContestHtml = (
+  html,
+  detailUrl,
+  verifiedAt,
+  now = Date.now(),
+) => {
+  if (
+    typeof html !== "string" ||
+    !/^https:\/\/kitpa\.org\/contest\/\d+\/?$/i.test(String(detailUrl))
+  ) {
+    return undefined;
+  }
+
+  const text = stripVisibleHtml(html);
+  const titleMatch = text.match(
+    /(\d{4})\s+제(\d+)회\s+청소년\s+IT경시대회/i,
+  );
+  const registration = text.match(
+    /추가접수기간:\s*(\d{1,2})월\s*(\d{1,2})일[^~]{0,30}~\s*(\d{1,2})월\s*(\d{1,2})일[^0-9]{0,20}(\d{1,2}:\d{2})/i,
+  );
+  const eventSection = text.match(
+    /(\d{1,2})월\s*(\d{1,2})일[^:]{0,20}:\s*대회 개최([\s\S]{0,1800}?)(?:가채점 결과 발표|최종 결과 발표)/i,
+  );
+  if (!titleMatch || !registration || !eventSection) return undefined;
+
+  const year = Number.parseInt(titleMatch[1], 10);
+  const applicationDeadline = toKoreanIso(
+    year,
+    registration[3],
+    registration[4],
+    registration[5],
+  );
+  const testTimes = [
+    ...eventSection[3].matchAll(
+      /시험\s*(\d{1,2}:\d{2})\s*~\s*(\d{1,2}:\d{2})/gi,
+    ),
+  ];
+  if (!isFutureDeadline(applicationDeadline, now) || testTimes.length === 0) {
+    return undefined;
+  }
+
+  const starts = testTimes
+    .map((match) =>
+      toKoreanIso(year, eventSection[1], eventSection[2], match[1]),
+    )
+    .filter(Boolean)
+    .sort();
+  const ends = testTimes
+    .map((match) =>
+      toKoreanIso(year, eventSection[1], eventSection[2], match[2]),
+    )
+    .filter(Boolean)
+    .sort();
+  const eventStart = starts[0];
+  const eventEnd = ends.at(-1);
+  if (
+    !eventStart ||
+    !eventEnd ||
+    Date.parse(eventEnd) <= Date.parse(eventStart) ||
+    !/온라인 수험장|온라인으로\s*진행/.test(text)
+  ) {
+    return undefined;
+  }
+
+  return {
+    id: `kitpa-youth-it-${year}-${titleMatch[2]}`,
+    title: `${year} 제${titleMatch[2]}회 청소년 IT경시대회`,
+    summary:
+      "한국정보기술진흥원 공식 안내에서 접수 마감과 온라인 시험 시간을 확인한 전국 청소년 IT 경시대회입니다.",
+    type: "ps",
+    organizer: "한국정보기술진흥원",
+    eligibilities: ["youth"],
+    eligibilityNote:
+      "전국 초·중·고 재학생 또는 이에 준하는 청소년 대상이며 출생연도·진학 여부별 제한은 공식 안내 확인 필요",
+    mode: "online",
+    applicationDeadline,
+    eventStart,
+    eventEnd,
+    location: "온라인 수험장",
+    teamSize: "개인",
+    languages: ["C", "C++", "Python", "Java"],
+    tags: ["PS", "알고리즘", "IT", "청소년"],
+    url: new URL(detailUrl).href,
+    sourceName: "한국정보기술진흥원 공식 경시대회",
+    sourceType: "official-page",
+    lastVerifiedAt: verifiedAt,
+  };
+};
+
+export const normalizeKookminAlgorithmHtml = (
+  html,
+  pageUrl,
+  verifiedAt,
+  now = Date.now(),
+) => {
+  if (
+    typeof html !== "string" ||
+    !/^https:\/\/software\.kookmin\.ac\.kr\//i.test(String(pageUrl))
+  ) {
+    return undefined;
+  }
+
+  const text = stripVisibleHtml(html);
+  const editionMatch = text.match(/제(\d+)회\s+국민대학교\s+알고리즘\s*대회/i);
+  const registration = text.match(
+    /지원서 접수\s+(\d{4})\.(\d{1,2})\.(\d{1,2})[^0-9]{0,12}(\d{1,2}:\d{2})\s*~\s*(\d{1,2})\.(\d{1,2})[^0-9]{0,12}(\d{1,2}:\d{2})/i,
+  );
+  const event = text.match(
+    /대회\s+(\d{4})\.(\d{1,2})\.(\d{1,2})[^0-9]{0,12}(\d{1,2}:\d{2})\s*~\s*(\d{1,2}:\d{2})\s+대면 시험 진행/i,
+  );
+  if (!editionMatch || !registration || !event) return undefined;
+
+  const year = Number.parseInt(registration[1], 10);
+  const applicationDeadline = toKoreanIso(
+    year,
+    registration[5],
+    registration[6],
+    registration[7],
+  );
+  const eventStart = toKoreanIso(event[1], event[2], event[3], event[4]);
+  const eventEnd = toKoreanIso(event[1], event[2], event[3], event[5]);
+  if (
+    !isFutureDeadline(applicationDeadline, now) ||
+    !eventStart ||
+    !eventEnd ||
+    Date.parse(eventEnd) <= Date.parse(eventStart)
+  ) {
+    return undefined;
+  }
+
+  return {
+    id: `kookmin-algorithm-${year}`,
+    title: `제${editionMatch[1]}회 국민대학교 알고리즘 대회`,
+    summary:
+      "국민대학교 소프트웨어융합대학 공식 안내에서 지원서 접수와 대면 시험 일정을 확인한 고등학생 알고리즘 대회입니다.",
+    type: "ps",
+    organizer: "국민대학교 소프트웨어융합대학",
+    eligibilities: ["youth"],
+    eligibilityNote:
+      "고등학교 재학생·졸업생 또는 동등 이상의 학력이 인정되는 사람 대상이며 세부 조건은 공식 요강 확인 필요",
+    mode: "offline",
+    applicationDeadline,
+    eventStart,
+    eventEnd,
+    location: "국민대학교 교내 고사장",
+    teamSize: "개인",
+    languages: ["C++", "Java", "Python"],
+    tags: ["PS", "알고리즘", "고등학생", "대학 주최"],
+    url: new URL(pageUrl).href,
+    sourceName: "국민대학교 공식 알고리즘대회",
+    sourceType: "official-page",
     lastVerifiedAt: verifiedAt,
   };
 };

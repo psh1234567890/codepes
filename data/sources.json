@@ -48,6 +48,46 @@
     "note": "향후 120일 일정 중 Online·Open으로 명시된 가까운 CTF 최대 30개만 반영"
   },
   {
+    "id": "koi",
+    "name": "한국정보올림피아드",
+    "kind": "official-page",
+    "endpoint": "https://koi.or.kr/",
+    "enabled": true,
+    "autoPublish": true,
+    "pollMinutes": 360,
+    "note": "공식 회차 안내에서 접수 마감·개최 시간·진행 방식을 모두 확인한 접수 중 대회만 반영"
+  },
+  {
+    "id": "kitpa-youth",
+    "name": "한국정보기술진흥원 청소년 IT경시대회",
+    "kind": "official-page",
+    "endpoint": "https://kitpa.org/contest/past",
+    "enabled": true,
+    "autoPublish": true,
+    "pollMinutes": 360,
+    "note": "공식 목록의 최신 회차를 감시하고 온라인 진행과 정확한 접수·시험 시간을 확인한 경우만 반영"
+  },
+  {
+    "id": "kookmin-algorithm",
+    "name": "국민대학교 알고리즘대회",
+    "kind": "official-page",
+    "endpoint": "https://software.kookmin.ac.kr/software/biz/algorism.do",
+    "enabled": true,
+    "autoPublish": true,
+    "pollMinutes": 360,
+    "note": "공식 연례 안내에서 지원서 마감과 대회 시간을 확인한 접수 중 회차만 반영"
+  },
+  {
+    "id": "icpc-korea",
+    "name": "ICPC Korea",
+    "kind": "official-page",
+    "endpoint": "https://icpckorea.org/",
+    "enabled": true,
+    "autoPublish": false,
+    "pollMinutes": 360,
+    "note": "2026 일정은 공개됐지만 정확한 접수 마감·예선 진행 방식·시간이 없어 자동 게시 보류"
+  },
+  {
     "id": "itch",
     "name": "itch.io",
     "kind": "official-page",

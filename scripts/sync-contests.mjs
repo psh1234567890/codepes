@@ -7,11 +7,16 @@ import {
   validateContests,
 } from "./lib/contest-utils.mjs";
 import {
+  extractKitpaContestDetailUrl,
+  extractKoiGuideLinks,
   normalizeAtCoderHtml,
   normalizeCodeChefPayload,
   normalizeCtftimePayload,
   normalizeDevpostHackathon,
   normalizeItchJamsHtml,
+  normalizeKitpaYouthContestHtml,
+  normalizeKoiGuideHtml,
+  normalizeKookminAlgorithmHtml,
 } from "./lib/source-adapters.mjs";
 
 const USER_AGENT = "CodePes/0.1 (+competition directory)";
@@ -134,6 +139,74 @@ const fetchItchJams = async (source, verifiedAt) => {
     throw new Error(`itch.io 게임잼 페이지 HTTP ${response.status}`);
   }
   return normalizeItchJamsHtml(await response.text(), verifiedAt);
+};
+
+const fetchOfficialHtml = async (url, label) => {
+  const response = await fetch(url, {
+    headers: { "User-Agent": USER_AGENT, Accept: "text/html" },
+    signal: AbortSignal.timeout(15_000),
+  });
+  if (!response.ok) {
+    throw new Error(`${label} HTTP ${response.status}`);
+  }
+  return response.text();
+};
+
+const fetchKoi = async (source, verifiedAt) => {
+  const homeHtml = await fetchOfficialHtml(
+    source.endpoint,
+    "한국정보올림피아드 공식 페이지",
+  );
+  const guideUrls = extractKoiGuideLinks(homeHtml);
+  if (guideUrls.length === 0) {
+    throw new Error("한국정보올림피아드 공식 회차 안내 링크를 찾지 못했습니다.");
+  }
+
+  const contests = await Promise.all(
+    guideUrls.map(async (guideUrl) =>
+      normalizeKoiGuideHtml(
+        await fetchOfficialHtml(guideUrl, "한국정보올림피아드 회차 안내"),
+        guideUrl,
+        verifiedAt,
+      ),
+    ),
+  );
+  return contests.filter(Boolean);
+};
+
+const fetchKitpaYouth = async (source, verifiedAt) => {
+  const indexHtml = await fetchOfficialHtml(
+    source.endpoint,
+    "한국정보기술진흥원 경시대회 목록",
+  );
+  const detailUrl = extractKitpaContestDetailUrl(indexHtml);
+  if (!detailUrl) {
+    throw new Error("한국정보기술진흥원 최신 경시대회 안내를 찾지 못했습니다.");
+  }
+
+  const detailHtml = await fetchOfficialHtml(
+    detailUrl,
+    "한국정보기술진흥원 경시대회 안내",
+  );
+  const contest = normalizeKitpaYouthContestHtml(
+    detailHtml,
+    detailUrl,
+    verifiedAt,
+  );
+  return contest ? [contest] : [];
+};
+
+const fetchKookminAlgorithm = async (source, verifiedAt) => {
+  const html = await fetchOfficialHtml(
+    source.endpoint,
+    "국민대학교 알고리즘대회 안내",
+  );
+  const contest = normalizeKookminAlgorithmHtml(
+    html,
+    source.endpoint,
+    verifiedAt,
+  );
+  return contest ? [contest] : [];
 };
 
 const fetchDevpostSchedule = async (hackathon) => {
@@ -327,6 +400,27 @@ const main = async () => {
       sourceName: "CTFtime 공식 API",
       previousContests: previous.contests,
       fetcher: (source) => fetchCtftime(source, verifiedAt),
+    }),
+    collectSource({
+      source: sourceById.get("koi"),
+      label: "한국정보올림피아드",
+      sourceName: "한국정보올림피아드 공식 안내",
+      previousContests: previous.contests,
+      fetcher: (source) => fetchKoi(source, verifiedAt),
+    }),
+    collectSource({
+      source: sourceById.get("kitpa-youth"),
+      label: "한국정보기술진흥원 청소년 IT경시대회",
+      sourceName: "한국정보기술진흥원 공식 경시대회",
+      previousContests: previous.contests,
+      fetcher: (source) => fetchKitpaYouth(source, verifiedAt),
+    }),
+    collectSource({
+      source: sourceById.get("kookmin-algorithm"),
+      label: "국민대학교 알고리즘대회",
+      sourceName: "국민대학교 공식 알고리즘대회",
+      previousContests: previous.contests,
+      fetcher: (source) => fetchKookminAlgorithm(source, verifiedAt),
     }),
     collectSource({
       source: sourceById.get("itch"),

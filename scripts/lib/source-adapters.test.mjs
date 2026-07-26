@@ -1,12 +1,17 @@
 import { describe, expect, it } from "vitest";
 import {
   extractDevpostSubmissionDates,
+  extractKitpaContestDetailUrl,
+  extractKoiGuideLinks,
   getDevpostKoreanOnlineEvidence,
   normalizeAtCoderHtml,
   normalizeCodeChefPayload,
   normalizeCtftimePayload,
   normalizeDevpostHackathon,
   normalizeItchJamsHtml,
+  normalizeKitpaYouthContestHtml,
+  normalizeKoiGuideHtml,
+  normalizeKookminAlgorithmHtml,
 } from "./source-adapters.mjs";
 
 const verifiedAt = "2026-07-26T00:00:00.000Z";
@@ -38,6 +43,117 @@ describe("AtCoder source adapter", () => {
       sourceType: "official-page",
     });
     expect(contests[0].eventEnd).toBe("2026-08-01T13:40:00.000Z");
+  });
+});
+
+describe("Korean official contest source adapters", () => {
+  it("discovers KOI round guides and publishes only an open official round", () => {
+    expect(
+      extractKoiGuideLinks(`
+        <a href="/koi/2027/1/">1차</a>
+        <a href="/koi/2027/2/">2차</a>
+        <a href="/koi/2027/2/">중복</a>
+      `),
+    ).toEqual([
+      "https://koi.or.kr/koi/2027/1/",
+      "https://koi.or.kr/koi/2027/2/",
+    ]);
+
+    const contest = normalizeKoiGuideHtml(
+      `
+        <title>2027년도 한국정보올림피아드 1차 대회 안내사항</title>
+        <table>
+          <tr><td>접수</td><td>3/10(수) 10:00 - 4/20(화) 23:59</td></tr>
+          <tr><td>대회 개최</td><td>5/9(일) 13:00 - 17:00</td></tr>
+        </table>
+        <p>1차 대회는 온라인으로 개최됩니다.</p>
+      `,
+      "https://koi.or.kr/koi/2027/1/",
+      verifiedAt,
+      now,
+    );
+
+    expect(contest).toMatchObject({
+      id: "koi-2027-1",
+      mode: "online",
+      eligibilities: ["youth"],
+      applicationDeadline: "2027-04-20T14:59:00.000Z",
+      eventStart: "2027-05-09T04:00:00.000Z",
+      eventEnd: "2027-05-09T08:00:00.000Z",
+    });
+
+    expect(
+      normalizeKoiGuideHtml(
+        `
+          <h1>2026년도 한국정보올림피아드 2차 대회</h1>
+          <p>접수 6/26(금) 10:00 - 7/12(일) 23:59</p>
+          <p>대회 개최 7/18(토) 12:30 - 18:00</p>
+          <p>온라인으로 개최됩니다.</p>
+        `,
+        "https://koi.or.kr/koi/2026/2/",
+        verifiedAt,
+        now,
+      ),
+    ).toBeUndefined();
+  });
+
+  it("discovers and normalizes the latest open KITPA youth contest", () => {
+    expect(
+      extractKitpaContestDetailUrl(`
+        <a href="/contest/4">4회</a>
+        <a href="/contest/7">현재 회차</a>
+        <a href="/contest/6">6회</a>
+      `),
+    ).toBe("https://kitpa.org/contest/7");
+
+    const contest = normalizeKitpaYouthContestHtml(
+      `
+        <h2>2027 제7회 청소년 IT경시대회</h2>
+        <p>추가접수기간: 3월 8일 (월) ~ 3월 11일 (목) 18:00</p>
+        <p>3월 13일 온라인 수험장 주소 확인 및 수험표 출력</p>
+        <div>3월 15일 (토): 대회 개최
+          <p>프로그래밍 언어 부문 - 시험 9:30 ~ 11:00</p>
+          <p>알고리즘 부문 - 시험 14:30 ~ 18:00</p>
+        </div>
+        <p>3월 20일 가채점 결과 발표</p>
+      `,
+      "https://kitpa.org/contest/7",
+      verifiedAt,
+      now,
+    );
+
+    expect(contest).toMatchObject({
+      id: "kitpa-youth-it-2027-7",
+      mode: "online",
+      applicationDeadline: "2027-03-11T09:00:00.000Z",
+      eventStart: "2027-03-15T00:30:00.000Z",
+      eventEnd: "2027-03-15T09:00:00.000Z",
+    });
+  });
+
+  it("normalizes an open Kookmin University algorithm contest", () => {
+    const contest = normalizeKookminAlgorithmHtml(
+      `
+        <p>제12회 국민대학교 알고리즘 대회</p>
+        <p>참가 자격 고등학교 재학생 및 졸업생</p>
+        <table>
+          <tr><td>지원서 접수</td><td>2027.06.21.(월) 10:00 ~ 06.24.(목) 16:00</td></tr>
+          <tr><td>대회</td><td>2027.07.22.(목) 14:00~16:00</td><td>대면 시험 진행(본교 고사장)</td></tr>
+        </table>
+      `,
+      "https://software.kookmin.ac.kr/software/biz/algorism.do",
+      verifiedAt,
+      now,
+    );
+
+    expect(contest).toMatchObject({
+      id: "kookmin-algorithm-2027",
+      title: "제12회 국민대학교 알고리즘 대회",
+      mode: "offline",
+      applicationDeadline: "2027-06-24T07:00:00.000Z",
+      eventStart: "2027-07-22T05:00:00.000Z",
+      eventEnd: "2027-07-22T07:00:00.000Z",
+    });
   });
 });
 
