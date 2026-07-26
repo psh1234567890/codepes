@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://codepes-korea-contests.seunghunbag76.chatgpt.site/sitemap.xml
