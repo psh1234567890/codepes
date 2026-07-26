@@ -13,6 +13,13 @@ updates:
       - dependencies
     commit-message:
       prefix: deps
+    ignore:
+      - dependency-name: lucide-react
+        update-types:
+          - version-update:semver-major
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
 
   - package-ecosystem: github-actions
     directory: /
