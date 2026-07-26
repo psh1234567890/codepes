@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   extractDevpostSubmissionDates,
+  getDevpostKoreanOnlineEvidence,
   normalizeAtCoderHtml,
   normalizeCodeChefPayload,
   normalizeCtftimePayload,
@@ -74,6 +75,11 @@ describe("Devpost source adapter", () => {
       <td class="active" data-iso-date="2026-07-01T09:00:00-04:00">July 1</td>
       <td class="active" data-iso-date="2026-08-17T16:00:00-04:00">August 17</td>
     </tr></tbody></table>`;
+  const globalRulesHtml = `
+    <main>
+      <h2>Eligibility</h2>
+      <p>Participation is open worldwide. Participants must follow all local laws.</p>
+    </main>`;
 
   it("extracts exact ISO submission dates from the official schedule", () => {
     expect(extractDevpostSubmissionDates(scheduleHtml)).toEqual({
@@ -94,6 +100,7 @@ describe("Devpost source adapter", () => {
         themes: [{ name: "Machine Learning/AI" }],
       },
       scheduleHtml,
+      globalRulesHtml,
       verifiedAt,
       now,
     );
@@ -111,14 +118,16 @@ describe("Devpost source adapter", () => {
       normalizeDevpostHackathon(
         { id: 1, title: "Private", invite_only: true },
         scheduleHtml,
+        globalRulesHtml,
         verifiedAt,
         now,
       ),
     ).toBeUndefined();
   });
 
-  it("falls back when Devpost provides an empty location", () => {
-    const contest = normalizeDevpostHackathon(
+  it("does not publish a hackathon without confirmed online participation", () => {
+    expect(
+      normalizeDevpostHackathon(
       {
         id: 29542,
         title: "Location Pending",
@@ -127,16 +136,40 @@ describe("Devpost source adapter", () => {
         displayed_location: { location: "   " },
       },
       scheduleHtml,
+      globalRulesHtml,
       verifiedAt,
       now,
-    );
-    expect(contest.location).toBe("대회별 공식 페이지 확인");
-    expect(contest.mode).toBe("hybrid");
+      ),
+    ).toBeUndefined();
+  });
+
+  it("requires positive geographic evidence in the official rules", () => {
+    const hackathon = {
+      displayed_location: { location: "Online" },
+    };
+    expect(
+      getDevpostKoreanOnlineEvidence(
+        hackathon,
+        "<main>Eligibility: Open to local university students.</main>",
+      ),
+    ).toBeUndefined();
+    expect(
+      getDevpostKoreanOnlineEvidence(
+        hackathon,
+        "<main>Participants from any location are welcome.</main>",
+      ),
+    ).toBe("공식 규정에 전 세계 온라인 참가 가능 명시");
+    expect(
+      getDevpostKoreanOnlineEvidence(
+        hackathon,
+        "<main>Residents of South Korea are not eligible.</main>",
+      ),
+    ).toBeUndefined();
   });
 });
 
 describe("CTFtime source adapter", () => {
-  it("normalizes valid upcoming events and maps restrictions conservatively", () => {
+  it("publishes only online events explicitly marked Open", () => {
     const contests = normalizeCtftimePayload(
       [
         {
@@ -167,18 +200,13 @@ describe("CTFtime source adapter", () => {
       now,
     );
 
-    expect(contests).toHaveLength(2);
+    expect(contests).toHaveLength(1);
     expect(contests[0]).toMatchObject({
       id: "ctftime-3372",
       type: "security",
       mode: "online",
       eligibilities: ["anyone"],
       deadlineKind: "start",
-    });
-    expect(contests[1]).toMatchObject({
-      mode: "offline",
-      location: "Seoul",
-      eligibilities: ["university"],
     });
   });
 

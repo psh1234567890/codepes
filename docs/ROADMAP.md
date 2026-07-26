@@ -11,8 +11,8 @@
 - GitHub 이슈 기반 대회 제보와 정정 요청
 - Codeforces 공식 API 자동 수집
 - AtCoder 공식 예정 대회와 CodeChef 공식 JSON 자동 수집
-- Devpost 공개 해커톤 목록·일정 자동 수집
-- CTFtime 보안 CTF와 itch.io 게임잼 자동 수집
+- Devpost 공식 규정 기반 한국 온라인 참가 가능 해커톤 자동 수집
+- CTFtime `Online`·`Open` 보안 CTF 자동 수집
 - DACON·DAKER 공식 페이지 수동 검증
 - 원격 GitHub JSON 검증과 번들 fallback
 - 타입 검사, 단위 테스트, 프로덕션 빌드 검증
@@ -31,6 +31,7 @@
 ## 2단계: 데이터 신뢰도
 
 - 인증 가능한 Kaggle 공식 API와 추가 국내외 출처 조사
+- itch.io 게임잼의 국가별 온라인 참가 가능성 검증 방법 조사
 - 수동 데이터의 오래됨을 알리는 검토 기한과 상태 표시
 - 동기화 실행 결과와 실패 원인을 사람이 확인하기 쉬운 형태로 기록
 - 일정 변경과 취소 이력 표시

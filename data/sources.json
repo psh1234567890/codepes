@@ -45,7 +45,7 @@
     "enabled": true,
     "autoPublish": true,
     "pollMinutes": 360,
-    "note": "향후 120일 일정 중 가까운 공개 CTF 최대 30개를 CTFtime 출처 표기와 함께 반영"
+    "note": "향후 120일 일정 중 Online·Open으로 명시된 가까운 CTF 최대 30개만 반영"
   },
   {
     "id": "itch",
@@ -53,9 +53,9 @@
     "kind": "official-page",
     "endpoint": "https://itch.io/jams/upcoming",
     "enabled": true,
-    "autoPublish": true,
+    "autoPublish": false,
     "pollMinutes": 360,
-    "note": "Upcoming Game Jams 첫 페이지에서 일정이 정상적인 상위 20개를 반영"
+    "note": "국가별 참가 자격을 구조적으로 확인할 수 없어 자동 게시 보류"
   },
   {
     "id": "dacon",

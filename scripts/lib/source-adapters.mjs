@@ -24,6 +24,13 @@ const decodeHtml = (value) =>
 const stripHtml = (value) =>
   decodeHtml(value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim());
 
+const stripVisibleHtml = (value) =>
+  stripHtml(
+    value
+      .replace(/<script[\s\S]*?<\/script>/gi, " ")
+      .replace(/<style[\s\S]*?<\/style>/gi, " "),
+  );
+
 const isWithinHorizon = (timestamp, now, horizonDays) =>
   timestamp > now && timestamp <= now + horizonDays * DAY_MS;
 
@@ -189,13 +196,6 @@ export const normalizeCodeChefPayload = (
   });
 };
 
-const ctftimeEligibility = (restriction) => {
-  if (/^open$/i.test(restriction)) return ["anyone"];
-  if (/academic/i.test(restriction)) return ["university"];
-  if (/high[\s-]?school/i.test(restriction)) return ["youth"];
-  return ["rules"];
-};
-
 export const normalizeCtftimePayload = (
   payload,
   verifiedAt,
@@ -245,6 +245,7 @@ export const normalizeCtftimePayload = (
           ? event.format.trim()
           : "CTF";
       const isOnline = event.onsite !== true;
+      if (!isOnline || !/^open$/i.test(restriction)) return [];
       const location =
         typeof event.location === "string" && event.location.trim()
           ? event.location.trim()
@@ -259,19 +260,17 @@ export const normalizeCtftimePayload = (
           summary: `${organizer}에서 진행하는 ${format} 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.`,
           type: "security",
           organizer,
-          eligibilities: ctftimeEligibility(restriction),
+          eligibilities: ["anyone"],
           eligibilityNote:
-            restriction === "Open"
-              ? "CTFtime 등록 기준 Open"
-              : `CTFtime 제한 조건: ${restriction}`,
-          mode: isOnline ? "online" : "offline",
+            "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
+          mode: "online",
           applicationDeadline: new Date(start).toISOString(),
           deadlineKind: "start",
           eventStart: new Date(start).toISOString(),
           eventEnd: new Date(end).toISOString(),
           location,
           teamSize: "대회별 공식 규정 확인",
-          tags: ["보안", "CTF", format],
+          tags: ["보안", "CTF", format, "한국 온라인 참가 가능"],
           url,
           sourceName: "CTFtime 공식 API",
           sourceType: "official-api",
@@ -383,13 +382,73 @@ const devpostMode = (location) => {
   return "offline";
 };
 
+export const getDevpostKoreanOnlineEvidence = (hackathon, rulesHtml) => {
+  const location =
+    typeof hackathon?.displayed_location?.location === "string"
+      ? hackathon.displayed_location.location.trim()
+      : "";
+  if (!/online/i.test(location) || typeof rulesHtml !== "string") {
+    return undefined;
+  }
+
+  const rulesText = stripVisibleHtml(rulesHtml);
+  if (!rulesText) return undefined;
+
+  const koreaDenied =
+    /(?:not eligible|ineligible|excluded|may not participate)[^.!?]{0,120}(?:south korea|republic of korea|korea,\s*republic of)/i.test(
+      rulesText,
+    ) ||
+    /(?:south korea|republic of korea|korea,\s*republic of)[^.!?]{0,120}(?:not eligible|ineligible|excluded|may not participate)/i.test(
+      rulesText,
+    );
+  if (koreaDenied) return undefined;
+
+  const explicitKorea =
+    /(?:open|eligible|welcome|participants?)[^.!?]{0,160}(?:south korea|republic of korea|korea,\s*republic of)/i.test(
+      rulesText,
+    ) ||
+    /(?:south korea|republic of korea|korea,\s*republic of)[^.!?]{0,160}(?:open|eligible|welcome|participants?)/i.test(
+      rulesText,
+    );
+  if (explicitKorea) return "공식 규정에 대한민국 참가 가능 명시";
+
+  const globalParticipationPatterns = [
+    /(?:open|eligible|welcome|welcomes?|participants?|participation)[^.!?]{0,180}\b(?:worldwide|globally|around the world|all countries|any country|any location)\b/i,
+    /\b(?:worldwide|globally|around the world|all countries|any country|any location)\b[^.!?]{0,180}(?:open|eligible|welcome|welcomes?|participants?|participation)/i,
+    /participants? from any location (?:are )?welcome/i,
+    /no restrictions? on nationality/i,
+    /regardless of (?:their )?(?:country|location|nationality|place of residence)/i,
+    /country of residence,\s*in all countries except/i,
+    /open to (?:anyone|everyone)\b/i,
+  ];
+  if (globalParticipationPatterns.some((pattern) => pattern.test(rulesText))) {
+    return "공식 규정에 전 세계 온라인 참가 가능 명시";
+  }
+
+  const sanctionedCountriesOnly =
+    /(?:countries under[^.!?]{0,120}(?:embargo|sanction)|office of foreign assets control|OFAC|laws[^.!?]{0,120}prohibits participating)/i.test(
+      rulesText,
+    ) && /north korea/i.test(rulesText);
+  if (sanctionedCountriesOnly) {
+    return "공식 규정상 제재 국가 외 온라인 참가 가능";
+  }
+
+  return undefined;
+};
+
 export const normalizeDevpostHackathon = (
   hackathon,
   scheduleHtml,
+  rulesHtml,
   verifiedAt,
   now = Date.now(),
 ) => {
   if (!hackathon || hackathon.invite_only === true) return undefined;
+  const koreanOnlineEvidence = getDevpostKoreanOnlineEvidence(
+    hackathon,
+    rulesHtml,
+  );
+  if (!koreanOnlineEvidence) return undefined;
   const id = Number(hackathon.id);
   const title =
     typeof hackathon.title === "string" ? hackathon.title.trim() : "";
@@ -433,14 +492,14 @@ export const normalizeDevpostHackathon = (
     type: "hackathon",
     organizer,
     eligibilities: ["rules"],
-    eligibilityNote: "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+    eligibilityNote: `${koreanOnlineEvidence}. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요`,
     mode: devpostMode(location),
     applicationDeadline: new Date(deadline).toISOString(),
     eventStart: new Date(start).toISOString(),
     eventEnd: new Date(deadline).toISOString(),
     location,
     teamSize: "대회별 공식 규정 확인",
-    tags: ["해커톤", "Devpost", ...themes],
+    tags: ["해커톤", "Devpost", "한국 온라인 참가 가능", ...themes],
     url,
     sourceName: "Devpost 공식 목록·일정",
     sourceType: "official-api",

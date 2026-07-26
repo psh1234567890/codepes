@@ -15,6 +15,7 @@ import {
 } from "./lib/source-adapters.mjs";
 
 const USER_AGENT = "CodePes/0.1 (+competition directory)";
+const KOREAN_ONLINE_TAG = "한국 온라인 참가 가능";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const manualPath = path.join(root, "data", "manual-contests.json");
@@ -147,6 +148,18 @@ const fetchDevpostSchedule = async (hackathon) => {
   return response.text();
 };
 
+const fetchDevpostRules = async (hackathon) => {
+  const rulesUrl = new URL("/rules", hackathon.url);
+  const response = await fetch(rulesUrl, {
+    headers: { "User-Agent": USER_AGENT, Accept: "text/html" },
+    signal: AbortSignal.timeout(15_000),
+  });
+  if (!response.ok) {
+    throw new Error(`Devpost 규정 HTTP ${response.status}`);
+  }
+  return response.text();
+};
+
 const fetchDevpost = async (source, verifiedAt, previousContests) => {
   const response = await fetch(source.endpoint, {
     headers: { "User-Agent": USER_AGENT, Accept: "application/json" },
@@ -172,17 +185,22 @@ const fetchDevpost = async (source, verifiedAt, previousContests) => {
       batch.map(async (hackathon) => {
         const id = `devpost-${hackathon.id}`;
         try {
-          const scheduleHtml = await fetchDevpostSchedule(hackathon);
+          const [scheduleHtml, rulesHtml] = await Promise.all([
+            fetchDevpostSchedule(hackathon),
+            fetchDevpostRules(hackathon),
+          ]);
           return normalizeDevpostHackathon(
             hackathon,
             scheduleHtml,
+            rulesHtml,
             verifiedAt,
           );
         } catch (error) {
           const previous = previousById.get(id);
           if (
             previous &&
-            Date.parse(previous.applicationDeadline) > Date.now()
+            Date.parse(previous.applicationDeadline) > Date.now() &&
+            previous.tags.includes(KOREAN_ONLINE_TAG)
           ) {
             console.warn(
               `Devpost 일정 확인 실패, 기존 항목 유지 (${id}):`,
@@ -229,7 +247,9 @@ const retainPreviousSource = (previousContests, sourceName) =>
   previousContests.filter(
     (contest) =>
       contest.sourceName === sourceName &&
-      Date.parse(contest.applicationDeadline) > Date.now(),
+      Date.parse(contest.applicationDeadline) > Date.now() &&
+      (!["Devpost 공식 목록·일정", "CTFtime 공식 API"].includes(sourceName) ||
+        contest.tags.includes(KOREAN_ONLINE_TAG)),
   );
 
 const collectSource = async ({

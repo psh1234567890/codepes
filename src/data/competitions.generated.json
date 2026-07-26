@@ -1,33 +1,6 @@
 {
-  "updatedAt": "2026-07-26T05:39:43.697Z",
+  "updatedAt": "2026-07-26T05:50:23.620Z",
   "contests": [
-    {
-      "id": "devpost-30283",
-      "title": "DIVE 2026",
-      "summary": "BTP이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "BTP",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "offline",
-      "applicationDeadline": "2026-07-26T08:00:00.000Z",
-      "eventStart": "2026-07-25T04:00:00.000Z",
-      "eventEnd": "2026-07-26T08:00:00.000Z",
-      "location": "4F, BEXCO Exhibition Center 2",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Databases",
-        "Machine Learning/AI"
-      ],
-      "url": "https://dive2026.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
     {
       "id": "codeforces-2249",
       "title": "Codeforces Round 1112 (Div. 1)",
@@ -95,60 +68,33 @@
       "lastVerifiedAt": "2026-07-26T03:19:47.757Z"
     },
     {
-      "id": "devpost-30668",
-      "title": "MYHack 2026",
-      "summary": "Mafiq Foundation이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "id": "devpost-29654",
+      "title": "DSOC : Summer Edition",
+      "summary": "DSOC Official이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
-      "organizer": "Mafiq Foundation",
+      "organizer": "DSOC Official",
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "offline",
-      "applicationDeadline": "2026-07-26T17:00:00.000Z",
-      "eventStart": "2026-07-25T15:00:00.000Z",
-      "eventEnd": "2026-07-26T17:00:00.000Z",
-      "location": "Gaithersburg, MD, USA",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-07-26T21:00:00.000Z",
+      "eventStart": "2026-06-03T22:30:00.000Z",
+      "eventEnd": "2026-07-26T21:00:00.000Z",
+      "location": "Online",
       "teamSize": "대회별 공식 규정 확인",
       "tags": [
         "해커톤",
         "Devpost",
-        "Beginner Friendly",
-        "Open Ended",
-        "Social Good"
+        "한국 온라인 참가 가능",
+        "Enterprise",
+        "Fintech",
+        "Productivity"
       ],
-      "url": "https://myhack-2026.devpost.com/",
+      "url": "https://dsoc-summer-edition.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "devpost-28139",
-      "title": "Esri's Weekend of Innovation 2026",
-      "summary": "ESRI이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "ESRI",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "offline",
-      "applicationDeadline": "2026-07-26T19:00:00.000Z",
-      "eventStart": "2026-07-25T00:00:00.000Z",
-      "eventEnd": "2026-07-26T19:00:00.000Z",
-      "location": "Redlands",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Beginner Friendly",
-        "Open Ended",
-        "Social Good"
-      ],
-      "url": "https://esri-woi-2026.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "devpost-30126",
@@ -159,7 +105,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-07-26T21:00:00.000Z",
       "eventStart": "2026-05-24T06:00:00.000Z",
@@ -169,6 +115,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Enterprise",
         "Fintech",
         "Health"
@@ -176,63 +123,7 @@
       "url": "https://hacknomicshack.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "devpost-30566",
-      "title": "Technoviz Summer of Code",
-      "summary": "Tecnoviz Dev Comm이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "Tecnoviz Dev Comm",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-07-26T21:00:00.000Z",
-      "eventStart": "2026-06-28T07:30:00.000Z",
-      "eventEnd": "2026-07-26T21:00:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Beginner Friendly",
-        "Enterprise",
-        "Fintech"
-      ],
-      "url": "https://technoviz-summer-of-code.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "devpost-29654",
-      "title": "DSOC : Summer Edition",
-      "summary": "DSOC Official이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "DSOC Official",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-07-26T21:00:00.000Z",
-      "eventStart": "2026-06-03T22:30:00.000Z",
-      "eventEnd": "2026-07-26T21:00:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Enterprise",
-        "Fintech",
-        "Productivity"
-      ],
-      "url": "https://dsoc-summer-edition.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "codechef-dsamonday013",
@@ -262,90 +153,6 @@
       "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
     },
     {
-      "id": "devpost-30703",
-      "title": "Measure up",
-      "summary": "snap2measure이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "snap2measure",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-07-27T21:00:00.000Z",
-      "eventStart": "2026-07-13T22:15:00.000Z",
-      "eventEnd": "2026-07-27T21:00:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Lifehacks",
-        "Mobile",
-        "Web"
-      ],
-      "url": "https://measureme-up.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "devpost-30539",
-      "title": "HTCJ Aviation Futures Innovation Challenge",
-      "summary": "hacktheconcretejungle이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "hacktheconcretejungle",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "offline",
-      "applicationDeadline": "2026-07-28T00:00:00.000Z",
-      "eventStart": "2026-06-25T04:00:00.000Z",
-      "eventEnd": "2026-07-28T00:00:00.000Z",
-      "location": "Casa Vertigo",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Enterprise",
-        "Machine Learning/AI",
-        "Social Good"
-      ],
-      "url": "https://htcj-aviation-futures.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "devpost-30414",
-      "title": "Impact Creation",
-      "summary": "TrainzexAI이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "TrainzexAI",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-07-28T14:00:00.000Z",
-      "eventStart": "2026-06-13T17:45:00.000Z",
-      "eventEnd": "2026-07-28T14:00:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Blockchain",
-        "Machine Learning/AI",
-        "Open Ended"
-      ],
-      "url": "https://impact-creation.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
       "id": "devpost-29527",
       "title": "Ventura Challenge",
       "summary": "Student Council이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
@@ -354,7 +161,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-07-29T04:00:00.000Z",
       "eventStart": "2026-06-01T04:00:00.000Z",
@@ -364,6 +171,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Beginner Friendly",
         "Design",
         "E-commerce/Retail"
@@ -371,7 +179,7 @@
       "url": "https://ventura-challenge.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "devpost-30246",
@@ -382,7 +190,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-07-29T12:45:00.000Z",
       "eventStart": "2026-07-08T04:00:00.000Z",
@@ -392,6 +200,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Education",
         "Productivity",
         "Web"
@@ -399,7 +208,7 @@
       "url": "https://ztq.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "codechef-start249",
@@ -437,7 +246,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-07-30T21:00:00.000Z",
       "eventStart": "2026-06-15T04:00:00.000Z",
@@ -447,6 +256,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Beginner Friendly",
         "Open Ended",
         "Social Good"
@@ -454,63 +264,7 @@
       "url": "https://next-byte-hacks-v3.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "devpost-30479",
-      "title": "Prometheus July AI Challenge",
-      "summary": "Prometheus이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "Prometheus",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-07-31T03:45:00.000Z",
-      "eventStart": "2026-07-17T14:00:00.000Z",
-      "eventEnd": "2026-07-31T03:45:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Beginner Friendly",
-        "Design",
-        "Machine Learning/AI"
-      ],
-      "url": "https://prometheus-july-ai-challenge.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "devpost-29584",
-      "title": "Vitalitics 2026",
-      "summary": "vitalitics이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "vitalitics",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-07-31T04:00:00.000Z",
-      "eventStart": "2026-06-20T04:00:00.000Z",
-      "eventEnd": "2026-07-31T04:00:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Beginner Friendly",
-        "Health",
-        "Social Good"
-      ],
-      "url": "https://vitalitics26.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3372",
@@ -521,7 +275,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-07-31T07:00:00.000Z",
       "deadlineKind": "start",
@@ -532,12 +286,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3372/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "atcoder-ahc069",
@@ -568,116 +323,6 @@
       "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
     },
     {
-      "id": "devpost-30476",
-      "title": "DTI Hackathon 2026",
-      "summary": "Cloud Counselage이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "Cloud Counselage",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-07-31T11:30:00.000Z",
-      "eventStart": "2026-06-18T13:00:00.000Z",
-      "eventEnd": "2026-07-31T11:30:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Blockchain",
-        "Cybersecurity",
-        "Web"
-      ],
-      "url": "https://dti-hackathon-2026-30476.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "devpost-27959",
-      "title": "India High School Exoplanet Data Challenge",
-      "summary": "Celesta이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "Celesta",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-07-31T11:30:00.000Z",
-      "eventStart": "2026-06-15T05:00:00.000Z",
-      "eventEnd": "2026-07-31T11:30:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Beginner Friendly",
-        "Low/No Code",
-        "Machine Learning/AI"
-      ],
-      "url": "https://celesta-exoplanet-challenge.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "devpost-30624",
-      "title": "Brainwave 2026 – X402 Blockchain Track",
-      "summary": "ACTS EDC이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "ACTS EDC",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "offline",
-      "applicationDeadline": "2026-07-31T11:30:00.000Z",
-      "eventStart": "2026-07-03T15:30:00.000Z",
-      "eventEnd": "2026-07-31T11:30:00.000Z",
-      "location": "Auditorium",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Blockchain"
-      ],
-      "url": "https://brainwave-2026.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "devpost-30469",
-      "title": "IGAD Hackathon 2026: Smarter Early Warning, Stronger Communities",
-      "summary": "BuildBeyond이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "BuildBeyond",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "offline",
-      "applicationDeadline": "2026-07-31T14:00:00.000Z",
-      "eventStart": "2026-06-22T12:15:00.000Z",
-      "eventEnd": "2026-07-31T14:00:00.000Z",
-      "location": "ICPAC",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Databases",
-        "DevOps",
-        "Mobile"
-      ],
-      "url": "https://igad-husika-hackathon.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
       "id": "ctftime-3061",
       "title": "L3akCTF 2026",
       "summary": "L3ak에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
@@ -686,7 +331,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-07-31T18:00:00.000Z",
       "deadlineKind": "start",
@@ -697,12 +342,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3061/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "codechef-placeprep01",
@@ -732,118 +378,6 @@
       "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
     },
     {
-      "id": "devpost-30598",
-      "title": "Kuki Designed group",
-      "summary": "Kuki Designed group이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "Kuki Designed group",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "offline",
-      "applicationDeadline": "2026-07-31T21:00:00.000Z",
-      "eventStart": "2026-07-01T12:15:00.000Z",
-      "eventEnd": "2026-07-31T21:00:00.000Z",
-      "location": "Ethiopia",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "AR/VR",
-        "E-commerce/Retail",
-        "IoT"
-      ],
-      "url": "https://kuki-designed-group.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "devpost-30517",
-      "title": "Sound for All",
-      "summary": "TechElevate이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "TechElevate",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-07-31T21:00:00.000Z",
-      "eventStart": "2026-06-26T04:00:00.000Z",
-      "eventEnd": "2026-07-31T21:00:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Communication",
-        "Productivity",
-        "Social Good"
-      ],
-      "url": "https://sound-for-all.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "devpost-30622",
-      "title": "The Blueprint Hackathon  (For All Ages, July 17th-31st)",
-      "summary": "Blueprint Hackathon이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "Blueprint Hackathon",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-07-31T21:00:00.000Z",
-      "eventStart": "2026-07-17T04:00:00.000Z",
-      "eventEnd": "2026-07-31T21:00:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Beginner Friendly",
-        "Education",
-        "Open Ended"
-      ],
-      "url": "https://the-blueprint-hackathon.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "devpost-30501",
-      "title": "3D Websites Hackathon",
-      "summary": "high school이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "high school",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-07-31T22:00:00.000Z",
-      "eventStart": "2026-06-22T04:00:00.000Z",
-      "eventEnd": "2026-07-31T22:00:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Design",
-        "Web",
-        "Beginner Friendly"
-      ],
-      "url": "https://3d-websites-hackathon.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
       "id": "ctftime-3311",
       "title": "VuwCTF 2026",
       "summary": "VuwCTF에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
@@ -852,7 +386,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-07-31T22:00:00.000Z",
       "deadlineKind": "start",
@@ -863,66 +397,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3311/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-new-wierd-game-jam",
-      "title": "New Wierd Game Jam",
-      "summary": "siwdvi에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "siwdvi",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-01T00:00:00.000Z",
-      "eventStart": "2026-07-27T00:00:00.000Z",
-      "eventEnd": "2026-08-01T00:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/new-wierd-game-jam",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "devpost-30641",
-      "title": "305 SummerCodex Edition July 2026",
-      "summary": "CAHSI at FIU이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "CAHSI at FIU",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-01T03:45:00.000Z",
-      "eventStart": "2026-07-05T20:45:00.000Z",
-      "eventEnd": "2026-08-01T03:45:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Beginner Friendly",
-        "Education",
-        "Lifehacks"
-      ],
-      "url": "https://305summercodexjul2026.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "devpost-30274",
@@ -933,7 +414,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-01T03:45:00.000Z",
       "eventStart": "2026-07-01T04:00:00.000Z",
@@ -943,6 +424,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Communication",
         "Open Ended",
         "Social Good"
@@ -950,7 +432,7 @@
       "url": "https://baskchallenge.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3237",
@@ -961,7 +443,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-08-01T07:00:00.000Z",
       "deadlineKind": "start",
@@ -972,12 +454,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3237/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "codeforces-2248",
@@ -1049,7 +532,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-08-01T15:00:00.000Z",
       "deadlineKind": "start",
@@ -1060,40 +543,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3373/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "devpost-29948",
-      "title": "Assistive Innovation Challenge 2026",
-      "summary": "Student Innovators Without Borders이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "Student Innovators Without Borders",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-01T21:00:00.000Z",
-      "eventStart": "2026-05-04T04:00:00.000Z",
-      "eventEnd": "2026-08-01T21:00:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Beginner Friendly",
-        "Health",
-        "Social Good"
-      ],
-      "url": "https://assistive-innovation-challenge.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "devpost-30821",
@@ -1104,7 +560,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-02T01:00:00.000Z",
       "eventStart": "2026-07-24T20:00:00.000Z",
@@ -1114,6 +570,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Communication",
         "Machine Learning/AI",
         "Cybersecurity"
@@ -1121,7 +578,7 @@
       "url": "https://the-email-game.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "devpost-30183",
@@ -1132,7 +589,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-02T03:45:00.000Z",
       "eventStart": "2026-07-01T04:00:00.000Z",
@@ -1142,6 +599,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Beginner Friendly",
         "Design",
         "Open Ended"
@@ -1149,7 +607,7 @@
       "url": "https://hackthearts.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "daker-world-cup-manager-2026",
@@ -1182,32 +640,6 @@
       "lastVerifiedAt": "2026-07-24T00:00:00+09:00"
     },
     {
-      "id": "itch-micro-jam-062",
-      "title": "Micro Jam 062: Speed ($600+ PRIZES)",
-      "summary": "tommy에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "tommy",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-03T01:00:00.000Z",
-      "eventStart": "2026-08-01T01:00:00.000Z",
-      "eventEnd": "2026-08-03T01:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/micro-jam-062",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
       "id": "devpost-30205",
       "title": "Backblaze Generative Media Hackathon: Build with Genblaze on B2",
       "summary": "Backblaze이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
@@ -1216,7 +648,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정상 제재 국가 외 온라인 참가 가능. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-03T21:00:00.000Z",
       "eventStart": "2026-06-22T16:30:00.000Z",
@@ -1226,6 +658,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Machine Learning/AI",
         "Music/Art",
         "Voice skills"
@@ -1233,34 +666,7 @@
       "url": "https://backblaze-generative-media.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "devpost-30750",
-      "title": "Build With Gemini - Creation Code",
-      "summary": "Trainzex AI이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "Trainzex AI",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "offline",
-      "applicationDeadline": "2026-08-04T11:30:00.000Z",
-      "eventStart": "2026-07-17T06:00:00.000Z",
-      "eventEnd": "2026-08-04T11:30:00.000Z",
-      "location": "Jaipur, India",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Machine Learning/AI",
-        "Open Ended"
-      ],
-      "url": "https://creation-code-30750.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "devpost-30760",
@@ -1271,7 +677,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-05T07:00:00.000Z",
       "eventStart": "2026-07-20T13:00:00.000Z",
@@ -1281,6 +687,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Machine Learning/AI",
         "Open Ended",
         "Productivity"
@@ -1288,7 +695,7 @@
       "url": "https://build-with-paritok.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3328",
@@ -1299,7 +706,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-08-05T07:00:00.000Z",
       "deadlineKind": "start",
@@ -1310,12 +717,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3328/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "codechef-start250",
@@ -1345,34 +753,6 @@
       "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
     },
     {
-      "id": "devpost-30751",
-      "title": "OrionHackathon",
-      "summary": "contact@orionglobalhackathon.com이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "contact@orionglobalhackathon.com",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "hybrid",
-      "applicationDeadline": "2026-08-05T21:00:00.000Z",
-      "eventStart": "2026-07-17T07:15:00.000Z",
-      "eventEnd": "2026-08-05T21:00:00.000Z",
-      "location": "대회별 공식 페이지 확인",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "E-commerce/Retail",
-        "Fintech",
-        "Machine Learning/AI"
-      ],
-      "url": "https://orionhackathon.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
       "id": "devpost-30515",
       "title": "Girls In STEM Global Hackathon",
       "summary": "Girls In Stem MENA&Central Asia이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
@@ -1381,7 +761,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-06T03:45:00.000Z",
       "eventStart": "2026-06-23T15:30:00.000Z",
@@ -1391,6 +771,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Beginner Friendly",
         "Low/No Code",
         "Social Good"
@@ -1398,7 +779,7 @@
       "url": "https://girlsinstemhackathon.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3342",
@@ -1409,7 +790,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-08-06T17:00:00.000Z",
       "deadlineKind": "start",
@@ -1420,39 +801,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3342/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "ctftime-3305",
-      "title": "RoboHack AI CTF (Robotic Hacking Community at DEFCON 34)",
-      "summary": "robotichackingcommunity에서 진행하는 Hack quest 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
-      "type": "security",
-      "organizer": "robotichackingcommunity",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "CTFtime 제한 조건: Casual",
-      "mode": "online",
-      "applicationDeadline": "2026-08-07T00:00:00.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-08-07T00:00:00.000Z",
-      "eventEnd": "2026-08-09T00:00:00.000Z",
-      "location": "DEFCON 34, Las Vegas, Nevada, USA",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "보안",
-        "CTF",
-        "Hack quest"
-      ],
-      "url": "https://ctftime.org/event/3305/",
-      "sourceName": "CTFtime 공식 API",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "dacon-baram-2026",
@@ -1486,33 +841,6 @@
       "lastVerifiedAt": "2026-07-24T00:00:00+09:00"
     },
     {
-      "id": "ctftime-3322",
-      "title": "DEF CON CTF 2026",
-      "summary": "Benevolent Bureau of Birds에서 진행하는 Attack-Defense 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
-      "type": "security",
-      "organizer": "Benevolent Bureau of Birds",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "CTFtime 제한 조건: Prequalified",
-      "mode": "offline",
-      "applicationDeadline": "2026-08-07T16:00:00.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-08-07T16:00:00.000Z",
-      "eventEnd": "2026-08-09T19:00:00.000Z",
-      "location": "Las Vegas, Nevada, USA",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "보안",
-        "CTF",
-        "Attack-Defense"
-      ],
-      "url": "https://ctftime.org/event/3322/",
-      "sourceName": "CTFtime 공식 API",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
       "id": "ctftime-3052",
       "title": "scriptCTF 2026",
       "summary": "ScriptSorcerers에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
@@ -1521,7 +849,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-08-08T00:00:00.000Z",
       "deadlineKind": "start",
@@ -1532,12 +860,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3052/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3148",
@@ -1548,7 +877,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-08-08T00:00:00.000Z",
       "deadlineKind": "start",
@@ -1559,12 +888,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3148/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "devpost-30522",
@@ -1575,7 +905,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-08T11:30:00.000Z",
       "eventStart": "2026-07-11T04:00:00.000Z",
@@ -1585,6 +915,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Health",
         "Machine Learning/AI",
         "Web"
@@ -1592,7 +923,7 @@
       "url": "https://nextgen-innovation-2026.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "atcoder-abc470",
@@ -1623,32 +954,6 @@
       "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
     },
     {
-      "id": "itch-rpgenesis2026",
-      "title": "#RPGenesis 2026",
-      "summary": "dreamup, Lady Entropy에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "dreamup, Lady Entropy",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-08T23:00:00.000Z",
-      "eventStart": "2026-08-01T23:00:00.000Z",
-      "eventEnd": "2026-08-08T23:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/rpgenesis2026",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
       "id": "atcoder-arc226",
       "title": "UNIQUE VISION Programming Contest 2026 Summer (AtCoder Regular Contest 226)",
       "summary": "AtCoder의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
@@ -1677,58 +982,6 @@
       "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
     },
     {
-      "id": "itch-takernalgamejam2026",
-      "title": "Takernal Game Jam 2026",
-      "summary": "Takernal Community, DDULLA, Yoinzar에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Takernal Community, DDULLA, Yoinzar",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-09T16:00:00.000Z",
-      "eventStart": "2026-08-01T16:00:00.000Z",
-      "eventEnd": "2026-08-09T16:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/takernalgamejam2026",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-okno-summer-jam",
-      "title": "Okno Summer Jam",
-      "summary": "destructive_crab, oknogmdv에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "destructive_crab, oknogmdv",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-09T20:00:00.000Z",
-      "eventStart": "2026-08-07T20:00:00.000Z",
-      "eventEnd": "2026-08-09T20:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/okno-summer-jam",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
       "id": "devpost-30398",
       "title": "Brainwave 2026",
       "summary": "ACT House이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
@@ -1737,7 +990,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-09T21:00:00.000Z",
       "eventStart": "2026-06-12T04:00:00.000Z",
@@ -1747,6 +1000,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "AR/VR",
         "Blockchain",
         "Communication"
@@ -1754,35 +1008,7 @@
       "url": "https://brainwaves.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "devpost-30670",
-      "title": "CSC Summer Impactathon",
-      "summary": "The Webb Schools CSC이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "The Webb Schools CSC",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-10T07:00:00.000Z",
-      "eventStart": "2026-07-09T07:00:00.000Z",
-      "eventEnd": "2026-08-10T07:00:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "Beginner Friendly",
-        "Open Ended",
-        "Social Good"
-      ],
-      "url": "https://csc-summer-impactathon.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "devpost-28039",
@@ -1793,7 +1019,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정상 제재 국가 외 온라인 참가 가능. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-10T21:00:00.000Z",
       "eventStart": "2026-07-06T13:00:00.000Z",
@@ -1803,6 +1029,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Machine Learning/AI",
         "DevOps",
         "Open Ended"
@@ -1810,33 +1037,7 @@
       "url": "https://datahub.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-b1t-jam-5",
-      "title": "B1T Jam 🌙 5",
-      "summary": "Macrow에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Macrow",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-10T22:00:00.000Z",
-      "eventStart": "2026-07-31T22:00:00.000Z",
-      "eventEnd": "2026-08-10T22:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/b1t-jam-5",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3330",
@@ -1847,7 +1048,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-08-14T11:00:00.000Z",
       "deadlineKind": "start",
@@ -1858,12 +1059,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3330/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3181",
@@ -1874,7 +1076,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-08-14T12:00:00.000Z",
       "deadlineKind": "start",
@@ -1885,12 +1087,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3181/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "devpost-30218",
@@ -1901,7 +1104,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정상 제재 국가 외 온라인 참가 가능. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-14T23:00:00.000Z",
       "eventStart": "2026-06-04T17:30:00.000Z",
@@ -1911,12 +1114,13 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Machine Learning/AI"
       ],
       "url": "https://arm-ai-optimization-challenge.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3318",
@@ -1927,7 +1131,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-08-15T00:00:00.000Z",
       "deadlineKind": "start",
@@ -1938,39 +1142,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3318/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "ctftime-3343",
-      "title": "THJCC CTF 2026 summer",
-      "summary": "CakeisTheFake에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
-      "type": "security",
-      "organizer": "CakeisTheFake",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
-      "mode": "offline",
-      "applicationDeadline": "2026-08-15T00:00:01.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-08-15T00:00:01.000Z",
-      "eventEnd": "2026-08-16T12:00:00.000Z",
-      "location": "공식 페이지 확인",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "보안",
-        "CTF",
-        "Jeopardy"
-      ],
-      "url": "https://ctftime.org/event/3343/",
-      "sourceName": "CTFtime 공식 API",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "devpost-30586",
@@ -1981,7 +1159,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-15T06:45:00.000Z",
       "eventStart": "2026-06-30T05:30:00.000Z",
@@ -1991,6 +1169,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Beginner Friendly",
         "Machine Learning/AI",
         "Social Good"
@@ -1998,7 +1177,7 @@
       "url": "https://ml-empowerment-2.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "atcoder-abc471",
@@ -2029,32 +1208,6 @@
       "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
     },
     {
-      "id": "itch-lowrezjam-2026",
-      "title": "LOWREZJAM 2026",
-      "summary": "JackOatley, Gurpreet Singh Matharoo에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "JackOatley, Gurpreet Singh Matharoo",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-15T12:00:00.000Z",
-      "eventStart": "2026-08-01T12:00:00.000Z",
-      "eventEnd": "2026-08-15T12:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/lowrezjam-2026",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
       "id": "devpost-30779",
       "title": "NEXORA Global Hackathon",
       "summary": "SVHEC이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
@@ -2063,7 +1216,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-15T18:15:00.000Z",
       "eventStart": "2026-07-23T16:00:00.000Z",
@@ -2073,6 +1226,7 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Education",
         "Health",
         "Machine Learning/AI"
@@ -2080,7 +1234,7 @@
       "url": "https://nexora-global-hackathon.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "devpost-30383",
@@ -2091,7 +1245,7 @@
       "eligibilities": [
         "rules"
       ],
-      "eligibilityNote": "연령·거주지·팀 구성 등 대회별 공식 규정 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
       "applicationDeadline": "2026-08-15T21:00:00.000Z",
       "eventStart": "2026-06-12T04:00:00.000Z",
@@ -2101,13 +1255,14 @@
       "tags": [
         "해커톤",
         "Devpost",
+        "한국 온라인 참가 가능",
         "Education",
         "Machine Learning/AI"
       ],
       "url": "https://acesat-ai-agent.devpost.com/",
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "atcoder-arc227",
@@ -2136,58 +1291,6 @@
       "sourceName": "AtCoder 공식 대회 목록",
       "sourceType": "official-page",
       "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
-    },
-    {
-      "id": "itch-gamezanga14",
-      "title": "Game Zanga 14 زنقة الالعاب",
-      "summary": "Danar Dev에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Danar Dev",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-16T17:00:00.000Z",
-      "eventStart": "2026-08-13T17:00:00.000Z",
-      "eventEnd": "2026-08-16T17:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/gamezanga14",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-back-in-the-game-jam",
-      "title": "$250+ Back in the Game Jam",
-      "summary": "tokentakenuser, Jattenalle, minipaperplanes에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "tokentakenuser, Jattenalle, minipaperplanes",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-16T23:00:00.000Z",
-      "eventStart": "2026-07-30T23:00:00.000Z",
-      "eventEnd": "2026-08-16T23:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/back-in-the-game-jam",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
     },
     {
       "id": "dacon-inha-ai-2026",
@@ -2228,7 +1331,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-08-21T12:00:00.000Z",
       "deadlineKind": "start",
@@ -2239,64 +1342,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3065/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch--ard-game-jam-2026",
-      "title": "🕹️ ARD GAME JAM 2026",
-      "summary": "ARD Game Jam에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "ARD Game Jam",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-23T17:00:00.000Z",
-      "eventStart": "2026-08-21T17:00:00.000Z",
-      "eventEnd": "2026-08-23T17:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/-ard-game-jam-2026",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-hps1-summer-camp-jam",
-      "title": "Haunted PS1 Summer Camp Jam",
-      "summary": "VladimereLhore에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "VladimereLhore",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-24T08:00:00.000Z",
-      "eventStart": "2026-07-27T08:00:00.000Z",
-      "eventEnd": "2026-08-24T08:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/hps1-summer-camp-jam",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "daker-quantum-reframing-2026",
@@ -2340,7 +1392,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-08-29T00:00:00.000Z",
       "deadlineKind": "start",
@@ -2351,12 +1403,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3290/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3033",
@@ -2367,7 +1420,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-08-29T14:00:00.000Z",
       "deadlineKind": "start",
@@ -2378,117 +1431,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3033/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "ctftime-3347",
-      "title": "UND CyberHawks National CTF Competition 2026 Qualifiers",
-      "summary": "UND CyberHawks에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
-      "type": "security",
-      "organizer": "UND CyberHawks",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "CTFtime 제한 조건: Casual",
-      "mode": "online",
-      "applicationDeadline": "2026-08-29T14:00:00.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-08-29T14:00:00.000Z",
-      "eventEnd": "2026-08-30T05:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "보안",
-        "CTF",
-        "Jeopardy"
-      ],
-      "url": "https://ctftime.org/event/3347/",
-      "sourceName": "CTFtime 공식 API",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-brackeys-16",
-      "title": "Brackeys Game Jam 2026.2",
-      "summary": "Brackeys, AquaXV, Yasahiro, Duxez에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Brackeys, AquaXV, Yasahiro, Duxez",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-30T10:00:00.000Z",
-      "eventStart": "2026-08-23T10:00:00.000Z",
-      "eventEnd": "2026-08-30T10:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/brackeys-16",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-themed-horror-game-jam-25",
-      "title": "Themed Horror Game Jam #25",
-      "summary": "Beregon, BroodyGaming에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Beregon, BroodyGaming",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-30T17:59:00.000Z",
-      "eventStart": "2026-07-29T17:59:00.000Z",
-      "eventEnd": "2026-08-30T17:59:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/themed-horror-game-jam-25",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-queercomgames2026",
-      "title": "Queer Communist Game Jam 2026",
-      "summary": "MizuMiaw에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "MizuMiaw",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-31T21:24:43.000Z",
-      "eventStart": "2026-08-01T21:24:43.000Z",
-      "eventEnd": "2026-08-31T21:24:43.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/queercomgames2026",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3097",
@@ -2499,7 +1448,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-09-04T16:00:00.000Z",
       "deadlineKind": "start",
@@ -2510,12 +1459,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3097/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3344",
@@ -2526,7 +1476,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-09-05T10:00:00.000Z",
       "deadlineKind": "start",
@@ -2537,38 +1487,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3344/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-feedback-quest-9-indiegames-x-indie-streamers",
-      "title": "🔥 Feedback Quest 9: indiegames X indie streamers",
-      "summary": "indiequesting, hythrain, Altabestudio, JanJMueller에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "indiequesting, hythrain, Altabestudio, JanJMueller",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-09-05T23:01:02.000Z",
-      "eventStart": "2026-08-30T23:01:02.000Z",
-      "eventEnd": "2026-09-05T23:01:02.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/feedback-quest-9-indiegames-x-indie-streamers",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "atcoder-abc474",
@@ -2607,7 +1532,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-09-11T10:00:00.000Z",
       "deadlineKind": "start",
@@ -2618,12 +1543,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3145/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3348",
@@ -2634,7 +1560,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-09-11T22:00:00.000Z",
       "deadlineKind": "start",
@@ -2645,91 +1571,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3348/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-craftpix-indie-jam-1-2026",
-      "title": "Craftpix Indie Jam #1-2026",
-      "summary": "Free Game Assets (GUI, Sprite, Tilesets)에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Free Game Assets (GUI, Sprite, Tilesets)",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-09-13T17:00:00.000Z",
-      "eventStart": "2026-09-02T17:00:00.000Z",
-      "eventEnd": "2026-09-13T17:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/craftpix-indie-jam-1-2026",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-mixed-media-queer-vn-jam",
-      "title": "MIXED MEDIA QUEER VN JAM",
-      "summary": "Laplace Atelier, Fisher, Ppilotco에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Laplace Atelier, Fisher, Ppilotco",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-09-14T07:00:00.000Z",
-      "eventStart": "2026-08-14T07:00:00.000Z",
-      "eventEnd": "2026-09-14T07:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/mixed-media-queer-vn-jam",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "ctftime-3265",
-      "title": "VolgaCTF 2026 Final",
-      "summary": "VolgaCTF.org에서 진행하는 Attack-Defense 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
-      "type": "security",
-      "organizer": "VolgaCTF.org",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
-      "mode": "offline",
-      "applicationDeadline": "2026-09-17T05:00:00.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-09-17T05:00:00.000Z",
-      "eventEnd": "2026-09-17T15:00:00.000Z",
-      "location": "Russia, Samara",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "보안",
-        "CTF",
-        "Attack-Defense"
-      ],
-      "url": "https://ctftime.org/event/3265/",
-      "sourceName": "CTFtime 공식 API",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3346",
@@ -2740,7 +1588,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-09-18T04:30:00.000Z",
       "deadlineKind": "start",
@@ -2751,12 +1599,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3346/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3355",
@@ -2767,7 +1616,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-09-18T16:00:00.000Z",
       "deadlineKind": "start",
@@ -2778,12 +1627,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3355/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3326",
@@ -2794,7 +1644,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-09-19T03:30:00.000Z",
       "deadlineKind": "start",
@@ -2805,38 +1655,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3326/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-gbjam-14",
-      "title": "GBJAM 14",
-      "summary": "Polyducks, chasehunter, DL, poltergasm, timconceivable, tatltuae, Traslo, arknano, batfeula에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Polyducks, chasehunter, DL, poltergasm, timconceivable, tatltuae, Traslo, arknano, batfeula",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-09-21T11:00:00.000Z",
-      "eventStart": "2026-09-11T11:00:00.000Z",
-      "eventEnd": "2026-09-21T11:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/gbjam-14",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3093",
@@ -2847,7 +1672,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-09-26T03:30:00.000Z",
       "deadlineKind": "start",
@@ -2858,12 +1683,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3093/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3312",
@@ -2874,7 +1700,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-09-26T12:00:00.000Z",
       "deadlineKind": "start",
@@ -2885,64 +1711,13 @@
       "tags": [
         "보안",
         "CTF",
-        "Attack-Defense"
+        "Attack-Defense",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3312/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-bezi-mega-jam-1",
-      "title": "Bezi Mega Jam | $12,000+ in Prizes, GDC Passes, Synty Assets, iPad Pro M5 + Apple Pencil",
-      "summary": "Bezi에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Bezi",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-09-28T07:00:00.000Z",
-      "eventStart": "2026-09-14T07:00:00.000Z",
-      "eventEnd": "2026-09-28T07:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/bezi-mega-jam-1",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
-    },
-    {
-      "id": "itch-spooktober-2026",
-      "title": "Spooktober 8th Annual Visual Novel Jam",
-      "summary": "Stella @ MakeVisualNovels에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Stella @ MakeVisualNovels",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-10-01T04:00:00.000Z",
-      "eventStart": "2026-09-01T04:00:00.000Z",
-      "eventEnd": "2026-10-01T04:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io"
-      ],
-      "url": "https://itch.io/jam/spooktober-2026",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-26T05:38:06.371Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
       "id": "ctftime-3364",
@@ -2953,7 +1728,7 @@
       "eligibilities": [
         "anyone"
       ],
-      "eligibilityNote": "CTFtime 등록 기준 Open",
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
       "mode": "online",
       "applicationDeadline": "2026-10-03T09:00:00.000Z",
       "deadlineKind": "start",
@@ -2964,12 +1739,153 @@
       "tags": [
         "보안",
         "CTF",
-        "Jeopardy"
+        "Jeopardy",
+        "한국 온라인 참가 가능"
       ],
       "url": "https://ctftime.org/event/3364/",
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:39:43.697Z"
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
+    },
+    {
+      "id": "ctftime-3293",
+      "title": "CDCTF 2026",
+      "summary": "Crimson Defense에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
+      "type": "security",
+      "organizer": "Crimson Defense",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
+      "mode": "online",
+      "applicationDeadline": "2026-10-03T15:00:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-10-03T15:00:00.000Z",
+      "eventEnd": "2026-10-04T03:00:00.000Z",
+      "location": "온라인",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "보안",
+        "CTF",
+        "Jeopardy",
+        "한국 온라인 참가 가능"
+      ],
+      "url": "https://ctftime.org/event/3293/",
+      "sourceName": "CTFtime 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
+    },
+    {
+      "id": "ctftime-3354",
+      "title": "GaianSpace CTF 2026",
+      "summary": "GaianSpace에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
+      "type": "security",
+      "organizer": "GaianSpace",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
+      "mode": "online",
+      "applicationDeadline": "2026-10-10T21:00:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-10-10T21:00:00.000Z",
+      "eventEnd": "2026-10-14T21:00:00.000Z",
+      "location": "온라인",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "보안",
+        "CTF",
+        "Jeopardy",
+        "한국 온라인 참가 가능"
+      ],
+      "url": "https://ctftime.org/event/3354/",
+      "sourceName": "CTFtime 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
+    },
+    {
+      "id": "ctftime-3279",
+      "title": "DEADFACE CTF 2026",
+      "summary": "Cyber Hacktics에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
+      "type": "security",
+      "organizer": "Cyber Hacktics",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
+      "mode": "online",
+      "applicationDeadline": "2026-10-17T14:00:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-10-17T14:00:00.000Z",
+      "eventEnd": "2026-10-19T00:00:00.000Z",
+      "location": "온라인",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "보안",
+        "CTF",
+        "Jeopardy",
+        "한국 온라인 참가 가능"
+      ],
+      "url": "https://ctftime.org/event/3279/",
+      "sourceName": "CTFtime 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
+    },
+    {
+      "id": "ctftime-3207",
+      "title": "Hack.lu CTF 2026",
+      "summary": "FluxFingers에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
+      "type": "security",
+      "organizer": "FluxFingers",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
+      "mode": "online",
+      "applicationDeadline": "2026-10-23T18:00:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-10-23T18:00:00.000Z",
+      "eventEnd": "2026-10-25T18:00:00.000Z",
+      "location": "온라인",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "보안",
+        "CTF",
+        "Jeopardy",
+        "한국 온라인 참가 가능"
+      ],
+      "url": "https://ctftime.org/event/3207/",
+      "sourceName": "CTFtime 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
+    },
+    {
+      "id": "ctftime-3331",
+      "title": "PINK+ CTF 2026",
+      "summary": "PINK+에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
+      "type": "security",
+      "organizer": "PINK+",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
+      "mode": "online",
+      "applicationDeadline": "2026-11-06T12:00:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-11-06T12:00:00.000Z",
+      "eventEnd": "2026-11-09T12:00:00.000Z",
+      "location": "온라인",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "보안",
+        "CTF",
+        "Jeopardy",
+        "한국 온라인 참가 가능"
+      ],
+      "url": "https://ctftime.org/event/3331/",
+      "sourceName": "CTFtime 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     }
   ]
 }

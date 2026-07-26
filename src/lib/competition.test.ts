@@ -141,13 +141,29 @@ describe("competition data validation", () => {
       "AtCoder 공식 대회 목록",
       "CodeChef 공식 API",
       "Devpost 공식 목록·일정",
+      "CTFtime 공식 API",
     ]) {
       expect(sourceNames.has(sourceName)).toBe(true);
     }
     expect(
       generatedData.contests
         .filter((item) => item.sourceName === "Devpost 공식 목록·일정")
-        .every((item) => item.eligibilities.includes("rules")),
+        .every(
+          (item) =>
+            item.mode === "online" &&
+            item.eligibilities.includes("rules") &&
+            item.tags.includes("한국 온라인 참가 가능"),
+        ),
+    ).toBe(true);
+    expect(
+      generatedData.contests
+        .filter((item) => item.sourceName === "CTFtime 공식 API")
+        .every(
+          (item) =>
+            item.mode === "online" &&
+            item.eligibilities.includes("anyone") &&
+            item.tags.includes("한국 온라인 참가 가능"),
+        ),
     ).toBe(true);
   });
 });
