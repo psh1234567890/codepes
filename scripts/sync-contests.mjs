@@ -9,7 +9,9 @@ import {
 import {
   normalizeAtCoderHtml,
   normalizeCodeChefPayload,
+  normalizeCtftimePayload,
   normalizeDevpostHackathon,
+  normalizeItchJamsHtml,
 } from "./lib/source-adapters.mjs";
 
 const USER_AGENT = "CodePes/0.1 (+competition directory)";
@@ -103,6 +105,34 @@ const fetchCodeChef = async (source, verifiedAt) => {
     throw new Error(`CodeChef API HTTP ${response.status}`);
   }
   return normalizeCodeChefPayload(await response.json(), verifiedAt);
+};
+
+const fetchCtftime = async (source, verifiedAt) => {
+  const start = Math.floor(Date.now() / 1000);
+  const finish = start + 120 * 24 * 60 * 60;
+  const endpoint = new URL(source.endpoint);
+  endpoint.searchParams.set("limit", "100");
+  endpoint.searchParams.set("start", String(start));
+  endpoint.searchParams.set("finish", String(finish));
+  const response = await fetch(endpoint, {
+    headers: { "User-Agent": USER_AGENT, Accept: "application/json" },
+    signal: AbortSignal.timeout(15_000),
+  });
+  if (!response.ok) {
+    throw new Error(`CTFtime API HTTP ${response.status}`);
+  }
+  return normalizeCtftimePayload(await response.json(), verifiedAt);
+};
+
+const fetchItchJams = async (source, verifiedAt) => {
+  const response = await fetch(source.endpoint, {
+    headers: { "User-Agent": USER_AGENT, Accept: "text/html" },
+    signal: AbortSignal.timeout(15_000),
+  });
+  if (!response.ok) {
+    throw new Error(`itch.io 게임잼 페이지 HTTP ${response.status}`);
+  }
+  return normalizeItchJamsHtml(await response.text(), verifiedAt);
 };
 
 const fetchDevpostSchedule = async (hackathon) => {
@@ -270,6 +300,20 @@ const main = async () => {
       previousContests: previous.contests,
       fetcher: (source) =>
         fetchDevpost(source, verifiedAt, previous.contests),
+    }),
+    collectSource({
+      source: sourceById.get("ctftime"),
+      label: "CTFtime",
+      sourceName: "CTFtime 공식 API",
+      previousContests: previous.contests,
+      fetcher: (source) => fetchCtftime(source, verifiedAt),
+    }),
+    collectSource({
+      source: sourceById.get("itch"),
+      label: "itch.io",
+      sourceName: "itch.io 공식 게임잼 목록",
+      previousContests: previous.contests,
+      fetcher: (source) => fetchItchJams(source, verifiedAt),
     }),
   ]);
   const automaticContests = automaticGroups.flat();

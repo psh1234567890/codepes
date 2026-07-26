@@ -45,6 +45,24 @@ const parseDurationMs = (value) => {
   return (hours * 60 + minutes) * 60 * 1000;
 };
 
+const parseHumanDurationMs = (value) => {
+  const match = value
+    .trim()
+    .match(/^([\d.]+)\s+(minute|hour|day|week|month|year)s?$/i);
+  if (!match) return undefined;
+  const amount = Number.parseFloat(match[1]);
+  if (!Number.isFinite(amount) || amount <= 0) return undefined;
+  const unitDays = {
+    minute: 1 / (24 * 60),
+    hour: 1 / 24,
+    day: 1,
+    week: 7,
+    month: 30,
+    year: 365,
+  };
+  return amount * unitDays[match[2].toLowerCase()] * DAY_MS;
+};
+
 export const normalizeAtCoderHtml = (
   html,
   verifiedAt,
@@ -171,6 +189,181 @@ export const normalizeCodeChefPayload = (
   });
 };
 
+const ctftimeEligibility = (restriction) => {
+  if (/^open$/i.test(restriction)) return ["anyone"];
+  if (/academic/i.test(restriction)) return ["university"];
+  if (/high[\s-]?school/i.test(restriction)) return ["youth"];
+  return ["rules"];
+};
+
+export const normalizeCtftimePayload = (
+  payload,
+  verifiedAt,
+  now = Date.now(),
+  horizonDays = 120,
+  limit = 30,
+) => {
+  if (!Array.isArray(payload)) {
+    throw new Error("CTFtime API 응답 형식이 올바르지 않습니다.");
+  }
+
+  return payload
+    .flatMap((event) => {
+      const id = Number(event?.id);
+      const title = typeof event?.title === "string" ? event.title.trim() : "";
+      const start = Date.parse(event?.start);
+      const end = Date.parse(event?.finish);
+      const url =
+        typeof event?.ctftime_url === "string" ? event.ctftime_url.trim() : "";
+      if (
+        !Number.isInteger(id) ||
+        !title ||
+        /\b(?:cancelled|canceled|postponed)\b/i.test(title) ||
+        !/^https:\/\/ctftime\.org\/event\/\d+\/?$/i.test(url) ||
+        !Number.isFinite(start) ||
+        !Number.isFinite(end) ||
+        end <= start ||
+        !isWithinHorizon(start, now, horizonDays)
+      ) {
+        return [];
+      }
+
+      const restriction =
+        typeof event.restrictions === "string" && event.restrictions.trim()
+          ? event.restrictions.trim()
+          : "공식 페이지 확인";
+      const organizers = Array.isArray(event.organizers)
+        ? event.organizers
+            .map((organizer) =>
+              typeof organizer?.name === "string" ? organizer.name.trim() : "",
+            )
+            .filter(Boolean)
+        : [];
+      const organizer = organizers.join(", ") || "CTFtime 등록 주최자";
+      const format =
+        typeof event.format === "string" && event.format.trim()
+          ? event.format.trim()
+          : "CTF";
+      const isOnline = event.onsite !== true;
+      const location =
+        typeof event.location === "string" && event.location.trim()
+          ? event.location.trim()
+          : isOnline
+            ? "온라인"
+            : "공식 페이지 확인";
+
+      return [
+        {
+          id: `ctftime-${id}`,
+          title,
+          summary: `${organizer}에서 진행하는 ${format} 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.`,
+          type: "security",
+          organizer,
+          eligibilities: ctftimeEligibility(restriction),
+          eligibilityNote:
+            restriction === "Open"
+              ? "CTFtime 등록 기준 Open"
+              : `CTFtime 제한 조건: ${restriction}`,
+          mode: isOnline ? "online" : "offline",
+          applicationDeadline: new Date(start).toISOString(),
+          deadlineKind: "start",
+          eventStart: new Date(start).toISOString(),
+          eventEnd: new Date(end).toISOString(),
+          location,
+          teamSize: "대회별 공식 규정 확인",
+          tags: ["보안", "CTF", format],
+          url,
+          sourceName: "CTFtime 공식 API",
+          sourceType: "official-api",
+          lastVerifiedAt: verifiedAt,
+        },
+      ];
+    })
+    .sort(
+      (a, b) =>
+        new Date(a.eventStart).getTime() - new Date(b.eventStart).getTime(),
+    )
+    .slice(0, limit);
+};
+
+export const normalizeItchJamsHtml = (
+  html,
+  verifiedAt,
+  now = Date.now(),
+  horizonDays = 180,
+  limit = 20,
+) => {
+  if (!html.includes("jam_grid_widget")) {
+    throw new Error("itch.io Upcoming Game Jams 영역을 찾지 못했습니다.");
+  }
+
+  return html
+    .split(/<div class="jam lazy_images">/i)
+    .slice(1)
+    .flatMap((segment) => {
+      const titleMatch = segment.match(
+        /<div class="primary_info">[\s\S]*?<h3[^>]*><a href="\/jam\/([^"]+)">([\s\S]*?)<\/a>/i,
+      );
+      const hostMatch = segment.match(
+        /<div class="hosted_by meta_row">([\s\S]*?)<\/div>/i,
+      );
+      const startMatch = segment.match(
+        /<span class="date_countdown"[^>]*>([^<]+)<\/span>/i,
+      );
+      const durationMatch = segment.match(
+        /<span class="date_duration">([^<]+)<\/span>/i,
+      );
+      if (!titleMatch || !startMatch || !durationMatch) return [];
+
+      const slug = titleMatch[1].trim();
+      const title = stripHtml(titleMatch[2]);
+      const start = Date.parse(stripHtml(startMatch[1]));
+      const duration = parseHumanDurationMs(stripHtml(durationMatch[1]));
+      if (
+        !slug ||
+        !title ||
+        !Number.isFinite(start) ||
+        duration === undefined ||
+        duration > 60 * DAY_MS ||
+        !isWithinHorizon(start, now, horizonDays)
+      ) {
+        return [];
+      }
+
+      const hostText = hostMatch ? stripHtml(hostMatch[1]) : "";
+      const organizer =
+        hostText
+          .replace(/^Hosted by\s+/i, "")
+          .replace(/\s+([,;:])/g, "$1")
+          .trim() || "itch.io 등록 주최자";
+      const end = start + duration;
+
+      return [
+        {
+          id: `itch-${slug}`,
+          title,
+          summary: `${organizer}에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.`,
+          type: "game",
+          organizer,
+          eligibilities: ["rules"],
+          eligibilityNote: "연령·팀 구성·사용 가능 에셋 등 게임잼별 규정 확인 필요",
+          mode: "online",
+          applicationDeadline: new Date(end).toISOString(),
+          eventStart: new Date(start).toISOString(),
+          eventEnd: new Date(end).toISOString(),
+          location: "온라인",
+          teamSize: "게임잼별 공식 규정 확인",
+          tags: ["게임", "게임잼", "itch.io"],
+          url: `https://itch.io/jam/${slug}`,
+          sourceName: "itch.io 공식 게임잼 목록",
+          sourceType: "official-page",
+          lastVerifiedAt: verifiedAt,
+        },
+      ];
+    })
+    .slice(0, limit);
+};
+
 export const extractDevpostSubmissionDates = (html) => {
   const rowMatch = html.match(
     /<tr>\s*<td[^>]*class="active"[^>]*>\s*Submissions\s*<\/td>([\s\S]*?)<\/tr>/i,
@@ -186,6 +379,7 @@ export const extractDevpostSubmissionDates = (html) => {
 const devpostMode = (location) => {
   if (/^online$/i.test(location.trim())) return "online";
   if (/online/i.test(location)) return "hybrid";
+  if (/공식 페이지 확인/.test(location)) return "hybrid";
   return "offline";
 };
 
@@ -215,7 +409,8 @@ export const normalizeDevpostHackathon = (
   }
 
   const location =
-    typeof hackathon.displayed_location?.location === "string"
+    typeof hackathon.displayed_location?.location === "string" &&
+    hackathon.displayed_location.location.trim()
       ? hackathon.displayed_location.location.trim()
       : "대회별 공식 페이지 확인";
   const organizer =

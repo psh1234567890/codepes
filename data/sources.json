@@ -31,11 +31,31 @@
     "id": "devpost",
     "name": "Devpost",
     "kind": "official-api",
-    "endpoint": "https://devpost.com/api/hackathons?status[]=upcoming&status[]=open&order_by=deadline&per_page=20",
+    "endpoint": "https://devpost.com/api/hackathons?status[]=upcoming&status[]=open&order_by=deadline&per_page=40",
     "enabled": true,
     "autoPublish": true,
     "pollMinutes": 360,
     "note": "공개 목록과 각 해커톤의 공식 일정 페이지를 함께 확인하며 초대 전용 항목은 제외"
+  },
+  {
+    "id": "ctftime",
+    "name": "CTFtime",
+    "kind": "official-api",
+    "endpoint": "https://ctftime.org/api/v1/events/",
+    "enabled": true,
+    "autoPublish": true,
+    "pollMinutes": 360,
+    "note": "향후 120일 일정 중 가까운 공개 CTF 최대 30개를 CTFtime 출처 표기와 함께 반영"
+  },
+  {
+    "id": "itch",
+    "name": "itch.io",
+    "kind": "official-page",
+    "endpoint": "https://itch.io/jams/upcoming",
+    "enabled": true,
+    "autoPublish": true,
+    "pollMinutes": 360,
+    "note": "Upcoming Game Jams 첫 페이지에서 일정이 정상적인 상위 20개를 반영"
   },
   {
     "id": "dacon",
