@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-26T06:13:33.260Z",
+  "updatedAt": "2026-07-26T06:37:17.599Z",
   "contests": [
     {
       "id": "codeforces-2249",
@@ -1410,6 +1410,39 @@
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
       "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
+    },
+    {
+      "id": "kitpa-youth-it-2026-7",
+      "title": "2026 제7회 청소년 IT경시대회",
+      "summary": "한국정보기술진흥원 공식 안내에서 접수 마감과 온라인 시험 시간을 확인한 전국 청소년 IT 경시대회입니다.",
+      "type": "ps",
+      "organizer": "한국정보기술진흥원",
+      "eligibilities": [
+        "youth"
+      ],
+      "eligibilityNote": "전국 초·중·고 재학생 또는 이에 준하는 청소년 대상이며 출생연도·진학 여부별 제한은 공식 안내 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-09-02T09:00:00.000Z",
+      "eventStart": "2026-09-05T00:30:00.000Z",
+      "eventEnd": "2026-09-05T09:00:00.000Z",
+      "location": "온라인 수험장",
+      "teamSize": "개인",
+      "languages": [
+        "C",
+        "C++",
+        "Python",
+        "Java"
+      ],
+      "tags": [
+        "PS",
+        "알고리즘",
+        "IT",
+        "청소년"
+      ],
+      "url": "https://kitpa.org/notice/75",
+      "sourceName": "한국정보기술진흥원 공식 경시대회",
+      "sourceType": "official-page",
+      "lastVerifiedAt": "2026-07-26T06:37:17.599Z"
     },
     {
       "id": "ctftime-3097",

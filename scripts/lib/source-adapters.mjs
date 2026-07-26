@@ -616,6 +616,19 @@ export const extractKitpaContestDetailUrl = (html) => {
   return `https://kitpa.org/contest/${Math.max(...ids)}`;
 };
 
+export const extractKitpaYouthCandidateUrls = (html) => {
+  if (typeof html !== "string") return [];
+  const candidates = [];
+  for (const match of html.matchAll(
+    /<a[^>]+href="(\/(?:contest|notice)\/\d+)"[^>]*>([\s\S]*?)<\/a>/gi,
+  )) {
+    if (/청소년\s+IT경시대회/i.test(stripHtml(match[2]))) {
+      candidates.push(new URL(match[1], "https://kitpa.org").href);
+    }
+  }
+  return [...new Set(candidates)];
+};
+
 export const normalizeKitpaYouthContestHtml = (
   html,
   detailUrl,
@@ -624,7 +637,9 @@ export const normalizeKitpaYouthContestHtml = (
 ) => {
   if (
     typeof html !== "string" ||
-    !/^https:\/\/kitpa\.org\/contest\/\d+\/?$/i.test(String(detailUrl))
+    !/^https:\/\/kitpa\.org\/(?:contest|notice)\/\d+\/?$/i.test(
+      String(detailUrl),
+    )
   ) {
     return undefined;
   }
@@ -634,12 +649,16 @@ export const normalizeKitpaYouthContestHtml = (
     /(\d{4})\s+제(\d+)회\s+청소년\s+IT경시대회/i,
   );
   const registration = text.match(
-    /추가접수기간:\s*(\d{1,2})월\s*(\d{1,2})일[^~]{0,30}~\s*(\d{1,2})월\s*(\d{1,2})일[^0-9]{0,20}(\d{1,2}:\d{2})/i,
+    /추가접수기간\s*:\s*(\d{1,2})월\s*(\d{1,2})일[^~]{0,30}~\s*(\d{1,2})월\s*(\d{1,2})일[^0-9]{0,20}(\d{1,2}:\d{2})/i,
   );
-  const eventSection = text.match(
-    /(\d{1,2})월\s*(\d{1,2})일[^:]{0,20}:\s*대회 개최([\s\S]{0,1800}?)(?:가채점 결과 발표|최종 결과 발표)/i,
-  );
-  if (!titleMatch || !registration || !eventSection) return undefined;
+  const eventDate =
+    text.match(
+      /시험일시\s*:\s*(\d{1,2})월\s*(\d{1,2})일[^0-9]{0,20}/i,
+    ) ??
+    text.match(
+      /(\d{1,2})월\s*(\d{1,2})일[^:]{0,20}:\s*대회 개최/i,
+    );
+  if (!titleMatch || !registration || !eventDate) return undefined;
 
   const year = Number.parseInt(titleMatch[1], 10);
   const applicationDeadline = toKoreanIso(
@@ -648,8 +667,10 @@ export const normalizeKitpaYouthContestHtml = (
     registration[4],
     registration[5],
   );
+  const eventDateIndex = text.indexOf(eventDate[0]);
+  const eventSection = text.slice(eventDateIndex, eventDateIndex + 2500);
   const testTimes = [
-    ...eventSection[3].matchAll(
+    ...eventSection.matchAll(
       /시험\s*(\d{1,2}:\d{2})\s*~\s*(\d{1,2}:\d{2})/gi,
     ),
   ];
@@ -659,13 +680,13 @@ export const normalizeKitpaYouthContestHtml = (
 
   const starts = testTimes
     .map((match) =>
-      toKoreanIso(year, eventSection[1], eventSection[2], match[1]),
+      toKoreanIso(year, eventDate[1], eventDate[2], match[1]),
     )
     .filter(Boolean)
     .sort();
   const ends = testTimes
     .map((match) =>
-      toKoreanIso(year, eventSection[1], eventSection[2], match[2]),
+      toKoreanIso(year, eventDate[1], eventDate[2], match[2]),
     )
     .filter(Boolean)
     .sort();
@@ -700,6 +721,108 @@ export const normalizeKitpaYouthContestHtml = (
     tags: ["PS", "알고리즘", "IT", "청소년"],
     url: new URL(detailUrl).href,
     sourceName: "한국정보기술진흥원 공식 경시대회",
+    sourceType: "official-page",
+    lastVerifiedAt: verifiedAt,
+  };
+};
+
+export const extractUcpcEditionUrl = (html) => {
+  if (typeof html !== "string") return undefined;
+  const editions = [
+    ...html.matchAll(/href="https:\/\/(\d{4})\.ucpc\.me\/?"/gi),
+  ].map((match) => Number.parseInt(match[1], 10));
+  if (editions.length === 0) return undefined;
+  return `https://${Math.max(...editions)}.ucpc.me/`;
+};
+
+export const normalizeUcpcHtml = (
+  editionHtml,
+  qualifierHtml,
+  editionUrl,
+  verifiedAt,
+  now = Date.now(),
+) => {
+  const urlMatch = String(editionUrl).match(
+    /^https:\/\/(\d{4})\.ucpc\.me\/?$/i,
+  );
+  if (
+    !urlMatch ||
+    typeof editionHtml !== "string" ||
+    typeof qualifierHtml !== "string"
+  ) {
+    return undefined;
+  }
+
+  const year = Number.parseInt(urlMatch[1], 10);
+  const editionText = stripVisibleHtml(editionHtml);
+  const qualifierText = stripVisibleHtml(qualifierHtml);
+  if (
+    !editionText.includes(`UCPC ${year}`) ||
+    !editionText.includes("전국 대학생 프로그래밍 대회 동아리 연합")
+  ) {
+    return undefined;
+  }
+
+  const registration = editionText.match(
+    /참가 신청\s*[—–-][\s\S]{0,120}?부터\s*(\d{1,2})월\s*(\d{1,2})일[^0-9]{0,30}(\d{1,2}:\d{2})/i,
+  );
+  const qualifierDate = qualifierText.match(
+    /(\d{1,2})월\s*(\d{1,2})일[^,]{0,30},\s*온라인으로 진행/i,
+  );
+  const qualifierSchedule = qualifierText.match(
+    /(\d{1,2}:\d{2})\s*~\s*(\d{1,2}:\d{2})\s*예선 대회를 진행/i,
+  );
+  if (!registration || !qualifierDate || !qualifierSchedule) {
+    return undefined;
+  }
+
+  const applicationDeadline = toKoreanIso(
+    year,
+    registration[1],
+    registration[2],
+    registration[3],
+  );
+  const eventStart = toKoreanIso(
+    year,
+    qualifierDate[1],
+    qualifierDate[2],
+    qualifierSchedule[1],
+  );
+  const eventEnd = toKoreanIso(
+    year,
+    qualifierDate[1],
+    qualifierDate[2],
+    qualifierSchedule[2],
+  );
+  if (
+    !isFutureDeadline(applicationDeadline, now) ||
+    !eventStart ||
+    !eventEnd ||
+    Date.parse(eventEnd) <= Date.parse(eventStart)
+  ) {
+    return undefined;
+  }
+
+  return {
+    id: `ucpc-${year}`,
+    title: `UCPC ${year}`,
+    summary:
+      "전국 대학생 프로그래밍 대회 동아리 연합이 주최하는 팀 알고리즘 대회로, 온라인 예선과 오프라인 본선으로 진행됩니다.",
+    type: "ps",
+    organizer: "전국 대학생 프로그래밍 대회 동아리 연합",
+    eligibilities: ["university"],
+    eligibilityNote:
+      "학·석사과정 재·휴학생 및 수료생 대상이며 졸업생 제외 등 세부 자격은 공식 안내 확인 필요",
+    mode: "hybrid",
+    applicationDeadline,
+    eventStart,
+    eventEnd,
+    location: "온라인 예선 · 본선 장소는 공식 안내 확인",
+    teamSize: "3인 팀",
+    languages: ["C", "C++", "Java", "Python"],
+    tags: ["PS", "알고리즘", "UCPC", "대학생", "팀 대회"],
+    url: new URL(editionUrl).href,
+    sourceName: "UCPC 공식 대회 안내",
     sourceType: "official-page",
     lastVerifiedAt: verifiedAt,
   };

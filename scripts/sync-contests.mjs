@@ -8,7 +8,9 @@ import {
 } from "./lib/contest-utils.mjs";
 import {
   extractKitpaContestDetailUrl,
+  extractKitpaYouthCandidateUrls,
   extractKoiGuideLinks,
+  extractUcpcEditionUrl,
   normalizeAtCoderHtml,
   normalizeCodeChefPayload,
   normalizeCtftimePayload,
@@ -17,6 +19,7 @@ import {
   normalizeKitpaYouthContestHtml,
   normalizeKoiGuideHtml,
   normalizeKookminAlgorithmHtml,
+  normalizeUcpcHtml,
 } from "./lib/source-adapters.mjs";
 
 const USER_AGENT = "CodePes/0.1 (+competition directory)";
@@ -179,18 +182,50 @@ const fetchKitpaYouth = async (source, verifiedAt) => {
     source.endpoint,
     "한국정보기술진흥원 경시대회 목록",
   );
-  const detailUrl = extractKitpaContestDetailUrl(indexHtml);
-  if (!detailUrl) {
+  const candidateUrls = extractKitpaYouthCandidateUrls(indexHtml);
+  const latestDetailUrl = extractKitpaContestDetailUrl(indexHtml);
+  if (latestDetailUrl) candidateUrls.push(latestDetailUrl);
+  const detailUrls = [...new Set(candidateUrls)].slice(0, 10);
+  if (detailUrls.length === 0) {
     throw new Error("한국정보기술진흥원 최신 경시대회 안내를 찾지 못했습니다.");
   }
 
-  const detailHtml = await fetchOfficialHtml(
-    detailUrl,
-    "한국정보기술진흥원 경시대회 안내",
+  const contests = await Promise.all(
+    detailUrls.map(async (detailUrl) =>
+      normalizeKitpaYouthContestHtml(
+        await fetchOfficialHtml(
+          detailUrl,
+          "한국정보기술진흥원 경시대회 안내",
+        ),
+        detailUrl,
+        verifiedAt,
+      ),
+    ),
   );
-  const contest = normalizeKitpaYouthContestHtml(
-    detailHtml,
-    detailUrl,
+  return contests.filter(Boolean);
+};
+
+const fetchUcpc = async (source, verifiedAt) => {
+  const indexHtml = await fetchOfficialHtml(
+    source.endpoint,
+    "UCPC 공식 연합 페이지",
+  );
+  const editionUrl = extractUcpcEditionUrl(indexHtml);
+  if (!editionUrl) {
+    throw new Error("UCPC 최신 연도 대회 페이지를 찾지 못했습니다.");
+  }
+
+  const [editionHtml, qualifierHtml] = await Promise.all([
+    fetchOfficialHtml(editionUrl, "UCPC 공식 대회 안내"),
+    fetchOfficialHtml(
+      new URL("/qualifier/", editionUrl),
+      "UCPC 공식 예선 안내",
+    ),
+  ]);
+  const contest = normalizeUcpcHtml(
+    editionHtml,
+    qualifierHtml,
+    editionUrl,
     verifiedAt,
   );
   return contest ? [contest] : [];
@@ -421,6 +456,13 @@ const main = async () => {
       sourceName: "국민대학교 공식 알고리즘대회",
       previousContests: previous.contests,
       fetcher: (source) => fetchKookminAlgorithm(source, verifiedAt),
+    }),
+    collectSource({
+      source: sourceById.get("ucpc"),
+      label: "UCPC",
+      sourceName: "UCPC 공식 대회 안내",
+      previousContests: previous.contests,
+      fetcher: (source) => fetchUcpc(source, verifiedAt),
     }),
     collectSource({
       source: sourceById.get("itch"),

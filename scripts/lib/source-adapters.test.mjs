@@ -2,7 +2,9 @@ import { describe, expect, it } from "vitest";
 import {
   extractDevpostSubmissionDates,
   extractKitpaContestDetailUrl,
+  extractKitpaYouthCandidateUrls,
   extractKoiGuideLinks,
+  extractUcpcEditionUrl,
   getDevpostKoreanOnlineEvidence,
   normalizeAtCoderHtml,
   normalizeCodeChefPayload,
@@ -12,6 +14,7 @@ import {
   normalizeKitpaYouthContestHtml,
   normalizeKoiGuideHtml,
   normalizeKookminAlgorithmHtml,
+  normalizeUcpcHtml,
 } from "./source-adapters.mjs";
 
 const verifiedAt = "2026-07-26T00:00:00.000Z";
@@ -131,6 +134,41 @@ describe("Korean official contest source adapters", () => {
     });
   });
 
+  it("discovers both KITPA notices and contest pages for the second annual round", () => {
+    expect(
+      extractKitpaYouthCandidateUrls(`
+        <a href="/notice/80">2027 제8회 청소년 IT경시대회 일정 안내</a>
+        <a href="/contest/7">제7회 청소년 IT경시대회</a>
+        <a href="/notice/81">일반 공지</a>
+      `),
+    ).toEqual([
+      "https://kitpa.org/notice/80",
+      "https://kitpa.org/contest/7",
+    ]);
+
+    const contest = normalizeKitpaYouthContestHtml(
+      `
+        <h2>2027 제8회 청소년 IT경시대회</h2>
+        <p>추가접수기간 : 8월 31일 ~ 9월 2일 18:00</p>
+        <p>온라인 수험장에서 진행합니다.</p>
+        <p>시험일시 : 9월 5일</p>
+        <p>C언어 부문 - 시험 9:30 ~ 11:00</p>
+        <p>알고리즘 부문 - 시험 14:30 ~ 18:00</p>
+      `,
+      "https://kitpa.org/notice/80",
+      verifiedAt,
+      now,
+    );
+
+    expect(contest).toMatchObject({
+      id: "kitpa-youth-it-2027-8",
+      mode: "online",
+      applicationDeadline: "2027-09-02T09:00:00.000Z",
+      eventStart: "2027-09-05T00:30:00.000Z",
+      eventEnd: "2027-09-05T09:00:00.000Z",
+    });
+  });
+
   it("normalizes an open Kookmin University algorithm contest", () => {
     const contest = normalizeKookminAlgorithmHtml(
       `
@@ -153,6 +191,39 @@ describe("Korean official contest source adapters", () => {
       applicationDeadline: "2027-06-24T07:00:00.000Z",
       eventStart: "2027-07-22T05:00:00.000Z",
       eventEnd: "2027-07-22T07:00:00.000Z",
+    });
+  });
+
+  it("discovers and normalizes an open UCPC edition", () => {
+    expect(
+      extractUcpcEditionUrl(`
+        <a href="https://2026.ucpc.me/">UCPC 2026</a>
+        <a href="https://2027.ucpc.me/">UCPC 2027</a>
+      `),
+    ).toBe("https://2027.ucpc.me/");
+
+    const contest = normalizeUcpcHtml(
+      `
+        <h1>UCPC 2027</h1>
+        <p>전국 대학생 프로그래밍 대회 동아리 연합</p>
+        <p>참가 신청 — 6월 5일 00:00부터 6월 22일 23:59</p>
+      `,
+      `
+        <p>6월 27일 (일), 온라인으로 진행됩니다.</p>
+        <p>14:00 ~ 17:00 예선 대회를 진행합니다.</p>
+      `,
+      "https://2027.ucpc.me/",
+      verifiedAt,
+      now,
+    );
+
+    expect(contest).toMatchObject({
+      id: "ucpc-2027",
+      mode: "hybrid",
+      eligibilities: ["university"],
+      applicationDeadline: "2027-06-22T14:59:00.000Z",
+      eventStart: "2027-06-27T05:00:00.000Z",
+      eventEnd: "2027-06-27T08:00:00.000Z",
     });
   });
 });

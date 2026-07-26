@@ -61,11 +61,11 @@
     "id": "kitpa-youth",
     "name": "한국정보기술진흥원 청소년 IT경시대회",
     "kind": "official-page",
-    "endpoint": "https://kitpa.org/contest/past",
+    "endpoint": "https://kitpa.org/notice?page=1",
     "enabled": true,
     "autoPublish": true,
     "pollMinutes": 360,
-    "note": "공식 목록의 최신 회차를 감시하고 온라인 진행과 정확한 접수·시험 시간을 확인한 경우만 반영"
+    "note": "연 2회 열리는 대회의 현재 공지와 회차 상세를 함께 감시하고 온라인 진행과 정확한 접수·시험 시간을 확인한 접수 중 회차만 반영"
   },
   {
     "id": "kookmin-algorithm",
@@ -78,6 +78,26 @@
     "note": "공식 연례 안내에서 지원서 마감과 대회 시간을 확인한 접수 중 회차만 반영"
   },
   {
+    "id": "ucpc",
+    "name": "UCPC",
+    "kind": "official-page",
+    "endpoint": "https://ucpc.me/",
+    "enabled": true,
+    "autoPublish": true,
+    "pollMinutes": 360,
+    "note": "공식 연합 페이지에서 최신 연도 사이트를 찾고 정확한 신청 마감·온라인 예선 시간을 확인한 접수 중 회차만 반영"
+  },
+  {
+    "id": "scpc",
+    "name": "Samsung Collegiate Programming Challenge",
+    "kind": "official-page",
+    "endpoint": "https://research.samsung.com/scpc",
+    "enabled": true,
+    "autoPublish": false,
+    "pollMinutes": 360,
+    "note": "안정적인 공식 페이지는 확보했으나 신청 마감 시각이 날짜로만 공개되어 자동 게시 보류"
+  },
+  {
     "id": "icpc-korea",
     "name": "ICPC Korea",
     "kind": "official-page",
@@ -86,6 +106,36 @@
     "autoPublish": false,
     "pollMinutes": 360,
     "note": "2026 일정은 공개됐지만 정확한 접수 마감·예선 진행 방식·시간이 없어 자동 게시 보류"
+  },
+  {
+    "id": "ewha-girls-programming",
+    "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
+    "kind": "official-page",
+    "endpoint": "https://cms.ewha.ac.kr/user/indexSub.action?codyMenuSeq=66000690&siteId=swcu",
+    "enabled": true,
+    "autoPublish": false,
+    "pollMinutes": 1440,
+    "note": "연례 공식 안내는 확인했으나 2026 일정과 정확한 마감·대회 시간이 아직 없어 자동 게시 보류"
+  },
+  {
+    "id": "honam-youth-programming",
+    "name": "호남권 청소년 SW프로그래밍 경진대회",
+    "kind": "official-page",
+    "endpoint": "https://eie.chosun.ac.kr/eie/5563/subview.do",
+    "enabled": true,
+    "autoPublish": false,
+    "pollMinutes": 1440,
+    "note": "호남권 5개 대학 연합 연례 대회. 공식 일정이 이미지 포스터로만 제공되어 자동 게시 보류"
+  },
+  {
+    "id": "baekjoon-official-contests",
+    "name": "Baekjoon 공식 대회 목록",
+    "kind": "official-page",
+    "endpoint": "https://www.acmicpc.net/contest/official/list",
+    "enabled": true,
+    "autoPublish": false,
+    "pollMinutes": 360,
+    "note": "대학 오픈대회를 폭넓게 포함하지만 2026-04-28 이후 채점 서비스 준비 중이라 자동 수집 보류"
   },
   {
     "id": "itch",
