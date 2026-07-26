@@ -14,7 +14,7 @@
 - Devpost 공식 규정 기반 한국 온라인 참가 가능 해커톤 자동 수집
 - CTFtime `Online`·`Open` 보안 CTF 자동 수집
 - 한국정보올림피아드·한국정보기술진흥원 청소년 IT경시대회·국민대학교 알고리즘대회 공식 안내 감시
-- 접수 세부 정보 공개 전 ICPC Korea 보류 감시
+- 접수 세부 정보 공개 전 ICPC Korea 자동 게시 보류 출처 설정
 - DACON·DAKER 공식 페이지 수동 검증
 - 원격 GitHub JSON 검증과 번들 fallback
 - 타입 검사, 단위 테스트, 프로덕션 빌드 검증
