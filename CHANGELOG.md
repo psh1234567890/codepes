@@ -6,6 +6,8 @@
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-07-26
+
 ### 확인
 
 - 공개 GitHub 저장소의 CI와 Sites 프로덕션 배포 검증
@@ -14,6 +16,16 @@
 
 ### 추가
 
+- 개발 대회 검색, 유형·자격·방식 필터와 정렬
+- 브라우저 `localStorage` 기반 관심 대회 저장과 저장 목록 필터
+- 전체, 저장, 개별 대회의 `.ics` 캘린더 내보내기
+- 대회별 공유 링크와 공식 페이지 이동
+- GitHub 이슈를 통한 대회 제보·수정 요청 흐름
+- Codeforces 공식 API 동기화와 DACON·DAKER 수동 검증 데이터 병합
+- GitHub Raw 최신 JSON의 런타임 검증, 갱신 시각 비교, 번들 fallback
+- 정기 데이터 갱신을 위한 GitHub Actions 워크플로
+- TypeScript 타입 검사, Vitest 테스트, 프로덕션 빌드를 묶은 검증 명령
+- MIT 라이선스와 기여, 보안, 개인정보, 지원, 데이터 정책 문서
 - AtCoder 공식 예정 대회 표 자동 수집
 - CodeChef 공식 JSON 예정 대회 자동 수집
 - Devpost 공개 목록과 공식 일정 페이지를 결합한 해커톤 자동 수집
@@ -31,26 +43,6 @@
 - UCPC 최신 연도 공식 안내와 온라인 예선 일정 자동 수집
 - SCPC·이화여대 전국 여고생 대회·호남권 대학 연합 청소년 대회·Baekjoon 공식 대학 대회 목록 감시 출처
 - 정확한 접수·진행 정보가 더 필요한 ICPC Korea 자동 게시 보류 출처 설정
-
-### 계획
-
-- 첫 버전 태그와 릴리스 노트 발행
-- 실제 사용자 피드백을 반영한 데이터 출처 확대
-
-## [0.1.0] - 2026-07-25
-
-### 추가
-
-- 개발 대회 검색, 유형·자격·방식 필터와 정렬
-- 브라우저 `localStorage` 기반 관심 대회 저장과 저장 목록 필터
-- 전체, 저장, 개별 대회의 `.ics` 캘린더 내보내기
-- 대회별 공유 링크와 공식 페이지 이동
-- GitHub 이슈를 통한 대회 제보·수정 요청 흐름
-- Codeforces 공식 API 동기화와 DACON·DAKER 수동 검증 데이터 병합
-- GitHub Raw 최신 JSON의 런타임 검증, 갱신 시각 비교, 번들 fallback
-- 정기 데이터 갱신을 위한 GitHub Actions 워크플로
-- TypeScript 타입 검사, Vitest 테스트, 프로덕션 빌드를 묶은 검증 명령
-- MIT 라이선스와 기여, 보안, 개인정보, 지원, 데이터 정책 문서
 
 [Unreleased]: https://github.com/psh1234567890/codepes/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/psh1234567890/codepes/releases/tag/v0.1.0
