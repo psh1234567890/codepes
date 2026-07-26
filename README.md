@@ -18,7 +18,7 @@ CodePes에는 계정, 로그인, 이메일 구독, 자체 데이터베이스가 
 
 ## 라이브 서비스
 
-**[CodePes 바로 열기](https://codepes-korea-contests.seunghunbag76.chatgpt.site)**
+**[CodePes 바로 열기](https://codepes.kro.kr)**
 
 공개 프로덕션 서비스는 GitHub `main` 브랜치에서 검증된 소스와 같은 커밋을 기준으로 배포합니다.
 

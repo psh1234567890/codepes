@@ -1,8 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { describe, expect, it } from "vitest";
 
-const siteUrl =
-  "https://codepes-korea-contests.seunghunbag76.chatgpt.site";
+const siteUrl = "https://codepes.kro.kr";
 
 describe("public site metadata", () => {
   it("uses deploy-safe absolute social images and a static CSP fallback", async () => {
