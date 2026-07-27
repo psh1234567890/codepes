@@ -1,32 +1,92 @@
 {
-  "updatedAt": "2026-07-27T10:10:22.287Z",
+  "updatedAt": "2026-07-27T15:15:30.156Z",
   "contests": [
     {
-      "id": "codechef-dsamonday013",
-      "title": "Monday Munch - DSA Challenge 013 (Rated)",
-      "summary": "CodeChef의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
-      "type": "ps",
-      "organizer": "CodeChef",
+      "id": "devpost-29654",
+      "title": "DSOC : Summer Edition",
+      "summary": "DSOC Official이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "type": "hackathon",
+      "organizer": "DSOC Official",
       "eligibilities": [
-        "anyone"
+        "rules"
       ],
-      "eligibilityNote": "CodeChef 계정이 있는 누구나, 대회별 Division 확인 필요",
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
       "mode": "online",
-      "applicationDeadline": "2026-07-27T13:30:00.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-07-27T13:30:00.000Z",
-      "eventEnd": "2026-07-27T16:30:00.000Z",
-      "location": "온라인",
-      "teamSize": "개인",
+      "applicationDeadline": "2026-07-27T21:00:00.000Z",
+      "eventStart": "2026-06-03T22:30:00.000Z",
+      "eventEnd": "2026-07-27T21:00:00.000Z",
+      "location": "Online",
+      "teamSize": "대회별 공식 규정 확인",
       "tags": [
-        "PS",
-        "알고리즘",
-        "CodeChef"
+        "해커톤",
+        "Devpost",
+        "한국 온라인 참가 가능",
+        "Enterprise",
+        "Fintech",
+        "Productivity"
       ],
-      "url": "https://www.codechef.com/DSAMONDAY013",
-      "sourceName": "CodeChef 공식 API",
+      "url": "https://dsoc-summer-edition.devpost.com/",
+      "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
+      "lastVerifiedAt": "2026-07-27T15:15:30.156Z"
+    },
+    {
+      "id": "devpost-30106",
+      "title": "Hack the Tech",
+      "summary": "College of Engineering이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "type": "hackathon",
+      "organizer": "College of Engineering",
+      "eligibilities": [
+        "rules"
+      ],
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-07-27T21:00:00.000Z",
+      "eventStart": "2026-05-16T18:15:00.000Z",
+      "eventEnd": "2026-07-27T21:00:00.000Z",
+      "location": "Online",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "해커톤",
+        "Devpost",
+        "한국 온라인 참가 가능",
+        "Education",
+        "Enterprise",
+        "Fintech"
+      ],
+      "url": "https://hack-the-tech.devpost.com/",
+      "sourceName": "Devpost 공식 목록·일정",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-07-27T15:15:30.156Z"
+    },
+    {
+      "id": "devpost-30126",
+      "title": "HackNomics",
+      "summary": "hacknomics이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "type": "hackathon",
+      "organizer": "hacknomics",
+      "eligibilities": [
+        "rules"
+      ],
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-07-27T21:00:00.000Z",
+      "eventStart": "2026-05-24T06:00:00.000Z",
+      "eventEnd": "2026-07-27T21:00:00.000Z",
+      "location": "Online",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "해커톤",
+        "Devpost",
+        "한국 온라인 참가 가능",
+        "Enterprise",
+        "Fintech",
+        "Health"
+      ],
+      "url": "https://hacknomicshack.devpost.com/",
+      "sourceName": "Devpost 공식 목록·일정",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-07-27T15:15:30.156Z"
     },
     {
       "id": "devpost-29527",
@@ -340,7 +400,7 @@
     },
     {
       "id": "codeforces-2248",
-      "title": "Codeforces Round (Div. 2)",
+      "title": "Codeforces Round 1113 (Div. 2)",
       "summary": "CF 형식의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
       "type": "ps",
       "organizer": "Codeforces",
@@ -369,7 +429,7 @@
       "url": "https://codeforces.com/contest/2248",
       "sourceName": "Codeforces 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T03:19:47.757Z"
+      "lastVerifiedAt": "2026-07-27T15:15:30.156Z"
     },
     {
       "id": "atcoder-abc469",
@@ -691,6 +751,39 @@
       "lastVerifiedAt": "2026-07-27T04:03:42.213Z"
     },
     {
+      "id": "codeforces-2253",
+      "title": "Educational Codeforces Round 193 (Rated for Div. 2)",
+      "summary": "ICPC 형식의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
+      "type": "ps",
+      "organizer": "Codeforces",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "Codeforces 계정이 있는 누구나",
+      "mode": "online",
+      "applicationDeadline": "2026-08-06T14:35:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-08-06T14:35:00.000Z",
+      "eventEnd": "2026-08-06T16:35:00.000Z",
+      "location": "온라인",
+      "teamSize": "개인",
+      "languages": [
+        "C++",
+        "Java",
+        "Python",
+        "Kotlin"
+      ],
+      "tags": [
+        "PS",
+        "알고리즘",
+        "ICPC"
+      ],
+      "url": "https://codeforces.com/contest/2253",
+      "sourceName": "Codeforces 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-07-27T15:15:30.156Z"
+    },
+    {
       "id": "ctftime-3342",
       "title": "AEROSPACE VILLAGE STARPWN CTF",
       "summary": "Visionspace에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
@@ -947,6 +1040,33 @@
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
       "lastVerifiedAt": "2026-07-26T06:58:31.182Z"
+    },
+    {
+      "id": "codechef-start251",
+      "title": "Starters 251",
+      "summary": "CodeChef의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
+      "type": "ps",
+      "organizer": "CodeChef",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CodeChef 계정이 있는 누구나, 대회별 Division 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-08-12T14:30:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-08-12T14:30:00.000Z",
+      "eventEnd": "2026-08-12T16:30:00.000Z",
+      "location": "온라인",
+      "teamSize": "개인",
+      "tags": [
+        "PS",
+        "알고리즘",
+        "CodeChef"
+      ],
+      "url": "https://www.codechef.com/START251",
+      "sourceName": "CodeChef 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-07-27T15:15:30.156Z"
     },
     {
       "id": "ctftime-3330",
