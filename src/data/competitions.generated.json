@@ -4,7 +4,7 @@
     {
       "id": "devpost-29654",
       "title": "DSOC : Summer Edition",
-      "summary": "DSOC Official이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 DSOC Official입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
       "organizer": "DSOC Official",
       "eligibilities": [
@@ -33,7 +33,7 @@
     {
       "id": "devpost-30126",
       "title": "HackNomics",
-      "summary": "hacknomics이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 hacknomics입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
       "organizer": "hacknomics",
       "eligibilities": [
@@ -62,7 +62,7 @@
     {
       "id": "devpost-29527",
       "title": "Ventura Challenge",
-      "summary": "Student Council이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 Student Council입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
       "organizer": "Student Council",
       "eligibilities": [
@@ -91,7 +91,7 @@
     {
       "id": "devpost-30246",
       "title": "Zero to Query: LingoQL Hackathon",
-      "summary": "LingoQL이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 LingoQL입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
       "organizer": "LingoQL",
       "eligibilities": [
@@ -147,7 +147,7 @@
     {
       "id": "devpost-30366",
       "title": "Next Byte Hacks V3",
-      "summary": "Next Bytes이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 Next Bytes입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
       "organizer": "Next Bytes",
       "eligibilities": [
@@ -315,7 +315,7 @@
     {
       "id": "devpost-30274",
       "title": "BASK(Business Achievement Spotlight for Kids) Monthly Pitch Competition",
-      "summary": "BASK이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 BASK입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
       "organizer": "BASK",
       "eligibilities": [
@@ -461,7 +461,7 @@
     {
       "id": "devpost-30821",
       "title": "The Email Game",
-      "summary": "WithAI Research이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 WithAI Research입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "WithAI Research",
       "eligibilities": [
@@ -490,7 +490,7 @@
     {
       "id": "devpost-30183",
       "title": "Hack the Arts",
-      "summary": "Hack the Arts이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 Hack the Arts입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
       "organizer": "Hack the Arts",
       "eligibilities": [
@@ -549,7 +549,7 @@
     {
       "id": "devpost-30205",
       "title": "Backblaze Generative Media Hackathon: Build with Genblaze on B2",
-      "summary": "Backblaze이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Backblaze입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "Backblaze",
       "eligibilities": [
@@ -578,7 +578,7 @@
     {
       "id": "devpost-30760",
       "title": "Build with Paritok: The Token-Efficiency Hackathon",
-      "summary": "Paritok이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Paritok입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "Paritok",
       "eligibilities": [
@@ -662,7 +662,7 @@
     {
       "id": "devpost-30515",
       "title": "Girls In STEM Global Hackathon",
-      "summary": "Girls In Stem MENA&Central Asia이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 Girls In Stem MENA&Central Asia입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
       "organizer": "Girls In Stem MENA&Central Asia",
       "eligibilities": [
@@ -872,7 +872,7 @@
     {
       "id": "devpost-30522",
       "title": "NextGen Innovation2026",
-      "summary": "Innovation Hacks이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Innovation Hacks입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "Innovation Hacks",
       "eligibilities": [
@@ -957,7 +957,7 @@
     {
       "id": "devpost-30398",
       "title": "Brainwave 2026",
-      "summary": "ACT House이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 ACT House입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
       "organizer": "ACT House",
       "eligibilities": [
@@ -986,7 +986,7 @@
     {
       "id": "devpost-28039",
       "title": "Build with DataHub: The Agent Hackathon",
-      "summary": "DataHub이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 DataHub입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "DataHub",
       "eligibilities": [
@@ -1098,7 +1098,7 @@
     {
       "id": "devpost-30218",
       "title": "Arm Create: AI Optimization Challenge",
-      "summary": "arm이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 arm입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "arm",
       "eligibilities": [
@@ -1153,7 +1153,7 @@
     {
       "id": "devpost-30586",
       "title": "ML Empowerment Build Challenge 2.0",
-      "summary": "ML Empowerment Foundation이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 ML Empowerment Foundation입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "ML Empowerment Foundation",
       "eligibilities": [
@@ -1210,7 +1210,7 @@
     {
       "id": "devpost-30779",
       "title": "NEXORA Global Hackathon",
-      "summary": "SVHEC이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 SVHEC입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "SVHEC",
       "eligibilities": [
@@ -1239,7 +1239,7 @@
     {
       "id": "devpost-30383",
       "title": "AceSAT Education AI-Agent",
-      "summary": "AceSAT이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 AceSAT입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "AceSAT",
       "eligibilities": [
@@ -1267,7 +1267,7 @@
     {
       "id": "devpost-30468",
       "title": "Build Beyond Hackathon",
-      "summary": "BuildBeyond이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 BuildBeyond입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
       "organizer": "BuildBeyond",
       "eligibilities": [
@@ -1382,7 +1382,7 @@
     {
       "id": "devpost-30518",
       "title": "YouCam API Skin AI & Apparel VTO Hackathon",
-      "summary": "Perfect Corp이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Perfect Corp입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "Perfect Corp",
       "eligibilities": [
@@ -1411,7 +1411,7 @@
     {
       "id": "devpost-29541",
       "title": "Build with Gemini XPRIZE",
-      "summary": "XPRIZE이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 XPRIZE입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "XPRIZE",
       "eligibilities": [
@@ -1440,7 +1440,7 @@
     {
       "id": "devpost-29613",
       "title": "CockroachDB × AWS Hackathon - Build with Agentic Memory",
-      "summary": "Cockroach Labs이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Cockroach Labs입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "Cockroach Labs",
       "eligibilities": [
@@ -1469,7 +1469,7 @@
     {
       "id": "devpost-30458",
       "title": "QuantumHacks",
-      "summary": "Quantumhacks이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 Quantumhacks입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
       "organizer": "Quantumhacks",
       "eligibilities": [
@@ -1699,7 +1699,7 @@
     {
       "id": "devpost-30472",
       "title": "Hack The Limit",
-      "summary": "HackTheLimit이(가) Devpost에서 운영하는 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 HackTheLimit입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "hackathon",
       "organizer": "HackTheLimit",
       "eligibilities": [
@@ -1728,7 +1728,7 @@
     {
       "id": "devpost-29411",
       "title": "Galuxium Nexus V2",
-      "summary": "Galuxium이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Galuxium입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "Galuxium",
       "eligibilities": [
@@ -1874,7 +1874,7 @@
     {
       "id": "devpost-29884",
       "title": "VoltHacks",
-      "summary": "Dialogate이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Dialogate입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "Dialogate",
       "eligibilities": [
@@ -1931,7 +1931,7 @@
     {
       "id": "devpost-30721",
       "title": "Agentic Cinema: The Blockbuster Hackathon",
-      "summary": "Google이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Google입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "Google",
       "eligibilities": [
@@ -2016,7 +2016,7 @@
     {
       "id": "devpost-30579",
       "title": "CALL-E: Your Code Is Calling",
-      "summary": "CALL-E이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 CALL-E입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "CALL-E",
       "eligibilities": [
@@ -2129,7 +2129,7 @@
     {
       "id": "devpost-30408",
       "title": "Global Innovation Build Challenge V2",
-      "summary": "Kang Chiao International School Student이(가) Devpost에서 운영하는 AI·데이터 공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Kang Chiao International School Student입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       "type": "ai-data",
       "organizer": "Kang Chiao International School Student",
       "eligibilities": [

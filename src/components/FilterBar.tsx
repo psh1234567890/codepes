@@ -1,4 +1,10 @@
-import { Bookmark, RotateCcw, SlidersHorizontal } from "lucide-react";
+import {
+  Bookmark,
+  ChevronDown,
+  RotateCcw,
+  SlidersHorizontal,
+  Star,
+} from "lucide-react";
 import type {
   CompetitionFilters,
   CompetitionType,
@@ -21,6 +27,11 @@ interface FilterBarProps {
   savedOnly: boolean;
   savedCount: number;
   onSavedOnlyChange: (value: boolean) => void;
+  organizerSelectionCount: number;
+  favoriteOrganizerCount: number;
+  favoriteOrganizerOnly: boolean;
+  onOpenOrganizerFilter: () => void;
+  onFavoriteOrganizerOnlyChange: (value: boolean) => void;
 }
 
 export function FilterBar({
@@ -33,6 +44,11 @@ export function FilterBar({
   savedOnly,
   savedCount,
   onSavedOnlyChange,
+  organizerSelectionCount,
+  favoriteOrganizerCount,
+  favoriteOrganizerOnly,
+  onOpenOrganizerFilter,
+  onFavoriteOrganizerOnlyChange,
 }: FilterBarProps) {
   return (
     <section className="filter-rail" aria-label="대회 필터">
@@ -175,6 +191,32 @@ export function FilterBar({
         </select>
         </div>
 
+        <div className="filter-group organizer-filter">
+          <span className="filter-label" id="organizer-filter-label">
+            주최기관
+          </span>
+          <button
+            className={
+              organizerSelectionCount > 0
+                ? "organizer-filter-button is-active"
+                : "organizer-filter-button"
+            }
+            type="button"
+            aria-haspopup="dialog"
+            aria-labelledby="organizer-filter-label organizer-filter-value"
+            onClick={onOpenOrganizerFilter}
+          >
+            <span id="organizer-filter-value">
+              {organizerSelectionCount > 0
+                ? `${organizerSelectionCount}개 선택`
+                : favoriteOrganizerCount > 0
+                  ? `관심 ${favoriteOrganizerCount}개`
+                  : "전체 기관"}
+            </span>
+            <ChevronDown aria-hidden="true" />
+          </button>
+        </div>
+
         <div className="filter-group sort-filter">
         <label htmlFor="sort-filter">정렬</label>
         <select
@@ -193,6 +235,25 @@ export function FilterBar({
       <div className="filter-summary">
         <SlidersHorizontal aria-hidden="true" />
         <span>적용된 필터 {activeCount}개</span>
+        <button
+          className={
+            favoriteOrganizerOnly
+              ? "saved-filter is-active"
+              : "saved-filter"
+          }
+          type="button"
+          aria-pressed={favoriteOrganizerOnly}
+          onClick={() =>
+            onFavoriteOrganizerOnlyChange(!favoriteOrganizerOnly)
+          }
+          disabled={favoriteOrganizerCount === 0}
+        >
+          <Star
+            aria-hidden="true"
+            fill={favoriteOrganizerOnly ? "currentColor" : "none"}
+          />
+          관심 기관 {favoriteOrganizerCount}
+        </button>
         <button
           className={savedOnly ? "saved-filter is-active" : "saved-filter"}
           type="button"

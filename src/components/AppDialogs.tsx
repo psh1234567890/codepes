@@ -1,80 +1,11 @@
 import {
-  CalendarDays,
   CheckCircle2,
-  Download,
-  ExternalLink,
   Github,
   Link2,
 } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { GITHUB_ISSUES_URL } from "../config";
-import type { Competition } from "../types/competition";
-import { formatDate, TYPE_LABELS } from "../lib/competition";
 import { Dialog } from "./Dialog";
-
-interface CalendarDialogProps {
-  competitions: Competition[];
-  savedCount: number;
-  onExportAll: () => void;
-  onExportSaved: () => void;
-  onClose: () => void;
-}
-
-export function CalendarDialog({
-  competitions,
-  savedCount,
-  onExportAll,
-  onExportSaved,
-  onClose,
-}: CalendarDialogProps) {
-  return (
-    <Dialog
-      title="대회 캘린더"
-      description="가까운 신청 마감일을 확인하고 표준 캘린더 파일로 저장하세요."
-      onClose={onClose}
-    >
-      <div className="calendar-agenda">
-        {competitions.slice(0, 10).map((competition) => (
-          <a
-            key={competition.id}
-            href={competition.url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <time dateTime={competition.applicationDeadline}>
-              <CalendarDays aria-hidden="true" />
-              {formatDate(competition.applicationDeadline, {
-                year: undefined,
-                month: "long",
-                day: "numeric",
-              })}
-            </time>
-            <span>
-              <small>{TYPE_LABELS[competition.type]}</small>
-              <strong>{competition.title}</strong>
-            </span>
-            <ExternalLink aria-hidden="true" />
-          </a>
-        ))}
-      </div>
-      <div className="calendar-footer">
-        <button
-          type="button"
-          className="secondary-action"
-          onClick={onExportSaved}
-          disabled={savedCount === 0}
-        >
-          <Download aria-hidden="true" />
-          저장한 {savedCount}개 받기
-        </button>
-        <button type="button" onClick={onExportAll}>
-          <Download aria-hidden="true" />
-          전체 일정 받기
-        </button>
-      </div>
-    </Dialog>
-  );
-}
 
 export function SubmitCompetitionDialog({
   onClose,

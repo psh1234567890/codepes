@@ -296,6 +296,8 @@ describe("Devpost source adapter", () => {
 
     expect(contest).toMatchObject({
       id: "devpost-29541",
+      summary:
+        "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 XPRIZE입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
       type: "ai-data",
       eligibilities: ["rules"],
       mode: "online",
@@ -324,6 +326,29 @@ describe("Devpost source adapter", () => {
       id: "devpost-29542",
       type: "hackathon",
     });
+  });
+
+  it("writes Korean organizer names without placeholder particles", () => {
+    const contest = normalizeDevpostHackathon(
+      {
+        id: 29543,
+        title: "공개 소프트웨어 경진대회",
+        url: "https://open-korea.devpost.com/",
+        organization_name: "국민대학교",
+        invite_only: false,
+        displayed_location: { location: "Online" },
+        themes: [{ name: "Open Ended" }],
+      },
+      scheduleHtml,
+      globalRulesHtml,
+      verifiedAt,
+      now,
+    );
+
+    expect(contest?.summary).toBe(
+      "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 국민대학교입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+    );
+    expect(contest?.summary).not.toContain("이(가)");
   });
 
   it("does not publish invite-only hackathons", () => {

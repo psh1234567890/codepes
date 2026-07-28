@@ -1,20 +1,20 @@
 # 개인정보 처리 안내
 
-마지막 갱신: 2026-07-25
+마지막 갱신: 2026-07-28
 
 CodePes는 계정이나 자체 백엔드 데이터베이스 없이 동작하는 오픈소스 웹 애플리케이션입니다.
 
 ## CodePes가 직접 저장하는 정보
 
-현재 CodePes가 브라우저에 저장하는 정보는 사용자가 관심 표시한 대회의 ID 목록뿐입니다.
+현재 CodePes는 사용자가 관심 표시한 대회의 ID와 주최기관 이름을 브라우저에 저장합니다.
 
 - 저장 위치: 현재 브라우저의 `localStorage`
-- 키: `codepes-bookmarks`
-- 목적: 관심 대회 표시와 “저장한 대회만 보기”
+- 키 `codepes-bookmarks`: 관심 대회 표시와 “저장한 대회만 보기”
+- 키 `codepes-favorite-organizers`: 관심 주최기관 표시와 “관심 기관만 보기”
 - 보관 기간: 사용자가 브라우저 저장소를 지우거나 관심 표시를 해제할 때까지
 - 동기화: 계정이나 다른 기기로 전송하지 않음
 
-이전 시험 버전에서 사용했던 `codepes-subscription-email`과 `codepes-submission-draft` 키는 더 이상 사용하지 않으며, 앱이 시작될 때 삭제합니다. 현재 유지하는 애플리케이션 데이터 키는 `codepes-bookmarks` 하나뿐입니다.
+이전 시험 버전에서 사용했던 `codepes-subscription-email`과 `codepes-submission-draft` 키는 더 이상 사용하지 않으며, 앱이 시작될 때 삭제합니다.
 
 `.ics` 일정 파일은 사용자의 브라우저 안에서 생성됩니다. 검색어와 필터 상태도 CodePes 서버에 저장하지 않습니다.
 
@@ -41,10 +41,11 @@ CodePes 사용 중 다음 외부 서비스와 통신할 수 있습니다.
 
 ## 브라우저 데이터 삭제
 
-관심 대회 표시를 모두 해제하거나 브라우저 설정에서 해당 사이트의 저장 데이터를 삭제하면 됩니다. 개발자 도구에서는 다음 명령으로 CodePes 관심 목록만 삭제할 수 있습니다.
+관심 표시를 모두 해제하거나 브라우저 설정에서 해당 사이트의 저장 데이터를 삭제하면 됩니다. 개발자 도구에서는 다음 명령으로 CodePes 관심 목록만 삭제할 수 있습니다.
 
 ```js
 localStorage.removeItem("codepes-bookmarks");
+localStorage.removeItem("codepes-favorite-organizers");
 ```
 
 ## 대회 정보와 개인정보

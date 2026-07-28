@@ -32,6 +32,7 @@ export const DEFAULT_FILTERS: CompetitionFilters = {
   type: "all",
   eligibility: "all",
   mode: "all",
+  organizers: [],
 };
 
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -80,6 +81,36 @@ export const eligibilitySummary = (competition: Competition) => {
 export const normalizeSearchText = (value: string) =>
   value.normalize("NFKC").toLocaleLowerCase("ko-KR").replace(/\s+/g, " ");
 
+export const normalizeOrganizerKey = (value: string) =>
+  normalizeSearchText(value.trim());
+
+export const matchesOrganizer = (
+  organizer: string,
+  selectedOrganizers: Iterable<string>,
+) => {
+  const organizerKey = normalizeOrganizerKey(organizer);
+  const selectedKeys = new Set(
+    [...selectedOrganizers]
+      .map(normalizeOrganizerKey)
+      .filter(Boolean),
+  );
+  return selectedKeys.size === 0 || selectedKeys.has(organizerKey);
+};
+
+export const getOrganizerOptions = (competitions: Competition[]) => {
+  const organizersByKey = new Map<string, string>();
+  for (const competition of competitions) {
+    const organizer = competition.organizer.trim();
+    const key = normalizeOrganizerKey(organizer);
+    if (key && !organizersByKey.has(key)) {
+      organizersByKey.set(key, organizer);
+    }
+  }
+  return [...organizersByKey.values()].sort((a, b) =>
+    a.localeCompare(b, "ko-KR"),
+  );
+};
+
 const matchesType = (
   competition: Competition,
   type: CompetitionType | "all",
@@ -107,6 +138,9 @@ export const matchesCompetition = (
     return false;
   }
   if (filters.mode !== "all" && competition.mode !== filters.mode) {
+    return false;
+  }
+  if (!matchesOrganizer(competition.organizer, filters.organizers)) {
     return false;
   }
 
