@@ -56,13 +56,23 @@ let checkedCount = 0;
 for (const result of results) {
   const existing = previous[result.source.id];
   if (result.error) {
-    if (existing) next[result.source.id] = existing;
+    next[result.source.id] = {
+      ...(existing ?? {
+        name: result.source.name,
+        endpoint: result.source.endpoint,
+        markers: [],
+      }),
+      lastErrorAt: checkedAt,
+    };
     continue;
   }
 
   checkedCount += 1;
   if (existing?.fingerprint === result.fingerprint) {
-    next[result.source.id] = existing;
+    next[result.source.id] = {
+      ...existing,
+      lastCheckedAt: checkedAt,
+    };
     continue;
   }
 
@@ -73,6 +83,7 @@ for (const result of results) {
     fingerprint: result.fingerprint,
     markers: result.markers,
     lastChangedAt: checkedAt,
+    lastCheckedAt: checkedAt,
   };
   console.log(`[monitor] 변경 감지: ${result.source.name}`);
 }

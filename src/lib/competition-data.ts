@@ -2,10 +2,13 @@ import { REMOTE_DATA_URL } from "../config";
 import type {
   Competition,
   CompetitionData,
+  CompetitionSourceStatus,
   CompetitionType,
   Eligibility,
   ParticipationMode,
   SourceType,
+  SourceStatusKind,
+  SourceSyncState,
 } from "../types/competition";
 
 const COMPETITION_TYPES = new Set<CompetitionType>([
@@ -27,6 +30,16 @@ const SOURCE_TYPES = new Set<SourceType>([
   "official-api",
   "official-page",
   "submitted",
+]);
+const SOURCE_STATUS_KINDS = new Set<SourceStatusKind>([
+  "automatic",
+  "manual",
+  "monitor",
+]);
+const SOURCE_SYNC_STATES = new Set<SourceSyncState>([
+  "ok",
+  "error",
+  "monitoring",
 ]);
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
@@ -82,11 +95,34 @@ export const isCompetition = (value: unknown): value is Competition => {
   );
 };
 
+export const isCompetitionSourceStatus = (
+  value: unknown,
+): value is CompetitionSourceStatus => {
+  if (!isRecord(value)) return false;
+
+  return (
+    isNonEmptyString(value.id) &&
+    isNonEmptyString(value.name) &&
+    SOURCE_STATUS_KINDS.has(value.kind as SourceStatusKind) &&
+    SOURCE_SYNC_STATES.has(value.state as SourceSyncState) &&
+    isIsoDate(value.lastCheckedAt) &&
+    (value.lastSuccessAt === undefined || isIsoDate(value.lastSuccessAt)) &&
+    Number.isInteger(value.publishedCount) &&
+    (value.publishedCount as number) >= 0
+  );
+};
+
 export const isCompetitionData = (
   value: unknown,
 ): value is CompetitionData => {
   if (!isRecord(value) || !isIsoDate(value.updatedAt)) return false;
   if (!Array.isArray(value.contests)) return false;
+  if (
+    !Array.isArray(value.sources) ||
+    !value.sources.every(isCompetitionSourceStatus)
+  ) {
+    return false;
+  }
   if (Date.parse(value.updatedAt) > Date.now() + 5 * 60_000) return false;
 
   const ids = new Set<string>();
@@ -97,6 +133,11 @@ export const isCompetitionData = (
     if (ids.has(contest.id) || urls.has(normalizedUrl)) return false;
     ids.add(contest.id);
     urls.add(normalizedUrl);
+  }
+  const sourceIds = new Set<string>();
+  for (const source of value.sources) {
+    if (sourceIds.has(source.id)) return false;
+    sourceIds.add(source.id);
   }
   return true;
 };

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-28T09:24:15.725Z",
+  "updatedAt": "2026-07-28T09:58:12.075Z",
   "contests": [
     {
       "id": "devpost-29527",
@@ -2265,6 +2265,215 @@
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
       "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
+    }
+  ],
+  "sources": [
+    {
+      "id": "codeforces",
+      "name": "Codeforces",
+      "kind": "automatic",
+      "state": "ok",
+      "lastCheckedAt": "2026-07-28T09:58:12.075Z",
+      "lastSuccessAt": "2026-07-28T09:58:12.075Z",
+      "publishedCount": 3
+    },
+    {
+      "id": "atcoder",
+      "name": "AtCoder",
+      "kind": "automatic",
+      "state": "ok",
+      "lastCheckedAt": "2026-07-28T09:58:12.075Z",
+      "lastSuccessAt": "2026-07-28T09:58:12.075Z",
+      "publishedCount": 9
+    },
+    {
+      "id": "codechef",
+      "name": "CodeChef",
+      "kind": "automatic",
+      "state": "ok",
+      "lastCheckedAt": "2026-07-28T09:58:12.075Z",
+      "lastSuccessAt": "2026-07-28T09:58:12.075Z",
+      "publishedCount": 4
+    },
+    {
+      "id": "devpost",
+      "name": "Devpost",
+      "kind": "automatic",
+      "state": "ok",
+      "lastCheckedAt": "2026-07-28T09:58:12.075Z",
+      "lastSuccessAt": "2026-07-28T09:58:12.075Z",
+      "publishedCount": 28
+    },
+    {
+      "id": "ctftime",
+      "name": "CTFtime",
+      "kind": "automatic",
+      "state": "ok",
+      "lastCheckedAt": "2026-07-28T09:58:12.075Z",
+      "lastSuccessAt": "2026-07-28T09:58:12.075Z",
+      "publishedCount": 30
+    },
+    {
+      "id": "koi",
+      "name": "한국정보올림피아드",
+      "kind": "automatic",
+      "state": "ok",
+      "lastCheckedAt": "2026-07-28T09:58:12.075Z",
+      "lastSuccessAt": "2026-07-28T09:58:12.075Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "kitpa-youth",
+      "name": "한국정보기술진흥원 청소년 IT경시대회",
+      "kind": "automatic",
+      "state": "ok",
+      "lastCheckedAt": "2026-07-28T09:58:12.075Z",
+      "lastSuccessAt": "2026-07-28T09:58:12.075Z",
+      "publishedCount": 1
+    },
+    {
+      "id": "kookmin-algorithm",
+      "name": "국민대학교 알고리즘대회",
+      "kind": "automatic",
+      "state": "ok",
+      "lastCheckedAt": "2026-07-28T09:58:12.075Z",
+      "lastSuccessAt": "2026-07-28T09:58:12.075Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "ucpc",
+      "name": "UCPC",
+      "kind": "automatic",
+      "state": "ok",
+      "lastCheckedAt": "2026-07-28T09:58:12.075Z",
+      "lastSuccessAt": "2026-07-28T09:58:12.075Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "itch",
+      "name": "itch.io",
+      "kind": "automatic",
+      "state": "ok",
+      "lastCheckedAt": "2026-07-28T09:58:12.075Z",
+      "lastSuccessAt": "2026-07-28T09:58:12.075Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "dacon",
+      "name": "DACON",
+      "kind": "manual",
+      "state": "ok",
+      "lastCheckedAt": "2026-07-24T00:00:00+09:00",
+      "lastSuccessAt": "2026-07-24T00:00:00+09:00",
+      "publishedCount": 2
+    },
+    {
+      "id": "daker",
+      "name": "DAKER",
+      "kind": "manual",
+      "state": "ok",
+      "lastCheckedAt": "2026-07-24T00:00:00+09:00",
+      "lastSuccessAt": "2026-07-24T00:00:00+09:00",
+      "publishedCount": 2
+    },
+    {
+      "id": "scpc",
+      "name": "Samsung Collegiate Programming Challenge",
+      "kind": "monitor",
+      "state": "monitoring",
+      "lastCheckedAt": "2026-07-28T09:58:10.621Z",
+      "lastSuccessAt": "2026-07-28T09:58:10.621Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "icpc-korea",
+      "name": "ICPC Korea",
+      "kind": "monitor",
+      "state": "monitoring",
+      "lastCheckedAt": "2026-07-28T09:58:10.621Z",
+      "lastSuccessAt": "2026-07-28T09:58:10.621Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "ewha-girls-programming",
+      "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
+      "kind": "monitor",
+      "state": "monitoring",
+      "lastCheckedAt": "2026-07-28T09:58:10.621Z",
+      "lastSuccessAt": "2026-07-28T09:58:10.621Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "honam-youth-programming",
+      "name": "호남권 청소년 SW프로그래밍 경진대회",
+      "kind": "monitor",
+      "state": "monitoring",
+      "lastCheckedAt": "2026-07-28T09:58:10.621Z",
+      "lastSuccessAt": "2026-07-28T09:58:10.621Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "baekjoon-official-contests",
+      "name": "Baekjoon 공식 대회 목록",
+      "kind": "monitor",
+      "state": "monitoring",
+      "lastCheckedAt": "2026-07-28T09:58:10.621Z",
+      "lastSuccessAt": "2026-07-28T09:58:10.621Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "acpc",
+      "name": "AWS × Codetree Programming Contest",
+      "kind": "monitor",
+      "state": "monitoring",
+      "lastCheckedAt": "2026-07-28T09:58:10.621Z",
+      "lastSuccessAt": "2026-07-28T09:58:10.621Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "kaist-run",
+      "name": "KAIST RUN 알고리즘 대회",
+      "kind": "monitor",
+      "state": "monitoring",
+      "lastCheckedAt": "2026-07-28T09:58:10.621Z",
+      "lastSuccessAt": "2026-07-28T09:58:10.621Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "icpc-sinchon",
+      "name": "ICPC Sinchon Camp Contest",
+      "kind": "monitor",
+      "state": "monitoring",
+      "lastCheckedAt": "2026-07-28T09:58:10.621Z",
+      "lastSuccessAt": "2026-07-28T09:58:10.621Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "kpsc",
+      "name": "국민대학교 KPSC 대회",
+      "kind": "monitor",
+      "state": "monitoring",
+      "lastCheckedAt": "2026-07-28T09:58:10.621Z",
+      "lastSuccessAt": "2026-07-28T09:58:10.621Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "postech-poscat",
+      "name": "POSTECH POSCAT 대회",
+      "kind": "monitor",
+      "state": "monitoring",
+      "lastCheckedAt": "2026-07-28T09:58:10.621Z",
+      "lastSuccessAt": "2026-07-28T09:58:10.621Z",
+      "publishedCount": 0
+    },
+    {
+      "id": "soongsil-sccc",
+      "name": "숭실대학교 SCCC 대회",
+      "kind": "monitor",
+      "state": "monitoring",
+      "lastCheckedAt": "2026-07-28T09:58:10.621Z",
+      "lastSuccessAt": "2026-07-28T09:58:10.621Z",
+      "publishedCount": 0
     }
   ]
 }

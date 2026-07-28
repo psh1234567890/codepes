@@ -4,6 +4,7 @@ import {
   eligibilitySummary,
   formatDate,
   formatDday,
+  getDeadlineLabel,
   MODE_LABELS,
   TYPE_LABELS,
 } from "../lib/competition";
@@ -89,7 +90,22 @@ export function CompetitionList({
               <span>{eligibilitySummary(competition)}</span>
               <span>{MODE_LABELS[competition.mode]}</span>
               <span className="deadline-cell">
-                <strong>{formatDday(competition.applicationDeadline)}</strong>
+                <span
+                  className={
+                    competition.deadlineKind === "start"
+                      ? "deadline-kind is-start"
+                      : "deadline-kind"
+                  }
+                >
+                  {getDeadlineLabel(competition.deadlineKind)}
+                </span>
+                <strong>
+                  {formatDday(
+                    competition.applicationDeadline,
+                    Date.now(),
+                    competition.deadlineKind,
+                  )}
+                </strong>
                 <small>{formatDate(competition.applicationDeadline)}</small>
               </span>
             </a>

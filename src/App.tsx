@@ -41,6 +41,7 @@ import { CompetitionCalendar } from "./components/CompetitionCalendar";
 import { OrganizerFilterDialog } from "./components/OrganizerFilterDialog";
 import { SubscribeStrip } from "./components/SubscribeStrip";
 import { SubmitCompetitionDialog } from "./components/AppDialogs";
+import { SourceStatusPanel } from "./components/SourceStatusPanel";
 
 const bundledCompetitionData = generatedData as CompetitionData;
 const BOOKMARKS_STORAGE_KEY = "codepes-bookmarks";
@@ -422,6 +423,8 @@ export default function App() {
                 </p>
               </div>
             </div>
+
+            <SourceStatusPanel sources={competitionData.sources} />
 
             {viewMode === "list" ? (
               <div className="competition-layout">

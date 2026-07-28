@@ -4,7 +4,9 @@ import type { Competition } from "../types/competition";
 import {
   DEFAULT_FILTERS,
   formatDday,
+  getDeadlineLabel,
   getOrganizerOptions,
+  getSourceStatusPresentation,
   matchesCompetition,
   matchesOrganizer,
   normalizeOrganizerKey,
@@ -128,12 +130,42 @@ describe("competition search", () => {
       ),
     ).toBe("마감");
   });
+
+  it("distinguishes application deadlines from contest starts", () => {
+    expect(getDeadlineLabel()).toBe("신청 마감");
+    expect(getDeadlineLabel("start")).toBe("대회 시작");
+    expect(
+      formatDday(
+        "2026-08-01T09:00:00.000Z",
+        Date.parse("2026-08-01T08:59:00.000Z"),
+        "start",
+      ),
+    ).toBe("D-1");
+    expect(
+      formatDday(
+        "2026-08-01T09:00:00.000Z",
+        Date.parse("2026-08-01T09:00:01.000Z"),
+        "start",
+      ),
+    ).toBe("시작됨");
+  });
 });
 
 describe("competition data validation", () => {
   const bundled = {
     updatedAt: "2026-07-24T00:00:00.000Z",
     contests: [contest],
+    sources: [
+      {
+        id: "official",
+        name: "공식 페이지",
+        kind: "automatic" as const,
+        state: "ok" as const,
+        lastCheckedAt: "2026-07-24T00:00:00.000Z",
+        lastSuccessAt: "2026-07-24T00:00:00.000Z",
+        publishedCount: 1,
+      },
+    ],
   };
 
   it("accepts a valid generated payload", () => {
@@ -166,6 +198,21 @@ describe("competition data validation", () => {
       isCompetitionData({
         ...bundled,
         contests: [contest, { ...contest, url: "https://example.com/two" }],
+      }),
+    ).toBe(false);
+  });
+
+  it("rejects duplicate or malformed source statuses", () => {
+    expect(
+      isCompetitionData({
+        ...bundled,
+        sources: [...bundled.sources, bundled.sources[0]],
+      }),
+    ).toBe(false);
+    expect(
+      isCompetitionData({
+        ...bundled,
+        sources: [{ ...bundled.sources[0], publishedCount: -1 }],
       }),
     ).toBe(false);
   });
@@ -223,6 +270,45 @@ describe("competition data validation", () => {
             item.tags.includes("한국 온라인 참가 가능"),
         ),
     ).toBe(true);
+  });
+});
+
+describe("source status presentation", () => {
+  const source = {
+    id: "codeforces",
+    name: "Codeforces",
+    kind: "automatic" as const,
+    state: "ok" as const,
+    lastCheckedAt: "2026-07-28T00:00:00.000Z",
+    lastSuccessAt: "2026-07-28T00:00:00.000Z",
+    publishedCount: 3,
+  };
+
+  it("separates healthy, stale, monitoring, and failed states", () => {
+    expect(
+      getSourceStatusPresentation(
+        source,
+        Date.parse("2026-07-28T01:00:00.000Z"),
+      ).label,
+    ).toBe("정상");
+    expect(
+      getSourceStatusPresentation(
+        source,
+        Date.parse("2026-07-30T00:00:00.000Z"),
+      ).label,
+    ).toBe("오래됨");
+    expect(
+      getSourceStatusPresentation(
+        { ...source, kind: "monitor", state: "monitoring" },
+        Date.parse("2026-07-28T01:00:00.000Z"),
+      ).label,
+    ).toBe("공고 감시");
+    expect(
+      getSourceStatusPresentation(
+        { ...source, state: "error" },
+        Date.parse("2026-07-28T01:00:00.000Z"),
+      ).label,
+    ).toBe("확인 실패");
   });
 });
 

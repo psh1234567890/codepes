@@ -17,6 +17,7 @@ import {
   formatDateRange,
   formatDateTime,
   formatDday,
+  getDeadlineLabel,
   getFreshnessText,
   MODE_LABELS,
   TYPE_LABELS,
@@ -71,9 +72,15 @@ export function CompetitionDetail({
       <div className="deadline-summary">
         <span>
           <CalendarDays aria-hidden="true" />
-          {competition.deadlineKind === "start" ? "대회 시작" : "신청 마감"}
+          {getDeadlineLabel(competition.deadlineKind)}
         </span>
-        <strong>{formatDday(competition.applicationDeadline)}</strong>
+        <strong>
+          {formatDday(
+            competition.applicationDeadline,
+            Date.now(),
+            competition.deadlineKind,
+          )}
+        </strong>
         <time dateTime={competition.applicationDeadline}>
           {formatDateTime(competition.applicationDeadline)}
         </time>

@@ -29,6 +29,7 @@ const KOREAN_ONLINE_TAG = "한국 온라인 참가 가능";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const manualPath = path.join(root, "data", "manual-contests.json");
 const sourcesPath = path.join(root, "data", "sources.json");
+const monitorStatePath = path.join(root, "data", "source-monitor-state.json");
 const outputPath = path.join(
   root,
   "src",
@@ -452,9 +453,13 @@ const collectSource = async ({
   label,
   sourceName,
   previousContests,
+  previousStatus,
+  checkedAt,
   fetcher,
 }) => {
-  if (!source?.enabled || !source.autoPublish) return [];
+  if (!source?.enabled || !source.autoPublish) {
+    return { contests: [], status: undefined };
+  }
   try {
     const fetched = await fetcher(source);
     const contests = preserveUnchangedVerificationTimes(
@@ -462,53 +467,85 @@ const collectSource = async ({
       previousContests,
     );
     console.log(`${label}: 예정 대회 ${contests.length}개 수집`);
-    return contests;
+    return {
+      contests,
+      status: {
+        id: source.id,
+        name: source.name,
+        kind: "automatic",
+        state: "ok",
+        lastCheckedAt: checkedAt,
+        lastSuccessAt: checkedAt,
+        publishedCount: contests.length,
+      },
+    };
   } catch (error) {
     const previous = retainPreviousSource(previousContests, sourceName);
     console.warn(
       `${label} 수집 실패, 기존 데이터 ${previous.length}개 유지:`,
       error instanceof Error ? error.message : error,
     );
-    return previous;
+    return {
+      contests: previous,
+      status: {
+        id: source.id,
+        name: source.name,
+        kind: "automatic",
+        state: "error",
+        lastCheckedAt: checkedAt,
+        lastSuccessAt: previousStatus?.lastSuccessAt,
+        publishedCount: previous.length,
+      },
+    };
   }
 };
 
 const main = async () => {
   const verifiedAt = new Date().toISOString();
-  const [manual, sources, previousText] = await Promise.all([
+  const [manual, sources, monitorState, previousText] = await Promise.all([
     readJson(manualPath),
     readJson(sourcesPath),
+    readJson(monitorStatePath).catch(() => ({})),
     readFile(outputPath, "utf8").catch(() => ""),
   ]);
   const previous = previousText
     ? JSON.parse(previousText)
-    : { updatedAt: verifiedAt, contests: [] };
+    : { updatedAt: verifiedAt, contests: [], sources: [] };
   const sourceById = new Map(sources.map((source) => [source.id, source]));
+  const previousStatusById = new Map(
+    (previous.sources ?? []).map((status) => [status.id, status]),
+  );
+  const collect = (options) =>
+    collectSource({
+      ...options,
+      previousStatus: previousStatusById.get(options.source?.id),
+      checkedAt: verifiedAt,
+    });
 
   validateContests(manual);
   const automaticGroups = await Promise.all([
-    collectSource({
+    collect({
       source: sourceById.get("codeforces"),
       label: "Codeforces",
       sourceName: "Codeforces 공식 API",
       previousContests: previous.contests,
       fetcher: (source) => fetchCodeforces(source, verifiedAt),
     }),
-    collectSource({
+    collect({
       source: sourceById.get("atcoder"),
       label: "AtCoder",
       sourceName: "AtCoder 공식 대회 목록",
       previousContests: previous.contests,
       fetcher: (source) => fetchAtCoder(source, verifiedAt),
     }),
-    collectSource({
+    collect({
       source: sourceById.get("codechef"),
       label: "CodeChef",
       sourceName: "CodeChef 공식 API",
       previousContests: previous.contests,
       fetcher: (source) => fetchCodeChef(source, verifiedAt),
     }),
-    collectSource({
+    collect({
       source: sourceById.get("devpost"),
       label: "Devpost",
       sourceName: "Devpost 공식 목록·일정",
@@ -516,42 +553,42 @@ const main = async () => {
       fetcher: (source) =>
         fetchDevpost(source, verifiedAt, previous.contests),
     }),
-    collectSource({
+    collect({
       source: sourceById.get("ctftime"),
       label: "CTFtime",
       sourceName: "CTFtime 공식 API",
       previousContests: previous.contests,
       fetcher: (source) => fetchCtftime(source, verifiedAt),
     }),
-    collectSource({
+    collect({
       source: sourceById.get("koi"),
       label: "한국정보올림피아드",
       sourceName: "한국정보올림피아드 공식 안내",
       previousContests: previous.contests,
       fetcher: (source) => fetchKoi(source, verifiedAt),
     }),
-    collectSource({
+    collect({
       source: sourceById.get("kitpa-youth"),
       label: "한국정보기술진흥원 청소년 IT경시대회",
       sourceName: "한국정보기술진흥원 공식 경시대회",
       previousContests: previous.contests,
       fetcher: (source) => fetchKitpaYouth(source, verifiedAt),
     }),
-    collectSource({
+    collect({
       source: sourceById.get("kookmin-algorithm"),
       label: "국민대학교 알고리즘대회",
       sourceName: "국민대학교 공식 알고리즘대회",
       previousContests: previous.contests,
       fetcher: (source) => fetchKookminAlgorithm(source, verifiedAt),
     }),
-    collectSource({
+    collect({
       source: sourceById.get("ucpc"),
       label: "UCPC",
       sourceName: "UCPC 공식 대회 안내",
       previousContests: previous.contests,
       fetcher: (source) => fetchUcpc(source, verifiedAt),
     }),
-    collectSource({
+    collect({
       source: sourceById.get("itch"),
       label: "itch.io",
       sourceName: "itch.io 공식 게임잼 목록",
@@ -560,7 +597,12 @@ const main = async () => {
         fetchItchJams(source, verifiedAt, previous.contests),
     }),
   ]);
-  const automaticContests = automaticGroups.flat();
+  const automaticContests = automaticGroups.flatMap(
+    (group) => group.contests,
+  );
+  const automaticStatuses = automaticGroups
+    .map((group) => group.status)
+    .filter(Boolean);
 
   const contests = deduplicate(
     [...manual, ...automaticContests],
@@ -572,11 +614,72 @@ const main = async () => {
   );
   validateContests(contests);
 
-  const contestsChanged =
-    JSON.stringify(contests) !== JSON.stringify(previous.contests);
+  const manualSourceNames = new Map([
+    ["dacon", "DACON 공식 페이지"],
+    ["daker", "DAKER 공식 페이지"],
+  ]);
+  const manualStatuses = [...manualSourceNames].map(
+    ([sourceId, sourceName]) => {
+      const source = sourceById.get(sourceId);
+      const items = contests.filter(
+        (contest) => contest.sourceName === sourceName,
+      );
+      const lastCheckedAt =
+        items
+          .map((contest) => contest.lastVerifiedAt)
+          .sort()
+          .at(-1) ??
+        previousStatusById.get(sourceId)?.lastCheckedAt ??
+        verifiedAt;
+      return {
+        id: sourceId,
+        name: source?.name ?? sourceName,
+        kind: "manual",
+        state: "ok",
+        lastCheckedAt,
+        lastSuccessAt: lastCheckedAt,
+        publishedCount: items.length,
+      };
+    },
+  );
+  const manualSourceIds = new Set(manualSourceNames.keys());
+  const monitorStatuses = sources
+    .filter(
+      (source) =>
+        source.enabled &&
+        source.autoPublish === false &&
+        !manualSourceIds.has(source.id),
+    )
+    .map((source) => {
+      const state = monitorState[source.id];
+      const lastCheckedAt =
+        state?.lastCheckedAt ??
+        state?.lastChangedAt ??
+        previousStatusById.get(source.id)?.lastCheckedAt ??
+        verifiedAt;
+      const failed =
+        state?.lastErrorAt &&
+        (!state?.lastCheckedAt ||
+          Date.parse(state.lastErrorAt) > Date.parse(state.lastCheckedAt));
+      return {
+        id: source.id,
+        name: source.name,
+        kind: "monitor",
+        state: failed ? "error" : "monitoring",
+        lastCheckedAt,
+        lastSuccessAt: failed ? undefined : lastCheckedAt,
+        publishedCount: 0,
+      };
+    });
+  const sourceStatuses = [
+    ...automaticStatuses,
+    ...manualStatuses,
+    ...monitorStatuses,
+  ];
   const next = {
-    updatedAt: contestsChanged ? verifiedAt : previous.updatedAt,
+    updatedAt: verifiedAt,
     contests,
+    sources: sourceStatuses,
   };
   const nextText = `${JSON.stringify(next, null, 2)}\n`;
 

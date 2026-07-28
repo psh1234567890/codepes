@@ -7,11 +7,11 @@ CodePes는 별도 계정이나 데이터베이스 없이도 빠르게 열리고,
 ## 구성
 
 ```text
-국내외 공식 API·페이지 ─┐
+국내외 공식 API·페이지 ─┬─ scripts/monitor-sources.mjs
                        ├─ scripts/sync-contests.mjs
 수동 검증 JSON ────────┘          │
                               ▼
-             competitions.generated.json
+        대회 목록 + 출처별 동기화 상태 JSON
                     │                   │
              빌드 번들 fallback     GitHub main Raw
                     │                   │
@@ -41,11 +41,11 @@ CodePes는 별도 계정이나 데이터베이스 없이도 빠르게 열리고,
 
 ### 빌드 시점
 
-`scripts/sync-contests.mjs`가 공식 API와 수동 검증 데이터를 정규화, 검증, 중복 제거한 뒤 `src/data/competitions.generated.json`을 만듭니다. 생성 데이터는 앱 번들에 포함되어 항상 사용할 수 있는 fallback이 됩니다.
+`scripts/monitor-sources.mjs`가 자동 게시 전 검토가 필요한 공식 페이지의 변경과 확인 성공·실패 시각을 기록합니다. 이어서 `scripts/sync-contests.mjs`가 공식 API와 수동 검증 데이터를 정규화, 검증, 중복 제거하고 출처별 마지막 확인 시각·성공 여부·게시 항목 수를 함께 `src/data/competitions.generated.json`에 저장합니다. 생성 데이터는 앱 번들에 포함되어 항상 사용할 수 있는 fallback이 됩니다.
 
 ### 실행 시점
 
-앱은 GitHub Raw의 `main` 브랜치에서 동일한 JSON을 가져옵니다. `src/lib/competition-data.ts`가 각 필드와 날짜, URL, 열거형 값을 검사하고 번들보다 오래되지 않은 데이터만 선택합니다. 요청은 제한 시간 안에 끝나지 않거나 검증에 실패하면 번들 데이터로 복구됩니다.
+앱은 GitHub Raw의 `main` 브랜치에서 동일한 JSON을 가져옵니다. `src/lib/competition-data.ts`가 대회와 출처 상태의 각 필드, 날짜, URL, 열거형 값을 검사하고 번들보다 오래되지 않은 데이터만 선택합니다. 요청은 제한 시간 안에 끝나지 않거나 검증에 실패하면 번들 데이터로 복구됩니다. 화면에서는 자동 출처 24시간, 변경 감시 출처 48시간, 수동 검증 출처 14일을 기준으로 오래됨을 구분합니다.
 
 ### 자동 갱신
 
@@ -54,7 +54,7 @@ GitHub Actions 동기화 워크플로는 6시간마다 또는 수동 실행으�
 1. 잠금 파일 기반 의존성 설치
 2. 대회 데이터 동기화
 3. 프로덕션 빌드 검증
-4. 생성 JSON이 실제로 바뀐 경우에만 커밋과 push
+4. 대회 또는 출처 확인 상태가 바뀐 경우 생성 JSON을 커밋하고 push
 
 정적 앱을 매번 다시 배포하지 않아도 브라우저가 최신 Raw JSON을 읽을 수 있습니다. 새 UI 코드나 번들 fallback을 갱신할 때는 프로덕션 재배포가 필요합니다.
 

@@ -1,7 +1,9 @@
 import type {
   Competition,
   CompetitionFilters,
+  CompetitionSourceStatus,
   CompetitionType,
+  DeadlineKind,
   Eligibility,
   ParticipationMode,
 } from "../types/competition";
@@ -40,10 +42,21 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 export const getDaysLeft = (deadline: string, now = Date.now()) =>
   Math.ceil((new Date(deadline).getTime() - now) / DAY_MS);
 
-export const formatDday = (deadline: string, now = Date.now()) => {
-  if (new Date(deadline).getTime() < now) return "마감";
+export const getDeadlineLabel = (kind?: DeadlineKind) =>
+  kind === "start" ? "대회 시작" : "신청 마감";
+
+export const formatDday = (
+  deadline: string,
+  now = Date.now(),
+  kind: DeadlineKind = "application",
+) => {
+  if (new Date(deadline).getTime() < now) {
+    return kind === "start" ? "시작됨" : "마감";
+  }
   const days = getDaysLeft(deadline, now);
-  if (days === 0) return "오늘 마감";
+  if (days === 0) {
+    return kind === "start" ? "오늘 시작" : "오늘 마감";
+  }
   return `D-${days}`;
 };
 
@@ -175,4 +188,48 @@ export const getFreshnessText = (value: string) => {
   if (minutes < 60) return `${minutes}분 전 갱신`;
   if (minutes < 24 * 60) return `${Math.floor(minutes / 60)}시간 전 갱신`;
   return `${Math.floor(minutes / (24 * 60))}일 전 갱신`;
+};
+
+const SOURCE_STALE_MS = {
+  automatic: 24 * 60 * 60 * 1000,
+  manual: 14 * DAY_MS,
+  monitor: 48 * 60 * 60 * 1000,
+} as const;
+
+export const getSourceStatusPresentation = (
+  source: CompetitionSourceStatus,
+  now = Date.now(),
+) => {
+  if (source.state === "error") {
+    return {
+      label: "확인 실패",
+      description: "최근 확인에 실패해 이전 결과를 유지하고 있습니다.",
+      tone: "error" as const,
+    };
+  }
+  if (
+    now - Date.parse(source.lastCheckedAt) >
+    SOURCE_STALE_MS[source.kind]
+  ) {
+    return {
+      label: "오래됨",
+      description: "마지막 확인 후 시간이 지나 재확인이 필요합니다.",
+      tone: "stale" as const,
+    };
+  }
+  if (source.kind === "monitor" || source.state === "monitoring") {
+    return {
+      label: "공고 감시",
+      description: "변경을 확인한 뒤 게시 조건을 수동 검토합니다.",
+      tone: "monitoring" as const,
+    };
+  }
+  return {
+    label: "정상",
+    description:
+      source.kind === "manual"
+        ? "공식 원문을 사람이 확인한 항목입니다."
+        : "최근 자동 수집에 성공했습니다.",
+    tone: "ok" as const,
+  };
 };
