@@ -9,6 +9,10 @@ describe("public site metadata", () => {
 
     expect(html).not.toContain("__SITE_ORIGIN__");
     expect(html).toContain(`${siteUrl}/og.png`);
+    expect(html).toContain(
+      'rel="icon" type="image/svg+xml" href="/favicon.svg"',
+    );
+    expect(html).toContain('rel="shortcut icon" href="/favicon.svg"');
     expect(html).toContain('http-equiv="Content-Security-Policy"');
     expect(html).toContain(
       "connect-src 'self' https://raw.githubusercontent.com",
@@ -24,5 +28,22 @@ describe("public site metadata", () => {
     expect(headers).toContain("X-Content-Type-Options: nosniff");
     expect(headers).toContain("X-Frame-Options: DENY");
     expect(headers).toContain("Content-Security-Policy:");
+  });
+
+  it("keeps HTML unmodified by intermediaries while retaining a strict CSP", async () => {
+    const worker = await readFile(
+      new URL("../worker/index.ts", import.meta.url),
+      "utf8",
+    );
+    const favicon = await readFile(
+      new URL("../public/favicon.svg", import.meta.url),
+      "utf8",
+    );
+
+    expect(worker).toContain(
+      "public, max-age=0, must-revalidate, no-transform",
+    );
+    expect(worker).toContain('"script-src \'self\'"');
+    expect(favicon).toContain("<svg");
   });
 });
