@@ -19,6 +19,7 @@
 - Cloudflare JavaScript Detection과 충돌하던 CSP를 요청별 nonce 방식으로 강화
 - 운영 페이지에 명시적인 CodePes 파비콘 추가
 - 새 보안 응답이 즉시 반영되도록 운영 HTML 메타데이터 갱신
+- 공개 문서 요청을 Worker 앱 셸로 전달해 CSP 보안 헤더가 항상 적용되도록 배포 구조 수정
 
 ## [0.1.0] - 2026-07-26
 

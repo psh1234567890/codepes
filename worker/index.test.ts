@@ -2,9 +2,15 @@ import { describe, expect, it } from "vitest";
 
 import worker from "./index";
 
-const makeEnv = (response: Response) => ({
+const makeEnv = (
+  response: Response,
+  onRequest: (request: Request) => void = () => undefined,
+) => ({
   ASSETS: {
-    fetch: async () => response.clone(),
+    fetch: async (request: Request) => {
+      onRequest(request);
+      return response.clone();
+    },
   },
 });
 
@@ -16,52 +22,112 @@ const assetHtml = `<!doctype html>
       content="default-src 'self'; script-src 'self'"
     />
     <meta property="og:image" content="__SITE_ORIGIN__/og.png" />
-    <script type="application/ld+json">{"url":"__SITE_ORIGIN__"}</script>
+    <script data-schema="website" type='application/ld+json'>{"url":"__SITE_ORIGIN__"}</script>
   </head>
   <body></body>
 </html>`;
 
 describe("Sites worker security headers", () => {
-  it("uses one request-specific nonce for the CSP and inline structured data", async () => {
-    const response = await worker.fetch(
-      new Request("https://codepes.kro.kr/"),
-      makeEnv(
-        new Response(assetHtml, {
+  it.each(["/", "/calendar"])(
+    "serves %s through the app shell with one request-specific nonce",
+    async (path) => {
+      let requestedAssetPath = "";
+      let retainedConditionalHeader = "";
+      const response = await worker.fetch(
+        new Request(`https://codepes.kro.kr${path}`, {
           headers: {
-            "content-length": String(assetHtml.length),
-            "content-type": "text/html; charset=utf-8",
+            accept: "text/html",
+            "if-none-match": '"old-shell"',
+            range: "bytes=0-100",
           },
         }),
+        makeEnv(
+          new Response(assetHtml, {
+            headers: {
+              "accept-ranges": "bytes",
+              "content-disposition": "inline",
+              "content-encoding": "identity",
+              "content-length": String(assetHtml.length),
+              "content-type": "text/plain; charset=utf-8",
+              etag: '"app-shell"',
+              "last-modified": "Tue, 28 Jul 2026 00:00:00 GMT",
+            },
+          }),
+          (request) => {
+            requestedAssetPath = new URL(request.url).pathname;
+            retainedConditionalHeader =
+              request.headers.get("if-none-match") ??
+              request.headers.get("range") ??
+              "";
+          },
+        ),
+      );
+
+      const html = await response.text();
+      const csp = response.headers.get("Content-Security-Policy") ?? "";
+      const nonce = csp.match(/'nonce-([a-f0-9]{32})'/)?.[1];
+
+      expect(response.status).toBe(200);
+      expect(requestedAssetPath).toBe("/app-shell.txt");
+      expect(retainedConditionalHeader).toBe("");
+      expect(response.headers.get("content-type")).toBe(
+        "text/html; charset=UTF-8",
+      );
+      expect(response.headers.get("cache-control")).toBe("no-store");
+      expect(response.headers.get("accept-ranges")).toBeNull();
+      expect(response.headers.get("content-disposition")).toBeNull();
+      expect(response.headers.get("content-encoding")).toBeNull();
+      expect(response.headers.get("etag")).toBeNull();
+      expect(response.headers.get("last-modified")).toBeNull();
+      expect(nonce).toBeDefined();
+      expect(csp).not.toContain("'unsafe-inline'");
+      expect(html).not.toContain('http-equiv="Content-Security-Policy"');
+      expect(html).toContain(`nonce="${nonce}"`);
+      expect(html).toContain('{"url":"https://codepes.kro.kr"}');
+      expect(html).toContain("https://codepes.kro.kr/og.png");
+      expect(html).not.toContain("__SITE_ORIGIN__");
+      expect(response.headers.has("content-length")).toBe(false);
+      expect(response.headers.get("x-content-type-options")).toBe("nosniff");
+      expect(response.headers.get("x-frame-options")).toBe("DENY");
+      expect(csp).toContain(
+        "connect-src 'self' https://raw.githubusercontent.com",
+      );
+    },
+  );
+
+  it("serves HEAD checks for the public root through the app shell", async () => {
+    let requestedMethod = "";
+    const response = await worker.fetch(
+      new Request("https://codepes.kro.kr/", { method: "HEAD" }),
+      makeEnv(
+        new Response(assetHtml, {
+          headers: { "content-type": "text/plain; charset=utf-8" },
+        }),
+        (request) => {
+          requestedMethod = request.method;
+        },
       ),
     );
 
-    const html = await response.text();
-    const csp = response.headers.get("Content-Security-Policy") ?? "";
-    const nonce = csp.match(/'nonce-([a-f0-9]{32})'/)?.[1];
-
     expect(response.status).toBe(200);
-    expect(nonce).toBeDefined();
-    expect(csp).not.toContain("'unsafe-inline'");
-    expect(html).not.toContain('http-equiv="Content-Security-Policy"');
-    expect(html).toContain(`nonce="${nonce}"`);
-    expect(html).toContain('{"url":"https://codepes.kro.kr"}');
-    expect(html).toContain("https://codepes.kro.kr/og.png");
-    expect(html).not.toContain("__SITE_ORIGIN__");
-    expect(response.headers.has("content-length")).toBe(false);
-    expect(response.headers.get("x-content-type-options")).toBe("nosniff");
-    expect(response.headers.get("x-frame-options")).toBe("DENY");
-    expect(csp).toContain(
-      "connect-src 'self' https://raw.githubusercontent.com",
+    expect(requestedMethod).toBe("GET");
+    expect(response.headers.get("content-security-policy")).toContain(
+      "'nonce-",
     );
+    expect(await response.text()).toBe("");
   });
 
   it("adds security headers to static assets without an HTML nonce", async () => {
+    let requestedAssetPath = "";
     const response = await worker.fetch(
       new Request("https://codepes.kro.kr/assets/app.js"),
       makeEnv(
         new Response("console.log('ok')", {
           headers: { "content-type": "text/javascript" },
         }),
+        (request) => {
+          requestedAssetPath = new URL(request.url).pathname;
+        },
       ),
     );
     const csp = response.headers.get("content-security-policy") ?? "";
@@ -70,6 +136,7 @@ describe("Sites worker security headers", () => {
       "strict-origin-when-cross-origin",
     );
     expect(response.headers.get("permissions-policy")).toContain("camera=()");
+    expect(requestedAssetPath).toBe("/assets/app.js");
     expect(csp).toContain("script-src 'self'");
     expect(csp).not.toContain("'nonce-");
   });
