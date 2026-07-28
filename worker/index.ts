@@ -1,3 +1,15 @@
+import generatedData from "../src/data/competitions.generated.json";
+import {
+  buildContestSeo,
+  buildContestStructuredData,
+  buildSitemapXml,
+  getContestIdFromUrl,
+} from "../src/lib/seo";
+import type {
+  Competition,
+  CompetitionData,
+} from "../src/types/competition";
+
 interface AssetsBinding {
   fetch(request: Request): Promise<Response>;
 }
@@ -7,6 +19,7 @@ interface Env {
 }
 
 const appShellPath = "/app-shell.txt";
+const competitionData = generatedData as CompetitionData;
 const staticCspMeta =
   /\s*<meta\b(?=[^>]*\bhttp-equiv\s*=\s*["']Content-Security-Policy["'])[^>]*>/i;
 const structuredDataScript =
@@ -28,6 +41,60 @@ const transformedResponseHeadersToRemove = [
   "etag",
   "last-modified",
 ];
+
+const escapeHtmlAttribute = (value: string) =>
+  value
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+
+const replaceSeoAttribute = (
+  html: string,
+  key: string,
+  attribute: "content" | "href",
+  value: string,
+) =>
+  html.replace(
+    new RegExp(`<[^>]+data-seo=["']${key}["'][^>]*>`, "i"),
+    (tag) =>
+      tag.replace(
+        new RegExp(`\\b${attribute}=(["'])[^"']*\\1`, "i"),
+        `${attribute}="${escapeHtmlAttribute(value)}"`,
+      ),
+  );
+
+const applyCompetitionMetadata = (
+  html: string,
+  competition: Competition,
+) => {
+  const seo = buildContestSeo(competition);
+  let transformed = html.replace(
+    /<title\b(?=[^>]*data-seo=["']title["'])[^>]*>[\s\S]*?<\/title>/i,
+    `<title data-seo="title">${escapeHtmlAttribute(seo.title)}</title>`,
+  );
+
+  for (const [key, attribute, value] of [
+    ["description", "content", seo.description],
+    ["canonical", "href", seo.canonicalUrl],
+    ["og-type", "content", "website"],
+    ["og-title", "content", seo.title],
+    ["og-description", "content", seo.description],
+    ["og-url", "content", seo.canonicalUrl],
+    ["twitter-title", "content", seo.title],
+    ["twitter-description", "content", seo.description],
+  ] as const) {
+    transformed = replaceSeoAttribute(transformed, key, attribute, value);
+  }
+
+  const structuredData = JSON.stringify(
+    buildContestStructuredData(competition),
+  ).replaceAll("<", "\\u003c");
+  return transformed.replace(
+    /<script\b(?=[^>]*data-schema=["']website["'])[^>]*>[\s\S]*?<\/script>/i,
+    `<script data-schema="website" type="application/ld+json">${structuredData}</script>`,
+  );
+};
 
 const isPageRequest = (request: Request) => {
   if (request.method !== "GET" && request.method !== "HEAD") {
@@ -84,6 +151,26 @@ const makePageAssetRequest = (url: URL | string, request: Request) => {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
+    const requestUrl = new URL(request.url);
+    if (
+      requestUrl.pathname === "/sitemap.xml" &&
+      (request.method === "GET" || request.method === "HEAD")
+    ) {
+      const sitemap = buildSitemapXml(
+        competitionData.contests,
+        competitionData.updatedAt,
+      );
+      const headers = applySecurityHeaders(
+        new Headers({
+          "Cache-Control": "public, max-age=3600",
+          "Content-Type": "application/xml; charset=UTF-8",
+        }),
+      );
+      return new Response(request.method === "HEAD" ? null : sitemap, {
+        headers,
+      });
+    }
+
     const pageRequest = isPageRequest(request);
     const assetRequest = pageRequest
       ? makePageAssetRequest(new URL(appShellPath, request.url), request)
@@ -111,9 +198,17 @@ export default {
       });
     }
 
-    const origin = new URL(request.url).origin;
+    const origin = requestUrl.origin;
+    const contestId = getContestIdFromUrl(requestUrl);
+    const competition = contestId
+      ? competitionData.contests.find((item) => item.id === contestId)
+      : undefined;
     const scriptNonce = crypto.randomUUID().replaceAll("-", "");
-    const html = (await response.text())
+    let html = await response.text();
+    if (competition) {
+      html = applyCompetitionMetadata(html, competition);
+    }
+    html = html
       .replaceAll("__SITE_ORIGIN__", origin)
       .replace(staticCspMeta, "")
       .replace(
@@ -131,8 +226,13 @@ export default {
     headers.set("Cache-Control", "no-store");
     headers.set("Content-Type", "text/html; charset=UTF-8");
 
+    const missingContest =
+      requestUrl.pathname.startsWith("/contests/") &&
+      contestId !== undefined &&
+      competition === undefined;
+
     return new Response(request.method === "HEAD" ? null : html, {
-      status: response.status,
+      status: missingContest ? 404 : response.status,
       statusText: response.statusText,
       headers,
     });

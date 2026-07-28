@@ -21,8 +21,17 @@ const assetHtml = `<!doctype html>
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
+    <meta data-seo="description" name="description" content="default" />
+    <link data-seo="canonical" rel="canonical" href="https://codepes.kro.kr/" />
+    <meta data-seo="og-type" property="og:type" content="website" />
+    <meta data-seo="og-title" property="og:title" content="default" />
+    <meta data-seo="og-description" property="og:description" content="default" />
+    <meta data-seo="og-url" property="og:url" content="https://codepes.kro.kr/" />
     <meta property="og:image" content="__SITE_ORIGIN__/og.png" />
+    <meta data-seo="twitter-title" name="twitter:title" content="default" />
+    <meta data-seo="twitter-description" name="twitter:description" content="default" />
     <script data-schema="website" type='application/ld+json'>{"url":"__SITE_ORIGIN__"}</script>
+    <title data-seo="title">default</title>
   </head>
   <body></body>
 </html>`;
@@ -115,6 +124,48 @@ describe("Sites worker security headers", () => {
       "'nonce-",
     );
     expect(await response.text()).toBe("");
+  });
+
+  it("renders contest-specific metadata at a stable contest URL", async () => {
+    const response = await worker.fetch(
+      new Request("https://codepes.kro.kr/contests/devpost-29654", {
+        headers: { accept: "text/html" },
+      }),
+      makeEnv(
+        new Response(assetHtml, {
+          headers: { "content-type": "text/html; charset=utf-8" },
+        }),
+      ),
+    );
+
+    const html = await response.text();
+
+    expect(response.status).toBe(200);
+    expect(html).toContain(
+      "<title data-seo=\"title\">DSOC : Summer Edition 일정·참가 정보 | CodePes</title>",
+    );
+    expect(html).toContain(
+      'href="https://codepes.kro.kr/contests/devpost-29654"',
+    );
+    expect(html).toContain('"@type":"Event"');
+    expect(html).toContain('"name":"DSOC : Summer Edition"');
+  });
+
+  it("returns a sitemap containing the homepage and contest pages", async () => {
+    const response = await worker.fetch(
+      new Request("https://codepes.kro.kr/sitemap.xml"),
+      makeEnv(new Response("unused")),
+    );
+    const xml = await response.text();
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toBe(
+      "application/xml; charset=UTF-8",
+    );
+    expect(xml).toContain("<loc>https://codepes.kro.kr/</loc>");
+    expect(xml).toContain(
+      "<loc>https://codepes.kro.kr/contests/devpost-29654</loc>",
+    );
   });
 
   it("adds security headers to static assets without an HTML nonce", async () => {

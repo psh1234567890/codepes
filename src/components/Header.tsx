@@ -40,7 +40,7 @@ export function Header({
 
   return (
     <header className="site-header">
-      <a className="wordmark" href="#top" aria-label="CodePes 홈">
+      <a className="wordmark" href="/" aria-label="CodePes 홈">
         Code<span>Pes</span>
       </a>
 
@@ -49,7 +49,7 @@ export function Header({
         className={menuOpen ? "header-nav is-open" : "header-nav"}
         aria-label="주요 메뉴"
       >
-        <a href="#competitions" onClick={() => setMenuOpen(false)}>
+        <a href="/#competitions" onClick={() => setMenuOpen(false)}>
           대회 찾기
         </a>
         <button type="button" onClick={() => closeAndRun(onCalendar)}>
@@ -66,7 +66,7 @@ export function Header({
       <div className="header-actions">
         <a
           className="mobile-search-link"
-          href="#competition-search"
+          href="/#competition-search"
           aria-label="검색으로 이동"
         >
           <Search aria-hidden="true" />

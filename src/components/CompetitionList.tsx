@@ -9,6 +9,7 @@ import {
 } from "../lib/competition";
 import { CompetitionDetail } from "./CompetitionDetail";
 import { TypeIcon } from "./TypeIcon";
+import { getContestPath } from "../lib/seo";
 
 interface CompetitionListProps {
   competitions: Competition[];
@@ -64,14 +65,17 @@ export function CompetitionList({
             }
             role="listitem"
           >
-            <button
+            <a
               className="competition-main"
-              type="button"
+              href={getContestPath(competition.id)}
               aria-expanded={selected}
               aria-controls={
                 selected ? `competition-detail-${competition.id}` : undefined
               }
-              onClick={() => onSelect(competition.id)}
+              onClick={(event) => {
+                event.preventDefault();
+                onSelect(competition.id);
+              }}
             >
               <span className={`type-label type-${competition.type}`}>
                 <TypeIcon type={competition.type} />
@@ -88,7 +92,7 @@ export function CompetitionList({
                 <strong>{formatDday(competition.applicationDeadline)}</strong>
                 <small>{formatDate(competition.applicationDeadline)}</small>
               </span>
-            </button>
+            </a>
 
             <button
               className={bookmarked ? "row-action is-active" : "row-action"}

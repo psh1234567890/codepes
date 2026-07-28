@@ -22,6 +22,16 @@ import {
   readStoredStringSet,
   writeStoredStringSet,
 } from "./lib/preferences";
+import {
+  buildContestSeo,
+  buildContestStructuredData,
+  buildWebsiteStructuredData,
+  DEFAULT_PAGE_DESCRIPTION,
+  DEFAULT_PAGE_TITLE,
+  getContestIdFromUrl,
+  getContestPath,
+  SITE_URL,
+} from "./lib/seo";
 import { Header } from "./components/Header";
 import { HeroSearch } from "./components/HeroSearch";
 import { FilterBar } from "./components/FilterBar";
@@ -43,7 +53,48 @@ const getSavedFavoriteOrganizers = () =>
   readStoredStringSet(localStorage, FAVORITE_ORGANIZERS_STORAGE_KEY);
 
 const getInitialContestId = () =>
-  new URLSearchParams(window.location.search).get("contest") ?? undefined;
+  getContestIdFromUrl(new URL(window.location.href));
+
+const setSeoAttribute = (
+  key: string,
+  attribute: "content" | "href",
+  value: string,
+) => {
+  document
+    .querySelector<HTMLElement>(`[data-seo="${key}"]`)
+    ?.setAttribute(attribute, value);
+};
+
+const updateDocumentSeo = (competition?: Competition) => {
+  const seo = competition
+    ? buildContestSeo(competition)
+    : {
+        title: DEFAULT_PAGE_TITLE,
+        description: DEFAULT_PAGE_DESCRIPTION,
+        canonicalUrl: `${SITE_URL}/`,
+      };
+
+  document.title = seo.title;
+  setSeoAttribute("description", "content", seo.description);
+  setSeoAttribute("canonical", "href", seo.canonicalUrl);
+  setSeoAttribute("og-type", "content", "website");
+  setSeoAttribute("og-title", "content", seo.title);
+  setSeoAttribute("og-description", "content", seo.description);
+  setSeoAttribute("og-url", "content", seo.canonicalUrl);
+  setSeoAttribute("twitter-title", "content", seo.title);
+  setSeoAttribute("twitter-description", "content", seo.description);
+
+  const structuredData = document.querySelector<HTMLScriptElement>(
+    'script[data-schema="website"]',
+  );
+  if (structuredData) {
+    structuredData.textContent = JSON.stringify(
+      competition
+        ? buildContestStructuredData(competition)
+        : buildWebsiteStructuredData(),
+    );
+  }
+};
 
 export default function App() {
   const [competitionData, setCompetitionData] =
@@ -81,6 +132,12 @@ export default function App() {
     return () => {
       active = false;
     };
+  }, []);
+
+  useEffect(() => {
+    const handlePopState = () => setSelectedId(getInitialContestId());
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
   const upcomingCompetitions = useMemo(
@@ -157,9 +214,14 @@ export default function App() {
     upcomingCompetitions,
   ]);
 
-  const selectedCompetition =
-    competitions.find((competition) => competition.id === selectedId) ??
-    competitions[0];
+  const routedCompetition = selectedId
+    ? competitionData.contests.find(
+        (competition) => competition.id === selectedId,
+      )
+    : undefined;
+  const selectedCompetition = selectedId
+    ? routedCompetition
+    : competitions[0];
   const savedCompetitions = upcomingCompetitions.filter((competition) =>
     bookmarkedIds.has(competition.id),
   );
@@ -179,6 +241,10 @@ export default function App() {
     window.setTimeout(() => setToast(undefined), 3600);
   };
 
+  useEffect(() => {
+    updateDocumentSeo(routedCompetition);
+  }, [routedCompetition]);
+
   const handleSearch = () => {
     setQuery(draftQuery);
     document
@@ -188,10 +254,11 @@ export default function App() {
 
   const updateSelectedCompetition = (nextId?: string) => {
     setSelectedId(nextId);
-    const url = new URL(window.location.href);
-    if (nextId) url.searchParams.set("contest", nextId);
-    else url.searchParams.delete("contest");
-    window.history.replaceState(null, "", url);
+    window.history.replaceState(
+      null,
+      "",
+      nextId ? getContestPath(nextId) : "/",
+    );
   };
 
   const handleSelect = (id: string) => {
@@ -240,8 +307,7 @@ export default function App() {
   };
 
   const handleShare = async (competition: Competition) => {
-    const url = new URL(window.location.href);
-    url.searchParams.set("contest", competition.id);
+    const url = new URL(getContestPath(competition.id), window.location.origin);
     const shareData = {
       title: `${competition.title} | CodePes`,
       text: competition.summary,
@@ -434,7 +500,7 @@ export default function App() {
         </main>
 
         <footer>
-          <a className="wordmark footer-wordmark" href="#top">
+          <a className="wordmark footer-wordmark" href="/">
             Code<span>Pes</span>
           </a>
           <div className="footer-copy">

@@ -652,6 +652,7 @@ main {
   background: transparent;
   text-align: left;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .competition-main > span {
