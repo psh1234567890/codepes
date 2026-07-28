@@ -60,7 +60,7 @@ GitHub Actions 동기화 워크플로는 6시간마다 또는 수동 실행으�
 
 ## 배포
 
-Vite의 Cloudflare 플러그인이 정적 애셋과 Worker를 빌드합니다. `worker/index.ts`는 애셋을 제공하고 HTML의 사이트 원점 표시를 실제 배포 원점으로 치환합니다. 프로덕션 사이트는 Sites 프로젝트로 배포합니다.
+Vite의 Cloudflare 플러그인이 정적 애셋과 Worker를 빌드합니다. 프로덕션 빌드는 HTML을 `app-shell.txt`로 보관해 공개 문서 요청이 정적 캐시를 우회하고 `worker/index.ts`를 거치게 합니다. Worker는 이 앱 셸을 캐시하지 않는 HTML로 제공하면서 사이트 원점 표시를 실제 배포 원점으로 치환하고, 요청별 CSP nonce와 보안 헤더를 적용합니다. 프로덕션 사이트는 Sites 프로젝트로 배포합니다.
 
 공개 저장소와 Sites 배포는 서로 다른 배포 대상입니다.
 

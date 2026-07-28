@@ -6,8 +6,43 @@ interface Env {
   ASSETS: AssetsBinding;
 }
 
+const appShellPath = "/app-shell.txt";
 const staticCspMeta =
-  /\s*<meta\s+http-equiv="Content-Security-Policy"[\s\S]*?\/>/i;
+  /\s*<meta\b(?=[^>]*\bhttp-equiv\s*=\s*["']Content-Security-Policy["'])[^>]*>/i;
+const structuredDataScript =
+  /<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*>/i;
+const pageRequestHeadersToRemove = [
+  "if-match",
+  "if-modified-since",
+  "if-none-match",
+  "if-range",
+  "if-unmodified-since",
+  "range",
+];
+const transformedResponseHeadersToRemove = [
+  "accept-ranges",
+  "content-disposition",
+  "content-encoding",
+  "content-length",
+  "content-range",
+  "etag",
+  "last-modified",
+];
+
+const isPageRequest = (request: Request) => {
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    return false;
+  }
+
+  const { pathname } = new URL(request.url);
+  const lastSegment = pathname.split("/").at(-1) ?? "";
+
+  return (
+    pathname === "/" ||
+    (!lastSegment.includes(".") &&
+      (request.headers.get("accept") ?? "").includes("text/html"))
+  );
+};
 
 const applySecurityHeaders = (headers: Headers, scriptNonce?: string) => {
   const scriptPolicy = scriptNonce
@@ -37,12 +72,38 @@ const applySecurityHeaders = (headers: Headers, scriptNonce?: string) => {
   return headers;
 };
 
+const makePageAssetRequest = (url: URL | string, request: Request) => {
+  const headers = new Headers(request.headers);
+
+  for (const header of pageRequestHeadersToRemove) {
+    headers.delete(header);
+  }
+
+  return new Request(url, { headers, method: "GET" });
+};
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    const response = await env.ASSETS.fetch(request);
-    const contentType = response.headers.get("content-type") ?? "";
+    const pageRequest = isPageRequest(request);
+    const assetRequest = pageRequest
+      ? makePageAssetRequest(new URL(appShellPath, request.url), request)
+      : request;
+    let response = await env.ASSETS.fetch(assetRequest);
 
-    if (!contentType.includes("text/html")) {
+    // The source index is still used by Vite's development server. Production
+    // builds rename it to appShellPath so public navigations reach this Worker.
+    if (pageRequest && response.status === 404) {
+      response = await env.ASSETS.fetch(
+        makePageAssetRequest(request.url, request),
+      );
+    }
+
+    const contentType = response.headers.get("content-type") ?? "";
+    const isHtml = pageRequest
+      ? response.status === 200
+      : contentType.includes("text/html");
+
+    if (!isHtml) {
       return new Response(response.body, {
         status: response.status,
         statusText: response.statusText,
@@ -56,16 +117,21 @@ export default {
       .replaceAll("__SITE_ORIGIN__", origin)
       .replace(staticCspMeta, "")
       .replace(
-        '<script type="application/ld+json">',
-        `<script type="application/ld+json" nonce="${scriptNonce}">`,
+        structuredDataScript,
+        (openingTag) =>
+          `${openingTag.slice(0, -1)} nonce="${scriptNonce}">`,
       );
     const headers = applySecurityHeaders(
       new Headers(response.headers),
       scriptNonce,
     );
-    headers.delete("content-length");
+    for (const header of transformedResponseHeadersToRemove) {
+      headers.delete(header);
+    }
+    headers.set("Cache-Control", "no-store");
+    headers.set("Content-Type", "text/html; charset=UTF-8");
 
-    return new Response(html, {
+    return new Response(request.method === "HEAD" ? null : html, {
       status: response.status,
       statusText: response.statusText,
       headers,
