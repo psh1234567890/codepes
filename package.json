@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "sync": "node scripts/sync-contests.mjs && node scripts/generate-sitemap.mjs",
+    "sync": "node scripts/sync-contests.mjs && node scripts/monitor-sources.mjs && node scripts/generate-sitemap.mjs",
+    "monitor": "node scripts/monitor-sources.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "typecheck": "tsc -b",
     "test": "vitest run --config vitest.config.ts",

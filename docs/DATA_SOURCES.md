@@ -117,12 +117,22 @@ UCPC는 학·석사과정 재·휴학생과 수료생이 3인 팀으로 참가�
 | 출처 | 현재 상태 | 자동 게시 보류 이유 |
 | --- | --- | --- |
 | [SCPC](https://research.samsung.com/scpc) | 감시 중 | 신청 마감이 날짜로만 공개되어 정확한 시각을 확인할 수 없음 |
+| [ACPC](https://acpc2026.codetree.ai/) | 감시 중 | 2026 회차 접수가 끝났으며 다음 모집 공고 변경을 확인 중 |
+| [KAIST RUN](https://kaist.run/ko/) | 감시 중 | 새 대회의 공개 참가 범위와 정확한 모집 일정을 확인해야 함 |
+| [ICPC Sinchon](https://icpc-sinchon.io/campcontest) | 감시 중 | 캠프 참가자 한정 여부와 정확한 모집 일정을 확인해야 함 |
+| [국민대학교 KPSC](https://kmucs-kpsc.github.io/club-contests/) | 감시 중 | 교내·외 참가 범위와 현재 모집 일정을 확인해야 함 |
+| [POSTECH POSCAT](https://poscat.team/) | 감시 중 | PPC 등 새 공지의 공개 참가 범위와 정확한 모집 일정을 확인해야 함 |
+| [숭실대학교 SCCC](https://sccc.kr/) | 감시 중 | SCON 등 새 공지의 공개 참가 범위와 정확한 모집 일정을 확인해야 함 |
 | [이화여자대학교 전국 여고생 프로그래밍 경진대회](https://cms.ewha.ac.kr/user/indexSub.action?codyMenuSeq=66000690&siteId=swcu) | 감시 중 | 최신 연도 일정과 정확한 마감·대회 시간이 아직 없음 |
 | [호남권 청소년 SW프로그래밍 경진대회](https://eie.chosun.ac.kr/eie/5563/subview.do) | 감시 중 | 공식 일정이 이미지 포스터로만 제공됨 |
 | [Baekjoon 공식 대회 목록](https://www.acmicpc.net/contest/official/list) | 감시 중 | 대학 오픈대회를 폭넓게 포함하지만 공식 채점 서비스가 준비 중 상태임 |
 
 위 출처에는 국민대 외 대학이 주최하거나 대학생이 참가하는 대회를 추가해
-두었습니다. 아직 안전하게 읽을 수 없는 값을 추정해 게시하지는 않습니다.
+두었습니다. 자동 게시하지 않는 출처도 6시간마다 공식 페이지의 공개 문구와
+일정 표식의 변경 여부를 확인해 `data/source-monitor-state.json`에 기록합니다.
+변경이 감지되면 유지관리자가 참가 자격·마감·진행 방식을 공식 원문에서
+검토한 뒤 자동 수집기로 승격하거나 수동 검증 항목으로 게시합니다. 아직
+안전하게 읽을 수 없는 값을 추정해 게시하지는 않습니다.
 KOI, 청소년 IT경시대회, 국민대 알고리즘대회, UCPC 자동 출처는 GitHub
 Actions 기준 6시간마다 확인합니다. 이미 접수가 끝난 회차는 공식 페이지
 확인 대상에는 포함되지만 사용자 대회 목록에는 표시하지 않습니다.

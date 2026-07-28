@@ -17,7 +17,7 @@
 - CTFtime `Online`·`Open` 보안 CTF 자동 수집
 - itch.io 공식 상세에서 누구나 온라인 참가 가능함을 확인한 게임잼 자동 수집
 - 한국정보올림피아드·한국정보기술진흥원 청소년 IT경시대회 상·하반기 회차·국민대학교 알고리즘대회·UCPC 공식 안내 감시
-- SCPC·ICPC Korea·이화여대 전국 여고생 대회·호남권 대학 연합 청소년 대회·Baekjoon 공식 대학 대회 목록 감시
+- SCPC·ICPC Korea·ACPC·KAIST RUN·ICPC Sinchon·KPSC·POSTECH POSCAT·숭실대 SCCC·이화여대 전국 여고생 대회·호남권 대학 연합 청소년 대회·Baekjoon 공식 대학 대회 목록 변경 감시
 - DACON·DAKER 공식 페이지 수동 검증
 - 원격 GitHub JSON 검증과 번들 fallback
 - 타입 검사, 단위 테스트, 프로덕션 빌드 검증

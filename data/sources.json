@@ -138,6 +138,66 @@
     "note": "대학 오픈대회를 폭넓게 포함하지만 2026-04-28 이후 채점 서비스 준비 중이라 자동 수집 보류"
   },
   {
+    "id": "acpc",
+    "name": "AWS × Codetree Programming Contest",
+    "kind": "official-page",
+    "endpoint": "https://acpc2026.codetree.ai/",
+    "enabled": true,
+    "autoPublish": false,
+    "pollMinutes": 360,
+    "note": "전국 대학생 알고리즘 대회. 현재 회차는 접수가 끝났으며 다음 회차 모집 공고 변경을 감시"
+  },
+  {
+    "id": "kaist-run",
+    "name": "KAIST RUN 알고리즘 대회",
+    "kind": "official-page",
+    "endpoint": "https://kaist.run/ko/",
+    "enabled": true,
+    "autoPublish": false,
+    "pollMinutes": 360,
+    "note": "KAIST 알고리즘 동아리 RUN의 공식 대회 공지를 감시하고 공개 참가 범위와 일정을 확인한 뒤 게시"
+  },
+  {
+    "id": "icpc-sinchon",
+    "name": "ICPC Sinchon Camp Contest",
+    "kind": "official-page",
+    "endpoint": "https://icpc-sinchon.io/campcontest",
+    "enabled": true,
+    "autoPublish": false,
+    "pollMinutes": 360,
+    "note": "신촌지역 대학 연합 캠프 콘테스트. 캠프 참가자 한정 여부와 모집 일정을 확인한 뒤 게시"
+  },
+  {
+    "id": "kpsc",
+    "name": "국민대학교 KPSC 대회",
+    "kind": "official-page",
+    "endpoint": "https://kmucs-kpsc.github.io/club-contests/",
+    "enabled": true,
+    "autoPublish": false,
+    "pollMinutes": 360,
+    "note": "국민대학교 문제해결 동아리의 대회 공지를 감시하고 교내·외 참가 범위를 확인한 뒤 게시"
+  },
+  {
+    "id": "postech-poscat",
+    "name": "POSTECH POSCAT 대회",
+    "kind": "official-page",
+    "endpoint": "https://poscat.team/",
+    "enabled": true,
+    "autoPublish": false,
+    "pollMinutes": 360,
+    "note": "POSTECH 알고리즘 동아리의 PPC 등 공식 대회 공지를 감시하고 참가 범위를 확인한 뒤 게시"
+  },
+  {
+    "id": "soongsil-sccc",
+    "name": "숭실대학교 SCCC 대회",
+    "kind": "official-page",
+    "endpoint": "https://sccc.kr/",
+    "enabled": true,
+    "autoPublish": false,
+    "pollMinutes": 360,
+    "note": "숭실대학교 문제해결 소모임의 SCON 등 공식 대회 공지를 감시하고 참가 범위를 확인한 뒤 게시"
+  },
+  {
     "id": "itch",
     "name": "itch.io",
     "kind": "official-page",
