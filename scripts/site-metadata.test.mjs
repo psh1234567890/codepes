@@ -8,6 +8,7 @@ describe("public site metadata", () => {
     const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
 
     expect(html).not.toContain("__SITE_ORIGIN__");
+    expect(html).toContain('name="application-name" content="CodePes"');
     expect(html).toContain(`${siteUrl}/og.png`);
     expect(html).toContain(
       'rel="icon" type="image/svg+xml" href="/favicon.svg"',
