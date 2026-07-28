@@ -4,7 +4,10 @@ import type { Competition } from "../types/competition";
 import {
   DEFAULT_FILTERS,
   formatDday,
+  getOrganizerOptions,
   matchesCompetition,
+  matchesOrganizer,
+  normalizeOrganizerKey,
   normalizeSearchText,
 } from "./competition";
 import {
@@ -81,6 +84,40 @@ describe("competition search", () => {
 
     expect(matchesCompetition(contest, "", rulesFilter)).toBe(false);
     expect(matchesCompetition(rulesContest, "", rulesFilter)).toBe(true);
+  });
+
+  it("filters by one or more selected organizers", () => {
+    expect(
+      matchesCompetition(contest, "", {
+        ...DEFAULT_FILTERS,
+        organizers: ["테스트 기관"],
+      }),
+    ).toBe(true);
+    expect(
+      matchesCompetition(contest, "", {
+        ...DEFAULT_FILTERS,
+        organizers: ["다른 기관", "테스트 기관"],
+      }),
+    ).toBe(true);
+    expect(
+      matchesCompetition(contest, "", {
+        ...DEFAULT_FILTERS,
+        organizers: ["다른 기관"],
+      }),
+    ).toBe(false);
+  });
+
+  it("normalizes organizer names and deduplicates organizer options", () => {
+    expect(normalizeOrganizerKey("  CODEFORCES  ")).toBe("codeforces");
+    expect(matchesOrganizer("Codeforces", [" codeforces "])).toBe(true);
+    expect(
+      getOrganizerOptions([
+        contest,
+        { ...contest, id: "two", organizer: " 테스트 기관 " },
+        { ...contest, id: "three", organizer: "다른 기관" },
+        { ...contest, id: "four", organizer: "   " },
+      ]),
+    ).toEqual(["다른 기관", "테스트 기관"]);
   });
 
   it("marks a deadline as closed immediately after it passes", () => {
@@ -172,7 +209,8 @@ describe("competition data validation", () => {
           (item) =>
             item.mode === "online" &&
             item.eligibilities.includes("rules") &&
-            item.tags.includes("한국 온라인 참가 가능"),
+            item.tags.includes("한국 온라인 참가 가능") &&
+            !item.summary.includes("이(가)"),
         ),
     ).toBe(true);
     expect(

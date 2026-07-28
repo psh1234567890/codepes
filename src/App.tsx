@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { CalendarDays, CheckCircle2, List } from "lucide-react";
 import generatedData from "./data/competitions.generated.json";
 import { GITHUB_URL } from "./config";
 import type {
@@ -9,39 +9,38 @@ import type {
 } from "./types/competition";
 import {
   DEFAULT_FILTERS,
+  getOrganizerOptions,
   matchesCompetition,
+  normalizeOrganizerKey,
 } from "./lib/competition";
 import {
   loadLatestCompetitionData,
   type LoadedCompetitionData,
 } from "./lib/competition-data";
 import { downloadCalendarFile } from "./lib/calendar";
+import {
+  readStoredStringSet,
+  writeStoredStringSet,
+} from "./lib/preferences";
 import { Header } from "./components/Header";
 import { HeroSearch } from "./components/HeroSearch";
 import { FilterBar } from "./components/FilterBar";
 import { CompetitionList } from "./components/CompetitionList";
 import { CompetitionDetail } from "./components/CompetitionDetail";
+import { CompetitionCalendar } from "./components/CompetitionCalendar";
+import { OrganizerFilterDialog } from "./components/OrganizerFilterDialog";
 import { SubscribeStrip } from "./components/SubscribeStrip";
-import {
-  CalendarDialog,
-  SubmitCompetitionDialog,
-} from "./components/AppDialogs";
+import { SubmitCompetitionDialog } from "./components/AppDialogs";
 
 const bundledCompetitionData = generatedData as CompetitionData;
+const BOOKMARKS_STORAGE_KEY = "codepes-bookmarks";
+const FAVORITE_ORGANIZERS_STORAGE_KEY = "codepes-favorite-organizers";
 
-const getSavedBookmarks = () => {
-  try {
-    const value: unknown = JSON.parse(
-      localStorage.getItem("codepes-bookmarks") ?? "[]",
-    );
-    const ids = Array.isArray(value)
-      ? value.filter((item): item is string => typeof item === "string")
-      : [];
-    return new Set(ids);
-  } catch {
-    return new Set<string>();
-  }
-};
+const getSavedBookmarks = () =>
+  readStoredStringSet(localStorage, BOOKMARKS_STORAGE_KEY);
+
+const getSavedFavoriteOrganizers = () =>
+  readStoredStringSet(localStorage, FAVORITE_ORGANIZERS_STORAGE_KEY);
 
 const getInitialContestId = () =>
   new URLSearchParams(window.location.search).get("contest") ?? undefined;
@@ -57,11 +56,16 @@ export default function App() {
     useState<CompetitionFilters>(DEFAULT_FILTERS);
   const [sort, setSort] = useState<"deadline" | "recent">("deadline");
   const [savedOnly, setSavedOnly] = useState(false);
+  const [favoriteOrganizerOnly, setFavoriteOrganizerOnly] = useState(false);
+  const [viewMode, setViewMode] = useState<"list" | "calendar">("list");
   const [selectedId, setSelectedId] = useState<string | undefined>(
     getInitialContestId,
   );
   const [bookmarkedIds, setBookmarkedIds] = useState(getSavedBookmarks);
-  const [dialog, setDialog] = useState<"calendar" | "submit" | null>(null);
+  const [favoriteOrganizers, setFavoriteOrganizers] = useState(
+    getSavedFavoriteOrganizers,
+  );
+  const [dialog, setDialog] = useState<"organizer" | "submit" | null>(null);
   const [toast, setToast] = useState<string>();
 
   useEffect(() => {
@@ -88,11 +92,46 @@ export default function App() {
     [competitionData],
   );
 
+  const favoriteOrganizerKeys = useMemo(
+    () =>
+      new Set(
+        [...favoriteOrganizers]
+          .map(normalizeOrganizerKey)
+          .filter(Boolean),
+      ),
+    [favoriteOrganizers],
+  );
+
+  const organizerOptions = useMemo(() => {
+    const byKey = new Map<string, string>();
+    for (const organizer of [
+      ...getOrganizerOptions(upcomingCompetitions),
+      ...favoriteOrganizers,
+    ]) {
+      const key = normalizeOrganizerKey(organizer);
+      if (key && !byKey.has(key)) byKey.set(key, organizer.trim());
+    }
+    return [...byKey.values()].sort((a, b) => {
+      const favoriteDifference =
+        Number(favoriteOrganizerKeys.has(normalizeOrganizerKey(b))) -
+        Number(favoriteOrganizerKeys.has(normalizeOrganizerKey(a)));
+      return favoriteDifference || a.localeCompare(b, "ko-KR");
+    });
+  }, [
+    favoriteOrganizerKeys,
+    favoriteOrganizers,
+    upcomingCompetitions,
+  ]);
+
   const competitions = useMemo(() => {
     const filtered = upcomingCompetitions.filter(
       (competition) =>
         matchesCompetition(competition, query, filters) &&
-        (!savedOnly || bookmarkedIds.has(competition.id)),
+        (!savedOnly || bookmarkedIds.has(competition.id)) &&
+        (!favoriteOrganizerOnly ||
+          favoriteOrganizerKeys.has(
+            normalizeOrganizerKey(competition.organizer),
+          )),
     );
 
     return filtered.sort((a, b) => {
@@ -109,6 +148,8 @@ export default function App() {
     });
   }, [
     bookmarkedIds,
+    favoriteOrganizerKeys,
+    favoriteOrganizerOnly,
     filters,
     query,
     savedOnly,
@@ -127,9 +168,11 @@ export default function App() {
     Number(filters.type !== "all") +
     Number(filters.eligibility !== "all") +
     Number(filters.mode !== "all") +
+    Number(filters.organizers.length > 0) +
     Number(sort !== "deadline") +
     Number(query.trim().length > 0) +
-    Number(savedOnly);
+    Number(savedOnly) +
+    Number(favoriteOrganizerOnly);
 
   const showToast = (message: string) => {
     setToast(message);
@@ -143,8 +186,7 @@ export default function App() {
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const handleSelect = (id: string) => {
-    const nextId = selectedId === id ? undefined : id;
+  const updateSelectedCompetition = (nextId?: string) => {
     setSelectedId(nextId);
     const url = new URL(window.location.href);
     if (nextId) url.searchParams.set("contest", nextId);
@@ -152,12 +194,20 @@ export default function App() {
     window.history.replaceState(null, "", url);
   };
 
+  const handleSelect = (id: string) => {
+    updateSelectedCompetition(selectedId === id ? undefined : id);
+  };
+
   const handleBookmark = (id: string) => {
     setBookmarkedIds((current) => {
       const next = new Set(current);
       if (next.has(id)) next.delete(id);
       else next.add(id);
-      localStorage.setItem("codepes-bookmarks", JSON.stringify([...next]));
+      if (!writeStoredStringSet(localStorage, BOOKMARKS_STORAGE_KEY, next)) {
+        showToast(
+          "브라우저 저장소에 기록하지 못했습니다. 이 탭에서는 선택을 유지합니다.",
+        );
+      }
       return next;
     });
   };
@@ -165,9 +215,17 @@ export default function App() {
   const resetFilters = () => {
     setDraftQuery("");
     setQuery("");
-    setFilters(DEFAULT_FILTERS);
+    setFilters({ ...DEFAULT_FILTERS, organizers: [] });
     setSort("deadline");
     setSavedOnly(false);
+    setFavoriteOrganizerOnly(false);
+  };
+
+  const showCalendarView = () => {
+    setViewMode("calendar");
+    document
+      .getElementById("competitions")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const exportCalendar = (
@@ -207,7 +265,7 @@ export default function App() {
     <>
       <div id="top" className="app-shell">
         <Header
-          onCalendar={() => setDialog("calendar")}
+          onCalendar={showCalendarView}
           onSubmitCompetition={() => setDialog("submit")}
           githubUrl={GITHUB_URL}
         />
@@ -232,6 +290,11 @@ export default function App() {
             onSavedOnlyChange={setSavedOnly}
             onReset={resetFilters}
             activeCount={activeFilterCount}
+            organizerSelectionCount={filters.organizers.length}
+            favoriteOrganizerCount={favoriteOrganizers.size}
+            favoriteOrganizerOnly={favoriteOrganizerOnly}
+            onOpenOrganizerFilter={() => setDialog("organizer")}
+            onFavoriteOrganizerOnlyChange={setFavoriteOrganizerOnly}
           />
 
           <section
@@ -240,63 +303,115 @@ export default function App() {
             aria-labelledby="competition-heading"
           >
             <div className="section-heading">
-              <div>
+              <div className="section-heading-main">
                 <h2 id="competition-heading">지금 참가할 수 있는 대회</h2>
                 <span>{competitions.length}개</span>
               </div>
-              <p>
-                <span
-                  className={
-                    dataSource === "github"
-                      ? "data-source-badge is-live"
-                      : "data-source-badge"
-                  }
+              <div className="section-heading-actions">
+                <div
+                  className="view-switcher"
+                  role="group"
+                  aria-label="대회 보기 방식"
                 >
-                  {dataSource === "github" ? "GitHub 최신 데이터" : "배포 데이터"}
-                </span>
-                데이터 기준{" "}
-                <time dateTime={competitionData.updatedAt}>
-                  {new Intl.DateTimeFormat("ko-KR", {
-                    month: "long",
-                    day: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  }).format(new Date(competitionData.updatedAt))}
-                </time>
-              </p>
+                  <button
+                    type="button"
+                    aria-pressed={viewMode === "list"}
+                    className={viewMode === "list" ? "is-active" : ""}
+                    onClick={() => setViewMode("list")}
+                  >
+                    <List aria-hidden="true" />
+                    목록
+                  </button>
+                  <button
+                    type="button"
+                    aria-pressed={viewMode === "calendar"}
+                    className={viewMode === "calendar" ? "is-active" : ""}
+                    onClick={() => setViewMode("calendar")}
+                  >
+                    <CalendarDays aria-hidden="true" />
+                    캘린더
+                  </button>
+                </div>
+                <p>
+                  <span
+                    className={
+                      dataSource === "github"
+                        ? "data-source-badge is-live"
+                        : "data-source-badge"
+                    }
+                  >
+                    {dataSource === "github"
+                      ? "GitHub 최신 데이터"
+                      : "배포 데이터"}
+                  </span>
+                  데이터 기준{" "}
+                  <time dateTime={competitionData.updatedAt}>
+                    {new Intl.DateTimeFormat("ko-KR", {
+                      month: "long",
+                      day: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    }).format(new Date(competitionData.updatedAt))}
+                  </time>
+                </p>
+              </div>
             </div>
 
-            <div className="competition-layout">
-              <CompetitionList
-                competitions={competitions}
-                selectedId={selectedId}
-                bookmarkedIds={bookmarkedIds}
-                onSelect={handleSelect}
-                onBookmark={handleBookmark}
-                onAddToCalendar={(competition) =>
-                  exportCalendar(
-                    [competition],
-                    `codepes-${competition.id}.ics`,
-                  )
-                }
-                onShare={(competition) => void handleShare(competition)}
-              />
-
-              {selectedCompetition ? (
-                <CompetitionDetail
-                  competition={selectedCompetition}
-                  bookmarked={bookmarkedIds.has(selectedCompetition.id)}
-                  onBookmark={() => handleBookmark(selectedCompetition.id)}
-                  onAddToCalendar={() =>
+            {viewMode === "list" ? (
+              <div className="competition-layout">
+                <CompetitionList
+                  competitions={competitions}
+                  selectedId={selectedCompetition?.id}
+                  bookmarkedIds={bookmarkedIds}
+                  onSelect={handleSelect}
+                  onBookmark={handleBookmark}
+                  onAddToCalendar={(competition) =>
                     exportCalendar(
-                      [selectedCompetition],
-                      `codepes-${selectedCompetition.id}.ics`,
+                      [competition],
+                      `codepes-${competition.id}.ics`,
                     )
                   }
-                  onShare={() => void handleShare(selectedCompetition)}
+                  onShare={(competition) => void handleShare(competition)}
                 />
-              ) : null}
-            </div>
+
+                {selectedCompetition ? (
+                  <CompetitionDetail
+                    competition={selectedCompetition}
+                    bookmarked={bookmarkedIds.has(selectedCompetition.id)}
+                    onBookmark={() => handleBookmark(selectedCompetition.id)}
+                    onAddToCalendar={() =>
+                      exportCalendar(
+                        [selectedCompetition],
+                        `codepes-${selectedCompetition.id}.ics`,
+                      )
+                    }
+                    onShare={() => void handleShare(selectedCompetition)}
+                  />
+                ) : null}
+              </div>
+            ) : (
+              <div className="calendar-view-layout">
+                <CompetitionCalendar
+                  competitions={competitions}
+                  selectedId={selectedCompetition?.id}
+                  onSelect={(id) => updateSelectedCompetition(id)}
+                />
+                {selectedCompetition ? (
+                  <CompetitionDetail
+                    competition={selectedCompetition}
+                    bookmarked={bookmarkedIds.has(selectedCompetition.id)}
+                    onBookmark={() => handleBookmark(selectedCompetition.id)}
+                    onAddToCalendar={() =>
+                      exportCalendar(
+                        [selectedCompetition],
+                        `codepes-${selectedCompetition.id}.ics`,
+                      )
+                    }
+                    onShare={() => void handleShare(selectedCompetition)}
+                  />
+                ) : null}
+              </div>
+            )}
           </section>
 
           <SubscribeStrip
@@ -350,18 +465,34 @@ export default function App() {
         </footer>
       </div>
 
-      {dialog === "calendar" ? (
-        <CalendarDialog
-          competitions={[...upcomingCompetitions].sort(
-            (a, b) =>
-              new Date(a.applicationDeadline).getTime() -
-              new Date(b.applicationDeadline).getTime(),
-          )}
-          savedCount={savedCompetitions.length}
-          onExportAll={() => exportCalendar(upcomingCompetitions)}
-          onExportSaved={() =>
-            exportCalendar(savedCompetitions, "codepes-saved-deadlines.ics")
-          }
+      {dialog === "organizer" ? (
+        <OrganizerFilterDialog
+          options={organizerOptions}
+          selected={filters.organizers}
+          favorites={favoriteOrganizers}
+          favoriteOnly={favoriteOrganizerOnly}
+          onApply={({ selected, favorites, favoriteOnly }) => {
+            setFilters((current) => ({
+              ...current,
+              organizers: selected,
+            }));
+            setFavoriteOrganizers(favorites);
+            setFavoriteOrganizerOnly(
+              favoriteOnly && favorites.size > 0,
+            );
+            if (
+              !writeStoredStringSet(
+                localStorage,
+                FAVORITE_ORGANIZERS_STORAGE_KEY,
+                favorites,
+              )
+            ) {
+              showToast(
+                "관심 주최기관을 브라우저에 저장하지 못했습니다. 이 탭에서는 선택을 유지합니다.",
+              );
+            }
+            setDialog(null);
+          }}
           onClose={() => setDialog(null)}
         />
       ) : null}

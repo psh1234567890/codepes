@@ -49,4 +49,5 @@ export interface CompetitionFilters {
   type: CompetitionType | "all";
   eligibility: Eligibility | "all";
   mode: ParticipationMode | "all";
+  organizers: string[];
 }

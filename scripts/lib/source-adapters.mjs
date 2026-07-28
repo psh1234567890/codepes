@@ -561,7 +561,7 @@ export const normalizeDevpostHackathon = (
   return {
     id: `devpost-${id}`,
     title,
-    summary: `${organizer}이(가) Devpost에서 운영하는 ${type === "ai-data" ? "AI·데이터 " : ""}공개 해커톤입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.`,
+    summary: `Devpost에 등록된 ${type === "ai-data" ? "AI·데이터 " : ""}공개 해커톤입니다. 주최 기관은 ${organizer}입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.`,
     type,
     organizer,
     eligibilities: ["rules"],
