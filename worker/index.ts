@@ -6,7 +6,14 @@ interface Env {
   ASSETS: AssetsBinding;
 }
 
-const applySecurityHeaders = (headers: Headers) => {
+const staticCspMeta =
+  /\s*<meta\s+http-equiv="Content-Security-Policy"[\s\S]*?\/>/i;
+
+const applySecurityHeaders = (headers: Headers, scriptNonce?: string) => {
+  const scriptPolicy = scriptNonce
+    ? `script-src 'self' 'nonce-${scriptNonce}'`
+    : "script-src 'self'";
+
   headers.set("X-Content-Type-Options", "nosniff");
   headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
   headers.set(
@@ -18,7 +25,7 @@ const applySecurityHeaders = (headers: Headers) => {
     "Content-Security-Policy",
     [
       "default-src 'self'",
-      "script-src 'self'",
+      scriptPolicy,
       "style-src 'self'",
       "img-src 'self' data:",
       "connect-src 'self' https://raw.githubusercontent.com",
@@ -44,13 +51,19 @@ export default {
     }
 
     const origin = new URL(request.url).origin;
-    const html = (await response.text()).replaceAll("__SITE_ORIGIN__", origin);
-    const headers = applySecurityHeaders(new Headers(response.headers));
-    headers.delete("content-length");
-    headers.set(
-      "Cache-Control",
-      "public, max-age=0, must-revalidate, no-transform",
+    const scriptNonce = crypto.randomUUID().replaceAll("-", "");
+    const html = (await response.text())
+      .replaceAll("__SITE_ORIGIN__", origin)
+      .replace(staticCspMeta, "")
+      .replace(
+        '<script type="application/ld+json">',
+        `<script type="application/ld+json" nonce="${scriptNonce}">`,
+      );
+    const headers = applySecurityHeaders(
+      new Headers(response.headers),
+      scriptNonce,
     );
+    headers.delete("content-length");
 
     return new Response(html, {
       status: response.status,

@@ -16,7 +16,7 @@
 
 - Devpost 대회 설명에서 한글 조사와 영문 기관명이 어색하게 결합되던 문구
 - 모바일 메뉴가 열린 동안 배경 페이지가 함께 스크롤되던 문제
-- 엄격한 CSP는 유지하면서 Cloudflare JavaScript Detection 삽입과 충돌하던 운영 콘솔 오류
+- Cloudflare JavaScript Detection과 충돌하던 CSP를 요청별 nonce 방식으로 강화
 - 운영 페이지에 명시적인 CodePes 파비콘 추가
 
 ## [0.1.0] - 2026-07-26
