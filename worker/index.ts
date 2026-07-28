@@ -47,6 +47,10 @@ export default {
     const html = (await response.text()).replaceAll("__SITE_ORIGIN__", origin);
     const headers = applySecurityHeaders(new Headers(response.headers));
     headers.delete("content-length");
+    headers.set(
+      "Cache-Control",
+      "public, max-age=0, must-revalidate, no-transform",
+    );
 
     return new Response(html, {
       status: response.status,
