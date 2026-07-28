@@ -268,7 +268,7 @@
   "dacon": {
     "name": "DACON",
     "endpoint": "https://dacon.io/competitions",
-    "fingerprint": "2c4e650fd1b5366b8efb619f367f16355b70821ee8ea63359ae7adea39170591",
+    "fingerprint": "3406f2e9ffa1711282953cc8fe912b49c9bbc73e7489a61aa45f75f9be3e0779",
     "markers": [
       "대회: 도전으로 기회를 얻으세요 - DACON",
       "커뮤니티 대회 학습",
@@ -293,7 +293,7 @@
       "통신판매업 신고번호: 제 2021-서울영등포-1704호",
       "직업정보제공사업 신고번호: J1204020250004"
     ],
-    "lastChangedAt": "2026-07-28T06:53:33.295Z"
+    "lastChangedAt": "2026-07-28T09:24:20.949Z"
   },
   "daker": {
     "name": "DAKER",

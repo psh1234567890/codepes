@@ -2,15 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-07-28T03:37:36.655Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/devpost-29654</loc>
-    <lastmod>2026-07-28T03:37:36.655Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/devpost-30126</loc>
-    <lastmod>2026-07-28T03:37:36.655Z</lastmod>
+    <lastmod>2026-07-28T09:24:15.725Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-29527</loc>
@@ -58,7 +50,7 @@
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codeforces-2248</loc>
-    <lastmod>2026-07-27T15:15:30.156Z</lastmod>
+    <lastmod>2026-07-28T09:24:15.725Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/atcoder-abc469</loc>
@@ -149,6 +141,10 @@
     <lastmod>2026-07-27T15:15:30.156Z</lastmod>
   </url>
   <url>
+    <loc>https://codepes.kro.kr/contests/devpost-30844</loc>
+    <lastmod>2026-07-28T09:24:15.725Z</lastmod>
+  </url>
+  <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3330</loc>
     <lastmod>2026-07-26T05:50:23.620Z</lastmod>
   </url>
@@ -189,10 +185,6 @@
     <lastmod>2026-07-26T05:23:39.353Z</lastmod>
   </url>
   <url>
-    <loc>https://codepes.kro.kr/contests/itch-girly-game-jam-4</loc>
-    <lastmod>2026-07-28T03:37:36.655Z</lastmod>
-  </url>
-  <url>
     <loc>https://codepes.kro.kr/contests/dacon-inha-ai-2026</loc>
     <lastmod>2026-07-24T00:00:00+09:00</lastmod>
   </url>
@@ -221,10 +213,6 @@
     <lastmod>2026-07-27T10:10:22.287Z</lastmod>
   </url>
   <url>
-    <loc>https://codepes.kro.kr/contests/itch--ard-game-jam-2026</loc>
-    <lastmod>2026-07-28T03:37:36.655Z</lastmod>
-  </url>
-  <url>
     <loc>https://codepes.kro.kr/contests/daker-quantum-reframing-2026</loc>
     <lastmod>2026-07-24T00:00:00+09:00</lastmod>
   </url>
@@ -247,10 +235,6 @@
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-29411</loc>
     <lastmod>2026-07-26T06:58:31.182Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/itch-queercomgames2026</loc>
-    <lastmod>2026-07-28T03:37:36.655Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/kitpa-youth-it-2026-7</loc>
