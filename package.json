@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "sync": "node scripts/sync-contests.mjs",
+    "sync": "node scripts/sync-contests.mjs && node scripts/generate-sitemap.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs",
     "typecheck": "tsc -b",
     "test": "vitest run --config vitest.config.ts",
-    "prebuild": "node scripts/clean-build.mjs",
+    "prebuild": "node scripts/clean-build.mjs && node scripts/generate-sitemap.mjs",
     "build": "tsc -b && vite build",
     "postbuild": "node scripts/copy-hosting-metadata.mjs",
     "preview": "vite preview",

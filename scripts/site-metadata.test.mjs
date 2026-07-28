@@ -39,4 +39,20 @@ describe("public site metadata", () => {
 
     expect(favicon).toContain("<svg");
   });
+
+  it("lists the homepage and every bundled contest in the sitemap", async () => {
+    const [dataText, sitemap] = await Promise.all([
+      readFile(
+        new URL("../src/data/competitions.generated.json", import.meta.url),
+        "utf8",
+      ),
+      readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8"),
+    ]);
+    const data = JSON.parse(dataText);
+
+    expect(sitemap.match(/<url>/g)).toHaveLength(data.contests.length + 1);
+    expect(sitemap).toContain(
+      `${siteUrl}/contests/${encodeURIComponent(data.contests[0].id)}`,
+    );
+  });
 });
