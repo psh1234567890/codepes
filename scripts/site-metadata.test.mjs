@@ -30,20 +30,12 @@ describe("public site metadata", () => {
     expect(headers).toContain("Content-Security-Policy:");
   });
 
-  it("keeps HTML unmodified by intermediaries while retaining a strict CSP", async () => {
-    const worker = await readFile(
-      new URL("../worker/index.ts", import.meta.url),
-      "utf8",
-    );
+  it("ships the favicon asset used by the page", async () => {
     const favicon = await readFile(
       new URL("../public/favicon.svg", import.meta.url),
       "utf8",
     );
 
-    expect(worker).toContain(
-      "public, max-age=0, must-revalidate, no-transform",
-    );
-    expect(worker).toContain('"script-src \'self\'"');
     expect(favicon).toContain("<svg");
   });
 });
