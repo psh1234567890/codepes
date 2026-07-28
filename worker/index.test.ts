@@ -1,6 +1,14 @@
 import { describe, expect, it } from "vitest";
 
+import generatedData from "../src/data/competitions.generated.json";
+import type { CompetitionData } from "../src/types/competition";
 import worker from "./index";
+
+const competitionData = generatedData as CompetitionData;
+const sampleContest = competitionData.contests[0];
+if (!sampleContest) {
+  throw new Error("Worker tests require at least one generated contest.");
+}
 
 const makeEnv = (
   response: Response,
@@ -128,9 +136,12 @@ describe("Sites worker security headers", () => {
 
   it("renders contest-specific metadata at a stable contest URL", async () => {
     const response = await worker.fetch(
-      new Request("https://codepes.kro.kr/contests/devpost-29654", {
-        headers: { accept: "text/html" },
-      }),
+      new Request(
+        `https://codepes.kro.kr/contests/${sampleContest.id}`,
+        {
+          headers: { accept: "text/html" },
+        },
+      ),
       makeEnv(
         new Response(assetHtml, {
           headers: { "content-type": "text/html; charset=utf-8" },
@@ -142,13 +153,13 @@ describe("Sites worker security headers", () => {
 
     expect(response.status).toBe(200);
     expect(html).toContain(
-      "<title data-seo=\"title\">DSOC : Summer Edition 일정·참가 정보 | CodePes</title>",
+      `<title data-seo="title">${sampleContest.title} 일정·참가 정보 | CodePes</title>`,
     );
     expect(html).toContain(
-      'href="https://codepes.kro.kr/contests/devpost-29654"',
+      `href="https://codepes.kro.kr/contests/${sampleContest.id}"`,
     );
     expect(html).toContain('"@type":"Event"');
-    expect(html).toContain('"name":"DSOC : Summer Edition"');
+    expect(html).toContain(`"name":${JSON.stringify(sampleContest.title)}`);
   });
 
   it("returns a sitemap containing the homepage and contest pages", async () => {
@@ -164,7 +175,7 @@ describe("Sites worker security headers", () => {
     );
     expect(xml).toContain("<loc>https://codepes.kro.kr/</loc>");
     expect(xml).toContain(
-      "<loc>https://codepes.kro.kr/contests/devpost-29654</loc>",
+      `<loc>https://codepes.kro.kr/contests/${sampleContest.id}</loc>`,
     );
   });
 
