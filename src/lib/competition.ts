@@ -72,14 +72,11 @@ export const formatDate = (
   }).format(new Date(value));
 
 export const formatDateTime = (value: string) =>
-  new Intl.DateTimeFormat("ko-KR", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
+  formatDate(value, {
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
-  }).format(new Date(value));
+  });
 
 export const formatDateRange = (start: string, end: string) =>
   `${formatDate(start)} ~ ${formatDate(end)}`;
@@ -217,7 +214,7 @@ export const getSourceStatusPresentation = (
       tone: "stale" as const,
     };
   }
-  if (source.kind === "monitor" || source.state === "monitoring") {
+  if (source.kind === "monitor") {
     return {
       label: "공고 감시",
       description: "변경을 확인한 뒤 게시 조건을 수동 검토합니다.",

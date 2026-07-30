@@ -17,7 +17,7 @@ export type ParticipationMode = "online" | "offline" | "hybrid";
 export type SourceType = "official-api" | "official-page" | "submitted";
 export type DeadlineKind = "application" | "start";
 export type SourceStatusKind = "automatic" | "manual" | "monitor";
-export type SourceSyncState = "ok" | "error" | "monitoring";
+export type SourceSyncState = "ok" | "error";
 
 export interface CompetitionSourceStatus {
   id: string;
@@ -25,7 +25,6 @@ export interface CompetitionSourceStatus {
   kind: SourceStatusKind;
   state: SourceSyncState;
   lastCheckedAt: string;
-  lastSuccessAt?: string;
   publishedCount: number;
 }
 

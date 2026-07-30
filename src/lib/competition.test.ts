@@ -162,7 +162,6 @@ describe("competition data validation", () => {
         kind: "automatic" as const,
         state: "ok" as const,
         lastCheckedAt: "2026-07-24T00:00:00.000Z",
-        lastSuccessAt: "2026-07-24T00:00:00.000Z",
         publishedCount: 1,
       },
     ],
@@ -280,7 +279,6 @@ describe("source status presentation", () => {
     kind: "automatic" as const,
     state: "ok" as const,
     lastCheckedAt: "2026-07-28T00:00:00.000Z",
-    lastSuccessAt: "2026-07-28T00:00:00.000Z",
     publishedCount: 3,
   };
 
@@ -299,7 +297,7 @@ describe("source status presentation", () => {
     ).toBe("오래됨");
     expect(
       getSourceStatusPresentation(
-        { ...source, kind: "monitor", state: "monitoring" },
+        { ...source, kind: "monitor" },
         Date.parse("2026-07-28T01:00:00.000Z"),
       ).label,
     ).toBe("공고 감시");

@@ -39,7 +39,6 @@ const SOURCE_STATUS_KINDS = new Set<SourceStatusKind>([
 const SOURCE_SYNC_STATES = new Set<SourceSyncState>([
   "ok",
   "error",
-  "monitoring",
 ]);
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
@@ -106,7 +105,6 @@ export const isCompetitionSourceStatus = (
     SOURCE_STATUS_KINDS.has(value.kind as SourceStatusKind) &&
     SOURCE_SYNC_STATES.has(value.state as SourceSyncState) &&
     isIsoDate(value.lastCheckedAt) &&
-    (value.lastSuccessAt === undefined || isIsoDate(value.lastSuccessAt)) &&
     Number.isInteger(value.publishedCount) &&
     (value.publishedCount as number) >= 0
   );

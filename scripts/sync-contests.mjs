@@ -453,7 +453,6 @@ const collectSource = async ({
   label,
   sourceName,
   previousContests,
-  previousStatus,
   checkedAt,
   fetcher,
 }) => {
@@ -475,7 +474,6 @@ const collectSource = async ({
         kind: "automatic",
         state: "ok",
         lastCheckedAt: checkedAt,
-        lastSuccessAt: checkedAt,
         publishedCount: contests.length,
       },
     };
@@ -493,7 +491,6 @@ const collectSource = async ({
         kind: "automatic",
         state: "error",
         lastCheckedAt: checkedAt,
-        lastSuccessAt: previousStatus?.lastSuccessAt,
         publishedCount: previous.length,
       },
     };
@@ -518,7 +515,6 @@ const main = async () => {
   const collect = (options) =>
     collectSource({
       ...options,
-      previousStatus: previousStatusById.get(options.source?.id),
       checkedAt: verifiedAt,
     });
 
@@ -637,7 +633,6 @@ const main = async () => {
         kind: "manual",
         state: "ok",
         lastCheckedAt,
-        lastSuccessAt: lastCheckedAt,
         publishedCount: items.length,
       };
     },
@@ -665,9 +660,8 @@ const main = async () => {
         id: source.id,
         name: source.name,
         kind: "monitor",
-        state: failed ? "error" : "monitoring",
+        state: failed ? "error" : "ok",
         lastCheckedAt,
-        lastSuccessAt: failed ? undefined : lastCheckedAt,
         publishedCount: 0,
       };
     });

@@ -1,4 +1,4 @@
-import { Activity, ChevronDown } from "lucide-react";
+import { Activity } from "lucide-react";
 import type { CompetitionSourceStatus } from "../types/competition";
 import {
   formatDateTime,
@@ -42,16 +42,11 @@ export function SourceStatusPanel({ sources }: SourceStatusPanelProps) {
           {attentionCount > 0 ? ` · 확인 필요 ${attentionCount}` : " · 정상"}
           {monitoringCount > 0 ? ` · 공고 감시 ${monitoringCount}` : ""}
         </span>
-        <ChevronDown className="source-status-chevron" aria-hidden="true" />
       </summary>
 
       <div className="source-status-grid">
         {rows.map(({ source, presentation }) => (
           <div className="source-status-row" key={source.id}>
-            <span
-              className={`source-status-dot is-${presentation.tone}`}
-              aria-hidden="true"
-            />
             <span className="source-status-name">{source.name}</span>
             <span
               className={`source-status-label is-${presentation.tone}`}
