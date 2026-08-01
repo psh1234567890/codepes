@@ -18,7 +18,7 @@
       "Copyright © 2018-2026 SAMSUNG All Rights Reserved."
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-01T08:34:44.142Z"
+    "lastCheckedAt": "2026-08-01T13:56:33.928Z"
   },
   "icpc-korea": {
     "name": "ICPC Korea",
@@ -35,7 +35,7 @@
       "(* NOTE: different from 2025)"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-01T08:34:44.142Z"
+    "lastCheckedAt": "2026-08-01T13:56:33.928Z"
   },
   "ewha-girls-programming": {
     "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
@@ -51,7 +51,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-01T08:34:44.142Z",
-    "lastErrorAt": "2026-07-30T09:03:41.437Z"
+    "lastErrorAt": "2026-08-01T13:56:33.928Z"
   },
   "honam-youth-programming": {
     "name": "호남권 청소년 SW프로그래밍 경진대회",
@@ -84,7 +84,7 @@
     ],
     "lastChangedAt": "2026-07-28T09:58:10.621Z",
     "lastCheckedAt": "2026-07-28T09:58:10.621Z",
-    "lastErrorAt": "2026-08-01T08:34:44.142Z"
+    "lastErrorAt": "2026-08-01T13:56:33.928Z"
   },
   "baekjoon-official-contests": {
     "name": "Baekjoon 공식 대회 목록",
@@ -94,7 +94,7 @@
       "2010년 3월 19일 - 2026년 4월 28일"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-01T08:34:44.142Z"
+    "lastCheckedAt": "2026-08-01T13:56:33.928Z"
   },
   "acpc": {
     "name": "AWS × Codetree Programming Contest",
@@ -143,7 +143,7 @@
       "문의하기 © 2026 ACPC · AWS × Codetree Programming Contest"
     ],
     "lastChangedAt": "2026-07-31T09:18:03.668Z",
-    "lastCheckedAt": "2026-08-01T08:34:44.142Z"
+    "lastCheckedAt": "2026-08-01T13:56:33.928Z"
   },
   "kaist-run": {
     "name": "KAIST RUN 알고리즘 대회",
@@ -168,7 +168,7 @@
       "2026-07-26 RUN 웹사이트 개편 2026-04-15 2026 KAIST RUN Spring Contest가 열립니다 2025-10-26 2025 KAIST 15th ICPC Mock Competition이 열립니다"
     ],
     "lastChangedAt": "2026-07-31T03:51:47.374Z",
-    "lastCheckedAt": "2026-08-01T08:34:44.142Z"
+    "lastCheckedAt": "2026-08-01T13:56:33.928Z"
   },
   "icpc-sinchon": {
     "name": "ICPC Sinchon Camp Contest",
@@ -193,7 +193,7 @@
       "중급 Camp Contest 문제 목록"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-01T08:34:44.142Z"
+    "lastCheckedAt": "2026-08-01T13:56:33.928Z"
   },
   "kpsc": {
     "name": "국민대학교 KPSC 대회",
@@ -223,7 +223,7 @@
       "&copy; 2026 KPSC. Powered by Jekyll & Minimal Mistakes ."
     ],
     "lastChangedAt": "2026-07-28T06:53:54.942Z",
-    "lastCheckedAt": "2026-08-01T08:34:44.142Z"
+    "lastCheckedAt": "2026-08-01T13:56:33.928Z"
   },
   "postech-poscat": {
     "name": "POSTECH POSCAT 대회",
@@ -231,7 +231,7 @@
     "fingerprint": "d8ef03c9130235ac91b66e7bea8ea5a7f6b88950a13236ed78a62b24b5c9bbc6",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-01T08:34:44.142Z"
+    "lastCheckedAt": "2026-08-01T13:56:33.928Z"
   },
   "soongsil-sccc": {
     "name": "숭실대학교 SCCC 대회",
@@ -277,12 +277,12 @@
       "&copy; SCCC Homepage 2025"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-01T08:34:44.142Z"
+    "lastCheckedAt": "2026-08-01T13:56:33.928Z"
   },
   "dacon": {
     "name": "DACON",
     "endpoint": "https://dacon.io/competitions",
-    "fingerprint": "54808f4b885a50bd7d4d9e5902328db9df972fcfda109760b2fa8d9ff059d3ea",
+    "fingerprint": "a0140d80f23f522083316a4fd0db8fb82fbbf2808944ec493d552c80e1115b8c",
     "markers": [
       "대회: 도전으로 기회를 얻으세요 - DACON",
       "커뮤니티 대회 학습",
@@ -308,8 +308,8 @@
       "통신판매업 신고번호: 제 2021-서울영등포-1704호",
       "직업정보제공사업 신고번호: J1204020250004"
     ],
-    "lastChangedAt": "2026-08-01T08:34:44.142Z",
-    "lastCheckedAt": "2026-08-01T08:34:44.142Z"
+    "lastChangedAt": "2026-08-01T13:56:33.928Z",
+    "lastCheckedAt": "2026-08-01T13:56:33.928Z"
   },
   "daker": {
     "name": "DAKER",
@@ -317,6 +317,6 @@
     "fingerprint": "fee77bf572a2e1bf837d61196863bc3979d6099850f40fb6928e24f2182d79cb",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-01T08:34:44.142Z"
+    "lastCheckedAt": "2026-08-01T13:56:33.928Z"
   }
 }
