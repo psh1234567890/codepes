@@ -1,34 +1,6 @@
 {
-  "updatedAt": "2026-08-01T03:52:10.372Z",
+  "updatedAt": "2026-08-01T08:34:47.670Z",
   "contests": [
-    {
-      "id": "ctftime-3237",
-      "title": "Universal CTF",
-      "summary": "U-CTF에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
-      "type": "security",
-      "organizer": "U-CTF",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
-      "mode": "online",
-      "applicationDeadline": "2026-08-01T07:00:00.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-08-01T07:00:00.000Z",
-      "eventEnd": "2026-08-02T15:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "보안",
-        "CTF",
-        "Jeopardy",
-        "한국 온라인 참가 가능"
-      ],
-      "url": "https://ctftime.org/event/3237/",
-      "sourceName": "CTFtime 공식 API",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
-    },
     {
       "id": "atcoder-abc469",
       "title": "AtCoder Beginner Contest 469",
@@ -647,6 +619,35 @@
       "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
     },
     {
+      "id": "devpost-30550",
+      "title": "IncludAI - The Neurodiversity Hackathon, in Partnership with Stanford NNEA",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 IncludEDU, partner w Stanford NNEA입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "type": "ai-data",
+      "organizer": "IncludEDU, partner w Stanford NNEA",
+      "eligibilities": [
+        "rules"
+      ],
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-08-09T06:45:00.000Z",
+      "eventStart": "2026-08-01T07:00:00.000Z",
+      "eventEnd": "2026-08-09T06:45:00.000Z",
+      "location": "Online",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "해커톤",
+        "Devpost",
+        "한국 온라인 참가 가능",
+        "Beginner Friendly",
+        "Education",
+        "Machine Learning/AI"
+      ],
+      "url": "https://includai-2026.devpost.com/",
+      "sourceName": "Devpost 공식 목록·일정",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-08-01T08:34:47.670Z"
+    },
+    {
       "id": "atcoder-arc226",
       "title": "UNIQUE VISION Programming Contest 2026 Summer (AtCoder Regular Contest 226)",
       "summary": "AtCoder의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
@@ -1071,34 +1072,6 @@
       "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
     },
     {
-      "id": "itch-girly-game-jam-4",
-      "title": "Girly Game Jam #4",
-      "summary": "Erin DJV, Makritza에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Erin DJV, Makritza",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "공식 게임잼 페이지에 누구나 온라인 참가 가능 명시. 수상·연령·팀 구성·사용 가능 에셋 등 세부 조건은 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-16T17:00:00.000Z",
-      "eventStart": "2026-08-07T17:00:00.000Z",
-      "eventEnd": "2026-08-16T17:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io",
-        "누구나 참가",
-        "한국 온라인 참가 가능"
-      ],
-      "url": "https://itch.io/jam/girly-game-jam-4",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-31T14:37:27.220Z"
-    },
-    {
       "id": "dacon-inha-ai-2026",
       "title": "2026 인하 인공지능 챌린지",
       "summary": "영상 기반 행동 이해 모델의 성능과 효율을 겨루는 AI 경진대회",
@@ -1327,62 +1300,6 @@
       "sourceName": "AtCoder 공식 대회 목록",
       "sourceType": "official-page",
       "lastVerifiedAt": "2026-07-27T10:10:22.287Z"
-    },
-    {
-      "id": "itch--ard-game-jam-2026",
-      "title": "🕹️ ARD GAME JAM 2026",
-      "summary": "ARD Game Jam에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "ARD Game Jam",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "공식 게임잼 페이지에 누구나 온라인 참가 가능 명시. 수상·연령·팀 구성·사용 가능 에셋 등 세부 조건은 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-23T17:00:00.000Z",
-      "eventStart": "2026-08-21T17:00:00.000Z",
-      "eventEnd": "2026-08-23T17:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io",
-        "누구나 참가",
-        "한국 온라인 참가 가능"
-      ],
-      "url": "https://itch.io/jam/-ard-game-jam-2026",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-31T14:37:27.220Z"
-    },
-    {
-      "id": "itch-do-you-wanna-jam-2026",
-      "title": "Do you WANNA Jam?! 2026",
-      "summary": "Manisha W에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Manisha W",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "공식 게임잼 페이지에 누구나 온라인 참가 가능 명시. 수상·연령·팀 구성·사용 가능 에셋 등 세부 조건은 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-24T14:00:00.000Z",
-      "eventStart": "2026-08-15T14:00:00.000Z",
-      "eventEnd": "2026-08-24T14:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io",
-        "누구나 참가",
-        "한국 온라인 참가 가능"
-      ],
-      "url": "https://itch.io/jam/do-you-wanna-jam-2026",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-31T14:37:27.220Z"
     },
     {
       "id": "daker-quantum-reframing-2026",
@@ -1614,34 +1531,6 @@
       "sourceName": "Devpost 공식 목록·일정",
       "sourceType": "official-api",
       "lastVerifiedAt": "2026-07-26T06:58:31.182Z"
-    },
-    {
-      "id": "itch-queercomgames2026",
-      "title": "Queer Communist Game Jam 2026",
-      "summary": "MizuMiaw에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "MizuMiaw",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "공식 게임잼 페이지에 누구나 온라인 참가 가능 명시. 수상·연령·팀 구성·사용 가능 에셋 등 세부 조건은 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-31T21:24:43.000Z",
-      "eventStart": "2026-08-01T21:24:43.000Z",
-      "eventEnd": "2026-08-31T21:24:43.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io",
-        "누구나 참가",
-        "한국 온라인 참가 가능"
-      ],
-      "url": "https://itch.io/jam/queercomgames2026",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-07-31T14:37:27.220Z"
     },
     {
       "id": "kitpa-youth-it-2026-7",
@@ -2296,6 +2185,34 @@
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
       "lastVerifiedAt": "2026-08-01T03:52:10.372Z"
+    },
+    {
+      "id": "ctftime-3207",
+      "title": "Hack.lu CTF 2026",
+      "summary": "FluxFingers에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
+      "type": "security",
+      "organizer": "FluxFingers",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
+      "mode": "online",
+      "applicationDeadline": "2026-10-23T18:00:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-10-23T18:00:00.000Z",
+      "eventEnd": "2026-10-25T18:00:00.000Z",
+      "location": "온라인",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "보안",
+        "CTF",
+        "Jeopardy",
+        "한국 온라인 참가 가능"
+      ],
+      "url": "https://ctftime.org/event/3207/",
+      "sourceName": "CTFtime 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-08-01T08:34:47.670Z"
     }
   ],
   "sources": [
@@ -2304,7 +2221,7 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:10.372Z",
+      "lastCheckedAt": "2026-08-01T08:34:47.670Z",
       "publishedCount": 4
     },
     {
@@ -2312,7 +2229,7 @@
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:10.372Z",
+      "lastCheckedAt": "2026-08-01T08:34:47.670Z",
       "publishedCount": 9
     },
     {
@@ -2320,7 +2237,7 @@
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:10.372Z",
+      "lastCheckedAt": "2026-08-01T08:34:47.670Z",
       "publishedCount": 3
     },
     {
@@ -2328,15 +2245,15 @@
       "name": "Devpost",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:10.372Z",
-      "publishedCount": 25
+      "lastCheckedAt": "2026-08-01T08:34:47.670Z",
+      "publishedCount": 26
     },
     {
       "id": "ctftime",
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:10.372Z",
+      "lastCheckedAt": "2026-08-01T08:34:47.670Z",
       "publishedCount": 30
     },
     {
@@ -2344,7 +2261,7 @@
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:10.372Z",
+      "lastCheckedAt": "2026-08-01T08:34:47.670Z",
       "publishedCount": 0
     },
     {
@@ -2352,7 +2269,7 @@
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:10.372Z",
+      "lastCheckedAt": "2026-08-01T08:34:47.670Z",
       "publishedCount": 2
     },
     {
@@ -2360,7 +2277,7 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "error",
-      "lastCheckedAt": "2026-08-01T03:52:10.372Z",
+      "lastCheckedAt": "2026-08-01T08:34:47.670Z",
       "publishedCount": 0
     },
     {
@@ -2368,16 +2285,16 @@
       "name": "UCPC",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:10.372Z",
+      "lastCheckedAt": "2026-08-01T08:34:47.670Z",
       "publishedCount": 0
     },
     {
       "id": "itch",
       "name": "itch.io",
       "kind": "automatic",
-      "state": "error",
-      "lastCheckedAt": "2026-08-01T03:52:10.372Z",
-      "publishedCount": 4
+      "state": "ok",
+      "lastCheckedAt": "2026-08-01T08:34:47.670Z",
+      "publishedCount": 0
     },
     {
       "id": "dacon",
@@ -2400,7 +2317,7 @@
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:07.702Z",
+      "lastCheckedAt": "2026-08-01T08:34:44.142Z",
       "publishedCount": 0
     },
     {
@@ -2408,7 +2325,7 @@
       "name": "ICPC Korea",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:07.702Z",
+      "lastCheckedAt": "2026-08-01T08:34:44.142Z",
       "publishedCount": 0
     },
     {
@@ -2416,7 +2333,7 @@
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:07.702Z",
+      "lastCheckedAt": "2026-08-01T08:34:44.142Z",
       "publishedCount": 0
     },
     {
@@ -2432,7 +2349,7 @@
       "name": "Baekjoon 공식 대회 목록",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:07.702Z",
+      "lastCheckedAt": "2026-08-01T08:34:44.142Z",
       "publishedCount": 0
     },
     {
@@ -2440,7 +2357,7 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:07.702Z",
+      "lastCheckedAt": "2026-08-01T08:34:44.142Z",
       "publishedCount": 0
     },
     {
@@ -2448,7 +2365,7 @@
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:07.702Z",
+      "lastCheckedAt": "2026-08-01T08:34:44.142Z",
       "publishedCount": 0
     },
     {
@@ -2456,7 +2373,7 @@
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:07.702Z",
+      "lastCheckedAt": "2026-08-01T08:34:44.142Z",
       "publishedCount": 0
     },
     {
@@ -2464,7 +2381,7 @@
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:07.702Z",
+      "lastCheckedAt": "2026-08-01T08:34:44.142Z",
       "publishedCount": 0
     },
     {
@@ -2472,7 +2389,7 @@
       "name": "POSTECH POSCAT 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:07.702Z",
+      "lastCheckedAt": "2026-08-01T08:34:44.142Z",
       "publishedCount": 0
     },
     {
@@ -2480,7 +2397,7 @@
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-01T03:52:07.702Z",
+      "lastCheckedAt": "2026-08-01T08:34:44.142Z",
       "publishedCount": 0
     }
   ]
