@@ -1,6 +1,35 @@
 {
-  "updatedAt": "2026-08-02T03:54:43.909Z",
+  "updatedAt": "2026-08-02T08:37:49.521Z",
   "contests": [
+    {
+      "id": "devpost-30126",
+      "title": "HackNomics",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 hacknomics입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "type": "hackathon",
+      "organizer": "hacknomics",
+      "eligibilities": [
+        "rules"
+      ],
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-08-02T09:00:00.000Z",
+      "eventStart": "2026-05-24T06:00:00.000Z",
+      "eventEnd": "2026-08-02T09:00:00.000Z",
+      "location": "Online",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "해커톤",
+        "Devpost",
+        "한국 온라인 참가 가능",
+        "Enterprise",
+        "Fintech",
+        "Health"
+      ],
+      "url": "https://hacknomicshack.devpost.com/",
+      "sourceName": "Devpost 공식 목록·일정",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-08-02T08:37:49.521Z"
+    },
     {
       "id": "daker-world-cup-manager-2026",
       "title": "월간 해커톤: 내가 축구 감독이라면",
@@ -178,7 +207,7 @@
       "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
-      "id": "codechef-start250d",
+      "id": "codechef-start250",
       "title": "Starters 250",
       "summary": "CodeChef의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
       "type": "ps",
@@ -199,10 +228,10 @@
         "알고리즘",
         "CodeChef"
       ],
-      "url": "https://www.codechef.com/START250D",
+      "url": "https://www.codechef.com/START250",
       "sourceName": "CodeChef 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-08-02T03:54:43.909Z"
+      "lastVerifiedAt": "2026-08-02T08:37:49.521Z"
     },
     {
       "id": "devpost-30515",
@@ -529,6 +558,72 @@
       "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
     },
     {
+      "id": "codeforces-2255",
+      "title": "Codeforces Round (Div. 1)",
+      "summary": "CF 형식의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
+      "type": "ps",
+      "organizer": "Codeforces",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "Codeforces 계정이 있는 누구나",
+      "mode": "online",
+      "applicationDeadline": "2026-08-09T14:35:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-08-09T14:35:00.000Z",
+      "eventEnd": "2026-08-09T16:35:00.000Z",
+      "location": "온라인",
+      "teamSize": "개인",
+      "languages": [
+        "C++",
+        "Java",
+        "Python",
+        "Kotlin"
+      ],
+      "tags": [
+        "PS",
+        "알고리즘",
+        "CF"
+      ],
+      "url": "https://codeforces.com/contest/2255",
+      "sourceName": "Codeforces 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-08-02T08:37:49.521Z"
+    },
+    {
+      "id": "codeforces-2256",
+      "title": "Codeforces Round (Div. 2)",
+      "summary": "CF 형식의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
+      "type": "ps",
+      "organizer": "Codeforces",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "Codeforces 계정이 있는 누구나",
+      "mode": "online",
+      "applicationDeadline": "2026-08-09T14:35:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-08-09T14:35:00.000Z",
+      "eventEnd": "2026-08-09T16:35:00.000Z",
+      "location": "온라인",
+      "teamSize": "개인",
+      "languages": [
+        "C++",
+        "Java",
+        "Python",
+        "Kotlin"
+      ],
+      "tags": [
+        "PS",
+        "알고리즘",
+        "CF"
+      ],
+      "url": "https://codeforces.com/contest/2256",
+      "sourceName": "Codeforces 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-08-02T08:37:49.521Z"
+    },
+    {
       "id": "devpost-30398",
       "title": "Brainwave 2026",
       "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 ACT House입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
@@ -587,7 +682,7 @@
       "lastVerifiedAt": "2026-07-26T06:58:31.182Z"
     },
     {
-      "id": "codechef-start251d",
+      "id": "codechef-start251",
       "title": "Starters 251",
       "summary": "CodeChef의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
       "type": "ps",
@@ -608,10 +703,10 @@
         "알고리즘",
         "CodeChef"
       ],
-      "url": "https://www.codechef.com/START251D",
+      "url": "https://www.codechef.com/START251",
       "sourceName": "CodeChef 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-08-02T03:54:43.909Z"
+      "lastVerifiedAt": "2026-08-02T08:37:49.521Z"
     },
     {
       "id": "devpost-30844",
@@ -2102,15 +2197,15 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:43.909Z",
-      "publishedCount": 3
+      "lastCheckedAt": "2026-08-02T08:37:49.521Z",
+      "publishedCount": 5
     },
     {
       "id": "atcoder",
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:43.909Z",
+      "lastCheckedAt": "2026-08-02T08:37:49.521Z",
       "publishedCount": 8
     },
     {
@@ -2118,23 +2213,23 @@
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:43.909Z",
+      "lastCheckedAt": "2026-08-02T08:37:49.521Z",
       "publishedCount": 3
     },
     {
       "id": "devpost",
       "name": "Devpost",
       "kind": "automatic",
-      "state": "error",
-      "lastCheckedAt": "2026-08-02T03:54:43.909Z",
-      "publishedCount": 24
+      "state": "ok",
+      "lastCheckedAt": "2026-08-02T08:37:49.521Z",
+      "publishedCount": 25
     },
     {
       "id": "ctftime",
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:43.909Z",
+      "lastCheckedAt": "2026-08-02T08:37:49.521Z",
       "publishedCount": 30
     },
     {
@@ -2142,7 +2237,7 @@
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:43.909Z",
+      "lastCheckedAt": "2026-08-02T08:37:49.521Z",
       "publishedCount": 0
     },
     {
@@ -2150,7 +2245,7 @@
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:43.909Z",
+      "lastCheckedAt": "2026-08-02T08:37:49.521Z",
       "publishedCount": 2
     },
     {
@@ -2158,7 +2253,7 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:43.909Z",
+      "lastCheckedAt": "2026-08-02T08:37:49.521Z",
       "publishedCount": 0
     },
     {
@@ -2166,7 +2261,7 @@
       "name": "UCPC",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:43.909Z",
+      "lastCheckedAt": "2026-08-02T08:37:49.521Z",
       "publishedCount": 0
     },
     {
@@ -2174,7 +2269,7 @@
       "name": "itch.io",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:43.909Z",
+      "lastCheckedAt": "2026-08-02T08:37:49.521Z",
       "publishedCount": 0
     },
     {
@@ -2197,16 +2292,16 @@
       "id": "scpc",
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
-      "state": "error",
-      "lastCheckedAt": "2026-08-01T19:36:09.346Z",
+      "state": "ok",
+      "lastCheckedAt": "2026-08-02T08:37:46.457Z",
       "publishedCount": 0
     },
     {
       "id": "icpc-korea",
       "name": "ICPC Korea",
       "kind": "monitor",
-      "state": "error",
-      "lastCheckedAt": "2026-08-01T19:36:09.346Z",
+      "state": "ok",
+      "lastCheckedAt": "2026-08-02T08:37:46.457Z",
       "publishedCount": 0
     },
     {
@@ -2214,7 +2309,7 @@
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:33.319Z",
+      "lastCheckedAt": "2026-08-02T08:37:46.457Z",
       "publishedCount": 0
     },
     {
@@ -2229,8 +2324,8 @@
       "id": "baekjoon-official-contests",
       "name": "Baekjoon 공식 대회 목록",
       "kind": "monitor",
-      "state": "error",
-      "lastCheckedAt": "2026-08-01T19:36:09.346Z",
+      "state": "ok",
+      "lastCheckedAt": "2026-08-02T08:37:46.457Z",
       "publishedCount": 0
     },
     {
@@ -2238,7 +2333,7 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:33.319Z",
+      "lastCheckedAt": "2026-08-02T08:37:46.457Z",
       "publishedCount": 0
     },
     {
@@ -2246,7 +2341,7 @@
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:33.319Z",
+      "lastCheckedAt": "2026-08-02T08:37:46.457Z",
       "publishedCount": 0
     },
     {
@@ -2254,7 +2349,7 @@
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:33.319Z",
+      "lastCheckedAt": "2026-08-02T08:37:46.457Z",
       "publishedCount": 0
     },
     {
@@ -2262,7 +2357,7 @@
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:33.319Z",
+      "lastCheckedAt": "2026-08-02T08:37:46.457Z",
       "publishedCount": 0
     },
     {
@@ -2270,7 +2365,7 @@
       "name": "POSTECH POSCAT 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:33.319Z",
+      "lastCheckedAt": "2026-08-02T08:37:46.457Z",
       "publishedCount": 0
     },
     {
@@ -2278,7 +2373,7 @@
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-02T03:54:33.319Z",
+      "lastCheckedAt": "2026-08-02T08:37:46.457Z",
       "publishedCount": 0
     }
   ]
