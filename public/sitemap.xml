@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-08-04T14:40:56.587Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/devpost-30760</loc>
-    <lastmod>2026-07-26T06:58:31.182Z</lastmod>
+    <lastmod>2026-08-04T19:58:07.557Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-30890</loc>
     <lastmod>2026-08-04T09:10:05.270Z</lastmod>
   </url>
   <url>
+    <loc>https://codepes.kro.kr/contests/devpost-30760</loc>
+    <lastmod>2026-07-26T06:58:31.182Z</lastmod>
+  </url>
+  <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3328</loc>
     <lastmod>2026-07-26T05:50:23.620Z</lastmod>
   </url>
   <url>
-    <loc>https://codepes.kro.kr/contests/codechef-start250d</loc>
-    <lastmod>2026-08-04T09:10:05.270Z</lastmod>
+    <loc>https://codepes.kro.kr/contests/codechef-start250</loc>
+    <lastmod>2026-08-04T19:58:07.557Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-30515</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codeforces-2252</loc>
-    <lastmod>2026-07-27T04:03:42.213Z</lastmod>
+    <lastmod>2026-08-04T19:58:07.557Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3342</loc>
@@ -85,8 +85,8 @@
     <lastmod>2026-07-26T06:58:31.182Z</lastmod>
   </url>
   <url>
-    <loc>https://codepes.kro.kr/contests/codechef-start251d</loc>
-    <lastmod>2026-08-04T09:10:05.270Z</lastmod>
+    <loc>https://codepes.kro.kr/contests/codechef-start251</loc>
+    <lastmod>2026-08-04T19:58:07.557Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codeforces-2251</loc>
@@ -199,6 +199,10 @@
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-29411</loc>
     <lastmod>2026-07-26T06:58:31.182Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/devpost-30845</loc>
+    <lastmod>2026-08-04T19:58:07.557Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/kitpa-youth-it-2026-7</loc>
