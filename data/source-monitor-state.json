@@ -19,7 +19,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-07T03:20:39.084Z",
-    "lastErrorAt": "2026-08-02T03:54:33.319Z"
+    "lastErrorAt": "2026-08-07T07:42:45.278Z"
   },
   "icpc-korea": {
     "name": "ICPC Korea",
@@ -37,7 +37,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-07T03:20:39.084Z",
-    "lastErrorAt": "2026-08-02T03:54:33.319Z"
+    "lastErrorAt": "2026-08-07T07:42:45.278Z"
   },
   "ewha-girls-programming": {
     "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
@@ -52,7 +52,7 @@
       "Copyright ⓒ 2015 Ewha Womans University. All Rights Reserved."
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-07T03:20:39.084Z",
+    "lastCheckedAt": "2026-08-07T07:42:45.278Z",
     "lastErrorAt": "2026-08-07T00:16:52.075Z"
   },
   "honam-youth-programming": {
@@ -86,7 +86,7 @@
     ],
     "lastChangedAt": "2026-07-28T09:58:10.621Z",
     "lastCheckedAt": "2026-07-28T09:58:10.621Z",
-    "lastErrorAt": "2026-08-07T03:20:39.084Z"
+    "lastErrorAt": "2026-08-07T07:42:45.278Z"
   },
   "baekjoon-official-contests": {
     "name": "Baekjoon 공식 대회 목록",
@@ -97,19 +97,19 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-04T19:58:04.569Z",
-    "lastErrorAt": "2026-08-07T03:20:39.084Z"
+    "lastErrorAt": "2026-08-07T07:42:45.278Z"
   },
   "acpc": {
     "name": "AWS × Codetree Programming Contest",
     "endpoint": "https://acpc2026.codetree.ai/",
-    "fingerprint": "c0f7c99978e4251b54fa8746d52b5f40846e2193a6bda5ad7cfe5987f7676f2c",
+    "fingerprint": "d3349f728be0295d0660cc3a8a76d665e5628689530185095b2fddfa4455ba38",
     "markers": [
       "ACPC 2026 | AWS × Codetree Programming Contest",
       "2026 대회 안내 예선 본선 본선 안내 보기",
       "/ Programming Contest",
       "2026",
       "2026년 8월 2일 (일) · AWS 코리아 본사",
-      "예선 종료 · 본선 진출자 발표 완료",
+      "ACPC 2026이 마무리되었습니다",
       "본선 안내 보기",
       "세계 최고의 클라우드 AWS 위에서, 국제정보올림피아드 출신 코드트리 팀이 직접 출제하는 대학생 프로그래밍 경진대회",
       "예선 등록",
@@ -145,8 +145,8 @@
       "본선 안내 보기 친구에게 공유하기",
       "문의하기 © 2026 ACPC · AWS × Codetree Programming Contest"
     ],
-    "lastChangedAt": "2026-07-31T09:18:03.668Z",
-    "lastCheckedAt": "2026-08-07T03:20:39.084Z"
+    "lastChangedAt": "2026-08-07T07:42:45.278Z",
+    "lastCheckedAt": "2026-08-07T07:42:45.278Z"
   },
   "kaist-run": {
     "name": "KAIST RUN 알고리즘 대회",
@@ -171,7 +171,7 @@
       "2026-07-26 RUN 웹사이트 개편 2026-04-15 2026 KAIST RUN Spring Contest가 열립니다 2025-10-26 2025 KAIST 15th ICPC Mock Competition이 열립니다"
     ],
     "lastChangedAt": "2026-07-31T03:51:47.374Z",
-    "lastCheckedAt": "2026-08-07T03:20:39.084Z"
+    "lastCheckedAt": "2026-08-07T07:42:45.278Z"
   },
   "icpc-sinchon": {
     "name": "ICPC Sinchon Camp Contest",
@@ -196,7 +196,7 @@
       "중급 Camp Contest 문제 목록"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-07T03:20:39.084Z"
+    "lastCheckedAt": "2026-08-07T07:42:45.278Z"
   },
   "kpsc": {
     "name": "국민대학교 KPSC 대회",
@@ -226,7 +226,7 @@
       "&copy; 2026 KPSC. Powered by Jekyll & Minimal Mistakes ."
     ],
     "lastChangedAt": "2026-07-28T06:53:54.942Z",
-    "lastCheckedAt": "2026-08-07T03:20:39.084Z"
+    "lastCheckedAt": "2026-08-07T07:42:45.278Z"
   },
   "postech-poscat": {
     "name": "POSTECH POSCAT 대회",
@@ -234,7 +234,7 @@
     "fingerprint": "d8ef03c9130235ac91b66e7bea8ea5a7f6b88950a13236ed78a62b24b5c9bbc6",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-07T03:20:39.084Z"
+    "lastCheckedAt": "2026-08-07T07:42:45.278Z"
   },
   "soongsil-sccc": {
     "name": "숭실대학교 SCCC 대회",
@@ -280,7 +280,7 @@
       "&copy; SCCC Homepage 2025"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-07T03:20:39.084Z"
+    "lastCheckedAt": "2026-08-07T07:42:45.278Z"
   },
   "dacon": {
     "name": "DACON",
@@ -311,7 +311,8 @@
       "직업정보제공사업 신고번호: J1204020250004"
     ],
     "lastChangedAt": "2026-08-07T03:20:39.084Z",
-    "lastCheckedAt": "2026-08-07T03:20:39.084Z"
+    "lastCheckedAt": "2026-08-07T03:20:39.084Z",
+    "lastErrorAt": "2026-08-07T07:42:45.278Z"
   },
   "daker": {
     "name": "DAKER",
@@ -320,6 +321,6 @@
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-07T03:20:39.084Z",
-    "lastErrorAt": "2026-08-02T03:54:33.319Z"
+    "lastErrorAt": "2026-08-07T07:42:45.278Z"
   }
 }
