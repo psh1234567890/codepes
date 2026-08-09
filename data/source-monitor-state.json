@@ -18,7 +18,7 @@
       "Copyright © 2018-2026 SAMSUNG All Rights Reserved."
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-09T02:30:20.876Z",
+    "lastCheckedAt": "2026-08-09T07:17:44.391Z",
     "lastErrorAt": "2026-08-07T07:42:45.278Z"
   },
   "icpc-korea": {
@@ -36,7 +36,7 @@
       "(* NOTE: different from 2025)"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-09T02:30:20.876Z",
+    "lastCheckedAt": "2026-08-09T07:17:44.391Z",
     "lastErrorAt": "2026-08-07T07:42:45.278Z"
   },
   "ewha-girls-programming": {
@@ -52,7 +52,7 @@
       "Copyright ⓒ 2015 Ewha Womans University. All Rights Reserved."
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-09T02:30:20.876Z",
+    "lastCheckedAt": "2026-08-09T07:17:44.391Z",
     "lastErrorAt": "2026-08-08T18:59:40.514Z"
   },
   "honam-youth-programming": {
@@ -86,7 +86,7 @@
     ],
     "lastChangedAt": "2026-07-28T09:58:10.621Z",
     "lastCheckedAt": "2026-07-28T09:58:10.621Z",
-    "lastErrorAt": "2026-08-09T02:30:20.876Z"
+    "lastErrorAt": "2026-08-09T07:17:44.391Z"
   },
   "baekjoon-official-contests": {
     "name": "Baekjoon 공식 대회 목록",
@@ -97,7 +97,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-04T19:58:04.569Z",
-    "lastErrorAt": "2026-08-09T02:30:20.876Z"
+    "lastErrorAt": "2026-08-09T07:17:44.391Z"
   },
   "acpc": {
     "name": "AWS × Codetree Programming Contest",
@@ -146,14 +146,14 @@
       "문의하기 © 2026 ACPC · AWS × Codetree Programming Contest"
     ],
     "lastChangedAt": "2026-08-07T07:42:45.278Z",
-    "lastCheckedAt": "2026-08-09T02:30:20.876Z"
+    "lastCheckedAt": "2026-08-09T07:17:44.391Z"
   },
   "kaist-run": {
     "name": "KAIST RUN 알고리즘 대회",
     "endpoint": "https://kaist.run/ko/",
-    "fingerprint": "5c3ffc344d7367f9d5f7c3ec0acdf807008006e2df30213aa2840ff1c496f1f0",
+    "fingerprint": "a5a6bdc576c922a2448dc61a37eb3da118db0dece64b512d20e502cff8422a9b",
     "markers": [
-      "소개 공지 대회 아카이브 연락처",
+      "소개 공지 대회 아카이브 회칙 연락처",
       "📢 공지 2026 봄학기 RUN 동아리 신입 부원 모집 SINCE 2005 RUN KAIST 알고리즘 문제해결 동아리",
       "매 학기 스터디와 대회를 통해 알고리즘 문제 해결 능력을 함께 기르는 것을 목표로 합니다.",
       "고급반 대회 준비와 실전 문제 풀이 위주로 공부합니다.",
@@ -169,8 +169,8 @@
       "가입 신청하기",
       "2026-07-26 RUN 웹사이트 개편 2026-04-15 2026 KAIST RUN Spring Contest가 열립니다 2025-10-26 2025 KAIST 15th ICPC Mock Competition이 열립니다"
     ],
-    "lastChangedAt": "2026-08-08T07:16:55.231Z",
-    "lastCheckedAt": "2026-08-09T02:30:20.876Z"
+    "lastChangedAt": "2026-08-09T07:17:44.391Z",
+    "lastCheckedAt": "2026-08-09T07:17:44.391Z"
   },
   "icpc-sinchon": {
     "name": "ICPC Sinchon Camp Contest",
@@ -195,7 +195,7 @@
       "중급 Camp Contest 문제 목록"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-09T02:30:20.876Z"
+    "lastCheckedAt": "2026-08-09T07:17:44.391Z"
   },
   "kpsc": {
     "name": "국민대학교 KPSC 대회",
@@ -225,7 +225,7 @@
       "&copy; 2026 KPSC. Powered by Jekyll & Minimal Mistakes ."
     ],
     "lastChangedAt": "2026-07-28T06:53:54.942Z",
-    "lastCheckedAt": "2026-08-09T02:30:20.876Z"
+    "lastCheckedAt": "2026-08-09T07:17:44.391Z"
   },
   "postech-poscat": {
     "name": "POSTECH POSCAT 대회",
@@ -233,7 +233,7 @@
     "fingerprint": "d8ef03c9130235ac91b66e7bea8ea5a7f6b88950a13236ed78a62b24b5c9bbc6",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-09T02:30:20.876Z"
+    "lastCheckedAt": "2026-08-09T07:17:44.391Z"
   },
   "soongsil-sccc": {
     "name": "숭실대학교 SCCC 대회",
@@ -279,12 +279,12 @@
       "&copy; SCCC Homepage 2025"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-09T02:30:20.876Z"
+    "lastCheckedAt": "2026-08-09T07:17:44.391Z"
   },
   "dacon": {
     "name": "DACON",
     "endpoint": "https://dacon.io/competitions",
-    "fingerprint": "818c852f6564fcbd1194d40377a1ac4abd71cc79eea1b53d3df34aa48b89282f",
+    "fingerprint": "ab405e94d80fcf1667944e7c7a8e2fad8385f25214cfcf88ab723705bface07b",
     "markers": [
       "대회: 도전으로 기회를 얻으세요 - DACON",
       "커뮤니티 대회 학습",
@@ -309,8 +309,8 @@
       "통신판매업 신고번호: 제 2021-서울영등포-1704호",
       "직업정보제공사업 신고번호: J1204020250004"
     ],
-    "lastChangedAt": "2026-08-09T02:30:20.876Z",
-    "lastCheckedAt": "2026-08-09T02:30:20.876Z"
+    "lastChangedAt": "2026-08-09T07:17:44.391Z",
+    "lastCheckedAt": "2026-08-09T07:17:44.391Z"
   },
   "daker": {
     "name": "DAKER",
@@ -318,7 +318,7 @@
     "fingerprint": "fee77bf572a2e1bf837d61196863bc3979d6099850f40fb6928e24f2182d79cb",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-09T02:30:20.876Z",
+    "lastCheckedAt": "2026-08-09T07:17:44.391Z",
     "lastErrorAt": "2026-08-07T07:42:45.278Z"
   }
 }
