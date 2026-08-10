@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-10T02:35:55.188Z",
+  "updatedAt": "2026-08-10T08:05:23.846Z",
   "contests": [
     {
       "id": "codechef-dsamonday015",
@@ -745,6 +745,62 @@
       "sourceName": "AtCoder 공식 대회 목록",
       "sourceType": "official-page",
       "lastVerifiedAt": "2026-07-27T10:10:22.287Z"
+    },
+    {
+      "id": "itch--ard-game-jam-2026",
+      "title": "🕹️ ARD GAME JAM 2026",
+      "summary": "ARD Game Jam에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
+      "type": "game",
+      "organizer": "ARD Game Jam",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "공식 게임잼 페이지에 누구나 온라인 참가 가능 명시. 수상·연령·팀 구성·사용 가능 에셋 등 세부 조건은 공식 규정 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-08-23T17:00:00.000Z",
+      "eventStart": "2026-08-21T17:00:00.000Z",
+      "eventEnd": "2026-08-23T17:00:00.000Z",
+      "location": "온라인",
+      "teamSize": "게임잼별 공식 규정 확인",
+      "tags": [
+        "게임",
+        "게임잼",
+        "itch.io",
+        "누구나 참가",
+        "한국 온라인 참가 가능"
+      ],
+      "url": "https://itch.io/jam/-ard-game-jam-2026",
+      "sourceName": "itch.io 공식 게임잼 목록",
+      "sourceType": "official-page",
+      "lastVerifiedAt": "2026-08-10T08:05:23.846Z"
+    },
+    {
+      "id": "itch-do-you-wanna-jam-2026",
+      "title": "Do you WANNA Jam?! 2026",
+      "summary": "Manisha W에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
+      "type": "game",
+      "organizer": "Manisha W",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "공식 게임잼 페이지에 누구나 온라인 참가 가능 명시. 수상·연령·팀 구성·사용 가능 에셋 등 세부 조건은 공식 규정 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-08-24T14:00:00.000Z",
+      "eventStart": "2026-08-15T14:00:00.000Z",
+      "eventEnd": "2026-08-24T14:00:00.000Z",
+      "location": "온라인",
+      "teamSize": "게임잼별 공식 규정 확인",
+      "tags": [
+        "게임",
+        "게임잼",
+        "itch.io",
+        "누구나 참가",
+        "한국 온라인 참가 가능"
+      ],
+      "url": "https://itch.io/jam/do-you-wanna-jam-2026",
+      "sourceName": "itch.io 공식 게임잼 목록",
+      "sourceType": "official-page",
+      "lastVerifiedAt": "2026-08-10T08:05:23.846Z"
     },
     {
       "id": "daker-quantum-reframing-2026",
@@ -1780,7 +1836,7 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
+      "lastCheckedAt": "2026-08-10T08:05:23.846Z",
       "publishedCount": 2
     },
     {
@@ -1788,7 +1844,7 @@
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
+      "lastCheckedAt": "2026-08-10T08:05:23.846Z",
       "publishedCount": 6
     },
     {
@@ -1796,7 +1852,7 @@
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
+      "lastCheckedAt": "2026-08-10T08:05:23.846Z",
       "publishedCount": 2
     },
     {
@@ -1804,7 +1860,7 @@
       "name": "Devpost",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
+      "lastCheckedAt": "2026-08-10T08:05:23.846Z",
       "publishedCount": 19
     },
     {
@@ -1812,7 +1868,7 @@
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
+      "lastCheckedAt": "2026-08-10T08:05:23.846Z",
       "publishedCount": 30
     },
     {
@@ -1820,7 +1876,7 @@
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
+      "lastCheckedAt": "2026-08-10T08:05:23.846Z",
       "publishedCount": 0
     },
     {
@@ -1828,7 +1884,7 @@
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
+      "lastCheckedAt": "2026-08-10T08:05:23.846Z",
       "publishedCount": 2
     },
     {
@@ -1836,7 +1892,7 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
+      "lastCheckedAt": "2026-08-10T08:05:23.846Z",
       "publishedCount": 0
     },
     {
@@ -1844,7 +1900,7 @@
       "name": "UCPC",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
+      "lastCheckedAt": "2026-08-10T08:05:23.846Z",
       "publishedCount": 0
     },
     {
@@ -1852,8 +1908,8 @@
       "name": "itch.io",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
-      "publishedCount": 0
+      "lastCheckedAt": "2026-08-10T08:05:23.846Z",
+      "publishedCount": 2
     },
     {
       "id": "dacon",
@@ -1876,7 +1932,7 @@
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
+      "lastCheckedAt": "2026-08-10T08:05:21.035Z",
       "publishedCount": 0
     },
     {
@@ -1884,15 +1940,15 @@
       "name": "ICPC Korea",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
+      "lastCheckedAt": "2026-08-10T08:05:21.035Z",
       "publishedCount": 0
     },
     {
       "id": "ewha-girls-programming",
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
-      "state": "error",
-      "lastCheckedAt": "2026-08-09T19:01:48.590Z",
+      "state": "ok",
+      "lastCheckedAt": "2026-08-10T08:05:21.035Z",
       "publishedCount": 0
     },
     {
@@ -1916,7 +1972,7 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
+      "lastCheckedAt": "2026-08-10T08:05:21.035Z",
       "publishedCount": 0
     },
     {
@@ -1924,7 +1980,7 @@
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
+      "lastCheckedAt": "2026-08-10T08:05:21.035Z",
       "publishedCount": 0
     },
     {
@@ -1932,7 +1988,7 @@
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
+      "lastCheckedAt": "2026-08-10T08:05:21.035Z",
       "publishedCount": 0
     },
     {
@@ -1940,7 +1996,7 @@
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
+      "lastCheckedAt": "2026-08-10T08:05:21.035Z",
       "publishedCount": 0
     },
     {
@@ -1948,7 +2004,7 @@
       "name": "POSTECH POSCAT 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
+      "lastCheckedAt": "2026-08-10T08:05:21.035Z",
       "publishedCount": 0
     },
     {
@@ -1956,7 +2012,7 @@
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
+      "lastCheckedAt": "2026-08-10T08:05:21.035Z",
       "publishedCount": 0
     }
   ]
