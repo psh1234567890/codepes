@@ -1,35 +1,6 @@
 {
-  "updatedAt": "2026-08-09T19:01:51.505Z",
+  "updatedAt": "2026-08-10T02:35:55.188Z",
   "contests": [
-    {
-      "id": "devpost-30398",
-      "title": "Brainwave 2026",
-      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 ACT House입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "hackathon",
-      "organizer": "ACT House",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-09T21:00:00.000Z",
-      "eventStart": "2026-06-12T04:00:00.000Z",
-      "eventEnd": "2026-08-09T21:00:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "한국 온라인 참가 가능",
-        "AR/VR",
-        "Blockchain",
-        "Communication"
-      ],
-      "url": "https://brainwaves.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
-    },
     {
       "id": "codechef-dsamonday015",
       "title": "Monday Munch - DSA Challenge 015 (Rated)",
@@ -1809,7 +1780,7 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:51.505Z",
+      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
       "publishedCount": 2
     },
     {
@@ -1817,7 +1788,7 @@
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:51.505Z",
+      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
       "publishedCount": 6
     },
     {
@@ -1825,7 +1796,7 @@
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:51.505Z",
+      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
       "publishedCount": 2
     },
     {
@@ -1833,15 +1804,15 @@
       "name": "Devpost",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:51.505Z",
-      "publishedCount": 20
+      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
+      "publishedCount": 19
     },
     {
       "id": "ctftime",
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:51.505Z",
+      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
       "publishedCount": 30
     },
     {
@@ -1849,7 +1820,7 @@
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:51.505Z",
+      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
       "publishedCount": 0
     },
     {
@@ -1857,7 +1828,7 @@
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:51.505Z",
+      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
       "publishedCount": 2
     },
     {
@@ -1865,7 +1836,7 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:51.505Z",
+      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
       "publishedCount": 0
     },
     {
@@ -1873,15 +1844,15 @@
       "name": "UCPC",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:51.505Z",
+      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
       "publishedCount": 0
     },
     {
       "id": "itch",
       "name": "itch.io",
       "kind": "automatic",
-      "state": "error",
-      "lastCheckedAt": "2026-08-09T19:01:51.505Z",
+      "state": "ok",
+      "lastCheckedAt": "2026-08-10T02:35:55.188Z",
       "publishedCount": 0
     },
     {
@@ -1905,7 +1876,7 @@
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:48.590Z",
+      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
       "publishedCount": 0
     },
     {
@@ -1913,14 +1884,14 @@
       "name": "ICPC Korea",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:48.590Z",
+      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
       "publishedCount": 0
     },
     {
       "id": "ewha-girls-programming",
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
-      "state": "ok",
+      "state": "error",
       "lastCheckedAt": "2026-08-09T19:01:48.590Z",
       "publishedCount": 0
     },
@@ -1945,7 +1916,7 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:48.590Z",
+      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
       "publishedCount": 0
     },
     {
@@ -1953,7 +1924,7 @@
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:48.590Z",
+      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
       "publishedCount": 0
     },
     {
@@ -1961,7 +1932,7 @@
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:48.590Z",
+      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
       "publishedCount": 0
     },
     {
@@ -1969,7 +1940,7 @@
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:48.590Z",
+      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
       "publishedCount": 0
     },
     {
@@ -1977,7 +1948,7 @@
       "name": "POSTECH POSCAT 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:48.590Z",
+      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
       "publishedCount": 0
     },
     {
@@ -1985,7 +1956,7 @@
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-09T19:01:48.590Z",
+      "lastCheckedAt": "2026-08-10T02:35:44.623Z",
       "publishedCount": 0
     }
   ]
