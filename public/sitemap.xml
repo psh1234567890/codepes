@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-08-10T13:46:00.820Z</lastmod>
+    <lastmod>2026-08-10T19:18:22.418Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-28039</loc>
@@ -105,6 +105,14 @@
     <lastmod>2026-07-27T10:10:22.287Z</lastmod>
   </url>
   <url>
+    <loc>https://codepes.kro.kr/contests/itch--ard-game-jam-2026</loc>
+    <lastmod>2026-08-10T19:18:22.418Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/itch-do-you-wanna-jam-2026</loc>
+    <lastmod>2026-08-10T19:18:22.418Z</lastmod>
+  </url>
+  <url>
     <loc>https://codepes.kro.kr/contests/daker-quantum-reframing-2026</loc>
     <lastmod>2026-07-24T00:00:00+09:00</lastmod>
   </url>
@@ -183,6 +191,10 @@
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-30579</loc>
     <lastmod>2026-07-26T06:58:31.182Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/devpost-30317</loc>
+    <lastmod>2026-08-10T19:18:22.418Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3346</loc>
