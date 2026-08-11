@@ -2,7 +2,7 @@
   "scpc": {
     "name": "Samsung Collegiate Programming Challenge",
     "endpoint": "https://research.samsung.com/scpc",
-    "fingerprint": "2d3ca8d56fd9840dd9d4b1f91bfd6b583323cac51e30594a2d8c9a9c168f922b",
+    "fingerprint": "24e8d54262caa6c6fed5a6b87dcfeb949ecf0c26dc10b4a278cb5808cca918f8",
     "markers": [
       "< SCPC 2025",
       "SCPC 2026",
@@ -17,9 +17,8 @@
       "2015",
       "Copyright © 2018-2026 SAMSUNG All Rights Reserved."
     ],
-    "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-11T02:28:44.790Z",
-    "lastErrorAt": "2026-08-07T07:42:45.278Z"
+    "lastChangedAt": "2026-08-11T07:38:55.029Z",
+    "lastCheckedAt": "2026-08-11T07:38:55.029Z"
   },
   "icpc-korea": {
     "name": "ICPC Korea",
@@ -36,7 +35,7 @@
       "(* NOTE: different from 2025)"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-11T02:28:44.790Z",
+    "lastCheckedAt": "2026-08-11T07:38:55.029Z",
     "lastErrorAt": "2026-08-07T07:42:45.278Z"
   },
   "ewha-girls-programming": {
@@ -52,7 +51,7 @@
       "Copyright ⓒ 2015 Ewha Womans University. All Rights Reserved."
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-11T02:28:44.790Z",
+    "lastCheckedAt": "2026-08-11T07:38:55.029Z",
     "lastErrorAt": "2026-08-10T19:18:11.840Z"
   },
   "honam-youth-programming": {
@@ -86,7 +85,7 @@
     ],
     "lastChangedAt": "2026-07-28T09:58:10.621Z",
     "lastCheckedAt": "2026-07-28T09:58:10.621Z",
-    "lastErrorAt": "2026-08-11T02:28:44.790Z"
+    "lastErrorAt": "2026-08-11T07:38:55.029Z"
   },
   "baekjoon-official-contests": {
     "name": "Baekjoon 공식 대회 목록",
@@ -97,7 +96,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-04T19:58:04.569Z",
-    "lastErrorAt": "2026-08-11T02:28:44.790Z"
+    "lastErrorAt": "2026-08-11T07:38:55.029Z"
   },
   "acpc": {
     "name": "AWS × Codetree Programming Contest",
@@ -146,7 +145,7 @@
       "문의하기 © 2026 ACPC · AWS × Codetree Programming Contest"
     ],
     "lastChangedAt": "2026-08-07T07:42:45.278Z",
-    "lastCheckedAt": "2026-08-11T02:28:44.790Z"
+    "lastCheckedAt": "2026-08-11T07:38:55.029Z"
   },
   "kaist-run": {
     "name": "KAIST RUN 알고리즘 대회",
@@ -170,12 +169,12 @@
       "2026-07-26 RUN 웹사이트 개편 2026-04-15 2026 KAIST RUN Spring Contest가 열립니다 2025-10-26 2025 KAIST 15th ICPC Mock Competition이 열립니다"
     ],
     "lastChangedAt": "2026-08-09T07:17:44.391Z",
-    "lastCheckedAt": "2026-08-11T02:28:44.790Z"
+    "lastCheckedAt": "2026-08-11T07:38:55.029Z"
   },
   "icpc-sinchon": {
     "name": "ICPC Sinchon Camp Contest",
     "endpoint": "https://icpc-sinchon.io/campcontest",
-    "fingerprint": "1b22e617e81fcb06fefece619f6e4617411d691a3fc60482654386d8d16b5ba0",
+    "fingerprint": "a94da1d6757c1bb305055ac0c028bd4bebb724da1a39d588da4ab9d55e9922da",
     "markers": [
       "SUAPC Camp Contest 역대 캠프 명예의 전당 후원 및 협업 SUAPC Camp Contest 역대 캠프 명예의 전당 후원 및 협업 ‹ 2023 Summer",
       "2023 Winter",
@@ -196,10 +195,10 @@
       "참가자 모집",
       "SUAPC 2026 Summer × Dify Hackathon",
       "2026년 8월 25일(화) 오전 11시 ~ 오후 4시",
-      "대회 안내 보기"
+      "참가 신청하기 대회 안내 보기"
     ],
-    "lastChangedAt": "2026-08-10T08:05:21.035Z",
-    "lastCheckedAt": "2026-08-11T02:28:44.790Z"
+    "lastChangedAt": "2026-08-11T07:38:55.029Z",
+    "lastCheckedAt": "2026-08-11T07:38:55.029Z"
   },
   "kpsc": {
     "name": "국민대학교 KPSC 대회",
@@ -229,7 +228,7 @@
       "&copy; 2026 KPSC. Powered by Jekyll & Minimal Mistakes ."
     ],
     "lastChangedAt": "2026-07-28T06:53:54.942Z",
-    "lastCheckedAt": "2026-08-11T02:28:44.790Z"
+    "lastCheckedAt": "2026-08-11T07:38:55.029Z"
   },
   "postech-poscat": {
     "name": "POSTECH POSCAT 대회",
@@ -237,7 +236,7 @@
     "fingerprint": "d8ef03c9130235ac91b66e7bea8ea5a7f6b88950a13236ed78a62b24b5c9bbc6",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-11T02:28:44.790Z"
+    "lastCheckedAt": "2026-08-11T07:38:55.029Z"
   },
   "soongsil-sccc": {
     "name": "숭실대학교 SCCC 대회",
@@ -283,12 +282,12 @@
       "&copy; SCCC Homepage 2025"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-11T02:28:44.790Z"
+    "lastCheckedAt": "2026-08-11T07:38:55.029Z"
   },
   "dacon": {
     "name": "DACON",
     "endpoint": "https://dacon.io/competitions",
-    "fingerprint": "cd21f004dfcb9596e6022c6aa4be8060e4d35898958d2c646f0b562f23b705eb",
+    "fingerprint": "9778de0f0f5f06873b495b6a7df670ac491b9136b87fdc6afb0b7badbda0cf2e",
     "markers": [
       "대회: 도전으로 기회를 얻으세요 - DACON",
       "커뮤니티 대회 학습",
@@ -313,8 +312,8 @@
       "통신판매업 신고번호: 제 2021-서울영등포-1704호",
       "직업정보제공사업 신고번호: J1204020250004"
     ],
-    "lastChangedAt": "2026-08-11T02:28:44.790Z",
-    "lastCheckedAt": "2026-08-11T02:28:44.790Z"
+    "lastChangedAt": "2026-08-11T07:38:55.029Z",
+    "lastCheckedAt": "2026-08-11T07:38:55.029Z"
   },
   "daker": {
     "name": "DAKER",
@@ -322,7 +321,7 @@
     "fingerprint": "fee77bf572a2e1bf837d61196863bc3979d6099850f40fb6928e24f2182d79cb",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-11T02:28:44.790Z",
+    "lastCheckedAt": "2026-08-11T07:38:55.029Z",
     "lastErrorAt": "2026-08-07T07:42:45.278Z"
   }
 }

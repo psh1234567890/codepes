@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-08-11T02:28:47.002Z</lastmod>
+    <lastmod>2026-08-11T07:38:57.912Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codechef-start251</loc>
@@ -99,6 +99,14 @@
   <url>
     <loc>https://codepes.kro.kr/contests/atcoder-abc472</loc>
     <lastmod>2026-07-27T10:10:22.287Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/itch--ard-game-jam-2026</loc>
+    <lastmod>2026-08-11T07:38:57.912Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/itch-do-you-wanna-jam-2026</loc>
+    <lastmod>2026-08-11T07:38:57.912Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/daker-quantum-reframing-2026</loc>
