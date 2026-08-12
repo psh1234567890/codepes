@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-08-12T07:53:49.883Z</lastmod>
+    <lastmod>2026-08-12T13:49:04.391Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codechef-start251</loc>
@@ -61,6 +61,10 @@
     <lastmod>2026-07-26T05:23:39.353Z</lastmod>
   </url>
   <url>
+    <loc>https://codepes.kro.kr/contests/codechef-dsamonday016</loc>
+    <lastmod>2026-08-12T13:49:04.391Z</lastmod>
+  </url>
+  <url>
     <loc>https://codepes.kro.kr/contests/codeforces-2257</loc>
     <lastmod>2026-08-08T18:59:51.074Z</lastmod>
   </url>
@@ -101,16 +105,12 @@
     <lastmod>2026-07-29T03:42:26.220Z</lastmod>
   </url>
   <url>
+    <loc>https://codepes.kro.kr/contests/ctftime-3394</loc>
+    <lastmod>2026-08-12T13:49:04.391Z</lastmod>
+  </url>
+  <url>
     <loc>https://codepes.kro.kr/contests/atcoder-abc472</loc>
     <lastmod>2026-07-27T10:10:22.287Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/itch--ard-game-jam-2026</loc>
-    <lastmod>2026-08-12T07:53:49.883Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/itch-do-you-wanna-jam-2026</loc>
-    <lastmod>2026-08-12T07:53:49.883Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/daker-quantum-reframing-2026</loc>
@@ -229,6 +229,10 @@
     <lastmod>2026-07-26T05:50:23.620Z</lastmod>
   </url>
   <url>
+    <loc>https://codepes.kro.kr/contests/ctftime-3399</loc>
+    <lastmod>2026-08-12T13:49:04.391Z</lastmod>
+  </url>
+  <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3020</loc>
     <lastmod>2026-08-08T18:59:51.074Z</lastmod>
   </url>
@@ -251,13 +255,5 @@
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3354</loc>
     <lastmod>2026-08-07T00:17:02.641Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/ctftime-3279</loc>
-    <lastmod>2026-08-08T02:22:37.968Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/ctftime-3207</loc>
-    <lastmod>2026-08-08T02:22:37.968Z</lastmod>
   </url>
 </urlset>

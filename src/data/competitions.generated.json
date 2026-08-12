@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-12T07:53:49.883Z",
+  "updatedAt": "2026-08-12T13:49:04.391Z",
   "contests": [
     {
       "id": "codechef-start251",
@@ -399,6 +399,33 @@
       "lastVerifiedAt": "2026-07-26T05:23:39.353Z"
     },
     {
+      "id": "codechef-dsamonday016",
+      "title": "Monday Munch - DSA Challenge 016 (Rated)",
+      "summary": "CodeChef의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
+      "type": "ps",
+      "organizer": "CodeChef",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CodeChef 계정이 있는 누구나, 대회별 Division 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-08-17T13:30:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-08-17T13:30:00.000Z",
+      "eventEnd": "2026-08-17T16:30:00.000Z",
+      "location": "온라인",
+      "teamSize": "개인",
+      "tags": [
+        "PS",
+        "알고리즘",
+        "CodeChef"
+      ],
+      "url": "https://www.codechef.com/DSAMONDAY016",
+      "sourceName": "CodeChef 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-08-12T13:49:04.391Z"
+    },
+    {
       "id": "codeforces-2257",
       "title": "Codeforces Round (Div. 2)",
       "summary": "CF 형식의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
@@ -690,6 +717,34 @@
       "lastVerifiedAt": "2026-07-29T03:42:26.220Z"
     },
     {
+      "id": "ctftime-3394",
+      "title": "TallDwarf Hosting: Hosting Takeover",
+      "summary": "TallDwarf Hosting에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
+      "type": "security",
+      "organizer": "TallDwarf Hosting",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
+      "mode": "online",
+      "applicationDeadline": "2026-08-22T08:00:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-08-22T08:00:00.000Z",
+      "eventEnd": "2026-08-23T20:00:00.000Z",
+      "location": "온라인",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "보안",
+        "CTF",
+        "Jeopardy",
+        "한국 온라인 참가 가능"
+      ],
+      "url": "https://ctftime.org/event/3394/",
+      "sourceName": "CTFtime 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-08-12T13:49:04.391Z"
+    },
+    {
       "id": "atcoder-abc472",
       "title": "AtCoder Beginner Contest 472",
       "summary": "AtCoder의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
@@ -716,62 +771,6 @@
       "sourceName": "AtCoder 공식 대회 목록",
       "sourceType": "official-page",
       "lastVerifiedAt": "2026-07-27T10:10:22.287Z"
-    },
-    {
-      "id": "itch--ard-game-jam-2026",
-      "title": "🕹️ ARD GAME JAM 2026",
-      "summary": "ARD Game Jam에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "ARD Game Jam",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "공식 게임잼 페이지에 누구나 온라인 참가 가능 명시. 수상·연령·팀 구성·사용 가능 에셋 등 세부 조건은 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-23T17:00:00.000Z",
-      "eventStart": "2026-08-21T17:00:00.000Z",
-      "eventEnd": "2026-08-23T17:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io",
-        "누구나 참가",
-        "한국 온라인 참가 가능"
-      ],
-      "url": "https://itch.io/jam/-ard-game-jam-2026",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-08-12T07:53:49.883Z"
-    },
-    {
-      "id": "itch-do-you-wanna-jam-2026",
-      "title": "Do you WANNA Jam?! 2026",
-      "summary": "Manisha W에서 itch.io를 통해 진행하는 공개 게임잼입니다. 제출 형식과 참가 조건은 각 게임잼 공식 페이지에서 확인하세요.",
-      "type": "game",
-      "organizer": "Manisha W",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "공식 게임잼 페이지에 누구나 온라인 참가 가능 명시. 수상·연령·팀 구성·사용 가능 에셋 등 세부 조건은 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-08-24T14:00:00.000Z",
-      "eventStart": "2026-08-15T14:00:00.000Z",
-      "eventEnd": "2026-08-24T14:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "게임잼별 공식 규정 확인",
-      "tags": [
-        "게임",
-        "게임잼",
-        "itch.io",
-        "누구나 참가",
-        "한국 온라인 참가 가능"
-      ],
-      "url": "https://itch.io/jam/do-you-wanna-jam-2026",
-      "sourceName": "itch.io 공식 게임잼 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-08-12T07:53:49.883Z"
     },
     {
       "id": "daker-quantum-reframing-2026",
@@ -1605,6 +1604,34 @@
       "lastVerifiedAt": "2026-07-26T05:50:23.620Z"
     },
     {
+      "id": "ctftime-3399",
+      "title": "SunshineCTF 2026",
+      "summary": "Knightsec에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
+      "type": "security",
+      "organizer": "Knightsec",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
+      "mode": "online",
+      "applicationDeadline": "2026-09-26T14:00:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-09-26T14:00:00.000Z",
+      "eventEnd": "2026-09-28T14:00:00.000Z",
+      "location": "온라인",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "보안",
+        "CTF",
+        "Jeopardy",
+        "한국 온라인 참가 가능"
+      ],
+      "url": "https://ctftime.org/event/3399/",
+      "sourceName": "CTFtime 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-08-12T13:49:04.391Z"
+    },
+    {
       "id": "ctftime-3020",
       "title": "Pointer Overflow CTF - 2026",
       "summary": "UWSP Pointers에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
@@ -1772,62 +1799,6 @@
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
       "lastVerifiedAt": "2026-08-07T00:17:02.641Z"
-    },
-    {
-      "id": "ctftime-3279",
-      "title": "DEADFACE CTF 2026",
-      "summary": "Cyber Hacktics에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
-      "type": "security",
-      "organizer": "Cyber Hacktics",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
-      "mode": "online",
-      "applicationDeadline": "2026-10-17T14:00:00.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-10-17T14:00:00.000Z",
-      "eventEnd": "2026-10-19T00:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "보안",
-        "CTF",
-        "Jeopardy",
-        "한국 온라인 참가 가능"
-      ],
-      "url": "https://ctftime.org/event/3279/",
-      "sourceName": "CTFtime 공식 API",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-08-08T02:22:37.968Z"
-    },
-    {
-      "id": "ctftime-3207",
-      "title": "Hack.lu CTF 2026",
-      "summary": "FluxFingers에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
-      "type": "security",
-      "organizer": "FluxFingers",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
-      "mode": "online",
-      "applicationDeadline": "2026-10-23T18:00:00.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-10-23T18:00:00.000Z",
-      "eventEnd": "2026-10-25T18:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "보안",
-        "CTF",
-        "Jeopardy",
-        "한국 온라인 참가 가능"
-      ],
-      "url": "https://ctftime.org/event/3207/",
-      "sourceName": "CTFtime 공식 API",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-08-08T02:22:37.968Z"
     }
   ],
   "sources": [
@@ -1836,7 +1807,7 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:49.883Z",
+      "lastCheckedAt": "2026-08-12T13:49:04.391Z",
       "publishedCount": 2
     },
     {
@@ -1844,7 +1815,7 @@
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:49.883Z",
+      "lastCheckedAt": "2026-08-12T13:49:04.391Z",
       "publishedCount": 6
     },
     {
@@ -1852,15 +1823,15 @@
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:49.883Z",
-      "publishedCount": 2
+      "lastCheckedAt": "2026-08-12T13:49:04.391Z",
+      "publishedCount": 3
     },
     {
       "id": "devpost",
       "name": "Devpost",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:49.883Z",
+      "lastCheckedAt": "2026-08-12T13:49:04.391Z",
       "publishedCount": 19
     },
     {
@@ -1868,7 +1839,7 @@
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:49.883Z",
+      "lastCheckedAt": "2026-08-12T13:49:04.391Z",
       "publishedCount": 30
     },
     {
@@ -1876,7 +1847,7 @@
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:49.883Z",
+      "lastCheckedAt": "2026-08-12T13:49:04.391Z",
       "publishedCount": 0
     },
     {
@@ -1884,7 +1855,7 @@
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:49.883Z",
+      "lastCheckedAt": "2026-08-12T13:49:04.391Z",
       "publishedCount": 2
     },
     {
@@ -1892,7 +1863,7 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:49.883Z",
+      "lastCheckedAt": "2026-08-12T13:49:04.391Z",
       "publishedCount": 0
     },
     {
@@ -1900,7 +1871,7 @@
       "name": "UCPC",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:49.883Z",
+      "lastCheckedAt": "2026-08-12T13:49:04.391Z",
       "publishedCount": 0
     },
     {
@@ -1908,8 +1879,8 @@
       "name": "itch.io",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:49.883Z",
-      "publishedCount": 2
+      "lastCheckedAt": "2026-08-12T13:49:04.391Z",
+      "publishedCount": 0
     },
     {
       "id": "dacon",
@@ -1932,7 +1903,7 @@
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:47.126Z",
+      "lastCheckedAt": "2026-08-12T13:49:02.108Z",
       "publishedCount": 0
     },
     {
@@ -1940,7 +1911,7 @@
       "name": "ICPC Korea",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:47.126Z",
+      "lastCheckedAt": "2026-08-12T13:49:02.108Z",
       "publishedCount": 0
     },
     {
@@ -1948,7 +1919,7 @@
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:47.126Z",
+      "lastCheckedAt": "2026-08-12T13:49:02.108Z",
       "publishedCount": 0
     },
     {
@@ -1972,7 +1943,7 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:47.126Z",
+      "lastCheckedAt": "2026-08-12T13:49:02.108Z",
       "publishedCount": 0
     },
     {
@@ -1980,7 +1951,7 @@
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:47.126Z",
+      "lastCheckedAt": "2026-08-12T13:49:02.108Z",
       "publishedCount": 0
     },
     {
@@ -1988,7 +1959,7 @@
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:47.126Z",
+      "lastCheckedAt": "2026-08-12T13:49:02.108Z",
       "publishedCount": 0
     },
     {
@@ -1996,7 +1967,7 @@
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:47.126Z",
+      "lastCheckedAt": "2026-08-12T13:49:02.108Z",
       "publishedCount": 0
     },
     {
@@ -2004,7 +1975,7 @@
       "name": "POSTECH POSCAT 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:47.126Z",
+      "lastCheckedAt": "2026-08-12T13:49:02.108Z",
       "publishedCount": 0
     },
     {
@@ -2012,7 +1983,7 @@
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-08-12T07:53:47.126Z",
+      "lastCheckedAt": "2026-08-12T13:49:02.108Z",
       "publishedCount": 0
     }
   ]
