@@ -18,7 +18,7 @@
       "Copyright © 2018-2026 SAMSUNG All Rights Reserved."
     ],
     "lastChangedAt": "2026-08-11T07:38:55.029Z",
-    "lastCheckedAt": "2026-08-14T02:47:00.372Z"
+    "lastCheckedAt": "2026-08-14T07:51:59.847Z"
   },
   "icpc-korea": {
     "name": "ICPC Korea",
@@ -35,7 +35,7 @@
       "(* NOTE: different from 2025)"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-14T02:47:00.372Z",
+    "lastCheckedAt": "2026-08-14T07:51:59.847Z",
     "lastErrorAt": "2026-08-07T07:42:45.278Z"
   },
   "ewha-girls-programming": {
@@ -52,7 +52,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-14T02:47:00.372Z",
-    "lastErrorAt": "2026-08-10T19:18:11.840Z"
+    "lastErrorAt": "2026-08-14T07:51:59.847Z"
   },
   "honam-youth-programming": {
     "name": "호남권 청소년 SW프로그래밍 경진대회",
@@ -85,7 +85,7 @@
     ],
     "lastChangedAt": "2026-07-28T09:58:10.621Z",
     "lastCheckedAt": "2026-07-28T09:58:10.621Z",
-    "lastErrorAt": "2026-08-14T02:47:00.372Z"
+    "lastErrorAt": "2026-08-14T07:51:59.847Z"
   },
   "baekjoon-official-contests": {
     "name": "Baekjoon 공식 대회 목록",
@@ -96,7 +96,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-04T19:58:04.569Z",
-    "lastErrorAt": "2026-08-14T02:47:00.372Z"
+    "lastErrorAt": "2026-08-14T07:51:59.847Z"
   },
   "acpc": {
     "name": "AWS × Codetree Programming Contest",
@@ -145,7 +145,7 @@
       "문의하기 © 2026 ACPC · AWS × Codetree Programming Contest"
     ],
     "lastChangedAt": "2026-08-07T07:42:45.278Z",
-    "lastCheckedAt": "2026-08-14T02:47:00.372Z"
+    "lastCheckedAt": "2026-08-14T07:51:59.847Z"
   },
   "kaist-run": {
     "name": "KAIST RUN 알고리즘 대회",
@@ -169,12 +169,12 @@
       "2026-07-26 RUN 웹사이트 개편 2026-04-15 2026 KAIST RUN Spring Contest가 열립니다 2025-10-26 2025 KAIST 15th ICPC Mock Competition이 열립니다"
     ],
     "lastChangedAt": "2026-08-11T13:44:06.028Z",
-    "lastCheckedAt": "2026-08-14T02:47:00.372Z"
+    "lastCheckedAt": "2026-08-14T07:51:59.847Z"
   },
   "icpc-sinchon": {
     "name": "ICPC Sinchon Camp Contest",
     "endpoint": "https://icpc-sinchon.io/campcontest",
-    "fingerprint": "a94da1d6757c1bb305055ac0c028bd4bebb724da1a39d588da4ab9d55e9922da",
+    "fingerprint": "42c8e570875feab46907bc57373abdad8af8cfc06b9c74386a561de5a9c52e1a",
     "markers": [
       "SUAPC Camp Contest 역대 캠프 명예의 전당 후원 및 협업 SUAPC Camp Contest 역대 캠프 명예의 전당 후원 및 협업 ‹ 2023 Summer",
       "2023 Winter",
@@ -197,8 +197,8 @@
       "2026년 8월 25일(화) 오전 11시 ~ 오후 4시",
       "참가 신청하기 대회 안내 보기"
     ],
-    "lastChangedAt": "2026-08-11T07:38:55.029Z",
-    "lastCheckedAt": "2026-08-14T02:47:00.372Z"
+    "lastChangedAt": "2026-08-14T07:51:59.847Z",
+    "lastCheckedAt": "2026-08-14T07:51:59.847Z"
   },
   "kpsc": {
     "name": "국민대학교 KPSC 대회",
@@ -228,7 +228,7 @@
       "&copy; 2026 KPSC. Powered by Jekyll & Minimal Mistakes ."
     ],
     "lastChangedAt": "2026-07-28T06:53:54.942Z",
-    "lastCheckedAt": "2026-08-14T02:47:00.372Z"
+    "lastCheckedAt": "2026-08-14T07:51:59.847Z"
   },
   "postech-poscat": {
     "name": "POSTECH POSCAT 대회",
@@ -236,7 +236,7 @@
     "fingerprint": "d8ef03c9130235ac91b66e7bea8ea5a7f6b88950a13236ed78a62b24b5c9bbc6",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-14T02:47:00.372Z"
+    "lastCheckedAt": "2026-08-14T07:51:59.847Z"
   },
   "soongsil-sccc": {
     "name": "숭실대학교 SCCC 대회",
@@ -282,12 +282,12 @@
       "&copy; SCCC Homepage 2025"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-14T02:47:00.372Z"
+    "lastCheckedAt": "2026-08-14T07:51:59.847Z"
   },
   "dacon": {
     "name": "DACON",
     "endpoint": "https://dacon.io/competitions",
-    "fingerprint": "299508dfa036bfc94203fcf1f4cdccd8898eb8a2fde5458eb2c8694a7637f7d3",
+    "fingerprint": "67f06edb8d75d291039328c2620c3355e93134235dae246a8b82567fe35eef8a",
     "markers": [
       "대회: 도전으로 기회를 얻으세요 - DACON",
       "커뮤니티 대회 학습",
@@ -313,8 +313,8 @@
       "통신판매업 신고번호: 제 2021-서울영등포-1704호",
       "직업정보제공사업 신고번호: J1204020250004"
     ],
-    "lastChangedAt": "2026-08-14T02:47:00.372Z",
-    "lastCheckedAt": "2026-08-14T02:47:00.372Z"
+    "lastChangedAt": "2026-08-14T07:51:59.847Z",
+    "lastCheckedAt": "2026-08-14T07:51:59.847Z"
   },
   "daker": {
     "name": "DAKER",
@@ -322,7 +322,7 @@
     "fingerprint": "fee77bf572a2e1bf837d61196863bc3979d6099850f40fb6928e24f2182d79cb",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-08-14T02:47:00.372Z",
+    "lastCheckedAt": "2026-08-14T07:51:59.847Z",
     "lastErrorAt": "2026-08-07T07:42:45.278Z"
   }
 }
