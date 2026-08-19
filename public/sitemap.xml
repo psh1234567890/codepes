@@ -2,31 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-08-17T13:07:33.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/codechef-dsamonday016</loc>
-    <lastmod>2026-08-12T13:49:04.391Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/codeforces-2257</loc>
-    <lastmod>2026-08-16T01:58:33.987Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/dacon-inha-ai-2026</loc>
-    <lastmod>2026-07-24T00:00:00+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/devpost-30518</loc>
-    <lastmod>2026-07-26T06:58:31.182Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/devpost-29541</loc>
-    <lastmod>2026-07-26T06:58:31.182Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/devpost-29613</loc>
-    <lastmod>2026-07-26T06:58:31.182Z</lastmod>
+    <lastmod>2026-08-19T15:29:32.098Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-30458</loc>
@@ -37,16 +13,20 @@
     <lastmod>2026-07-26T05:50:23.620Z</lastmod>
   </url>
   <url>
-    <loc>https://codepes.kro.kr/contests/ctftime-3159</loc>
-    <lastmod>2026-08-05T14:34:48.822Z</lastmod>
-  </url>
-  <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3370</loc>
     <lastmod>2026-08-05T14:34:48.822Z</lastmod>
   </url>
   <url>
+    <loc>https://codepes.kro.kr/contests/codechef-placeprep04</loc>
+    <lastmod>2026-08-19T15:29:32.098Z</lastmod>
+  </url>
+  <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3379</loc>
     <lastmod>2026-07-29T03:42:26.220Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/ctftime-3397</loc>
+    <lastmod>2026-08-19T15:29:32.098Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-30468</loc>
@@ -63,6 +43,14 @@
   <url>
     <loc>https://codepes.kro.kr/contests/atcoder-abc472</loc>
     <lastmod>2026-07-27T10:10:22.287Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/codechef-dsamonday017</loc>
+    <lastmod>2026-08-19T15:29:32.098Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/codechef-start253</loc>
+    <lastmod>2026-08-19T15:29:32.098Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/daker-quantum-reframing-2026</loc>
@@ -87,6 +75,14 @@
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3033</loc>
     <lastmod>2026-07-26T05:50:23.620Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/ctftime-3413</loc>
+    <lastmod>2026-08-19T15:29:32.098Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/codeforces-2258</loc>
+    <lastmod>2026-08-19T15:29:32.098Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-30472</loc>
@@ -215,9 +211,5 @@
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3354</loc>
     <lastmod>2026-08-15T01:50:43.698Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/ctftime-3279</loc>
-    <lastmod>2026-08-15T12:59:52.368Z</lastmod>
   </url>
 </urlset>
