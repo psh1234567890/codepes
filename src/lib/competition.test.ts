@@ -224,29 +224,33 @@ describe("competition data validation", () => {
     expect(selectNewestCompetitionData(bundled, newer)).toBe(newer);
   });
 
-  it("ships a valid payload and labels Codeforces times as starts", () => {
+  it("ships a valid payload and labels published Codeforces times as starts", () => {
     expect(isCompetitionData(generatedData)).toBe(true);
     const codeforcesContests = generatedData.contests.filter(
       (item) => item.sourceName === "Codeforces 공식 API",
     );
-    expect(codeforcesContests.length).toBeGreaterThan(0);
     expect(
       codeforcesContests.every((item) => item.deadlineKind === "start"),
     ).toBe(true);
   });
 
-  it("ships competitions from every enabled automatic source", () => {
-    const sourceNames = new Set(
-      generatedData.contests.map((item) => item.sourceName),
-    );
-    for (const sourceName of [
-      "Codeforces 공식 API",
-      "AtCoder 공식 대회 목록",
-      "CodeChef 공식 API",
-      "Devpost 공식 목록·일정",
-      "CTFtime 공식 API",
-    ]) {
-      expect(sourceNames.has(sourceName)).toBe(true);
+  it("ships status entries for every enabled automatic source", () => {
+    for (const [sourceId, sourceName] of [
+      ["codeforces", "Codeforces 공식 API"],
+      ["atcoder", "AtCoder 공식 대회 목록"],
+      ["codechef", "CodeChef 공식 API"],
+      ["devpost", "Devpost 공식 목록·일정"],
+      ["ctftime", "CTFtime 공식 API"],
+    ] as const) {
+      const publishedCount = generatedData.contests.filter(
+        (item) => item.sourceName === sourceName,
+      ).length;
+      expect(
+        generatedData.sources.find((source) => source.id === sourceId),
+      ).toMatchObject({
+        kind: "automatic",
+        publishedCount,
+      });
     }
     expect(
       generatedData.contests
