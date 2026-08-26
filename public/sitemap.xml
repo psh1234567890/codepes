@@ -2,15 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-08-26T01:59:29.345Z</lastmod>
+    <lastmod>2026-08-26T07:10:17.915Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codechef-start253</loc>
-    <lastmod>2026-08-19T15:29:32.098Z</lastmod>
+    <lastmod>2026-08-26T07:10:17.915Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/daker-quantum-reframing-2026</loc>
     <lastmod>2026-07-24T00:00:00+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/codechef-placeprep05</loc>
+    <lastmod>2026-08-26T07:10:17.915Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3290</loc>
@@ -215,6 +219,10 @@
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3207</loc>
     <lastmod>2026-08-22T01:51:16.775Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/devpost-30984</loc>
+    <lastmod>2026-08-26T07:10:17.915Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-29411</loc>
