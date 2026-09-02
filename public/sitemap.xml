@@ -2,11 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-09-02T04:37:14.670Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/kitpa-youth-it-2026-7</loc>
-    <lastmod>2026-08-01T03:52:10.372Z</lastmod>
+    <lastmod>2026-09-02T11:21:26.697Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codechef-start254</loc>
@@ -21,6 +17,10 @@
     <lastmod>2026-07-26T05:50:23.620Z</lastmod>
   </url>
   <url>
+    <loc>https://codepes.kro.kr/contests/codechef-placeprep06</loc>
+    <lastmod>2026-09-02T11:21:26.697Z</lastmod>
+  </url>
+  <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3344</loc>
     <lastmod>2026-07-26T05:50:23.620Z</lastmod>
   </url>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codeforces-2259</loc>
-    <lastmod>2026-08-25T18:58:31.688Z</lastmod>
+    <lastmod>2026-09-02T11:21:26.697Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-29884</loc>
@@ -39,6 +39,10 @@
   <url>
     <loc>https://codepes.kro.kr/contests/atcoder-abc474</loc>
     <lastmod>2026-07-26T05:23:39.353Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/codechef-dsamonday019</loc>
+    <lastmod>2026-09-02T11:21:26.697Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codeforces-2260</loc>
@@ -117,10 +121,6 @@
     <lastmod>2026-07-26T06:58:31.182Z</lastmod>
   </url>
   <url>
-    <loc>https://codepes.kro.kr/contests/codechef-start257</loc>
-    <lastmod>2026-08-28T22:22:40.591Z</lastmod>
-  </url>
-  <url>
     <loc>https://codepes.kro.kr/contests/atcoder-ahc072</loc>
     <lastmod>2026-08-26T01:59:29.345Z</lastmod>
   </url>
@@ -147,10 +147,6 @@
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3020</loc>
     <lastmod>2026-08-08T18:59:51.074Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/codechef-start258</loc>
-    <lastmod>2026-08-31T13:55:06.114Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-31197</loc>
