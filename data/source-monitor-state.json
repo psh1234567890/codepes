@@ -18,7 +18,7 @@
       "Copyright © 2018-2026 SAMSUNG All Rights Reserved."
     ],
     "lastChangedAt": "2026-08-11T07:38:55.029Z",
-    "lastCheckedAt": "2026-09-05T15:16:26.802Z"
+    "lastCheckedAt": "2026-09-05T20:23:00.171Z"
   },
   "icpc-korea": {
     "name": "ICPC Korea",
@@ -35,7 +35,7 @@
       "(* NOTE: different from 2025)"
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-09-05T15:16:26.802Z",
+    "lastCheckedAt": "2026-09-05T20:23:00.171Z",
     "lastErrorAt": "2026-08-07T07:42:45.278Z"
   },
   "ewha-girls-programming": {
@@ -51,7 +51,7 @@
       "Copyright ⓒ 2015 Ewha Womans University. All Rights Reserved."
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-09-05T15:16:26.802Z",
+    "lastCheckedAt": "2026-09-05T20:23:00.171Z",
     "lastErrorAt": "2026-09-05T10:37:36.597Z"
   },
   "honam-youth-programming": {
@@ -85,7 +85,7 @@
     ],
     "lastChangedAt": "2026-07-28T09:58:10.621Z",
     "lastCheckedAt": "2026-07-28T09:58:10.621Z",
-    "lastErrorAt": "2026-09-05T15:16:26.802Z"
+    "lastErrorAt": "2026-09-05T20:23:00.171Z"
   },
   "baekjoon-official-contests": {
     "name": "Baekjoon 공식 대회 목록",
@@ -96,7 +96,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-04T19:58:04.569Z",
-    "lastErrorAt": "2026-09-05T15:16:26.802Z"
+    "lastErrorAt": "2026-09-05T20:23:00.171Z"
   },
   "acpc": {
     "name": "AWS × Codetree Programming Contest",
@@ -145,7 +145,7 @@
       "문의하기 © 2026 ACPC · AWS × Codetree Programming Contest"
     ],
     "lastChangedAt": "2026-08-07T07:42:45.278Z",
-    "lastCheckedAt": "2026-09-05T15:16:26.802Z"
+    "lastCheckedAt": "2026-09-05T20:23:00.171Z"
   },
   "kaist-run": {
     "name": "KAIST RUN 알고리즘 대회",
@@ -169,7 +169,7 @@
       "2026-07-26 RUN 웹사이트 개편 2026-04-15 2026 KAIST RUN Spring Contest가 열립니다 2026-03-11 2026 봄학기 RUN 동아리 신입 부원 모집"
     ],
     "lastChangedAt": "2026-08-20T13:12:12.835Z",
-    "lastCheckedAt": "2026-09-05T15:16:26.802Z"
+    "lastCheckedAt": "2026-09-05T20:23:00.171Z"
   },
   "icpc-sinchon": {
     "name": "ICPC Sinchon Camp Contest",
@@ -194,7 +194,7 @@
       "중급 Camp Contest 문제 목록"
     ],
     "lastChangedAt": "2026-08-23T07:02:18.491Z",
-    "lastCheckedAt": "2026-09-05T15:16:26.802Z"
+    "lastCheckedAt": "2026-09-05T20:23:00.171Z"
   },
   "kpsc": {
     "name": "국민대학교 KPSC 대회",
@@ -224,7 +224,7 @@
       "&copy; 2026 KPSC. Powered by Jekyll & Minimal Mistakes ."
     ],
     "lastChangedAt": "2026-07-28T06:53:54.942Z",
-    "lastCheckedAt": "2026-09-05T15:16:26.802Z"
+    "lastCheckedAt": "2026-09-05T20:23:00.171Z"
   },
   "postech-poscat": {
     "name": "POSTECH POSCAT 대회",
@@ -232,58 +232,46 @@
     "fingerprint": "d8ef03c9130235ac91b66e7bea8ea5a7f6b88950a13236ed78a62b24b5c9bbc6",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-09-05T15:16:26.802Z"
+    "lastCheckedAt": "2026-09-05T20:23:00.171Z"
   },
   "soongsil-sccc": {
     "name": "숭실대학교 SCCC 대회",
     "endpoint": "https://sccc.kr/",
-    "fingerprint": "36b8fbf867487347cc0c99498196ac7df4da18e9ecdcc5aa0d3ffd6afd539e57",
+    "fingerprint": "ba3e76761a0a74b4bd2fe34949843f51cc4d884589139830d0114002fc6d0269",
     "markers": [
-      "메인 화면 수상 실적 신입 부원 모집 스터디 대회 개최 BOJ 그룹 Contact",
-      "Contest",
+      "SCCC — Soongsil Computing Contest Club 본문 바로가기 SCCC 스터디 모집 대회 수상 소개",
+      "스터디 모집 대회 수상 소개 BOJ 그룹 ↗",
       "Soongsil Computing Contest Club",
-      "신입 부원 모집 스터디 목록 SCCC 수상 실적 SCON 안내 ICPC 신청 가이드",
-      "자료구조, 알고리즘, 문제해결기법을 공부하여 ICPC 등 여러 프로그래밍 대회를 준비합니다.",
-      "두근두근 대망의 대회!",
-      "2023년 SCCC 활동 소개",
-      "숭실대학교 프로그래밍 대회(2023 SCON) 개최",
-      "교내 프로그래밍 대회를 개최합니다. ( 문제&풀이 )",
-      "상품을 걸고 내부 대회를 진행합니다. ( 문제 모음 )",
-      "2023 ICPC 예선",
-      "2023 ICPC Asia Seoul Regional Contest",
-      "2023 UCPC 본선",
-      "2023 현대모비스 알고리즘 경진대회",
-      "Hello, BOJ 2024!",
-      "2023 삼성전자 대학생 프로그래밍 경진대회",
-      "2022 ICPC 은상",
-      "2023 ICPC 은상",
-      "2024 ICPC APAC 은상",
-      "2023 ICPC WF",
-      "2024 ICPC WF",
-      "2022-2023 회장",
-      "2022-2024 스터디 디렉터",
-      "@kyo20111 \"\"",
-      "2020 ICPC 동상",
-      "2021 ICPC 동상",
-      "2022 ICPC WF",
-      "2017 ICPC 은상",
-      "2018 회장",
-      "2017 스터디 디렉터",
-      "2016 ICPC 동상",
-      "2015 회장",
-      "2016 스터디 디렉터",
-      "2012 ICPC 동상",
-      "2017 회장",
-      "SCCC 운영진을 모집하고 있습니다.",
-      "&copy; SCCC Homepage 2025"
+      "SCCC 알아보기 2026-2 스터디 보기 ›",
+      "SCCC는 자료구조와 알고리즘, 문제해결기법을 공부하고 프로그래밍 대회를 준비하는 숭실대학교 컴퓨터학부 소모임입니다.",
+      "ICPC를 비롯한 프로그래밍 대회를 준비합니다.",
+      "후배를 위한 스터디와 교내 대회를 직접 만듭니다.",
+      "2026년 2학기",
+      "대회에서 필요한 핵심 알고리즘과 문제해결 전략.",
+      "2026 SCON",
+      "프로그래밍 대회.",
+      "문제를 만드는 일부터 대회 운영과 해설까지. SCON은 SCCC가 매년 직접 개최하는 숭실대학교 프로그래밍 대회입니다.",
+      "2026 SCON 살펴보기 ›",
+      "대회에서, 강의실에서,",
+      "2023년 SCCC 활동 기록",
+      "숭실대학교 프로그래밍 대회 개최",
+      "상품을 걸고 구성원끼리 내부 대회를 진행합니다.",
+      "ICPC 예선",
+      "2023년 PS akgwi 팀 은상, 전체 4등.",
+      "UCPC 본선",
+      "현대모비스 알고리즘 경진대회",
+      "2023년 우수상, 전체 6등과 7등.",
+      "삼성전자 대학생 프로그래밍 경진대회 본선 진출.",
+      "바로가기 스터디 신입 부원 모집 대회 수상 실적",
+      "© 2026 Soongsil Computing Contest Club official.sccc@gmail.com"
     ],
-    "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-09-05T15:16:26.802Z"
+    "lastChangedAt": "2026-09-05T20:23:00.171Z",
+    "lastCheckedAt": "2026-09-05T20:23:00.171Z"
   },
   "dacon": {
     "name": "DACON",
     "endpoint": "https://dacon.io/competitions",
-    "fingerprint": "c7edf35bf4b63725b807d0f46f1e8fd02142e3d1d9e057e0f1e50413ed3b4bfe",
+    "fingerprint": "8ff3ce2189ec35f5e45e793019ac489932a0882a3e17012923d5c141fe35ffd7",
     "markers": [
       "대회: 도전으로 기회를 얻으세요 - DACON",
       "커뮤니티 대회 학습",
@@ -309,8 +297,8 @@
       "통신판매업 신고번호: 제 2021-서울영등포-1704호",
       "직업정보제공사업 신고번호: J1204020250004"
     ],
-    "lastChangedAt": "2026-09-05T15:16:26.802Z",
-    "lastCheckedAt": "2026-09-05T15:16:26.802Z"
+    "lastChangedAt": "2026-09-05T20:23:00.171Z",
+    "lastCheckedAt": "2026-09-05T20:23:00.171Z"
   },
   "daker": {
     "name": "DAKER",
@@ -318,7 +306,7 @@
     "fingerprint": "fee77bf572a2e1bf837d61196863bc3979d6099850f40fb6928e24f2182d79cb",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-09-05T15:16:26.802Z",
+    "lastCheckedAt": "2026-09-05T20:23:00.171Z",
     "lastErrorAt": "2026-08-07T07:42:45.278Z"
   }
 }

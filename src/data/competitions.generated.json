@@ -1,35 +1,6 @@
 {
-  "updatedAt": "2026-09-05T15:16:29.402Z",
+  "updatedAt": "2026-09-05T20:23:03.226Z",
   "contests": [
-    {
-      "id": "devpost-29884",
-      "title": "VoltHacks",
-      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Dialogate입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "ai-data",
-      "organizer": "Dialogate",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-09-05T21:00:00.000Z",
-      "eventStart": "2026-05-22T04:00:00.000Z",
-      "eventEnd": "2026-09-05T21:00:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "한국 온라인 참가 가능",
-        "IoT",
-        "Machine Learning/AI",
-        "Beginner Friendly"
-      ],
-      "url": "https://volthacks.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-07-26T06:58:31.182Z"
-    },
     {
       "id": "atcoder-abc474",
       "title": "AtCoder Beginner Contest 474",
@@ -85,6 +56,35 @@
       "sourceName": "AtCoder 공식 대회 목록",
       "sourceType": "official-page",
       "lastVerifiedAt": "2026-09-04T11:27:26.384Z"
+    },
+    {
+      "id": "devpost-31234",
+      "title": "Syndicate by Maximor",
+      "summary": "Devpost에 등록된 공개 해커톤입니다. 주최 기관은 agent orchestrator입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "type": "hackathon",
+      "organizer": "agent orchestrator",
+      "eligibilities": [
+        "rules"
+      ],
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-09-06T22:00:00.000Z",
+      "eventStart": "2026-09-05T16:00:00.000Z",
+      "eventEnd": "2026-09-06T22:00:00.000Z",
+      "location": "Online",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "해커톤",
+        "Devpost",
+        "한국 온라인 참가 가능",
+        "Beginner Friendly",
+        "Fintech",
+        "Open Ended"
+      ],
+      "url": "https://syndicate-by-maximor.devpost.com/",
+      "sourceName": "Devpost 공식 목록·일정",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-09-05T20:23:03.226Z"
     },
     {
       "id": "codechef-dsamonday019",
@@ -407,6 +407,68 @@
       "sourceName": "AtCoder 공식 대회 목록",
       "sourceType": "official-page",
       "lastVerifiedAt": "2026-08-21T07:08:50.540Z"
+    },
+    {
+      "id": "codeforces-2264",
+      "title": "Codeforces Round (Div. 2)",
+      "summary": "CF 형식의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
+      "type": "ps",
+      "organizer": "Codeforces",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "Codeforces 계정이 있는 누구나",
+      "mode": "online",
+      "applicationDeadline": "2026-09-13T17:05:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-09-13T17:05:00.000Z",
+      "eventEnd": "2026-09-13T19:05:00.000Z",
+      "location": "온라인",
+      "teamSize": "개인",
+      "languages": [
+        "C++",
+        "Java",
+        "Python",
+        "Kotlin"
+      ],
+      "tags": [
+        "PS",
+        "알고리즘",
+        "CF"
+      ],
+      "url": "https://codeforces.com/contest/2264",
+      "sourceName": "Codeforces 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-09-05T20:23:03.226Z"
+    },
+    {
+      "id": "devpost-29884",
+      "title": "VoltHacks",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Dialogate입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "type": "ai-data",
+      "organizer": "Dialogate",
+      "eligibilities": [
+        "rules"
+      ],
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-09-13T21:00:00.000Z",
+      "eventStart": "2026-05-22T04:00:00.000Z",
+      "eventEnd": "2026-09-13T21:00:00.000Z",
+      "location": "Online",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "해커톤",
+        "Devpost",
+        "한국 온라인 참가 가능",
+        "IoT",
+        "Machine Learning/AI",
+        "Beginner Friendly"
+      ],
+      "url": "https://volthacks.devpost.com/",
+      "sourceName": "Devpost 공식 목록·일정",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-09-05T20:23:03.226Z"
     },
     {
       "id": "devpost-30579",
@@ -1743,15 +1805,15 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:29.402Z",
-      "publishedCount": 4
+      "lastCheckedAt": "2026-09-05T20:23:03.226Z",
+      "publishedCount": 5
     },
     {
       "id": "atcoder",
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:29.402Z",
+      "lastCheckedAt": "2026-09-05T20:23:03.226Z",
       "publishedCount": 10
     },
     {
@@ -1759,7 +1821,7 @@
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:29.402Z",
+      "lastCheckedAt": "2026-09-05T20:23:03.226Z",
       "publishedCount": 5
     },
     {
@@ -1767,15 +1829,15 @@
       "name": "Devpost",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:29.402Z",
-      "publishedCount": 12
+      "lastCheckedAt": "2026-09-05T20:23:03.226Z",
+      "publishedCount": 13
     },
     {
       "id": "ctftime",
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:29.402Z",
+      "lastCheckedAt": "2026-09-05T20:23:03.226Z",
       "publishedCount": 30
     },
     {
@@ -1783,7 +1845,7 @@
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:29.402Z",
+      "lastCheckedAt": "2026-09-05T20:23:03.226Z",
       "publishedCount": 0
     },
     {
@@ -1791,7 +1853,7 @@
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:29.402Z",
+      "lastCheckedAt": "2026-09-05T20:23:03.226Z",
       "publishedCount": 0
     },
     {
@@ -1799,7 +1861,7 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:29.402Z",
+      "lastCheckedAt": "2026-09-05T20:23:03.226Z",
       "publishedCount": 0
     },
     {
@@ -1807,7 +1869,7 @@
       "name": "UCPC",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:29.402Z",
+      "lastCheckedAt": "2026-09-05T20:23:03.226Z",
       "publishedCount": 0
     },
     {
@@ -1815,7 +1877,7 @@
       "name": "itch.io",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:29.402Z",
+      "lastCheckedAt": "2026-09-05T20:23:03.226Z",
       "publishedCount": 0
     },
     {
@@ -1839,7 +1901,7 @@
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:26.802Z",
+      "lastCheckedAt": "2026-09-05T20:23:00.171Z",
       "publishedCount": 0
     },
     {
@@ -1847,7 +1909,7 @@
       "name": "ICPC Korea",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:26.802Z",
+      "lastCheckedAt": "2026-09-05T20:23:00.171Z",
       "publishedCount": 0
     },
     {
@@ -1855,7 +1917,7 @@
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:26.802Z",
+      "lastCheckedAt": "2026-09-05T20:23:00.171Z",
       "publishedCount": 0
     },
     {
@@ -1879,7 +1941,7 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:26.802Z",
+      "lastCheckedAt": "2026-09-05T20:23:00.171Z",
       "publishedCount": 0
     },
     {
@@ -1887,7 +1949,7 @@
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:26.802Z",
+      "lastCheckedAt": "2026-09-05T20:23:00.171Z",
       "publishedCount": 0
     },
     {
@@ -1895,7 +1957,7 @@
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:26.802Z",
+      "lastCheckedAt": "2026-09-05T20:23:00.171Z",
       "publishedCount": 0
     },
     {
@@ -1903,7 +1965,7 @@
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:26.802Z",
+      "lastCheckedAt": "2026-09-05T20:23:00.171Z",
       "publishedCount": 0
     },
     {
@@ -1911,7 +1973,7 @@
       "name": "POSTECH POSCAT 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:26.802Z",
+      "lastCheckedAt": "2026-09-05T20:23:00.171Z",
       "publishedCount": 0
     },
     {
@@ -1919,7 +1981,7 @@
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-05T15:16:26.802Z",
+      "lastCheckedAt": "2026-09-05T20:23:00.171Z",
       "publishedCount": 0
     }
   ]
