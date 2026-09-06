@@ -38,9 +38,11 @@ export const DEFAULT_FILTERS: CompetitionFilters = {
 };
 
 const DAY_MS = 24 * 60 * 60 * 1000;
+const KOREA_OFFSET_MS = 9 * 60 * 60 * 1000;
 
 export const getDaysLeft = (deadline: string, now = Date.now()) =>
-  Math.ceil((new Date(deadline).getTime() - now) / DAY_MS);
+  Math.floor((Date.parse(deadline) + KOREA_OFFSET_MS) / DAY_MS) -
+  Math.floor((now + KOREA_OFFSET_MS) / DAY_MS);
 
 export const getDeadlineLabel = (kind?: DeadlineKind) =>
   kind === "start" ? "대회 시작" : "신청 마감";
@@ -65,6 +67,7 @@ export const formatDate = (
   options?: Intl.DateTimeFormatOptions,
 ) =>
   new Intl.DateTimeFormat("ko-KR", {
+    timeZone: "Asia/Seoul",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",

@@ -76,6 +76,8 @@ export const isCompetition = (value: unknown): value is Competition => {
     value.eligibilities.every((item) =>
       ELIGIBILITIES.has(item as Eligibility),
     ) &&
+    (value.eligibilityNote === undefined ||
+      isNonEmptyString(value.eligibilityNote)) &&
     MODES.has(value.mode as ParticipationMode) &&
     isIsoDate(value.applicationDeadline) &&
     (value.deadlineKind === undefined ||
@@ -84,6 +86,8 @@ export const isCompetition = (value: unknown): value is Competition => {
     isIsoDate(value.eventStart) &&
     isIsoDate(value.eventEnd) &&
     isNonEmptyString(value.location) &&
+    (value.teamSize === undefined || isNonEmptyString(value.teamSize)) &&
+    (value.languages === undefined || isStringArray(value.languages)) &&
     isStringArray(value.tags) &&
     Date.parse(value.eventStart as string) <=
       Date.parse(value.eventEnd as string) &&
@@ -157,7 +161,7 @@ export const loadLatestCompetitionData = async (
   bundled: CompetitionData,
 ): Promise<LoadedCompetitionData> => {
   const controller = new AbortController();
-  const timeout = window.setTimeout(() => controller.abort(), 6_000);
+  const timeout = globalThis.setTimeout(() => controller.abort(), 6_000);
 
   try {
     const response = await fetch(REMOTE_DATA_URL, {
@@ -183,6 +187,6 @@ export const loadLatestCompetitionData = async (
   } catch {
     return { data: bundled, source: "bundled" };
   } finally {
-    window.clearTimeout(timeout);
+    globalThis.clearTimeout(timeout);
   }
 };

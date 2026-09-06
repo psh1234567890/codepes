@@ -32,6 +32,8 @@ interface FilterBarProps {
   favoriteOrganizerOnly: boolean;
   onOpenOrganizerFilter: () => void;
   onFavoriteOrganizerOnlyChange: (value: boolean) => void;
+  deadlineWindow: "all" | "1" | "7" | "30";
+  onDeadlineWindowChange: (value: "all" | "1" | "7" | "30") => void;
 }
 
 export function FilterBar({
@@ -49,6 +51,8 @@ export function FilterBar({
   favoriteOrganizerOnly,
   onOpenOrganizerFilter,
   onFavoriteOrganizerOnlyChange,
+  deadlineWindow,
+  onDeadlineWindowChange,
 }: FilterBarProps) {
   return (
     <section className="filter-rail" aria-label="대회 필터">
@@ -235,6 +239,15 @@ export function FilterBar({
       <div className="filter-summary">
         <SlidersHorizontal aria-hidden="true" />
         <span>적용된 필터 {activeCount}개</span>
+        <label className="deadline-window" htmlFor="deadline-window">
+          마감·시작까지
+          <select id="deadline-window" value={deadlineWindow} onChange={(event) => onDeadlineWindowChange(event.target.value as "all" | "1" | "7" | "30")}>
+            <option value="all">전체 기간</option>
+            <option value="1">24시간 이내</option>
+            <option value="7">7일 이내</option>
+            <option value="30">30일 이내</option>
+          </select>
+        </label>
         <button
           className={
             favoriteOrganizerOnly

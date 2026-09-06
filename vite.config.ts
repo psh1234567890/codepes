@@ -5,6 +5,9 @@ export default defineConfig(async () => {
   const { cloudflare } = await import("@cloudflare/vite-plugin");
 
   return {
+    // Vite uses this for its development preamble and dynamically added styles.
+    // The Worker replaces the placeholder with a fresh nonce on each request.
+    html: { cspNonce: "__CODEPES_CSP_NONCE__" },
     plugins: [
       react(),
       cloudflare({

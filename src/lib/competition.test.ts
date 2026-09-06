@@ -3,7 +3,9 @@ import generatedData from "../data/competitions.generated.json";
 import type { Competition } from "../types/competition";
 import {
   DEFAULT_FILTERS,
+  formatDate,
   formatDday,
+  getDaysLeft,
   getDeadlineLabel,
   getOrganizerOptions,
   getSourceStatusPresentation,
@@ -131,6 +133,39 @@ describe("competition search", () => {
     ).toBe("마감");
   });
 
+  it("shows today for a future deadline on the same Korean calendar day", () => {
+    const deadline = "2026-08-01T18:00:00+09:00";
+    const now = Date.parse("2026-08-01T17:00:00+09:00");
+
+    expect(getDaysLeft(deadline, now)).toBe(0);
+    expect(formatDday(deadline, now)).toBe("오늘 마감");
+    expect(formatDday(deadline, now, "start")).toBe("오늘 시작");
+  });
+
+  it("uses the Korean midnight boundary instead of rounding elapsed hours", () => {
+    const deadline = "2026-08-02T00:00:00+09:00";
+    const now = Date.parse("2026-08-01T23:59:00+09:00");
+
+    expect(getDaysLeft(deadline, now)).toBe(1);
+    expect(formatDday(deadline, now)).toBe("D-1");
+    expect(
+      formatDday(
+        "2026-08-02T14:59:00.000Z",
+        Date.parse("2026-08-01T15:01:00.000Z"),
+      ),
+    ).toBe("오늘 마감");
+    expect(
+      formatDday(
+        "2026-08-03T00:01:00+09:00",
+        Date.parse("2026-08-01T23:59:00+09:00"),
+      ),
+    ).toBe("D-2");
+  });
+
+  it("formats dates in the same Korean time zone as the calendar", () => {
+    expect(formatDate("2026-08-01T15:30:00.000Z")).toBe("2026. 08. 02.");
+  });
+
   it("distinguishes application deadlines from contest starts", () => {
     expect(getDeadlineLabel()).toBe("신청 마감");
     expect(getDeadlineLabel("start")).toBe("대회 시작");
@@ -140,7 +175,7 @@ describe("competition search", () => {
         Date.parse("2026-08-01T08:59:00.000Z"),
         "start",
       ),
-    ).toBe("D-1");
+    ).toBe("오늘 시작");
     expect(
       formatDday(
         "2026-08-01T09:00:00.000Z",
@@ -190,6 +225,35 @@ describe("competition data validation", () => {
         ],
       }),
     ).toBe(false);
+  });
+
+  it.each([
+    { languages: "Python" },
+    { languages: ["Python", null] },
+    { languages: [" "] },
+    { eligibilityNote: { text: "대학생" } },
+    { teamSize: 3 },
+  ])("rejects optional fields that would break detail rendering: %j", (fields) => {
+    expect(
+      isCompetitionData({
+        ...bundled,
+        contests: [{ ...contest, ...fields }],
+      }),
+    ).toBe(false);
+  });
+
+  it("accepts correctly typed optional detail fields", () => {
+    expect(
+      isCompetitionData({
+        ...bundled,
+        contests: [{
+          ...contest,
+          languages: ["Python", "C++"],
+          eligibilityNote: "대회별 자격 확인",
+          teamSize: "1~3명",
+        }],
+      }),
+    ).toBe(true);
   });
 
   it("rejects duplicate ids", () => {

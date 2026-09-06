@@ -1,4 +1,9 @@
 import generatedData from "../src/data/competitions.generated.json";
+import { REMOTE_DATA_URL } from "../src/config";
+import {
+  isCompetitionData,
+  selectNewestCompetitionData,
+} from "../src/lib/competition-data";
 import {
   buildContestSeo,
   buildContestStructuredData,
@@ -19,7 +24,62 @@ interface Env {
 }
 
 const appShellPath = "/app-shell.txt";
-const competitionData = generatedData as CompetitionData;
+const bundledCompetitionData = generatedData as CompetitionData;
+const dataCacheMilliseconds = 5 * 60_000;
+const dataRetryMilliseconds = 60_000;
+const dataTimeoutMilliseconds = 3_000;
+const maximumDataLength = 2_000_000;
+
+// Cache only validated data, never HTML: every document still receives a new
+// CSP nonce. Coalesce requests so a cache miss does not fan out to GitHub.
+const createCompetitionDataLoader = (fetchData: typeof fetch) => {
+  let currentData = bundledCompetitionData;
+  let nextRefreshAt = 0;
+  let pending: Promise<CompetitionData> | undefined;
+
+  const refresh = async () => {
+    const controller = new AbortController();
+    const timeout = setTimeout(
+      () => controller.abort(),
+      dataTimeoutMilliseconds,
+    );
+
+    try {
+      const response = await fetchData(REMOTE_DATA_URL, {
+        headers: { Accept: "application/json" },
+        cache: "no-store",
+        signal: controller.signal,
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      if (Number(response.headers.get("content-length")) > maximumDataLength) {
+        throw new Error("Competition data is too large");
+      }
+      const text = await response.text();
+      if (text.length > maximumDataLength) {
+        throw new Error("Competition data is too large");
+      }
+      const candidate: unknown = JSON.parse(text);
+      if (!isCompetitionData(candidate)) {
+        throw new Error("Invalid competition data");
+      }
+      currentData = selectNewestCompetitionData(currentData, candidate);
+      nextRefreshAt = Date.now() + dataCacheMilliseconds;
+    } catch {
+      // Retain the last good remote snapshot, or the build snapshot on a cold
+      // start. Briefly back off on errors without losing working contest URLs.
+      nextRefreshAt = Date.now() + dataRetryMilliseconds;
+    } finally {
+      clearTimeout(timeout);
+    }
+    return currentData;
+  };
+
+  return () => {
+    if (Date.now() < nextRefreshAt) return Promise.resolve(currentData);
+    pending ??= refresh().finally(() => { pending = undefined; });
+    return pending;
+  };
+};
 const staticCspMeta =
   /\s*<meta\b(?=[^>]*\bhttp-equiv\s*=\s*["']Content-Security-Policy["'])[^>]*>/i;
 const structuredDataScript =
@@ -60,7 +120,7 @@ const replaceSeoAttribute = (
     (tag) =>
       tag.replace(
         new RegExp(`\\b${attribute}=(["'])[^"']*\\1`, "i"),
-        `${attribute}="${escapeHtmlAttribute(value)}"`,
+        () => `${attribute}="${escapeHtmlAttribute(value)}"`,
       ),
   );
 
@@ -71,7 +131,7 @@ const applyCompetitionMetadata = (
   const seo = buildContestSeo(competition);
   let transformed = html.replace(
     /<title\b(?=[^>]*data-seo=["']title["'])[^>]*>[\s\S]*?<\/title>/i,
-    `<title data-seo="title">${escapeHtmlAttribute(seo.title)}</title>`,
+    () => `<title data-seo="title">${escapeHtmlAttribute(seo.title)}</title>`,
   );
 
   for (const [key, attribute, value] of [
@@ -92,7 +152,7 @@ const applyCompetitionMetadata = (
   ).replaceAll("<", "\\u003c");
   return transformed.replace(
     /<script\b(?=[^>]*data-schema=["']website["'])[^>]*>[\s\S]*?<\/script>/i,
-    `<script data-schema="website" type="application/ld+json">${structuredData}</script>`,
+    () => `<script data-schema="website" type="application/ld+json">${structuredData}</script>`,
   );
 };
 
@@ -128,7 +188,7 @@ const applySecurityHeaders = (headers: Headers, scriptNonce?: string) => {
     [
       "default-src 'self'",
       scriptPolicy,
-      "style-src 'self'",
+      scriptNonce ? `style-src 'self' 'nonce-${scriptNonce}'` : "style-src 'self'",
       "img-src 'self' data:",
       "connect-src 'self' https://raw.githubusercontent.com",
       "base-uri 'none'",
@@ -149,20 +209,25 @@ const makePageAssetRequest = (url: URL | string, request: Request) => {
   return new Request(url, { headers, method: "GET" });
 };
 
-export default {
+export const createWorker = (
+  fetchData: typeof fetch = (...args) => fetch(...args),
+) => {
+  const loadCompetitionData = createCompetitionDataLoader(fetchData);
+  return {
   async fetch(request: Request, env: Env): Promise<Response> {
     const requestUrl = new URL(request.url);
     if (
       requestUrl.pathname === "/sitemap.xml" &&
       (request.method === "GET" || request.method === "HEAD")
     ) {
+      const competitionData = await loadCompetitionData();
       const sitemap = buildSitemapXml(
         competitionData.contests,
         competitionData.updatedAt,
       );
       const headers = applySecurityHeaders(
         new Headers({
-          "Cache-Control": "public, max-age=3600",
+          "Cache-Control": "public, max-age=300",
           "Content-Type": "application/xml; charset=UTF-8",
         }),
       );
@@ -200,6 +265,9 @@ export default {
 
     const origin = requestUrl.origin;
     const contestId = getContestIdFromUrl(requestUrl);
+    const competitionData = contestId
+      ? await loadCompetitionData()
+      : bundledCompetitionData;
     const competition = contestId
       ? competitionData.contests.find((item) => item.id === contestId)
       : undefined;
@@ -210,11 +278,14 @@ export default {
     }
     html = html
       .replaceAll("__SITE_ORIGIN__", origin)
+      .replaceAll("__CODEPES_CSP_NONCE__", scriptNonce)
       .replace(staticCspMeta, "")
       .replace(
         structuredDataScript,
         (openingTag) =>
-          `${openingTag.slice(0, -1)} nonce="${scriptNonce}">`,
+          /\bnonce\s*=/i.test(openingTag)
+            ? openingTag
+            : `${openingTag.slice(0, -1)} nonce="${scriptNonce}">`,
       );
     const headers = applySecurityHeaders(
       new Headers(response.headers),
@@ -237,4 +308,7 @@ export default {
       headers,
     });
   },
+  };
 };
+
+export default createWorker();

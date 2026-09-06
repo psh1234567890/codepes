@@ -3,10 +3,26 @@ import type { Competition } from "../types/competition";
 const CRLF = "\r\n";
 const encoder = new TextEncoder();
 
+export type CalendarReminder = "none" | "1h" | "1d" | "3d";
+
+export interface CalendarExportOptions {
+  reminder?: CalendarReminder;
+  includeEventPeriod?: boolean;
+}
+
+const REMINDERS = {
+  "1h": { trigger: "-PT1H", label: "1시간 전" },
+  "1d": { trigger: "-P1D", label: "하루 전" },
+  "3d": { trigger: "-P3D", label: "3일 전" },
+} satisfies Record<Exclude<CalendarReminder, "none">, {
+  trigger: string;
+  label: string;
+}>;
+
 export const escapeCalendarText = (value: string) =>
   value
     .replace(/\\/g, "\\\\")
-    .replace(/\r?\n/g, "\\n")
+    .replace(/\r\n|\r|\n/g, "\\n")
     .replace(/,/g, "\\,")
     .replace(/;/g, "\\;");
 
@@ -31,40 +47,75 @@ export const foldCalendarLine = (line: string) => {
   return folded.join(`${CRLF} `);
 };
 
-export const createCalendarFile = (competitions: Competition[]) => {
+export const createCalendarFile = (
+  competitions: Competition[],
+  { reminder = "1d", includeEventPeriod = false }: CalendarExportOptions = {},
+) => {
   const generatedAt = toCalendarDate(new Date().toISOString());
+  const seenIds = new Set<string>();
   const events = competitions.flatMap((competition) => {
-    const start = new Date(competition.applicationDeadline);
-    const end = new Date(start.getTime() + 30 * 60 * 1000);
-    const description = [
-      competition.summary,
-      `주최: ${competition.organizer}`,
-      `공식 페이지: ${competition.url}`,
-      "일정은 공식 페이지에서 다시 확인해 주세요.",
-    ].join("\n");
+    if (seenIds.has(competition.id)) return [];
+    seenIds.add(competition.id);
 
-    return [
-      "BEGIN:VEVENT",
-      `UID:${escapeCalendarText(`${competition.id}@codepes`)}`,
-      `DTSTAMP:${generatedAt}`,
-      `DTSTART:${toCalendarDate(start.toISOString())}`,
-      `DTEND:${toCalendarDate(end.toISOString())}`,
-      `SUMMARY:${escapeCalendarText(
-        `[${competition.deadlineKind === "start" ? "시작" : "마감"}] ${competition.title}`,
-      )}`,
-      `DESCRIPTION:${escapeCalendarText(description)}`,
-      `URL:${competition.url}`,
-      "BEGIN:VALARM",
-      "TRIGGER:-P1D",
-      "ACTION:DISPLAY",
-      `DESCRIPTION:${escapeCalendarText(
-        `${competition.title} ${
-          competition.deadlineKind === "start" ? "시작" : "마감"
-        } 하루 전`,
-      )}`,
-      "END:VALARM",
-      "END:VEVENT",
-    ];
+    const isStart = competition.deadlineKind === "start";
+    const markerStart = new Date(competition.applicationDeadline);
+    const eventSpecs = [{
+      uid: `${competition.id}@codepes`,
+      label: isStart ? "시작" : "마감",
+      descriptionLabel: isStart ? "대회 시작" : "신청 마감",
+      start: includeEventPeriod && isStart
+        ? new Date(competition.eventStart)
+        : markerStart,
+      end: includeEventPeriod && isStart
+        ? new Date(competition.eventEnd)
+        : new Date(markerStart.getTime() + 30 * 60 * 1000),
+    }];
+
+    if (includeEventPeriod && !isStart) {
+      eventSpecs.push({
+        uid: `${competition.id}@codepes-event`,
+        label: "대회 일정",
+        descriptionLabel: "대회 일정",
+        start: new Date(competition.eventStart),
+        end: new Date(competition.eventEnd),
+      });
+    }
+
+    return eventSpecs.flatMap((event) => {
+      const description = [
+        competition.summary,
+        `일정 구분: ${event.descriptionLabel}`,
+        `주최: ${competition.organizer}`,
+        `공식 페이지: ${competition.url}`,
+        "일정은 공식 페이지에서 다시 확인해 주세요.",
+      ].join("\n");
+      const alarm = reminder === "none" ? [] : [
+        "BEGIN:VALARM",
+        `TRIGGER:${REMINDERS[reminder].trigger}`,
+        "ACTION:DISPLAY",
+        `DESCRIPTION:${escapeCalendarText(
+          `${competition.title} ${event.descriptionLabel} ${REMINDERS[reminder].label}`,
+        )}`,
+        "END:VALARM",
+      ];
+
+      return [
+        "BEGIN:VEVENT",
+        `UID:${escapeCalendarText(event.uid)}`,
+        `DTSTAMP:${generatedAt}`,
+        `DTSTART:${toCalendarDate(event.start.toISOString())}`,
+        // Equal timestamps mean the source does not provide a duration.
+        ...(event.end > event.start
+          ? [`DTEND:${toCalendarDate(event.end.toISOString())}`]
+          : []),
+        `SUMMARY:${escapeCalendarText(`[${event.label}] ${competition.title}`)}`,
+        `DESCRIPTION:${escapeCalendarText(description)}`,
+        `LOCATION:${escapeCalendarText(competition.location)}`,
+        `URL:${new URL(competition.url).href}`,
+        ...alarm,
+        "END:VEVENT",
+      ];
+    });
   });
 
   return [
@@ -84,10 +135,11 @@ export const createCalendarFile = (competitions: Competition[]) => {
 export const downloadCalendarFile = (
   competitions: Competition[],
   filename = "codepes-deadlines.ics",
+  options: CalendarExportOptions = {},
 ) => {
   if (competitions.length === 0) return false;
 
-  const blob = new Blob([createCalendarFile(competitions)], {
+  const blob = new Blob([createCalendarFile(competitions, options)], {
     type: "text/calendar;charset=utf-8",
   });
   const url = URL.createObjectURL(blob);

@@ -5,6 +5,7 @@ interface SubscribeStripProps {
   onExportAll: () => void;
   onExportSaved: () => void;
   onShowSaved: () => void;
+  onManageSaved: () => void;
 }
 
 export function SubscribeStrip({
@@ -12,6 +13,7 @@ export function SubscribeStrip({
   onExportAll,
   onExportSaved,
   onShowSaved,
+  onManageSaved,
 }: SubscribeStripProps) {
   return (
     <section className="subscribe-strip" aria-labelledby="calendar-export-title">
@@ -21,16 +23,16 @@ export function SubscribeStrip({
         </span>
         <div>
           <h2 id="calendar-export-title">
-            마감 일정을 내 캘린더에 보관하세요.
+            마감 전에, 내 캘린더가 알려주도록.
           </h2>
           <p>
-            별도 가입 없이 .ics 파일로 내려받아 Google·Apple·Outlook
-            캘린더에 추가할 수 있습니다.
+            1시간·1일·3일 전 알림을 선택하고, 신청 마감과 대회 기간을 함께 보관하세요.
           </p>
         </div>
       </div>
 
       <div className="utility-actions">
+        <button type="button" className="secondary-action" onClick={onManageSaved}>저장 목록 백업</button>
         <button
           type="button"
           className="secondary-action"

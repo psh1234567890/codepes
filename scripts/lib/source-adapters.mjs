@@ -255,7 +255,7 @@ export const normalizeCtftimePayload = (
         typeof event.format === "string" && event.format.trim()
           ? event.format.trim()
           : "CTF";
-      const isOnline = event.onsite !== true;
+      const isOnline = event.onsite === false;
       if (!isOnline || !/^open$/i.test(restriction)) return [];
       const location =
         typeof event.location === "string" && event.location.trim()
@@ -374,18 +374,45 @@ export const normalizeItchJamsHtml = (
     .slice(0, limit);
 };
 
-export const getItchKoreanOnlineEvidence = (detailHtml) => {
-  if (typeof detailHtml !== "string") return undefined;
-  const text = stripVisibleHtml(detailHtml);
-  if (!/Submissions\s+open\s+from/i.test(text)) return undefined;
-
+const hasConflictingParticipationRestrictions = (text) => {
   const inPersonOnlyPatterns = [
     /\b(?:in[ -]?person|on[ -]?site)\s+(?:only|required)\b/i,
     /\b(?:must|required to)\s+(?:attend|participate)\s+(?:in[ -]?person|on[ -]?site)\b/i,
   ];
   if (inPersonOnlyPatterns.some((pattern) => pattern.test(text))) {
-    return undefined;
+    return true;
   }
+
+  const koreaDenied =
+    /(?:not eligible|ineligible|excluded|may not participate|except)[^.!?;]{0,120}(?:south korea|republic of korea|korea,\s*republic of)/i.test(text) ||
+    /(?:south korea|republic of korea|korea,\s*republic of)[^.!?;]{0,120}(?:not eligible|ineligible|excluded|may not participate)/i.test(text);
+  if (koreaDenied) return true;
+
+  // A general invitation elsewhere on the page does not override a residency
+  // condition. Ambiguous regional conditions require manual source review.
+  const normalized = text.replace(/\bU\.S\.(?:A\.)?/gi, "US");
+  const regionalConditions = [
+    /\b(?:participants?|entrants?|applicants?|you)\s+(?:must|have to|need to|are required to)\s+(?:be|remain)\b[^.!?;]{0,60}\b(?:residents?|citizens?|nationals?)\b[^.!?;]*/gi,
+    /\b(?:participants?|entrants?|applicants?|you)\s+(?:must|have to|need to|are required to)\s+(?:reside|live|be (?:based|located))\s+in\b[^.!?;]*/gi,
+    /\b(?:open|limited|restricted)\s+(?:only\s+)?to\b[^.!?;]{0,80}\b(?:residents?|citizens?|nationals?)\b[^.!?;]*/gi,
+    /\b(?:anyone|everyone)\s+(?:in|from|who\s+(?:lives?|resides?)\s+in)\b[^.!?;]*/gi,
+    /\b(?:only|exclusively)\s+(?:legal\s+)?(?:residents?|citizens?|nationals?)\b[^.!?;]*/gi,
+  ];
+  for (const pattern of regionalConditions) {
+    for (const [condition] of normalized.matchAll(pattern)) {
+      if (!/\b(?:south korea|republic of korea|korea,\s*republic of|worldwide|anywhere|all countries|any country|any location)\b/i.test(condition)) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+export const getItchKoreanOnlineEvidence = (detailHtml) => {
+  if (typeof detailHtml !== "string") return undefined;
+  const text = stripVisibleHtml(detailHtml);
+  if (!/Submissions\s+open\s+from/i.test(text)) return undefined;
+  if (hasConflictingParticipationRestrictions(text)) return undefined;
 
   const publicParticipationPatterns = [
     /\b(?:anyone|everyone)\s+(?:can|may|is welcome to)\s+(?:participate|join)\b/i,
@@ -457,14 +484,7 @@ export const getDevpostKoreanOnlineEvidence = (hackathon, rulesHtml) => {
   const rulesText = stripVisibleHtml(rulesHtml);
   if (!rulesText) return undefined;
 
-  const koreaDenied =
-    /(?:not eligible|ineligible|excluded|may not participate)[^.!?]{0,120}(?:south korea|republic of korea|korea,\s*republic of)/i.test(
-      rulesText,
-    ) ||
-    /(?:south korea|republic of korea|korea,\s*republic of)[^.!?]{0,120}(?:not eligible|ineligible|excluded|may not participate)/i.test(
-      rulesText,
-    );
-  if (koreaDenied) return undefined;
+  if (hasConflictingParticipationRestrictions(rulesText)) return undefined;
 
   const explicitKorea =
     /(?:open|eligible|welcome|participants?)[^.!?]{0,160}(?:south korea|republic of korea|korea,\s*republic of)/i.test(

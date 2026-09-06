@@ -1193,6 +1193,7 @@ main {
 
 .utility-actions {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   gap: 9px;
 }
@@ -2805,6 +2806,85 @@ footer button {
     bottom: 18px;
     left: 18px;
   }
+}
+
+.deadline-window {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.deadline-window select,
+.settings-field select {
+  min-height: 38px;
+  padding: 7px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+
+.settings-dialog-body {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.settings-card {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.settings-card h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.settings-card p { margin: 8px 0; }
+.settings-card ol { margin: 10px 0; padding-left: 22px; }
+.settings-card li + li { margin-top: 6px; }
+.settings-help { margin: 0; color: var(--muted); font-size: 12px; }
+.settings-field { display: grid; gap: 8px; font-weight: 600; }
+.settings-field input { min-width: 0; max-width: 100%; font: inherit; }
+.settings-field input::file-selector-button { padding: 8px 10px; margin-right: 10px; }
+.settings-checkbox { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+.settings-checkbox input { margin-top: 6px; accent-color: var(--blue); }
+.settings-checkbox small { display: block; color: var(--muted); font-size: 12px; }
+.settings-message { margin: 0; padding: 12px; border-radius: 8px; background: var(--blue-soft); }
+.backup-preview { margin-top: 16px; }
+.settings-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--blue);
+  color: var(--white);
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+.settings-button:hover { background: var(--blue-deep); }
+.settings-button:disabled { background: var(--line-strong); color: var(--muted); cursor: not-allowed; }
+.settings-button svg { width: 18px; height: 18px; }
+
+@media (max-width: 540px) {
+  .settings-dialog-body { padding: 18px; }
+  .settings-card { padding: 14px; }
+  .settings-button { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

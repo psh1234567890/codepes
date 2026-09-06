@@ -404,9 +404,55 @@ describe("Devpost source adapter", () => {
       ),
     ).toBeUndefined();
   });
+
+  it.each([
+    "This hackathon is open to everyone in the United States. Participants must be legal residents of the United States.",
+    "Participation is open worldwide. Participants must be US residents.",
+    "Open to everyone. Entrants must reside in Canada.",
+    "This hackathon is open to everyone from the U.S.",
+    "Participation is open worldwide, except South Korea.",
+    "Open to everyone. Participants must attend in person.",
+  ])("does not let a public invitation override a participation restriction: %s", (rules) => {
+    expect(
+      getDevpostKoreanOnlineEvidence(
+        { displayed_location: { location: "Online" } },
+        `<main>${rules}</main>`,
+      ),
+    ).toBeUndefined();
+  });
+
+  it.each([
+    "Participation is open worldwide. Participants must be at least 18 years old.",
+    "Open to everyone. The organizer is located in the United States.",
+    "This hackathon is open to everyone from any location.",
+    "Participation is open to residents of South Korea and Japan.",
+    "Participation is open to legal residents of all countries except North Korea and Iran.",
+  ])("keeps positive geographic evidence when other page details do not bar Korea: %s", (rules) => {
+    expect(
+      getDevpostKoreanOnlineEvidence(
+        { displayed_location: { location: "Online" } },
+        `<main>${rules}</main>`,
+      ),
+    ).toBeDefined();
+  });
 });
 
 describe("CTFtime source adapter", () => {
+  it.each([undefined, null, "false", 0, true])(
+    "requires an explicit boolean online flag instead of assuming it: %s",
+    (onsite) => {
+      expect(normalizeCtftimePayload([{
+        id: 3372,
+        title: "Mode not confirmed",
+        start: "2026-07-31T07:00:00+00:00",
+        finish: "2026-08-02T07:00:00+00:00",
+        ctftime_url: "https://ctftime.org/event/3372/",
+        onsite,
+        restrictions: "Open",
+      }], verifiedAt, now)).toEqual([]);
+    },
+  );
+
   it("publishes only online events explicitly marked Open", () => {
     const contests = normalizeCtftimePayload(
       [
@@ -481,6 +527,27 @@ describe("CTFtime source adapter", () => {
 });
 
 describe("itch.io source adapter", () => {
+  it.each([
+    "Anyone can participate, but participants must be US residents.",
+    "This game jam is open to everyone in the United States.",
+    "This jam is open to everyone. Only residents of Canada may participate.",
+    "Anyone can participate. Residents of South Korea are not eligible.",
+  ])("rejects regional restrictions even when a jam says anyone can join: %s", (rules) => {
+    expect(
+      getItchKoreanOnlineEvidence(
+        `<main>Submissions open from August 1. ${rules}</main>`,
+      ),
+    ).toBeUndefined();
+  });
+
+  it("does not mistake the host location or asset rules for residency restrictions", () => {
+    expect(
+      getItchKoreanOnlineEvidence(
+        "<main>Submissions open from August 1. Anyone can participate. The host lives in the United States. Only original assets are allowed.</main>",
+      ),
+    ).toBeDefined();
+  });
+
   it("normalizes upcoming game jams and rejects implausibly long events", () => {
     const html = `
       <div class="jam_grid_widget">

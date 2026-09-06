@@ -18,6 +18,9 @@ import {
   type LoadedCompetitionData,
 } from "./lib/competition-data";
 import { downloadCalendarFile } from "./lib/calendar";
+import { mergeSavedBackup, type SavedBackup } from "./lib/saved-backup";
+import { CalendarExportDialog } from "./components/CalendarExportDialog";
+import { SavedBackupDialog } from "./components/SavedBackupDialog";
 import {
   readStoredStringSet,
   writeStoredStringSet,
@@ -47,11 +50,24 @@ const bundledCompetitionData = generatedData as CompetitionData;
 const BOOKMARKS_STORAGE_KEY = "codepes-bookmarks";
 const FAVORITE_ORGANIZERS_STORAGE_KEY = "codepes-favorite-organizers";
 
-const getSavedBookmarks = () =>
-  readStoredStringSet(localStorage, BOOKMARKS_STORAGE_KEY);
+const getBrowserStorage = () => {
+  try { return window.localStorage; } catch { return undefined; }
+};
 
-const getSavedFavoriteOrganizers = () =>
-  readStoredStringSet(localStorage, FAVORITE_ORGANIZERS_STORAGE_KEY);
+const savePreferences = (key: string, values: Iterable<string>) => {
+  const storage = getBrowserStorage();
+  return storage ? writeStoredStringSet(storage, key, values) : false;
+};
+
+const getSavedBookmarks = () => {
+  const storage = getBrowserStorage();
+  return storage ? readStoredStringSet(storage, BOOKMARKS_STORAGE_KEY) : new Set<string>();
+};
+
+const getSavedFavoriteOrganizers = () => {
+  const storage = getBrowserStorage();
+  return storage ? readStoredStringSet(storage, FAVORITE_ORGANIZERS_STORAGE_KEY) : new Set<string>();
+};
 
 const getInitialContestId = () =>
   getContestIdFromUrl(new URL(window.location.href));
@@ -110,6 +126,8 @@ export default function App() {
   const [savedOnly, setSavedOnly] = useState(false);
   const [favoriteOrganizerOnly, setFavoriteOrganizerOnly] = useState(false);
   const [viewMode, setViewMode] = useState<"list" | "calendar">("list");
+  const [deadlineWindow, setDeadlineWindow] = useState<"all" | "1" | "7" | "30">("all");
+  const [now, setNow] = useState(Date.now);
   const [selectedId, setSelectedId] = useState<string | undefined>(
     getInitialContestId,
   );
@@ -117,12 +135,16 @@ export default function App() {
   const [favoriteOrganizers, setFavoriteOrganizers] = useState(
     getSavedFavoriteOrganizers,
   );
-  const [dialog, setDialog] = useState<"organizer" | "submit" | null>(null);
+  const [dialog, setDialog] = useState<"organizer" | "submit" | "backup" | null>(null);
+  const [calendarExport, setCalendarExport] = useState<{ items: Competition[]; filename: string }>();
   const [toast, setToast] = useState<string>();
 
   useEffect(() => {
-    localStorage.removeItem("codepes-subscription-email");
-    localStorage.removeItem("codepes-submission-draft");
+    try {
+      const storage = getBrowserStorage();
+      storage?.removeItem("codepes-subscription-email");
+      storage?.removeItem("codepes-submission-draft");
+    } catch { /* Storage restrictions must not prevent the latest feed loading. */ }
 
     let active = true;
     void loadLatestCompetitionData(bundledCompetitionData).then((loaded) => {
@@ -136,6 +158,18 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const updateClock = () => setNow(Date.now());
+    const timer = window.setInterval(updateClock, 60_000);
+    window.addEventListener("focus", updateClock);
+    document.addEventListener("visibilitychange", updateClock);
+    return () => {
+      window.clearInterval(timer);
+      window.removeEventListener("focus", updateClock);
+      document.removeEventListener("visibilitychange", updateClock);
+    };
+  }, []);
+
+  useEffect(() => {
     const handlePopState = () => setSelectedId(getInitialContestId());
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
@@ -145,9 +179,9 @@ export default function App() {
     () =>
       competitionData.contests.filter(
         (competition) =>
-          Date.parse(competition.applicationDeadline) > Date.now(),
+          Date.parse(competition.applicationDeadline) > now,
       ),
-    [competitionData],
+    [competitionData, now],
   );
 
   const favoriteOrganizerKeys = useMemo(
@@ -185,6 +219,7 @@ export default function App() {
     const filtered = upcomingCompetitions.filter(
       (competition) =>
         matchesCompetition(competition, query, filters) &&
+        (deadlineWindow === "all" || Date.parse(competition.applicationDeadline) <= now + Number(deadlineWindow) * 86_400_000) &&
         (!savedOnly || bookmarkedIds.has(competition.id)) &&
         (!favoriteOrganizerOnly ||
           favoriteOrganizerKeys.has(
@@ -206,10 +241,12 @@ export default function App() {
     });
   }, [
     bookmarkedIds,
+    deadlineWindow,
     favoriteOrganizerKeys,
     favoriteOrganizerOnly,
     filters,
     query,
+    now,
     savedOnly,
     sort,
     upcomingCompetitions,
@@ -235,6 +272,7 @@ export default function App() {
     Number(sort !== "deadline") +
     Number(query.trim().length > 0) +
     Number(savedOnly) +
+    Number(deadlineWindow !== "all") +
     Number(favoriteOrganizerOnly);
 
   const showToast = (message: string) => {
@@ -271,7 +309,7 @@ export default function App() {
       const next = new Set(current);
       if (next.has(id)) next.delete(id);
       else next.add(id);
-      if (!writeStoredStringSet(localStorage, BOOKMARKS_STORAGE_KEY, next)) {
+      if (!savePreferences(BOOKMARKS_STORAGE_KEY, next)) {
         showToast(
           "브라우저 저장소에 기록하지 못했습니다. 이 탭에서는 선택을 유지합니다.",
         );
@@ -287,6 +325,7 @@ export default function App() {
     setSort("deadline");
     setSavedOnly(false);
     setFavoriteOrganizerOnly(false);
+    setDeadlineWindow("all");
   };
 
   const showCalendarView = () => {
@@ -300,11 +339,23 @@ export default function App() {
     items: Competition[],
     filename = "codepes-deadlines.ics",
   ) => {
-    if (!downloadCalendarFile(items, filename)) {
+    if (items.length === 0) {
       showToast("내보낼 대회가 없습니다.");
       return;
     }
-    showToast(`${items.length}개 대회의 캘린더 파일을 저장했습니다.`);
+    setCalendarExport({ items, filename });
+  };
+
+  const importSavedBackup = (backup: SavedBackup) => {
+    const merged = mergeSavedBackup(bookmarkedIds, favoriteOrganizers, backup);
+    const savedBookmarks = savePreferences(BOOKMARKS_STORAGE_KEY, merged.bookmarks);
+    const savedOrganizers = savePreferences(FAVORITE_ORGANIZERS_STORAGE_KEY, merged.organizers);
+    setBookmarkedIds(merged.bookmarks);
+    setFavoriteOrganizers(merged.organizers);
+    setDialog(null);
+    showToast(savedBookmarks && savedOrganizers
+      ? "백업을 현재 저장 목록에 합쳤습니다."
+      : "목록을 합쳤지만 브라우저에 저장하지 못했습니다. 이 탭에서만 유지됩니다.");
   };
 
   const handleShare = async (competition: Competition) => {
@@ -362,6 +413,8 @@ export default function App() {
             favoriteOrganizerOnly={favoriteOrganizerOnly}
             onOpenOrganizerFilter={() => setDialog("organizer")}
             onFavoriteOrganizerOnlyChange={setFavoriteOrganizerOnly}
+            deadlineWindow={deadlineWindow}
+            onDeadlineWindowChange={setDeadlineWindow}
           />
 
           <section
@@ -485,6 +538,7 @@ export default function App() {
 
           <SubscribeStrip
             savedCount={savedCompetitions.length}
+            onManageSaved={() => setDialog("backup")}
             onExportAll={() => exportCalendar(upcomingCompetitions)}
             onExportSaved={() =>
               exportCalendar(savedCompetitions, "codepes-saved-deadlines.ics")
@@ -550,8 +604,7 @@ export default function App() {
               favoriteOnly && favorites.size > 0,
             );
             if (
-              !writeStoredStringSet(
-                localStorage,
+              !savePreferences(
                 FAVORITE_ORGANIZERS_STORAGE_KEY,
                 favorites,
               )
@@ -568,6 +621,22 @@ export default function App() {
 
       {dialog === "submit" ? (
         <SubmitCompetitionDialog onClose={() => setDialog(null)} />
+      ) : null}
+
+      {dialog === "backup" ? (
+        <SavedBackupDialog bookmarks={bookmarkedIds} organizers={favoriteOrganizers} onImport={importSavedBackup} onClose={() => setDialog(null)} />
+      ) : null}
+
+      {calendarExport ? (
+        <CalendarExportDialog count={calendarExport.items.length} onClose={() => setCalendarExport(undefined)} onExport={(options) => {
+          const upcoming = calendarExport.items.filter((item) => Date.parse(item.applicationDeadline) > Date.now());
+          if (downloadCalendarFile(upcoming, calendarExport.filename, options)) {
+            showToast(`${upcoming.length}개 대회의 일정 파일을 받았습니다. 캘린더 앱에서 열어 주세요.`);
+          } else {
+            showToast("선택한 대회의 일정이 지나 내보낼 항목이 없습니다.");
+          }
+          setCalendarExport(undefined);
+        }} />
       ) : null}
 
       {toast ? (
