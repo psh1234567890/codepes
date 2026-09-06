@@ -24,7 +24,7 @@ const decodeHtml = (value) =>
 const stripHtml = (value) =>
   decodeHtml(value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim());
 
-const stripVisibleHtml = (value) =>
+export const stripVisibleHtml = (value) =>
   stripHtml(
     value
       .replace(/<script[\s\S]*?<\/script>/gi, " ")

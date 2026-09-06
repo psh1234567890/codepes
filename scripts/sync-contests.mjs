@@ -1,6 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { collectDaconContests } from "./lib/dacon-source.mjs";
 import {
   deduplicate,
   toIso,
@@ -136,6 +137,7 @@ const fetchCtftime = async (source, verifiedAt) => {
 };
 
 const fetchItchJams = async (source, verifiedAt, previousContests) => {
+  let partialFailure = false;
   const response = await fetch(source.endpoint, {
     headers: { "User-Agent": USER_AGENT, Accept: "text/html" },
     signal: AbortSignal.timeout(15_000),
@@ -178,6 +180,7 @@ const fetchItchJams = async (source, verifiedAt, previousContests) => {
             ),
           );
         } catch (error) {
+          partialFailure = true;
           if (
             previous &&
             Date.parse(previous.applicationDeadline) > Date.now() &&
@@ -199,7 +202,7 @@ const fetchItchJams = async (source, verifiedAt, previousContests) => {
     );
     contests.push(...verified.filter(Boolean));
   }
-  return contests.slice(0, 12);
+  return { contests: contests.slice(0, 12), partialFailure };
 };
 
 const fetchOfficialHtml = async (url, label) => {
@@ -327,6 +330,7 @@ const fetchDevpostRules = async (hackathon) => {
 };
 
 const fetchDevpost = async (source, verifiedAt, previousContests) => {
+  let partialFailure = false;
   const endpoint = new URL(source.endpoint);
   const pages = await Promise.all(
     [1, 2].map(async (page) => {
@@ -389,6 +393,7 @@ const fetchDevpost = async (source, verifiedAt, previousContests) => {
             verifiedAt,
           );
         } catch (error) {
+          partialFailure = true;
           if (
             previous &&
             Date.parse(previous.applicationDeadline) > Date.now() &&
@@ -411,7 +416,7 @@ const fetchDevpost = async (source, verifiedAt, previousContests) => {
     contests.push(...results.filter(Boolean));
   }
 
-  return contests;
+  return { contests, partialFailure };
 };
 
 const withoutVerificationTime = ({ lastVerifiedAt: _ignored, ...contest }) =>
@@ -460,7 +465,10 @@ const collectSource = async ({
     return { contests: [], status: undefined };
   }
   try {
-    const fetched = await fetcher(source);
+    const result = await fetcher(source);
+    const fetched = Array.isArray(result) ? result : result.contests;
+    // Isolate a malformed source before it can break the combined publication.
+    validateContests(fetched);
     const contests = preserveUnchangedVerificationTimes(
       fetched,
       previousContests,
@@ -472,7 +480,7 @@ const collectSource = async ({
         id: source.id,
         name: source.name,
         kind: "automatic",
-        state: "ok",
+        state: result.partialFailure ? "error" : "ok",
         lastCheckedAt: checkedAt,
         publishedCount: contests.length,
       },
@@ -520,6 +528,18 @@ const main = async () => {
 
   validateContests(manual);
   const automaticGroups = await Promise.all([
+    collect({
+      source: sourceById.get("dacon"),
+      label: "DACON",
+      sourceName: "DACON 공식 페이지",
+      previousContests: previous.contests,
+      fetcher: (source) => collectDaconContests({
+        endpoint: source.endpoint,
+        fetchHtml: fetchOfficialHtml,
+        verifiedAt,
+        previousContests: previous.contests,
+      }),
+    }),
     collect({
       source: sourceById.get("codeforces"),
       label: "Codeforces",
@@ -596,9 +616,6 @@ const main = async () => {
   const automaticContests = automaticGroups.flatMap(
     (group) => group.contests,
   );
-  const automaticStatuses = automaticGroups
-    .map((group) => group.status)
-    .filter(Boolean);
 
   const contests = deduplicate(
     [...manual, ...automaticContests],
@@ -609,12 +626,21 @@ const main = async () => {
       new Date(contest.applicationDeadline).getTime() > Date.now(),
   );
   validateContests(contests);
+  const publishedIds = new Set(contests.map((contest) => contest.id));
+  const automaticStatuses = automaticGroups
+    .filter((group) => group.status)
+    .map((group) => ({
+      ...group.status,
+      publishedCount: group.contests.filter((contest) => publishedIds.has(contest.id)).length,
+    }));
 
   const manualSourceNames = new Map([
     ["dacon", "DACON 공식 페이지"],
     ["daker", "DAKER 공식 페이지"],
   ]);
-  const manualStatuses = [...manualSourceNames].map(
+  const manualStatuses = [...manualSourceNames].filter(
+    ([sourceId]) => !sourceById.get(sourceId)?.autoPublish,
+  ).map(
     ([sourceId, sourceName]) => {
       const source = sourceById.get(sourceId);
       const items = contests.filter(

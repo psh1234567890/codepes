@@ -300,11 +300,17 @@ describe("competition data validation", () => {
 
   it("ships status entries for every enabled automatic source", () => {
     for (const [sourceId, sourceName] of [
+      ["dacon", "DACON 공식 페이지"],
       ["codeforces", "Codeforces 공식 API"],
       ["atcoder", "AtCoder 공식 대회 목록"],
       ["codechef", "CodeChef 공식 API"],
       ["devpost", "Devpost 공식 목록·일정"],
       ["ctftime", "CTFtime 공식 API"],
+      ["koi", "한국정보올림피아드 공식 안내"],
+      ["kitpa-youth", "한국정보기술진흥원 공식 경시대회"],
+      ["kookmin-algorithm", "국민대학교 공식 알고리즘대회"],
+      ["ucpc", "UCPC 공식 대회 안내"],
+      ["itch", "itch.io 공식 게임잼 목록"],
     ] as const) {
       const publishedCount = generatedData.contests.filter(
         (item) => item.sourceName === sourceName,
