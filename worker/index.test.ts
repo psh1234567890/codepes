@@ -225,6 +225,8 @@ describe("Sites worker security headers", () => {
 });
 
 describe("current contest metadata and sitemap", () => {
+  const bundledUpdatedAt = Date.parse(competitionData.updatedAt);
+  const remoteUpdatedAt = new Date(bundledUpdatedAt + 1_000).toISOString();
   const remoteContest = {
     ...sampleContest,
     id: "new-contest-after-deploy",
@@ -233,7 +235,7 @@ describe("current contest metadata and sitemap", () => {
   };
   const remoteData = {
     ...competitionData,
-    updatedAt: "2026-09-06T11:00:00.000Z",
+    updatedAt: remoteUpdatedAt,
     contests: [remoteContest],
   };
   const pageRequest = () => new Request(
@@ -244,7 +246,7 @@ describe("current contest metadata and sitemap", () => {
 
   beforeEach(() => {
     vi.useFakeTimers();
-    vi.setSystemTime(new Date("2026-09-06T12:00:00.000Z"));
+    vi.setSystemTime(new Date(bundledUpdatedAt + 60_000));
   });
 
   it("serves newly collected contest links and lists them in the sitemap", async () => {
