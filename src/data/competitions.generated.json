@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09T20:57:25.473Z",
+  "updatedAt": "2026-09-10T04:45:32.816Z",
   "contests": [
     {
       "id": "ctftime-3145",
@@ -883,37 +883,6 @@
       "lastVerifiedAt": "2026-08-08T18:59:51.074Z"
     },
     {
-      "id": "dacon-236753",
-      "title": "블랙박스 영상 기반 지능형 고의사고 분석 모델 AI 경진대회",
-      "summary": "국내 참가자를 위한 AI 모델 개발 대회입니다. 온라인 코드 제출로 평가하며, 신청 마감과 대회 종료 일정이 다릅니다.",
-      "type": "ai-data",
-      "organizer": "행정안전부 · 한국지능정보사회진흥원",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "대한민국 국민 누구나. 세부 참가·수상 조건과 후속 평가 자료는 공식 규정 확인.",
-      "mode": "online",
-      "applicationDeadline": "2026-09-29T01:00:00.000Z",
-      "deadlineKind": "application",
-      "eventStart": "2026-08-26T01:00:00.000Z",
-      "eventEnd": "2026-09-30T01:00:00.000Z",
-      "location": "온라인 코드 제출 · 시상식 등 후속 일정은 공식 안내 확인",
-      "teamSize": "개인 또는 최대 5인",
-      "languages": [
-        "Python"
-      ],
-      "tags": [
-        "AI",
-        "국내 대회",
-        "코드 제출",
-        "DACON"
-      ],
-      "url": "https://www.dacon.io/competitions/official/236753/overview/description",
-      "sourceName": "DACON 공식 페이지",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-09-06T05:39:03.074Z"
-    },
-    {
       "id": "dacon-236749",
       "title": "딥보이스 범죄 대응을 위한 AI 탐지 모델 경진대회",
       "summary": "국내 참가자를 위한 AI 모델 개발 대회입니다. 온라인 코드 제출로 평가하며, 신청 마감과 대회 종료 일정이 다릅니다.",
@@ -971,6 +940,37 @@
         "DACON"
       ],
       "url": "https://www.dacon.io/competitions/official/236754/overview/description",
+      "sourceName": "DACON 공식 페이지",
+      "sourceType": "official-page",
+      "lastVerifiedAt": "2026-09-06T05:39:03.074Z"
+    },
+    {
+      "id": "dacon-236753",
+      "title": "블랙박스 영상 기반 지능형 고의사고 분석 모델 AI 경진대회",
+      "summary": "국내 참가자를 위한 AI 모델 개발 대회입니다. 온라인 코드 제출로 평가하며, 신청 마감과 대회 종료 일정이 다릅니다.",
+      "type": "ai-data",
+      "organizer": "행정안전부 · 한국지능정보사회진흥원",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "대한민국 국민 누구나. 세부 참가·수상 조건과 후속 평가 자료는 공식 규정 확인.",
+      "mode": "online",
+      "applicationDeadline": "2026-09-29T01:00:00.000Z",
+      "deadlineKind": "application",
+      "eventStart": "2026-08-26T01:00:00.000Z",
+      "eventEnd": "2026-09-30T01:00:00.000Z",
+      "location": "온라인 코드 제출 · 시상식 등 후속 일정은 공식 안내 확인",
+      "teamSize": "개인 또는 최대 5인",
+      "languages": [
+        "Python"
+      ],
+      "tags": [
+        "AI",
+        "국내 대회",
+        "코드 제출",
+        "DACON"
+      ],
+      "url": "https://www.dacon.io/competitions/official/236753/overview/description",
       "sourceName": "DACON 공식 페이지",
       "sourceType": "official-page",
       "lastVerifiedAt": "2026-09-06T05:39:03.074Z"
@@ -1691,7 +1691,7 @@
       "name": "DACON",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:25.473Z",
+      "lastCheckedAt": "2026-09-10T04:45:32.816Z",
       "publishedCount": 3
     },
     {
@@ -1699,7 +1699,7 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:25.473Z",
+      "lastCheckedAt": "2026-09-10T04:45:32.816Z",
       "publishedCount": 4
     },
     {
@@ -1707,7 +1707,7 @@
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:25.473Z",
+      "lastCheckedAt": "2026-09-10T04:45:32.816Z",
       "publishedCount": 10
     },
     {
@@ -1715,7 +1715,7 @@
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:25.473Z",
+      "lastCheckedAt": "2026-09-10T04:45:32.816Z",
       "publishedCount": 5
     },
     {
@@ -1723,7 +1723,7 @@
       "name": "Devpost",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:25.473Z",
+      "lastCheckedAt": "2026-09-10T04:45:32.816Z",
       "publishedCount": 7
     },
     {
@@ -1731,7 +1731,7 @@
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:25.473Z",
+      "lastCheckedAt": "2026-09-10T04:45:32.816Z",
       "publishedCount": 30
     },
     {
@@ -1739,7 +1739,7 @@
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:25.473Z",
+      "lastCheckedAt": "2026-09-10T04:45:32.816Z",
       "publishedCount": 0
     },
     {
@@ -1747,7 +1747,7 @@
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:25.473Z",
+      "lastCheckedAt": "2026-09-10T04:45:32.816Z",
       "publishedCount": 0
     },
     {
@@ -1755,7 +1755,7 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:25.473Z",
+      "lastCheckedAt": "2026-09-10T04:45:32.816Z",
       "publishedCount": 0
     },
     {
@@ -1763,15 +1763,15 @@
       "name": "UCPC",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:25.473Z",
+      "lastCheckedAt": "2026-09-10T04:45:32.816Z",
       "publishedCount": 0
     },
     {
       "id": "itch",
       "name": "itch.io",
       "kind": "automatic",
-      "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:25.473Z",
+      "state": "error",
+      "lastCheckedAt": "2026-09-10T04:45:32.816Z",
       "publishedCount": 0
     },
     {
@@ -1787,7 +1787,7 @@
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:23.330Z",
+      "lastCheckedAt": "2026-09-10T04:45:31.101Z",
       "publishedCount": 0
     },
     {
@@ -1795,7 +1795,7 @@
       "name": "ICPC Korea",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:23.330Z",
+      "lastCheckedAt": "2026-09-10T04:45:31.101Z",
       "publishedCount": 0
     },
     {
@@ -1803,7 +1803,7 @@
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:23.330Z",
+      "lastCheckedAt": "2026-09-10T04:45:31.101Z",
       "publishedCount": 0
     },
     {
@@ -1827,7 +1827,7 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:23.330Z",
+      "lastCheckedAt": "2026-09-10T04:45:31.101Z",
       "publishedCount": 0
     },
     {
@@ -1835,7 +1835,7 @@
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:23.330Z",
+      "lastCheckedAt": "2026-09-10T04:45:31.101Z",
       "publishedCount": 0
     },
     {
@@ -1843,7 +1843,7 @@
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:23.330Z",
+      "lastCheckedAt": "2026-09-10T04:45:31.101Z",
       "publishedCount": 0
     },
     {
@@ -1851,7 +1851,7 @@
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:23.330Z",
+      "lastCheckedAt": "2026-09-10T04:45:31.101Z",
       "publishedCount": 0
     },
     {
@@ -1859,7 +1859,7 @@
       "name": "POSTECH POSCAT 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:23.330Z",
+      "lastCheckedAt": "2026-09-10T04:45:31.101Z",
       "publishedCount": 0
     },
     {
@@ -1867,7 +1867,7 @@
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-09-09T20:57:23.330Z",
+      "lastCheckedAt": "2026-09-10T04:45:31.101Z",
       "publishedCount": 0
     }
   ]
