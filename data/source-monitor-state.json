@@ -18,7 +18,7 @@
       "Copyright © 2018-2026 SAMSUNG All Rights Reserved."
     ],
     "lastChangedAt": "2026-08-11T07:38:55.029Z",
-    "lastCheckedAt": "2026-09-13T20:52:05.734Z"
+    "lastCheckedAt": "2026-09-14T04:59:36.197Z"
   },
   "icpc-korea": {
     "name": "ICPC Korea",
@@ -36,7 +36,7 @@
       "(* NOTE: different from 2025)"
     ],
     "lastChangedAt": "2026-09-09T10:52:55.063Z",
-    "lastCheckedAt": "2026-09-13T20:52:05.734Z"
+    "lastCheckedAt": "2026-09-14T04:59:36.197Z"
   },
   "ewha-girls-programming": {
     "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
@@ -52,7 +52,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-09-13T16:19:41.906Z",
-    "lastErrorAt": "2026-09-13T20:52:05.734Z"
+    "lastErrorAt": "2026-09-14T04:59:36.197Z"
   },
   "honam-youth-programming": {
     "name": "호남권 청소년 SW프로그래밍 경진대회",
@@ -82,7 +82,7 @@
     ],
     "lastChangedAt": "2026-09-06T05:39:00.619Z",
     "lastCheckedAt": "2026-09-06T05:39:00.619Z",
-    "lastErrorAt": "2026-09-13T20:52:05.734Z"
+    "lastErrorAt": "2026-09-14T04:59:36.197Z"
   },
   "baekjoon-official-contests": {
     "name": "Baekjoon 공식 대회 목록",
@@ -93,7 +93,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-04T19:58:04.569Z",
-    "lastErrorAt": "2026-09-13T20:52:05.734Z"
+    "lastErrorAt": "2026-09-14T04:59:36.197Z"
   },
   "acpc": {
     "name": "AWS × Codetree Programming Contest",
@@ -142,7 +142,7 @@
       "문의하기 © 2026 ACPC · AWS × Codetree Programming Contest"
     ],
     "lastChangedAt": "2026-08-07T07:42:45.278Z",
-    "lastCheckedAt": "2026-09-13T20:52:05.734Z"
+    "lastCheckedAt": "2026-09-14T04:59:36.197Z"
   },
   "kaist-run": {
     "name": "KAIST RUN 알고리즘 대회",
@@ -166,7 +166,7 @@
       "2026-08-20 2026 가을학기 RUN 동아리 신입 부원 모집 2026-07-26 RUN 웹사이트 개편 2026-04-15 2026 KAIST RUN Spring Contest가 열립니다"
     ],
     "lastChangedAt": "2026-09-09T16:40:17.866Z",
-    "lastCheckedAt": "2026-09-13T20:52:05.734Z"
+    "lastCheckedAt": "2026-09-14T04:59:36.197Z"
   },
   "icpc-sinchon": {
     "name": "ICPC Sinchon Camp Contest",
@@ -191,7 +191,7 @@
       "중급 Camp Contest 문제 목록"
     ],
     "lastChangedAt": "2026-08-23T07:02:18.491Z",
-    "lastCheckedAt": "2026-09-13T20:52:05.734Z"
+    "lastCheckedAt": "2026-09-14T04:59:36.197Z"
   },
   "kpsc": {
     "name": "국민대학교 KPSC 대회",
@@ -221,7 +221,7 @@
       "&copy; 2026 KPSC. Powered by Jekyll & Minimal Mistakes ."
     ],
     "lastChangedAt": "2026-07-28T06:53:54.942Z",
-    "lastCheckedAt": "2026-09-13T20:52:05.734Z"
+    "lastCheckedAt": "2026-09-14T04:59:36.197Z"
   },
   "postech-poscat": {
     "name": "POSTECH POSCAT 대회",
@@ -229,15 +229,15 @@
     "fingerprint": "d8ef03c9130235ac91b66e7bea8ea5a7f6b88950a13236ed78a62b24b5c9bbc6",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-09-13T20:52:05.734Z"
+    "lastCheckedAt": "2026-09-14T04:59:36.197Z"
   },
   "soongsil-sccc": {
     "name": "숭실대학교 SCCC 대회",
     "endpoint": "https://sccc.kr/",
-    "fingerprint": "ba3e76761a0a74b4bd2fe34949843f51cc4d884589139830d0114002fc6d0269",
+    "fingerprint": "48f17d5cf5ce0788feac42fca2c79f198bda5a98abc5a5edf682c60bca243ed1",
     "markers": [
-      "SCCC — Soongsil Computing Contest Club 본문 바로가기 SCCC 스터디 모집 대회 수상 소개",
-      "스터디 모집 대회 수상 소개 BOJ 그룹 ↗",
+      "SCCC — Soongsil Computing Contest Club 본문 바로가기 SCCC 스터디 Tutorial 모집 대회 수상 소개",
+      "스터디 Tutorial 모집 대회 수상 소개 BOJ 그룹 ↗",
       "Soongsil Computing Contest Club",
       "SCCC 알아보기 2026-2 스터디 보기 ›",
       "SCCC는 자료구조와 알고리즘, 문제해결기법을 공부하고 프로그래밍 대회를 준비하는 숭실대학교 컴퓨터학부 소모임입니다.",
@@ -262,8 +262,8 @@
       "바로가기 스터디 신입 부원 모집 대회 수상 실적",
       "© 2026 Soongsil Computing Contest Club official.sccc@gmail.com"
     ],
-    "lastChangedAt": "2026-09-06T05:13:26.835Z",
-    "lastCheckedAt": "2026-09-13T20:52:05.734Z"
+    "lastChangedAt": "2026-09-14T04:59:36.197Z",
+    "lastCheckedAt": "2026-09-14T04:59:36.197Z"
   },
   "daker": {
     "name": "DAKER",
@@ -271,7 +271,7 @@
     "fingerprint": "fee77bf572a2e1bf837d61196863bc3979d6099850f40fb6928e24f2182d79cb",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-09-13T20:52:05.734Z",
+    "lastCheckedAt": "2026-09-14T04:59:36.197Z",
     "lastErrorAt": "2026-08-07T07:42:45.278Z"
   }
 }
