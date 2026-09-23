@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-09-23T04:47:31.298Z</lastmod>
+    <lastmod>2026-09-23T11:40:28.558Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codechef-start257</loc>
-    <lastmod>2026-09-09T10:52:57.784Z</lastmod>
+    <lastmod>2026-09-23T11:40:28.558Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3454</loc>
@@ -27,6 +27,10 @@
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-31315</loc>
     <lastmod>2026-09-15T04:57:01.194Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/codechef-placeprep09</loc>
+    <lastmod>2026-09-23T11:40:28.558Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3093</loc>
@@ -65,8 +69,8 @@
     <lastmod>2026-09-11T04:43:46.458Z</lastmod>
   </url>
   <url>
-    <loc>https://codepes.kro.kr/contests/itch-texas-game-jam-2026</loc>
-    <lastmod>2026-09-22T11:41:52.380Z</lastmod>
+    <loc>https://codepes.kro.kr/contests/codechef-dsamonday022</loc>
+    <lastmod>2026-09-23T11:40:28.558Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/dacon-236749</loc>
@@ -118,7 +122,7 @@
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-31196</loc>
-    <lastmod>2026-09-22T04:59:29.829Z</lastmod>
+    <lastmod>2026-09-23T11:40:28.558Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3440</loc>
@@ -213,6 +217,10 @@
     <lastmod>2026-08-28T22:22:40.591Z</lastmod>
   </url>
   <url>
+    <loc>https://codepes.kro.kr/contests/ctftime-3082</loc>
+    <lastmod>2026-09-23T11:40:28.558Z</lastmod>
+  </url>
+  <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3049</loc>
     <lastmod>2026-09-18T04:46:21.589Z</lastmod>
   </url>
@@ -231,9 +239,5 @@
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3336</loc>
     <lastmod>2026-09-19T15:54:16.706Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/ctftime-3367</loc>
-    <lastmod>2026-09-23T04:47:31.298Z</lastmod>
   </url>
 </urlset>
