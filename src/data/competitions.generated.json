@@ -1,35 +1,6 @@
 {
-  "updatedAt": "2026-10-01T13:19:51.401Z",
+  "updatedAt": "2026-10-01T22:42:50.222Z",
   "contests": [
-    {
-      "id": "devpost-30408",
-      "title": "Global Innovation Build Challenge V2",
-      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Kang Chiao International School Student입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "ai-data",
-      "organizer": "Kang Chiao International School Student",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-10-01T15:45:00.000Z",
-      "eventStart": "2026-07-11T04:00:00.000Z",
-      "eventEnd": "2026-10-01T15:45:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "한국 온라인 참가 가능",
-        "Machine Learning/AI",
-        "Social Good",
-        "Beginner Friendly"
-      ],
-      "url": "https://gibc-v2.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-09-09T10:52:57.784Z"
-    },
     {
       "id": "ctftime-3380",
       "title": "Hacker's Gambit 2026 (Round 1 – Online Qualifier)",
@@ -57,6 +28,35 @@
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
       "lastVerifiedAt": "2026-08-12T19:27:50.456Z"
+    },
+    {
+      "id": "devpost-30408",
+      "title": "Global Innovation Build Challenge V2",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 Kang Chiao International School Student입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "type": "ai-data",
+      "organizer": "Kang Chiao International School Student",
+      "eligibilities": [
+        "rules"
+      ],
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-10-02T15:45:00.000Z",
+      "eventStart": "2026-07-11T04:00:00.000Z",
+      "eventEnd": "2026-10-02T15:45:00.000Z",
+      "location": "Online",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "해커톤",
+        "Devpost",
+        "한국 온라인 참가 가능",
+        "Machine Learning/AI",
+        "Social Good",
+        "Beginner Friendly"
+      ],
+      "url": "https://gibc-v2.devpost.com/",
+      "sourceName": "Devpost 공식 목록·일정",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-10-01T22:42:50.222Z"
     },
     {
       "id": "codechef-placeprep10",
@@ -225,37 +225,8 @@
       "lastVerifiedAt": "2026-09-30T22:17:59.952Z"
     },
     {
-      "id": "devpost-31196",
-      "title": "ML Empowerment Build Challenge 3.0 - ($96,000 in prizes!)",
-      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 ML Empowerment Foundation입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
-      "type": "ai-data",
-      "organizer": "ML Empowerment Foundation",
-      "eligibilities": [
-        "rules"
-      ],
-      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-10-06T06:45:00.000Z",
-      "eventStart": "2026-09-05T22:30:00.000Z",
-      "eventEnd": "2026-10-06T06:45:00.000Z",
-      "location": "Online",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "해커톤",
-        "Devpost",
-        "한국 온라인 참가 가능",
-        "Beginner Friendly",
-        "Machine Learning/AI",
-        "Social Good"
-      ],
-      "url": "https://ml-build-challenge-3.devpost.com/",
-      "sourceName": "Devpost 공식 목록·일정",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-09-30T22:17:59.952Z"
-    },
-    {
       "id": "codeforces-2275",
-      "title": "Codeforces Round (Div. 3)",
+      "title": "Codeforces Round 1125 (Div. 3)",
       "summary": "ICPC 형식의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
       "type": "ps",
       "organizer": "Codeforces",
@@ -284,7 +255,7 @@
       "url": "https://codeforces.com/contest/2275",
       "sourceName": "Codeforces 공식 API",
       "sourceType": "official-api",
-      "lastVerifiedAt": "2026-09-30T12:37:42.575Z"
+      "lastVerifiedAt": "2026-10-01T22:42:50.222Z"
     },
     {
       "id": "ctftime-3440",
@@ -313,6 +284,35 @@
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
       "lastVerifiedAt": "2026-09-17T21:24:27.864Z"
+    },
+    {
+      "id": "devpost-31196",
+      "title": "ML Empowerment Build Challenge 3.0 - ($96,000 in prizes!)",
+      "summary": "Devpost에 등록된 AI·데이터 공개 해커톤입니다. 주최 기관은 ML Empowerment Foundation입니다. 참가 전 공식 규정과 제출 조건을 확인하세요.",
+      "type": "ai-data",
+      "organizer": "ML Empowerment Foundation",
+      "eligibilities": [
+        "rules"
+      ],
+      "eligibilityNote": "공식 규정에 전 세계 온라인 참가 가능 명시. 연령·팀 구성 등 세부 조건은 공식 규정 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-10-10T06:45:00.000Z",
+      "eventStart": "2026-09-05T22:30:00.000Z",
+      "eventEnd": "2026-10-10T06:45:00.000Z",
+      "location": "Online",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "해커톤",
+        "Devpost",
+        "한국 온라인 참가 가능",
+        "Beginner Friendly",
+        "Machine Learning/AI",
+        "Social Good"
+      ],
+      "url": "https://ml-build-challenge-3.devpost.com/",
+      "sourceName": "Devpost 공식 목록·일정",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-10-01T22:42:50.222Z"
     },
     {
       "id": "ctftime-3446",
@@ -1354,7 +1354,7 @@
       "name": "DACON",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:51.401Z",
+      "lastCheckedAt": "2026-10-01T22:42:50.222Z",
       "publishedCount": 0
     },
     {
@@ -1362,7 +1362,7 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:51.401Z",
+      "lastCheckedAt": "2026-10-01T22:42:50.222Z",
       "publishedCount": 5
     },
     {
@@ -1370,7 +1370,7 @@
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:51.401Z",
+      "lastCheckedAt": "2026-10-01T22:42:50.222Z",
       "publishedCount": 8
     },
     {
@@ -1378,7 +1378,7 @@
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:51.401Z",
+      "lastCheckedAt": "2026-10-01T22:42:50.222Z",
       "publishedCount": 2
     },
     {
@@ -1386,7 +1386,7 @@
       "name": "Devpost",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:51.401Z",
+      "lastCheckedAt": "2026-10-01T22:42:50.222Z",
       "publishedCount": 7
     },
     {
@@ -1394,7 +1394,7 @@
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:51.401Z",
+      "lastCheckedAt": "2026-10-01T22:42:50.222Z",
       "publishedCount": 25
     },
     {
@@ -1402,7 +1402,7 @@
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:51.401Z",
+      "lastCheckedAt": "2026-10-01T22:42:50.222Z",
       "publishedCount": 0
     },
     {
@@ -1410,7 +1410,7 @@
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:51.401Z",
+      "lastCheckedAt": "2026-10-01T22:42:50.222Z",
       "publishedCount": 0
     },
     {
@@ -1418,7 +1418,7 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:51.401Z",
+      "lastCheckedAt": "2026-10-01T22:42:50.222Z",
       "publishedCount": 0
     },
     {
@@ -1426,7 +1426,7 @@
       "name": "UCPC",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:51.401Z",
+      "lastCheckedAt": "2026-10-01T22:42:50.222Z",
       "publishedCount": 0
     },
     {
@@ -1434,7 +1434,7 @@
       "name": "itch.io",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:51.401Z",
+      "lastCheckedAt": "2026-10-01T22:42:50.222Z",
       "publishedCount": 0
     },
     {
@@ -1450,7 +1450,7 @@
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:48.706Z",
+      "lastCheckedAt": "2026-10-01T22:42:48.217Z",
       "publishedCount": 0
     },
     {
@@ -1458,7 +1458,7 @@
       "name": "ICPC Korea",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:48.706Z",
+      "lastCheckedAt": "2026-10-01T22:42:48.217Z",
       "publishedCount": 0
     },
     {
@@ -1466,7 +1466,7 @@
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:48.706Z",
+      "lastCheckedAt": "2026-10-01T22:42:48.217Z",
       "publishedCount": 0
     },
     {
@@ -1490,7 +1490,7 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:48.706Z",
+      "lastCheckedAt": "2026-10-01T22:42:48.217Z",
       "publishedCount": 0
     },
     {
@@ -1498,7 +1498,7 @@
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:48.706Z",
+      "lastCheckedAt": "2026-10-01T22:42:48.217Z",
       "publishedCount": 0
     },
     {
@@ -1506,7 +1506,7 @@
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:48.706Z",
+      "lastCheckedAt": "2026-10-01T22:42:48.217Z",
       "publishedCount": 0
     },
     {
@@ -1514,7 +1514,7 @@
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:48.706Z",
+      "lastCheckedAt": "2026-10-01T22:42:48.217Z",
       "publishedCount": 0
     },
     {
@@ -1530,7 +1530,7 @@
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-01T13:19:48.706Z",
+      "lastCheckedAt": "2026-10-01T22:42:48.217Z",
       "publishedCount": 0
     }
   ]
