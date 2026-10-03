@@ -18,16 +18,17 @@
       "Copyright © 2018-2026 SAMSUNG All Rights Reserved."
     ],
     "lastChangedAt": "2026-08-11T07:38:55.029Z",
-    "lastCheckedAt": "2026-10-03T16:19:31.129Z"
+    "lastCheckedAt": "2026-10-03T21:18:44.168Z"
   },
   "icpc-korea": {
     "name": "ICPC Korea",
     "endpoint": "https://icpckorea.org/",
-    "fingerprint": "f6f805703fe7a0578034747ccdda80c7c792ee406b97afd1af11d0067c31022e",
+    "fingerprint": "c3f13517fb15461f9706b6d8f246fd9d8042d7cbb3b2ff2be014b4d7f08710ce",
     "markers": [
       "2026 Preliminary",
       "2026 Seoul Regional",
       "Contest Archive",
+      "2026 ICPC Seoul 예선: 세부 일정, 경시 규칙 및 주의사항 (Schedules, Rules and Guides for 2026 ICPC Korea National First Round)",
       "2026 ICPC Asia – Seoul Regional 예선 등록 안내 (마감: 9/22)",
       "2026 ICPC Asia – Seoul Regional Contest: Schedule",
       "2026 ICPC Asia – Seoul Regional Contest",
@@ -35,8 +36,8 @@
       "Seoul Regional Contest",
       "(* NOTE: different from 2025)"
     ],
-    "lastChangedAt": "2026-09-09T10:52:55.063Z",
-    "lastCheckedAt": "2026-10-03T16:19:31.129Z"
+    "lastChangedAt": "2026-10-03T21:18:44.168Z",
+    "lastCheckedAt": "2026-10-03T21:18:44.168Z"
   },
   "ewha-girls-programming": {
     "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
@@ -51,7 +52,7 @@
       "Copyright ⓒ 2015 Ewha Womans University. All Rights Reserved."
     ],
     "lastChangedAt": "2026-09-27T21:22:34.296Z",
-    "lastCheckedAt": "2026-10-03T16:19:31.129Z"
+    "lastCheckedAt": "2026-10-03T21:18:44.168Z"
   },
   "honam-youth-programming": {
     "name": "호남권 청소년 SW프로그래밍 경진대회",
@@ -81,7 +82,7 @@
     ],
     "lastChangedAt": "2026-09-06T05:39:00.619Z",
     "lastCheckedAt": "2026-09-06T05:39:00.619Z",
-    "lastErrorAt": "2026-10-03T16:19:31.129Z"
+    "lastErrorAt": "2026-10-03T21:18:44.168Z"
   },
   "baekjoon-official-contests": {
     "name": "Baekjoon 공식 대회 목록",
@@ -92,7 +93,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-04T19:58:04.569Z",
-    "lastErrorAt": "2026-10-03T16:19:31.129Z"
+    "lastErrorAt": "2026-10-03T21:18:44.168Z"
   },
   "acpc": {
     "name": "AWS × Codetree Programming Contest",
@@ -141,7 +142,7 @@
       "문의하기 © 2026 ACPC · AWS × Codetree Programming Contest"
     ],
     "lastChangedAt": "2026-08-07T07:42:45.278Z",
-    "lastCheckedAt": "2026-10-03T16:19:31.129Z"
+    "lastCheckedAt": "2026-10-03T21:18:44.168Z"
   },
   "kaist-run": {
     "name": "KAIST RUN 알고리즘 대회",
@@ -165,7 +166,7 @@
       "2026-08-20 2026 가을학기 RUN 동아리 신입 부원 모집 2026-07-26 RUN 웹사이트 개편 2026-04-15 2026 KAIST RUN Spring Contest가 열립니다"
     ],
     "lastChangedAt": "2026-09-09T16:40:17.866Z",
-    "lastCheckedAt": "2026-10-03T16:19:31.129Z"
+    "lastCheckedAt": "2026-10-03T21:18:44.168Z"
   },
   "icpc-sinchon": {
     "name": "ICPC Sinchon Camp Contest",
@@ -190,7 +191,7 @@
       "중급 Camp Contest 문제 목록"
     ],
     "lastChangedAt": "2026-08-23T07:02:18.491Z",
-    "lastCheckedAt": "2026-10-03T16:19:31.129Z"
+    "lastCheckedAt": "2026-10-03T21:18:44.168Z"
   },
   "kpsc": {
     "name": "국민대학교 KPSC 대회",
@@ -220,7 +221,7 @@
       "&copy; 2026 KPSC. Powered by Jekyll & Minimal Mistakes ."
     ],
     "lastChangedAt": "2026-07-28T06:53:54.942Z",
-    "lastCheckedAt": "2026-10-03T16:19:31.129Z"
+    "lastCheckedAt": "2026-10-03T21:18:44.168Z"
   },
   "postech-poscat": {
     "name": "POSTECH POSCAT 대회",
@@ -229,7 +230,7 @@
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-10-01T05:58:25.764Z",
-    "lastErrorAt": "2026-10-03T16:19:31.129Z"
+    "lastErrorAt": "2026-10-03T21:18:44.168Z"
   },
   "soongsil-sccc": {
     "name": "숭실대학교 SCCC 대회",
@@ -263,7 +264,7 @@
       "© 2026 Soongsil Computing Contest Club official.sccc@gmail.com"
     ],
     "lastChangedAt": "2026-09-14T04:59:36.197Z",
-    "lastCheckedAt": "2026-10-03T16:19:31.129Z"
+    "lastCheckedAt": "2026-10-03T21:18:44.168Z"
   },
   "daker": {
     "name": "DAKER",
@@ -271,7 +272,7 @@
     "fingerprint": "fee77bf572a2e1bf837d61196863bc3979d6099850f40fb6928e24f2182d79cb",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-10-03T16:19:31.129Z",
+    "lastCheckedAt": "2026-10-03T21:18:44.168Z",
     "lastErrorAt": "2026-08-07T07:42:45.278Z"
   }
 }
