@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-14T04:56:40.109Z",
+  "updatedAt": "2026-10-14T11:56:10.709Z",
   "contests": [
     {
       "id": "codechef-start260",
@@ -427,6 +427,39 @@
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
       "lastVerifiedAt": "2026-08-22T01:51:16.775Z"
+    },
+    {
+      "id": "codeforces-2277",
+      "title": "Codeforces Round (Div. 2)",
+      "summary": "CF 형식의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
+      "type": "ps",
+      "organizer": "Codeforces",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "Codeforces 계정이 있는 누구나",
+      "mode": "online",
+      "applicationDeadline": "2026-10-24T11:05:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-10-24T11:05:00.000Z",
+      "eventEnd": "2026-10-24T13:05:00.000Z",
+      "location": "온라인",
+      "teamSize": "개인",
+      "languages": [
+        "C++",
+        "Java",
+        "Python",
+        "Kotlin"
+      ],
+      "tags": [
+        "PS",
+        "알고리즘",
+        "CF"
+      ],
+      "url": "https://codeforces.com/contest/2277",
+      "sourceName": "Codeforces 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-10-14T11:56:10.709Z"
     },
     {
       "id": "atcoder-arc233",
@@ -1339,7 +1372,7 @@
       "name": "DACON",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-14T04:56:40.109Z",
+      "lastCheckedAt": "2026-10-14T11:56:10.709Z",
       "publishedCount": 0
     },
     {
@@ -1347,15 +1380,15 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-14T04:56:40.109Z",
-      "publishedCount": 3
+      "lastCheckedAt": "2026-10-14T11:56:10.709Z",
+      "publishedCount": 4
     },
     {
       "id": "atcoder",
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-14T04:56:40.109Z",
+      "lastCheckedAt": "2026-10-14T11:56:10.709Z",
       "publishedCount": 7
     },
     {
@@ -1363,7 +1396,7 @@
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-14T04:56:40.109Z",
+      "lastCheckedAt": "2026-10-14T11:56:10.709Z",
       "publishedCount": 5
     },
     {
@@ -1371,7 +1404,7 @@
       "name": "Devpost",
       "kind": "automatic",
       "state": "error",
-      "lastCheckedAt": "2026-10-14T04:56:40.109Z",
+      "lastCheckedAt": "2026-10-14T11:56:10.709Z",
       "publishedCount": 5
     },
     {
@@ -1379,7 +1412,7 @@
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-14T04:56:40.109Z",
+      "lastCheckedAt": "2026-10-14T11:56:10.709Z",
       "publishedCount": 27
     },
     {
@@ -1387,15 +1420,15 @@
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-14T04:56:40.109Z",
+      "lastCheckedAt": "2026-10-14T11:56:10.709Z",
       "publishedCount": 0
     },
     {
       "id": "kitpa-youth",
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
-      "state": "error",
-      "lastCheckedAt": "2026-10-14T04:56:40.109Z",
+      "state": "ok",
+      "lastCheckedAt": "2026-10-14T11:56:10.709Z",
       "publishedCount": 0
     },
     {
@@ -1403,15 +1436,15 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-14T04:56:40.109Z",
+      "lastCheckedAt": "2026-10-14T11:56:10.709Z",
       "publishedCount": 0
     },
     {
       "id": "ucpc",
       "name": "UCPC",
       "kind": "automatic",
-      "state": "error",
-      "lastCheckedAt": "2026-10-14T04:56:40.109Z",
+      "state": "ok",
+      "lastCheckedAt": "2026-10-14T11:56:10.709Z",
       "publishedCount": 0
     },
     {
@@ -1419,7 +1452,7 @@
       "name": "itch.io",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-14T04:56:40.109Z",
+      "lastCheckedAt": "2026-10-14T11:56:10.709Z",
       "publishedCount": 0
     },
     {
@@ -1435,7 +1468,7 @@
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-14T04:56:22.327Z",
+      "lastCheckedAt": "2026-10-14T11:56:06.505Z",
       "publishedCount": 0
     },
     {
@@ -1443,7 +1476,7 @@
       "name": "ICPC Korea",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-14T04:56:22.327Z",
+      "lastCheckedAt": "2026-10-14T11:56:06.505Z",
       "publishedCount": 0
     },
     {
@@ -1451,7 +1484,7 @@
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-14T04:56:22.327Z",
+      "lastCheckedAt": "2026-10-14T11:56:06.505Z",
       "publishedCount": 0
     },
     {
@@ -1475,31 +1508,31 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-14T04:56:22.327Z",
+      "lastCheckedAt": "2026-10-14T11:56:06.505Z",
       "publishedCount": 0
     },
     {
       "id": "kaist-run",
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
-      "state": "error",
-      "lastCheckedAt": "2026-10-13T22:46:48.279Z",
+      "state": "ok",
+      "lastCheckedAt": "2026-10-14T11:56:06.505Z",
       "publishedCount": 0
     },
     {
       "id": "icpc-sinchon",
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
-      "state": "error",
-      "lastCheckedAt": "2026-10-13T22:46:48.279Z",
+      "state": "ok",
+      "lastCheckedAt": "2026-10-14T11:56:06.505Z",
       "publishedCount": 0
     },
     {
       "id": "kpsc",
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
-      "state": "error",
-      "lastCheckedAt": "2026-10-13T22:46:48.279Z",
+      "state": "ok",
+      "lastCheckedAt": "2026-10-14T11:56:06.505Z",
       "publishedCount": 0
     },
     {
@@ -1514,8 +1547,8 @@
       "id": "soongsil-sccc",
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
-      "state": "error",
-      "lastCheckedAt": "2026-10-13T22:46:48.279Z",
+      "state": "ok",
+      "lastCheckedAt": "2026-10-14T11:56:06.505Z",
       "publishedCount": 0
     }
   ]
