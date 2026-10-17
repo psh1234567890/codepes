@@ -18,16 +18,23 @@
       "Copyright © 2018-2026 SAMSUNG All Rights Reserved."
     ],
     "lastChangedAt": "2026-10-08T06:08:19.630Z",
-    "lastCheckedAt": "2026-10-17T04:30:01.674Z"
+    "lastCheckedAt": "2026-10-17T10:47:24.525Z"
   },
   "icpc-korea": {
     "name": "ICPC Korea",
     "endpoint": "https://icpckorea.org/",
-    "fingerprint": "d715efe82d4faae8e78cb1773d9bfdd9cc6bd559733d61347571a0f6faefd851",
+    "fingerprint": "c11c1b2b63d753b9ceececbdb25fcd874c952b99771fc7c23c0737a394971d04",
     "markers": [
       "The 2026 ICPC Seoul Regional | Goyang, Korea",
       "The 2026 ICPC Seoul Regional First Round Preliminary Call | Goyang, Korea",
       "경시 중 인공지능 사용 관련 규정 / Usage of AI during the Contest ( Link )",
+      "The online judge for the first round will open at 2026-10-17 13:00:00 (KST).",
+      "1차 예선 Online Judge는 2026-10-17 13:00:00 (KST)에 열립니다.",
+      "The first round will start at 2026-10-17 14:00:00 (KST) and end at 2026-10-17 17:00:00 (KST).",
+      "1차 예선은 2026-10-17 14:00:00 (KST)에 시작하여 2026-10-17 17:00:00 (KST)에 종료합니다.",
+      "1차 예선에서는 예비소집에서 사용한 계정을 동일하게 사용합니다.",
+      "[Oct 17th. 14:00] 1차 예선이 시작되었습니다. 문제지는 위의 Problemset 버튼에서 받을 수 있습니다.",
+      "[Oct 17th. 18:00] 1차 예선이 17:00에 정상 종료되었습니다. 표절 검사, IP 중복 검사 등을 수행한 후 본선 초청 팀을 결정하겠습니다.",
       "The online judge for the preliminary call will open at 2026-10-16 17:00:00 (KST).",
       "예비소집 Online Judge는 2026-10-16 17:00:00 (KST)에 열립니다.",
       "The committee will distribute accounts for the online judge by 2026-10-16 17:30:00 (KST).",
@@ -36,15 +43,10 @@
       "예비소집은 2026-10-16 18:00:00 (KST)에 시작하여 2026-10-16 19:00:00 (KST)에 종료합니다.",
       "[Oct 16th. 16:20] The home page has turned into contest mode.",
       "[Oct 16th. 16:20] 홈페이지가 대회 모드로 전환되었습니다.",
-      "[Oct 16th. 17:20] 이 계정은 내일 1차 예선에서도 동일하게 사용합니다.",
-      "The online judge for the first round will open at 2026-10-17 13:00:00 (KST).",
-      "1차 예선 Online Judge는 2026-10-17 13:00:00 (KST)에 열립니다.",
-      "The first round will start at 2026-10-17 14:00:00 (KST) and end at 2026-10-17 17:00:00 (KST).",
-      "1차 예선은 2026-10-17 14:00:00 (KST)에 시작하여 2026-10-17 17:00:00 (KST)에 종료합니다.",
-      "1차 예선에서는 예비소집에서 사용한 계정을 동일하게 사용합니다."
+      "[Oct 16th. 17:20] 이 계정은 내일 1차 예선에서도 동일하게 사용합니다."
     ],
-    "lastChangedAt": "2026-10-17T04:30:01.674Z",
-    "lastCheckedAt": "2026-10-17T04:30:01.674Z"
+    "lastChangedAt": "2026-10-17T10:47:24.525Z",
+    "lastCheckedAt": "2026-10-17T10:47:24.525Z"
   },
   "ewha-girls-programming": {
     "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
@@ -60,7 +62,7 @@
     ],
     "lastChangedAt": "2026-09-27T21:22:34.296Z",
     "lastCheckedAt": "2026-10-17T04:30:01.674Z",
-    "lastErrorAt": "2026-10-14T21:42:54.488Z"
+    "lastErrorAt": "2026-10-17T10:47:24.525Z"
   },
   "honam-youth-programming": {
     "name": "호남권 청소년 SW프로그래밍 경진대회",
@@ -90,7 +92,7 @@
     ],
     "lastChangedAt": "2026-09-06T05:39:00.619Z",
     "lastCheckedAt": "2026-09-06T05:39:00.619Z",
-    "lastErrorAt": "2026-10-17T04:30:01.674Z"
+    "lastErrorAt": "2026-10-17T10:47:24.525Z"
   },
   "baekjoon-official-contests": {
     "name": "Baekjoon 공식 대회 목록",
@@ -101,7 +103,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-04T19:58:04.569Z",
-    "lastErrorAt": "2026-10-17T04:30:01.674Z"
+    "lastErrorAt": "2026-10-17T10:47:24.525Z"
   },
   "acpc": {
     "name": "AWS × Codetree Programming Contest",
@@ -150,7 +152,7 @@
       "문의하기 © 2026 ACPC · AWS × Codetree Programming Contest"
     ],
     "lastChangedAt": "2026-08-07T07:42:45.278Z",
-    "lastCheckedAt": "2026-10-17T04:30:01.674Z"
+    "lastCheckedAt": "2026-10-17T10:47:24.525Z"
   },
   "kaist-run": {
     "name": "KAIST RUN 알고리즘 대회",
@@ -174,7 +176,7 @@
       "2026-09-09 2026 ICPC Seoul Regional 신청이 진행 중입니다!!! 2026-08-20 2026 가을학기 RUN 동아리 신입 부원 모집 2026-07-26 RUN 웹사이트 개편"
     ],
     "lastChangedAt": "2026-10-07T13:27:40.757Z",
-    "lastCheckedAt": "2026-10-17T04:30:01.674Z",
+    "lastCheckedAt": "2026-10-17T10:47:24.525Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   },
   "icpc-sinchon": {
@@ -200,7 +202,7 @@
       "중급 Camp Contest 문제 목록"
     ],
     "lastChangedAt": "2026-08-23T07:02:18.491Z",
-    "lastCheckedAt": "2026-10-17T04:30:01.674Z",
+    "lastCheckedAt": "2026-10-17T10:47:24.525Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   },
   "kpsc": {
@@ -231,7 +233,7 @@
       "&copy; 2026 KPSC. Powered by Jekyll & Minimal Mistakes ."
     ],
     "lastChangedAt": "2026-07-28T06:53:54.942Z",
-    "lastCheckedAt": "2026-10-17T04:30:01.674Z",
+    "lastCheckedAt": "2026-10-17T10:47:24.525Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   },
   "postech-poscat": {
@@ -241,7 +243,7 @@
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-10-13T22:46:48.279Z",
-    "lastErrorAt": "2026-10-17T04:30:01.674Z"
+    "lastErrorAt": "2026-10-17T10:47:24.525Z"
   },
   "soongsil-sccc": {
     "name": "숭실대학교 SCCC 대회",
@@ -275,7 +277,7 @@
       "© 2026 Soongsil Computing Contest Club official.sccc@gmail.com"
     ],
     "lastChangedAt": "2026-09-14T04:59:36.197Z",
-    "lastCheckedAt": "2026-10-17T04:30:01.674Z",
+    "lastCheckedAt": "2026-10-17T10:47:24.525Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   },
   "daker": {
@@ -284,7 +286,7 @@
     "fingerprint": "fee77bf572a2e1bf837d61196863bc3979d6099850f40fb6928e24f2182d79cb",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-10-17T04:30:01.674Z",
+    "lastCheckedAt": "2026-10-17T10:47:24.525Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   }
 }
