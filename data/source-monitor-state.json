@@ -2,7 +2,7 @@
   "scpc": {
     "name": "Samsung Collegiate Programming Challenge",
     "endpoint": "https://research.samsung.com/scpc",
-    "fingerprint": "bb8918f022de53cc6ac67545cd36d75e7904005a1766d1276f6eb45515451b75",
+    "fingerprint": "cd1cdc8c7aabb3e80caddea8b50f806773933404c9027daeed130e88c34efa4f",
     "markers": [
       "< SCPC 2025",
       "SCPC 2026",
@@ -17,33 +17,38 @@
       "2015",
       "Copyright © 2018-2026 SAMSUNG All Rights Reserved."
     ],
-    "lastChangedAt": "2026-10-08T06:08:19.630Z",
-    "lastCheckedAt": "2026-10-20T21:38:43.620Z"
+    "lastChangedAt": "2026-10-21T04:51:51.225Z",
+    "lastCheckedAt": "2026-10-21T04:51:51.225Z"
   },
   "icpc-korea": {
     "name": "ICPC Korea",
     "endpoint": "https://icpckorea.org/",
-    "fingerprint": "2b6619b7872548325b53c9f1c7dba8d9b59c53aaaf2eee412b0c9399cfcce6c0",
+    "fingerprint": "beb17be87ba964c94ceda4ba9a1779f1beec546bbb2cecf048b3b849ed38979f",
     "markers": [
       "2026 Preliminary",
       "2026 Seoul Regional",
-      "Contest Archive",
-      "Foreign Teams Registration for 2026 ICPC Seoul Regional",
+      "Contest Archive ◐",
+      "2026 ICPC",
+      "예선 First Round 10. 17. (토) 14:00",
+      "본선 Regional 11. 13. – 14. (금–토)",
+      "2026 Regional",
+      "2026-10-20",
+      "Foreign Teams Registration for 2026 ICPC Seoul Regional (updated Oct. 21)",
+      "2026-10-19",
       "2026 ICPC Seoul 예선 (2026 ICPC Korea National First Round): Problemset, Scoreboard (frozen)",
-      "2026 ICPC Seoul 예선: 연습 환경 안내 (Practice Environment for 2026 ICPC Korea National First Round)",
-      "2026-2027 ICPC APAC Championship 경시 규칙 안내 (Rules for 2026-2027 Cycle of ICPC APAC Championship)",
-      "2026 ICPC Seoul 예선: 경시 중 인공지능 사용 관련 규정 및 코치 예선 감독 확인서 제출 (Usage of AI, and Proctoring Reports for Coaches)",
-      "2026 ICPC Seoul 예선: 환경 및 시스템 공지 (Programming Environments for 2026 ICPC Korea National First Round)",
-      "2026 ICPC Seoul 예선: 세부 일정, 경시 규칙 및 주의사항 (Schedules, Rules and Guides for 2026 ICPC Korea National First Round)",
-      "2026 ICPC Asia – Seoul Regional 예선 등록 안내 (마감: 9/22)",
-      "2026 ICPC Asia – Seoul Regional Contest: Schedule",
-      "2026 ICPC Asia – Seoul Regional Contest",
-      "Korea National Preliminary Contest",
-      "Seoul Regional Contest",
-      "(* NOTE: different from 2025)"
+      "2026-10-15",
+      "2026 ICPC Seoul 예선: 연습 환경 안내 Practice Environment for 2026 ICPC Korea National First Round",
+      "2026-10-05",
+      "2026-2027 ICPC APAC Championship 경시 규칙 안내 Rules for 2026-2027 Cycle of ICPC APAC Championship",
+      "2026 ICPC Seoul 예선: 경시 중 인공지능 사용 관련 규정 및 코치 예선 감독 확인서 제출 Usage of AI, and Proctoring Reports for Coaches",
+      "2026 ICPC Seoul 예선: 환경 및 시스템 공지 Programming Environments for 2026 ICPC Korea National First Round",
+      "2026-10-04",
+      "2026 ICPC Seoul 예선: 세부 일정, 경시 규칙 및 주의사항 Schedules, Rules and Guides for 2026 ICPC Korea National First Round",
+      "2026-09-06",
+      "2026 ICPC Asia – Seoul Regional 예선 등록 안내 (마감: 9/22) Registration for 2026 ICPC Asia – Seoul Regional First Round (Deadline: 9/22)"
     ],
-    "lastChangedAt": "2026-10-20T11:40:56.767Z",
-    "lastCheckedAt": "2026-10-20T21:38:43.620Z"
+    "lastChangedAt": "2026-10-21T04:51:51.225Z",
+    "lastCheckedAt": "2026-10-21T04:51:51.225Z"
   },
   "ewha-girls-programming": {
     "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
@@ -58,7 +63,7 @@
       "Copyright ⓒ 2015 Ewha Womans University. All Rights Reserved."
     ],
     "lastChangedAt": "2026-09-27T21:22:34.296Z",
-    "lastCheckedAt": "2026-10-20T21:38:43.620Z",
+    "lastCheckedAt": "2026-10-21T04:51:51.225Z",
     "lastErrorAt": "2026-10-17T10:47:24.525Z"
   },
   "honam-youth-programming": {
@@ -89,7 +94,7 @@
     ],
     "lastChangedAt": "2026-09-06T05:39:00.619Z",
     "lastCheckedAt": "2026-09-06T05:39:00.619Z",
-    "lastErrorAt": "2026-10-20T21:38:43.620Z"
+    "lastErrorAt": "2026-10-21T04:51:51.225Z"
   },
   "baekjoon-official-contests": {
     "name": "Baekjoon 공식 대회 목록",
@@ -100,7 +105,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-04T19:58:04.569Z",
-    "lastErrorAt": "2026-10-20T21:38:43.620Z"
+    "lastErrorAt": "2026-10-21T04:51:51.225Z"
   },
   "acpc": {
     "name": "AWS × Codetree Programming Contest",
@@ -149,7 +154,7 @@
       "문의하기 © 2026 ACPC · AWS × Codetree Programming Contest"
     ],
     "lastChangedAt": "2026-08-07T07:42:45.278Z",
-    "lastCheckedAt": "2026-10-20T21:38:43.620Z"
+    "lastCheckedAt": "2026-10-21T04:51:51.225Z"
   },
   "kaist-run": {
     "name": "KAIST RUN 알고리즘 대회",
@@ -173,7 +178,7 @@
       "2026-09-09 2026 ICPC Seoul Regional 신청이 진행 중입니다!!! 2026-08-20 2026 가을학기 RUN 동아리 신입 부원 모집 2026-07-26 RUN 웹사이트 개편"
     ],
     "lastChangedAt": "2026-10-07T13:27:40.757Z",
-    "lastCheckedAt": "2026-10-20T21:38:43.620Z",
+    "lastCheckedAt": "2026-10-21T04:51:51.225Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   },
   "icpc-sinchon": {
@@ -199,7 +204,7 @@
       "중급 Camp Contest 문제 목록"
     ],
     "lastChangedAt": "2026-08-23T07:02:18.491Z",
-    "lastCheckedAt": "2026-10-20T21:38:43.620Z",
+    "lastCheckedAt": "2026-10-21T04:51:51.225Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   },
   "kpsc": {
@@ -230,7 +235,7 @@
       "&copy; 2026 KPSC. Powered by Jekyll & Minimal Mistakes ."
     ],
     "lastChangedAt": "2026-07-28T06:53:54.942Z",
-    "lastCheckedAt": "2026-10-20T21:38:43.620Z",
+    "lastCheckedAt": "2026-10-21T04:51:51.225Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   },
   "postech-poscat": {
@@ -240,7 +245,7 @@
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-10-13T22:46:48.279Z",
-    "lastErrorAt": "2026-10-20T21:38:43.620Z"
+    "lastErrorAt": "2026-10-21T04:51:51.225Z"
   },
   "soongsil-sccc": {
     "name": "숭실대학교 SCCC 대회",
@@ -274,7 +279,7 @@
       "© 2026 Soongsil Computing Contest Club official.sccc@gmail.com"
     ],
     "lastChangedAt": "2026-09-14T04:59:36.197Z",
-    "lastCheckedAt": "2026-10-20T21:38:43.620Z",
+    "lastCheckedAt": "2026-10-21T04:51:51.225Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   },
   "daker": {
@@ -283,7 +288,7 @@
     "fingerprint": "fee77bf572a2e1bf837d61196863bc3979d6099850f40fb6928e24f2182d79cb",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-10-20T21:38:43.620Z",
+    "lastCheckedAt": "2026-10-21T04:51:51.225Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   }
 }
