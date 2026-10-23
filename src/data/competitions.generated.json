@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T04:53:24.042Z",
+  "updatedAt": "2026-10-23T11:42:04.136Z",
   "contests": [
     {
       "id": "ctftime-3340",
@@ -1298,7 +1298,7 @@
       "name": "DACON",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:24.042Z",
+      "lastCheckedAt": "2026-10-23T11:42:04.136Z",
       "publishedCount": 0
     },
     {
@@ -1306,7 +1306,7 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:24.042Z",
+      "lastCheckedAt": "2026-10-23T11:42:04.136Z",
       "publishedCount": 6
     },
     {
@@ -1314,7 +1314,7 @@
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:24.042Z",
+      "lastCheckedAt": "2026-10-23T11:42:04.136Z",
       "publishedCount": 7
     },
     {
@@ -1322,7 +1322,7 @@
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:24.042Z",
+      "lastCheckedAt": "2026-10-23T11:42:04.136Z",
       "publishedCount": 3
     },
     {
@@ -1330,7 +1330,7 @@
       "name": "Devpost",
       "kind": "automatic",
       "state": "error",
-      "lastCheckedAt": "2026-10-23T04:53:24.042Z",
+      "lastCheckedAt": "2026-10-23T11:42:04.136Z",
       "publishedCount": 3
     },
     {
@@ -1338,7 +1338,7 @@
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:24.042Z",
+      "lastCheckedAt": "2026-10-23T11:42:04.136Z",
       "publishedCount": 26
     },
     {
@@ -1346,7 +1346,7 @@
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:24.042Z",
+      "lastCheckedAt": "2026-10-23T11:42:04.136Z",
       "publishedCount": 0
     },
     {
@@ -1354,7 +1354,7 @@
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:24.042Z",
+      "lastCheckedAt": "2026-10-23T11:42:04.136Z",
       "publishedCount": 0
     },
     {
@@ -1362,7 +1362,7 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:24.042Z",
+      "lastCheckedAt": "2026-10-23T11:42:04.136Z",
       "publishedCount": 0
     },
     {
@@ -1370,15 +1370,15 @@
       "name": "UCPC",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:24.042Z",
+      "lastCheckedAt": "2026-10-23T11:42:04.136Z",
       "publishedCount": 0
     },
     {
       "id": "itch",
       "name": "itch.io",
       "kind": "automatic",
-      "state": "error",
-      "lastCheckedAt": "2026-10-23T04:53:24.042Z",
+      "state": "ok",
+      "lastCheckedAt": "2026-10-23T11:42:04.136Z",
       "publishedCount": 0
     },
     {
@@ -1394,7 +1394,7 @@
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:22.529Z",
+      "lastCheckedAt": "2026-10-23T11:42:02.121Z",
       "publishedCount": 0
     },
     {
@@ -1402,7 +1402,7 @@
       "name": "ICPC Korea",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:22.529Z",
+      "lastCheckedAt": "2026-10-23T11:42:02.121Z",
       "publishedCount": 0
     },
     {
@@ -1410,7 +1410,7 @@
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:22.529Z",
+      "lastCheckedAt": "2026-10-23T11:42:02.121Z",
       "publishedCount": 0
     },
     {
@@ -1434,7 +1434,7 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:22.529Z",
+      "lastCheckedAt": "2026-10-23T11:42:02.121Z",
       "publishedCount": 0
     },
     {
@@ -1442,7 +1442,7 @@
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:22.529Z",
+      "lastCheckedAt": "2026-10-23T11:42:02.121Z",
       "publishedCount": 0
     },
     {
@@ -1450,7 +1450,7 @@
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:22.529Z",
+      "lastCheckedAt": "2026-10-23T11:42:02.121Z",
       "publishedCount": 0
     },
     {
@@ -1458,7 +1458,7 @@
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:22.529Z",
+      "lastCheckedAt": "2026-10-23T11:42:02.121Z",
       "publishedCount": 0
     },
     {
@@ -1474,7 +1474,7 @@
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-23T04:53:22.529Z",
+      "lastCheckedAt": "2026-10-23T11:42:02.121Z",
       "publishedCount": 0
     }
   ]
