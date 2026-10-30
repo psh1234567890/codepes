@@ -1,34 +1,6 @@
 {
-  "updatedAt": "2026-10-30T12:58:55.503Z",
+  "updatedAt": "2026-10-30T22:23:07.810Z",
   "contests": [
-    {
-      "id": "ctftime-3460",
-      "title": "HI Cyber Con 2026 CTF",
-      "summary": "HiddenInvestigations에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
-      "type": "security",
-      "organizer": "HiddenInvestigations",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
-      "mode": "online",
-      "applicationDeadline": "2026-10-30T14:00:00.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-10-30T14:00:00.000Z",
-      "eventEnd": "2026-11-01T14:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "보안",
-        "CTF",
-        "Jeopardy",
-        "한국 온라인 참가 가능"
-      ],
-      "url": "https://ctftime.org/event/3460/",
-      "sourceName": "CTFtime 공식 API",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-10-03T05:21:17.985Z"
-    },
     {
       "id": "ctftime-3459",
       "title": "2026 Qiangwang Challenge on Cyber Mimic Defense Qualification",
@@ -1283,7 +1255,7 @@
       "name": "DACON",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
+      "lastCheckedAt": "2026-10-30T22:23:07.810Z",
       "publishedCount": 0
     },
     {
@@ -1291,7 +1263,7 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
+      "lastCheckedAt": "2026-10-30T22:23:07.810Z",
       "publishedCount": 9
     },
     {
@@ -1299,7 +1271,7 @@
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
+      "lastCheckedAt": "2026-10-30T22:23:07.810Z",
       "publishedCount": 6
     },
     {
@@ -1307,7 +1279,7 @@
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
+      "lastCheckedAt": "2026-10-30T22:23:07.810Z",
       "publishedCount": 4
     },
     {
@@ -1315,7 +1287,7 @@
       "name": "Devpost",
       "kind": "automatic",
       "state": "error",
-      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
+      "lastCheckedAt": "2026-10-30T22:23:07.810Z",
       "publishedCount": 2
     },
     {
@@ -1323,15 +1295,15 @@
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
-      "publishedCount": 23
+      "lastCheckedAt": "2026-10-30T22:23:07.810Z",
+      "publishedCount": 22
     },
     {
       "id": "koi",
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
+      "lastCheckedAt": "2026-10-30T22:23:07.810Z",
       "publishedCount": 0
     },
     {
@@ -1339,7 +1311,7 @@
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
+      "lastCheckedAt": "2026-10-30T22:23:07.810Z",
       "publishedCount": 0
     },
     {
@@ -1347,7 +1319,7 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
+      "lastCheckedAt": "2026-10-30T22:23:07.810Z",
       "publishedCount": 0
     },
     {
@@ -1355,7 +1327,7 @@
       "name": "UCPC",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
+      "lastCheckedAt": "2026-10-30T22:23:07.810Z",
       "publishedCount": 0
     },
     {
@@ -1363,7 +1335,7 @@
       "name": "itch.io",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
+      "lastCheckedAt": "2026-10-30T22:23:07.810Z",
       "publishedCount": 0
     },
     {
@@ -1379,7 +1351,7 @@
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
+      "lastCheckedAt": "2026-10-30T22:23:05.987Z",
       "publishedCount": 0
     },
     {
@@ -1387,7 +1359,7 @@
       "name": "ICPC Korea",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
+      "lastCheckedAt": "2026-10-30T22:23:05.987Z",
       "publishedCount": 0
     },
     {
@@ -1395,7 +1367,7 @@
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
+      "lastCheckedAt": "2026-10-30T22:23:05.987Z",
       "publishedCount": 0
     },
     {
@@ -1419,7 +1391,7 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
+      "lastCheckedAt": "2026-10-30T22:23:05.987Z",
       "publishedCount": 0
     },
     {
@@ -1427,7 +1399,7 @@
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
+      "lastCheckedAt": "2026-10-30T22:23:05.987Z",
       "publishedCount": 0
     },
     {
@@ -1435,7 +1407,7 @@
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
+      "lastCheckedAt": "2026-10-30T22:23:05.987Z",
       "publishedCount": 0
     },
     {
@@ -1443,7 +1415,7 @@
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
+      "lastCheckedAt": "2026-10-30T22:23:05.987Z",
       "publishedCount": 0
     },
     {
@@ -1451,7 +1423,7 @@
       "name": "POSTECH POSCAT 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
+      "lastCheckedAt": "2026-10-30T22:23:05.987Z",
       "publishedCount": 0
     },
     {
@@ -1459,7 +1431,7 @@
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
+      "lastCheckedAt": "2026-10-30T22:23:05.987Z",
       "publishedCount": 0
     }
   ]
