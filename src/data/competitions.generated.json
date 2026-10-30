@@ -1,34 +1,6 @@
 {
-  "updatedAt": "2026-10-30T05:52:08.146Z",
+  "updatedAt": "2026-10-30T12:58:55.503Z",
   "contests": [
-    {
-      "id": "atcoder-ahc074",
-      "title": "HACK TO THE FUTURE 2027 (AtCoder Heuristic Contest 074)",
-      "summary": "AtCoder의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
-      "type": "ps",
-      "organizer": "AtCoder",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "AtCoder 계정이 있는 누구나, 대회별 Rated Range 확인 필요",
-      "mode": "online",
-      "applicationDeadline": "2026-10-30T10:00:00.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-10-30T10:00:00.000Z",
-      "eventEnd": "2026-11-09T10:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "개인",
-      "tags": [
-        "PS",
-        "알고리즘",
-        "AtCoder",
-        "Heuristic"
-      ],
-      "url": "https://atcoder.jp/contests/ahc074",
-      "sourceName": "AtCoder 공식 대회 목록",
-      "sourceType": "official-page",
-      "lastVerifiedAt": "2026-10-01T13:19:51.401Z"
-    },
     {
       "id": "ctftime-3460",
       "title": "HI Cyber Con 2026 CTF",
@@ -229,6 +201,33 @@
       "sourceName": "CodeChef 공식 API",
       "sourceType": "official-api",
       "lastVerifiedAt": "2026-10-28T12:58:37.770Z"
+    },
+    {
+      "id": "codechef-start263",
+      "title": "Starters 263",
+      "summary": "CodeChef의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
+      "type": "ps",
+      "organizer": "CodeChef",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CodeChef 계정이 있는 누구나, 대회별 Division 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-11-04T14:30:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-11-04T14:30:00.000Z",
+      "eventEnd": "2026-11-04T16:30:00.000Z",
+      "location": "온라인",
+      "teamSize": "개인",
+      "tags": [
+        "PS",
+        "알고리즘",
+        "CodeChef"
+      ],
+      "url": "https://www.codechef.com/START263",
+      "sourceName": "CodeChef 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-10-30T12:58:55.503Z"
     },
     {
       "id": "codeforces-2283",
@@ -564,6 +563,33 @@
       "lastVerifiedAt": "2026-10-10T12:35:16.063Z"
     },
     {
+      "id": "codechef-start264",
+      "title": "Starters 264",
+      "summary": "CodeChef의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
+      "type": "ps",
+      "organizer": "CodeChef",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CodeChef 계정이 있는 누구나, 대회별 Division 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-11-11T14:30:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-11-11T14:30:00.000Z",
+      "eventEnd": "2026-11-11T16:30:00.000Z",
+      "location": "온라인",
+      "teamSize": "개인",
+      "tags": [
+        "PS",
+        "알고리즘",
+        "CodeChef"
+      ],
+      "url": "https://www.codechef.com/START264",
+      "sourceName": "CodeChef 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-10-30T12:58:55.503Z"
+    },
+    {
       "id": "ctftime-3410",
       "title": "CSAW CTF Final Round 2026",
       "summary": "NYUSEC에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
@@ -707,6 +733,33 @@
       "sourceName": "Codeforces 공식 API",
       "sourceType": "official-api",
       "lastVerifiedAt": "2026-10-26T22:41:49.819Z"
+    },
+    {
+      "id": "codechef-start265",
+      "title": "Starters 265",
+      "summary": "CodeChef의 온라인 알고리즘 대회로, 별도 사전 신청 없이 시작 시각부터 참가할 수 있습니다.",
+      "type": "ps",
+      "organizer": "CodeChef",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CodeChef 계정이 있는 누구나, 대회별 Division 확인 필요",
+      "mode": "online",
+      "applicationDeadline": "2026-11-18T14:30:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2026-11-18T14:30:00.000Z",
+      "eventEnd": "2026-11-18T16:30:00.000Z",
+      "location": "온라인",
+      "teamSize": "개인",
+      "tags": [
+        "PS",
+        "알고리즘",
+        "CodeChef"
+      ],
+      "url": "https://www.codechef.com/START265",
+      "sourceName": "CodeChef 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-10-30T12:58:55.503Z"
     },
     {
       "id": "devpost-31024",
@@ -1230,7 +1283,7 @@
       "name": "DACON",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:08.146Z",
+      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
       "publishedCount": 0
     },
     {
@@ -1238,7 +1291,7 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:08.146Z",
+      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
       "publishedCount": 9
     },
     {
@@ -1246,23 +1299,23 @@
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:08.146Z",
-      "publishedCount": 7
+      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
+      "publishedCount": 6
     },
     {
       "id": "codechef",
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:08.146Z",
-      "publishedCount": 1
+      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
+      "publishedCount": 4
     },
     {
       "id": "devpost",
       "name": "Devpost",
       "kind": "automatic",
       "state": "error",
-      "lastCheckedAt": "2026-10-30T05:52:08.146Z",
+      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
       "publishedCount": 2
     },
     {
@@ -1270,7 +1323,7 @@
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:08.146Z",
+      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
       "publishedCount": 23
     },
     {
@@ -1278,7 +1331,7 @@
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:08.146Z",
+      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
       "publishedCount": 0
     },
     {
@@ -1286,7 +1339,7 @@
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:08.146Z",
+      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
       "publishedCount": 0
     },
     {
@@ -1294,7 +1347,7 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:08.146Z",
+      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
       "publishedCount": 0
     },
     {
@@ -1302,7 +1355,7 @@
       "name": "UCPC",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:08.146Z",
+      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
       "publishedCount": 0
     },
     {
@@ -1310,7 +1363,7 @@
       "name": "itch.io",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:08.146Z",
+      "lastCheckedAt": "2026-10-30T12:58:55.503Z",
       "publishedCount": 0
     },
     {
@@ -1326,7 +1379,7 @@
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:06.209Z",
+      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
       "publishedCount": 0
     },
     {
@@ -1334,7 +1387,7 @@
       "name": "ICPC Korea",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:06.209Z",
+      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
       "publishedCount": 0
     },
     {
@@ -1342,7 +1395,7 @@
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:06.209Z",
+      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
       "publishedCount": 0
     },
     {
@@ -1366,7 +1419,7 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:06.209Z",
+      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
       "publishedCount": 0
     },
     {
@@ -1374,7 +1427,7 @@
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:06.209Z",
+      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
       "publishedCount": 0
     },
     {
@@ -1382,7 +1435,7 @@
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:06.209Z",
+      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
       "publishedCount": 0
     },
     {
@@ -1390,7 +1443,7 @@
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:06.209Z",
+      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
       "publishedCount": 0
     },
     {
@@ -1398,7 +1451,7 @@
       "name": "POSTECH POSCAT 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:06.209Z",
+      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
       "publishedCount": 0
     },
     {
@@ -1406,7 +1459,7 @@
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-10-30T05:52:06.209Z",
+      "lastCheckedAt": "2026-10-30T12:58:53.750Z",
       "publishedCount": 0
     }
   ]

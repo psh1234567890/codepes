@@ -2,11 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-10-30T05:52:08.146Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/atcoder-ahc074</loc>
-    <lastmod>2026-10-01T13:19:51.401Z</lastmod>
+    <lastmod>2026-10-30T12:58:55.503Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3460</loc>
@@ -35,6 +31,10 @@
   <url>
     <loc>https://codepes.kro.kr/contests/codechef-dsamonday027</loc>
     <lastmod>2026-10-28T12:58:37.770Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/codechef-start263</loc>
+    <lastmod>2026-10-30T12:58:55.503Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codeforces-2283</loc>
@@ -81,6 +81,10 @@
     <lastmod>2026-10-10T12:35:16.063Z</lastmod>
   </url>
   <url>
+    <loc>https://codepes.kro.kr/contests/codechef-start264</loc>
+    <lastmod>2026-10-30T12:58:55.503Z</lastmod>
+  </url>
+  <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3410</loc>
     <lastmod>2026-08-28T22:22:40.591Z</lastmod>
   </url>
@@ -99,6 +103,10 @@
   <url>
     <loc>https://codepes.kro.kr/contests/codeforces-2285</loc>
     <lastmod>2026-10-26T22:41:49.819Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/codechef-start265</loc>
+    <lastmod>2026-10-30T12:58:55.503Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/devpost-31024</loc>
