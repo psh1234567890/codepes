@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-11-03T14:18:53.874Z</lastmod>
+    <lastmod>2026-11-03T23:25:20.675Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codechef-start263</loc>
@@ -67,6 +67,10 @@
   <url>
     <loc>https://codepes.kro.kr/contests/atcoder-abc484</loc>
     <lastmod>2026-10-19T13:21:03.986Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/ctftime-3464</loc>
+    <lastmod>2026-11-03T23:25:20.675Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codeforces-2285</loc>
@@ -145,10 +149,6 @@
     <lastmod>2026-09-25T05:00:05.530Z</lastmod>
   </url>
   <url>
-    <loc>https://codepes.kro.kr/contests/itch-the-mfg-gamblers-jam</loc>
-    <lastmod>2026-11-03T14:18:53.874Z</lastmod>
-  </url>
-  <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3475</loc>
     <lastmod>2026-10-09T22:40:37.972Z</lastmod>
   </url>
@@ -163,9 +163,5 @@
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3492</loc>
     <lastmod>2026-10-25T04:44:28.797Z</lastmod>
-  </url>
-  <url>
-    <loc>https://codepes.kro.kr/contests/itch-furries</loc>
-    <lastmod>2026-11-03T14:18:53.874Z</lastmod>
   </url>
 </urlset>
