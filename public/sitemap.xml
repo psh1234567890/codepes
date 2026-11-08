@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-11-07T21:53:13.549Z</lastmod>
+    <lastmod>2026-11-08T06:05:25.835Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/atcoder-agc079</loc>
@@ -115,6 +115,10 @@
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3367</loc>
     <lastmod>2026-09-25T05:00:05.530Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/itch-the-mfg-gamblers-jam</loc>
+    <lastmod>2026-11-08T06:05:25.835Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/atcoder-agc080</loc>
