@@ -18,12 +18,12 @@
       "Copyright © 2018-2026 SAMSUNG All Rights Reserved."
     ],
     "lastChangedAt": "2026-11-06T06:50:57.756Z",
-    "lastCheckedAt": "2026-11-08T06:05:23.870Z"
+    "lastCheckedAt": "2026-11-08T13:27:53.786Z"
   },
   "icpc-korea": {
     "name": "ICPC Korea",
     "endpoint": "https://icpckorea.org/",
-    "fingerprint": "188919e63fd19c79e63ed7946e6c58ce9f3b4b20b299b3456cc3f27e81f7904a",
+    "fingerprint": "529c4d7312f731e757ae0ed2fcad0ca18c20a8cce24e9cdd3284090fc27e21a9",
     "markers": [
       "2026 Preliminary",
       "2026 Seoul Regional",
@@ -32,6 +32,8 @@
       "예선 First Round 10. 17. (토) 14:00",
       "본선 Regional 11. 13. – 14. (금–토)",
       "2026 Regional",
+      "2026-11-08",
+      "2026 한국 대학생 프로그래밍 경시대회 미러 컨테스트 개최 안내 Notice on 2026 ICPC Seoul Regional Mirror Contest",
       "2026-11-05",
       "2026 한국 대학생 프로그래밍 경시대회 협조공문",
       "2026-11-01",
@@ -45,12 +47,10 @@
       "Foreign Teams Registration for 2026 ICPC Seoul Regional (updated Oct. 21)",
       "2026-10-19",
       "2026 ICPC Seoul 예선 (2026 ICPC Korea National First Round): Problemset, Scoreboard",
-      "2026-10-15",
-      "2026 ICPC Seoul 예선: 연습 환경 안내 Practice Environment for 2026 ICPC Korea National First Round",
       "ICPC Diamond World Finals and ICPC Multi-Regional Contest Sponsor"
     ],
-    "lastChangedAt": "2026-11-06T19:26:25.240Z",
-    "lastCheckedAt": "2026-11-08T06:05:23.870Z"
+    "lastChangedAt": "2026-11-08T13:27:53.786Z",
+    "lastCheckedAt": "2026-11-08T13:27:53.786Z"
   },
   "ewha-girls-programming": {
     "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
@@ -65,7 +65,7 @@
       "Copyright ⓒ 2015 Ewha Womans University. All Rights Reserved."
     ],
     "lastChangedAt": "2026-09-27T21:22:34.296Z",
-    "lastCheckedAt": "2026-11-08T06:05:23.870Z",
+    "lastCheckedAt": "2026-11-08T13:27:53.786Z",
     "lastErrorAt": "2026-10-24T04:39:43.958Z"
   },
   "honam-youth-programming": {
@@ -96,7 +96,7 @@
     ],
     "lastChangedAt": "2026-09-06T05:39:00.619Z",
     "lastCheckedAt": "2026-09-06T05:39:00.619Z",
-    "lastErrorAt": "2026-11-08T06:05:23.870Z"
+    "lastErrorAt": "2026-11-08T13:27:53.786Z"
   },
   "baekjoon-official-contests": {
     "name": "Baekjoon 공식 대회 목록",
@@ -107,7 +107,7 @@
     ],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
     "lastCheckedAt": "2026-08-04T19:58:04.569Z",
-    "lastErrorAt": "2026-11-08T06:05:23.870Z"
+    "lastErrorAt": "2026-11-08T13:27:53.786Z"
   },
   "acpc": {
     "name": "AWS × Codetree Programming Contest",
@@ -156,7 +156,7 @@
       "문의하기 © 2026 ACPC · AWS × Codetree Programming Contest"
     ],
     "lastChangedAt": "2026-08-07T07:42:45.278Z",
-    "lastCheckedAt": "2026-11-08T06:05:23.870Z"
+    "lastCheckedAt": "2026-11-08T13:27:53.786Z"
   },
   "kaist-run": {
     "name": "KAIST RUN 알고리즘 대회",
@@ -180,7 +180,7 @@
       "2026-10-07 2026 KAIST 16th ICPC Mock Competition이 열립니다 2026-09-09 2026 ICPC Seoul Regional 신청이 진행 중입니다!!! 2026-08-20 2026 가을학기 RUN 동아리 신입 부원 모집"
     ],
     "lastChangedAt": "2026-11-01T06:10:04.517Z",
-    "lastCheckedAt": "2026-11-08T06:05:23.870Z"
+    "lastCheckedAt": "2026-11-08T13:27:53.786Z"
   },
   "icpc-sinchon": {
     "name": "ICPC Sinchon Camp Contest",
@@ -205,7 +205,7 @@
       "중급 Camp Contest 문제 목록"
     ],
     "lastChangedAt": "2026-08-23T07:02:18.491Z",
-    "lastCheckedAt": "2026-11-08T06:05:23.870Z",
+    "lastCheckedAt": "2026-11-08T13:27:53.786Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   },
   "kpsc": {
@@ -236,7 +236,7 @@
       "&copy; 2026 KPSC. Powered by Jekyll & Minimal Mistakes ."
     ],
     "lastChangedAt": "2026-07-28T06:53:54.942Z",
-    "lastCheckedAt": "2026-11-08T06:05:23.870Z",
+    "lastCheckedAt": "2026-11-08T13:27:53.786Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   },
   "postech-poscat": {
@@ -245,7 +245,7 @@
     "fingerprint": "d8ef03c9130235ac91b66e7bea8ea5a7f6b88950a13236ed78a62b24b5c9bbc6",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-11-08T06:05:23.870Z",
+    "lastCheckedAt": "2026-11-08T13:27:53.786Z",
     "lastErrorAt": "2026-10-26T13:07:18.544Z"
   },
   "soongsil-sccc": {
@@ -280,7 +280,7 @@
       "© 2026 Soongsil Computing Contest Club official.sccc@gmail.com"
     ],
     "lastChangedAt": "2026-09-14T04:59:36.197Z",
-    "lastCheckedAt": "2026-11-08T06:05:23.870Z",
+    "lastCheckedAt": "2026-11-08T13:27:53.786Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   },
   "daker": {
@@ -289,7 +289,7 @@
     "fingerprint": "fee77bf572a2e1bf837d61196863bc3979d6099850f40fb6928e24f2182d79cb",
     "markers": [],
     "lastChangedAt": "2026-07-28T06:53:33.295Z",
-    "lastCheckedAt": "2026-11-08T06:05:23.870Z",
+    "lastCheckedAt": "2026-11-08T13:27:53.786Z",
     "lastErrorAt": "2026-10-14T04:56:22.327Z"
   }
 }
