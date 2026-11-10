@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://codepes.kro.kr/</loc>
-    <lastmod>2026-11-09T22:24:07.486Z</lastmod>
+    <lastmod>2026-11-10T07:21:42.670Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codechef-start264</loc>
@@ -99,6 +99,10 @@
   <url>
     <loc>https://codepes.kro.kr/contests/ctftime-3480</loc>
     <lastmod>2026-10-17T20:38:12.565Z</lastmod>
+  </url>
+  <url>
+    <loc>https://codepes.kro.kr/contests/atcoder-abc487</loc>
+    <lastmod>2026-11-10T07:21:42.670Z</lastmod>
   </url>
   <url>
     <loc>https://codepes.kro.kr/contests/codeforces-2282</loc>
