@@ -1,62 +1,6 @@
 {
-  "updatedAt": "2026-11-20T07:19:36.478Z",
+  "updatedAt": "2026-11-20T20:24:24.973Z",
   "contests": [
-    {
-      "id": "ctftime-3419",
-      "title": "EyesOpenCTF 7th edition",
-      "summary": "EyesOpen_Security에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
-      "type": "security",
-      "organizer": "EyesOpen_Security",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
-      "mode": "online",
-      "applicationDeadline": "2026-11-20T10:00:00.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-11-20T10:00:00.000Z",
-      "eventEnd": "2026-11-22T10:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "보안",
-        "CTF",
-        "Jeopardy",
-        "한국 온라인 참가 가능"
-      ],
-      "url": "https://ctftime.org/event/3419/",
-      "sourceName": "CTFtime 공식 API",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-09-18T11:18:22.831Z"
-    },
-    {
-      "id": "ctftime-3337",
-      "title": "GlacierCTF 2026",
-      "summary": "LosFuzzys에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
-      "type": "security",
-      "organizer": "LosFuzzys",
-      "eligibilities": [
-        "anyone"
-      ],
-      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
-      "mode": "online",
-      "applicationDeadline": "2026-11-20T18:00:00.000Z",
-      "deadlineKind": "start",
-      "eventStart": "2026-11-20T18:00:00.000Z",
-      "eventEnd": "2026-11-21T18:00:00.000Z",
-      "location": "온라인",
-      "teamSize": "대회별 공식 규정 확인",
-      "tags": [
-        "보안",
-        "CTF",
-        "Jeopardy",
-        "한국 온라인 참가 가능"
-      ],
-      "url": "https://ctftime.org/event/3337/",
-      "sourceName": "CTFtime 공식 API",
-      "sourceType": "official-api",
-      "lastVerifiedAt": "2026-09-18T16:25:53.416Z"
-    },
     {
       "id": "ctftime-3049",
       "title": "WolvCTF 2026",
@@ -1143,6 +1087,34 @@
       "sourceName": "CTFtime 공식 API",
       "sourceType": "official-api",
       "lastVerifiedAt": "2026-11-14T18:06:02.394Z"
+    },
+    {
+      "id": "ctftime-3481",
+      "title": "Undutmaning 2027",
+      "summary": "Undutmaning에서 진행하는 Jeopardy 형식의 보안 CTF입니다. 참가 전에 CTFtime의 제한 조건과 주최 측 규정을 확인하세요.",
+      "type": "security",
+      "organizer": "Undutmaning",
+      "eligibilities": [
+        "anyone"
+      ],
+      "eligibilityNote": "CTFtime 등록 기준 Online·Open 대회로 한국에서 온라인 참가 가능",
+      "mode": "online",
+      "applicationDeadline": "2027-03-20T11:00:00.000Z",
+      "deadlineKind": "start",
+      "eventStart": "2027-03-20T11:00:00.000Z",
+      "eventEnd": "2027-03-20T19:00:00.000Z",
+      "location": "온라인",
+      "teamSize": "대회별 공식 규정 확인",
+      "tags": [
+        "보안",
+        "CTF",
+        "Jeopardy",
+        "한국 온라인 참가 가능"
+      ],
+      "url": "https://ctftime.org/event/3481/",
+      "sourceName": "CTFtime 공식 API",
+      "sourceType": "official-api",
+      "lastVerifiedAt": "2026-11-20T20:24:24.973Z"
     }
   ],
   "sources": [
@@ -1151,7 +1123,7 @@
       "name": "DACON",
       "kind": "automatic",
       "state": "error",
-      "lastCheckedAt": "2026-11-20T07:19:36.478Z",
+      "lastCheckedAt": "2026-11-20T20:24:24.973Z",
       "publishedCount": 0
     },
     {
@@ -1159,7 +1131,7 @@
       "name": "Codeforces",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:36.478Z",
+      "lastCheckedAt": "2026-11-20T20:24:24.973Z",
       "publishedCount": 5
     },
     {
@@ -1167,7 +1139,7 @@
       "name": "AtCoder",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:36.478Z",
+      "lastCheckedAt": "2026-11-20T20:24:24.973Z",
       "publishedCount": 11
     },
     {
@@ -1175,7 +1147,7 @@
       "name": "CodeChef",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:36.478Z",
+      "lastCheckedAt": "2026-11-20T20:24:24.973Z",
       "publishedCount": 2
     },
     {
@@ -1183,7 +1155,7 @@
       "name": "Devpost",
       "kind": "automatic",
       "state": "error",
-      "lastCheckedAt": "2026-11-20T07:19:36.478Z",
+      "lastCheckedAt": "2026-11-20T20:24:24.973Z",
       "publishedCount": 0
     },
     {
@@ -1191,15 +1163,15 @@
       "name": "CTFtime",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:36.478Z",
-      "publishedCount": 22
+      "lastCheckedAt": "2026-11-20T20:24:24.973Z",
+      "publishedCount": 21
     },
     {
       "id": "koi",
       "name": "한국정보올림피아드",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:36.478Z",
+      "lastCheckedAt": "2026-11-20T20:24:24.973Z",
       "publishedCount": 0
     },
     {
@@ -1207,7 +1179,7 @@
       "name": "한국정보기술진흥원 청소년 IT경시대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:36.478Z",
+      "lastCheckedAt": "2026-11-20T20:24:24.973Z",
       "publishedCount": 0
     },
     {
@@ -1215,7 +1187,7 @@
       "name": "국민대학교 알고리즘대회",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:36.478Z",
+      "lastCheckedAt": "2026-11-20T20:24:24.973Z",
       "publishedCount": 0
     },
     {
@@ -1223,7 +1195,7 @@
       "name": "UCPC",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:36.478Z",
+      "lastCheckedAt": "2026-11-20T20:24:24.973Z",
       "publishedCount": 0
     },
     {
@@ -1231,7 +1203,7 @@
       "name": "itch.io",
       "kind": "automatic",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:36.478Z",
+      "lastCheckedAt": "2026-11-20T20:24:24.973Z",
       "publishedCount": 0
     },
     {
@@ -1247,7 +1219,7 @@
       "name": "Samsung Collegiate Programming Challenge",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:34.522Z",
+      "lastCheckedAt": "2026-11-20T20:24:22.644Z",
       "publishedCount": 0
     },
     {
@@ -1255,7 +1227,7 @@
       "name": "ICPC Korea",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:34.522Z",
+      "lastCheckedAt": "2026-11-20T20:24:22.644Z",
       "publishedCount": 0
     },
     {
@@ -1263,7 +1235,7 @@
       "name": "이화여자대학교 전국 여고생 프로그래밍 경진대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:34.522Z",
+      "lastCheckedAt": "2026-11-20T20:24:22.644Z",
       "publishedCount": 0
     },
     {
@@ -1279,7 +1251,7 @@
       "name": "Baekjoon 공식 대회 목록",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:34.522Z",
+      "lastCheckedAt": "2026-11-20T20:24:22.644Z",
       "publishedCount": 0
     },
     {
@@ -1287,7 +1259,7 @@
       "name": "AWS × Codetree Programming Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:34.522Z",
+      "lastCheckedAt": "2026-11-20T20:24:22.644Z",
       "publishedCount": 0
     },
     {
@@ -1295,7 +1267,7 @@
       "name": "KAIST RUN 알고리즘 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:34.522Z",
+      "lastCheckedAt": "2026-11-20T20:24:22.644Z",
       "publishedCount": 0
     },
     {
@@ -1303,7 +1275,7 @@
       "name": "ICPC Sinchon Camp Contest",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:34.522Z",
+      "lastCheckedAt": "2026-11-20T20:24:22.644Z",
       "publishedCount": 0
     },
     {
@@ -1311,14 +1283,14 @@
       "name": "국민대학교 KPSC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:34.522Z",
+      "lastCheckedAt": "2026-11-20T20:24:22.644Z",
       "publishedCount": 0
     },
     {
       "id": "postech-poscat",
       "name": "POSTECH POSCAT 대회",
       "kind": "monitor",
-      "state": "ok",
+      "state": "error",
       "lastCheckedAt": "2026-11-20T07:19:34.522Z",
       "publishedCount": 0
     },
@@ -1327,7 +1299,7 @@
       "name": "숭실대학교 SCCC 대회",
       "kind": "monitor",
       "state": "ok",
-      "lastCheckedAt": "2026-11-20T07:19:34.522Z",
+      "lastCheckedAt": "2026-11-20T20:24:22.644Z",
       "publishedCount": 0
     }
   ]
